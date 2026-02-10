@@ -1,1 +1,73 @@
 # chce-_my-_-_slovn-k_mezer-
+# 🐭 Chceš myš? – Slovník mezer
+
+**Generativní systém pro diagnostiku a řešení týmových dysfunkcí.**
+
+---
+
+## 🚀 Rychlý start
+
+1. **Vyzkoušejte diagnostiku** – Přejděte do [karty Myš](./karty/mys/)
+2. **Prohlédněte si ukázkové karty** – [Plameňák](./karty/plamenak/) a [Kocour](./karty/kocour/)
+3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./_diagnostika/klic_k_uhlum.md)
+
+---
+
+## 🃏 Dostupné karty
+
+| Karta | Problém | Ukázka | Plná verze |
+|-------|---------|--------|------------|
+| 🐭 **Myš** | Diagnostika myšlenkových stylů | [Zdarma](./karty/mys/) | – |
+| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/plamenak/) | **15 000 Kč** |
+| 🐱 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/kocour/) | **15 000 Kč** |
+| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/pav/) | **15 000 Kč** |
+| 🐯 **Tygr** | Systém vs. autenticita | [Ukázka](./karty/tygr/) | **15 000 Kč** |
+
+---
+
+## 💡 Co je v plné verzi?
+
+Plná verze karty obsahuje:
+- ✅ **Všech 12 úhlů** s detailním vysvětlením
+- ✅ **Kompletní workshop** (90 minut) s časováním
+- ✅ **Šablony** k okamžitému použití
+- ✅ **Diagnostické nástroje** pro tým
+- ✅ **Návod** na implementaci v týmu
+- ✅ **Licenci** k použití ve vaší organizaci
+
+---
+
+## 🛒 Jak koupit
+
+**Cena:** 15 000 Kč za kartu
+
+Napište na: **chcesmys@email.cz** (použij svůj skutečný email)
+
+Po zaplacení obdržíte:
+1. Kompletní materiály karty v přehledné struktuře
+2. Workshopové šablony (Google Docs/Sheets)
+3. Diagnostické nástroje
+4. Licenci k použití ve vaší organizaci
+
+---
+
+## 🌐 English version
+
+First card available in English: **Cat (Communication Pathology)**  
+Price: €600  
+Contact: **chcesmys@email.cz**
+
+---
+
+## 🔗 Užitečné odkazy
+
+- [Jak používat systém](./_diagnostika/jak_pouzivat.md)
+- [Ukázka kombinace karet](./_kombinace/plamenak_a_kocour.md)
+- [Jak kombinovat karty](./_kombinace/jak_kombinovat.md)
+
+---
+
+## 📄 Licence
+
+Obsah tohoto repozitáře je licencován pod **Creative Commons Attribution-NonCommercial-ShareAlike 4.0**.  
+Plné verze karet jsou dostupné pod komerční licencí.
