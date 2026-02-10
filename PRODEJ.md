@@ -20,3 +20,39 @@
 ## Co přesně dostanete v plné verzi karty
 
 Pro každou kartu obdržíte ZIP soubor s touto strukturou:
+
+KARTA_[název]_KOMPLETNI/
+├── 📖 1_POHÁDKA_A_DIAGNOSTIKA/
+│   ├── pohadka.md
+│   ├── 3_diagnosticke_otazky.md
+│   └── 12_uhlu_komplet.md
+├── 🛠️ 2_WORKSHOP/
+│   ├── workshop_90min.md (podrobný scénář)
+│   ├── poznamky_facilitatora.md
+│   └── materialy_pro_ucastniky/
+│       ├── mapa_problemu.pdf
+│       └── diagnosticky_dotaznik.pdf
+├── 📊 3_SABLONY_A_NASTROJE/
+│   ├── google_sheets_sablona.url
+│   ├── miro_board_template.url
+│   └── google_forms_dotaznik.url
+├── 🚀 4_IMPLEMENTACE/
+│   ├── jak_zavest_v_tymu.md
+│   └── kombinace_s_jinymi_kartami.md
+└── 📄 LICENCE_KOMERCNI.md
+
+
+## Podpora
+
+Po zakoupení karty máte nárok na:
+- **30 minut konzultace** k implementaci
+- **Aktualizace karty** po dobu 1 roku
+- **Odpovědi na dotazy** emailem
+
+## Kontakt
+
+**Email:** chcesmys@email.cz  
+**Odpovídáme do:** 24 hodin
+
+---
+*Ceny jsou uvedeny bez DPH. Fyzické osoby dostanou doklad o zaplacení, právnické osoby fakturu s DPH.*
