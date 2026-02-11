@@ -1,0 +1,18 @@
+# DIAGNOSTICKÁ MATICE – MOŘSKÁ HVĚZDICE
+
+## Jak podle odpovědí týmu poznat převažující dysfunkci?
+
+| Převládající úhel | Týmová diagnóza | Okamžitá intervence |
+|-------------------|-----------------|---------------------|
+| **1. Traumatologický** | Tým potlačuje minulá selhání, nezpracovává je. Jizvy se nehojí, jen zakrývají. Každá podobná situace spouští starou bolest. | Zavést [**zdravé vzpomínání**](./kreativni_mod.md#1-protílek-na-traumatologický–zdravé-vzpomínání) – pravidelně reflektovat dopady minulých rozhodnutí. |
+| **2. Sémiotický** | Různá oddělení čtou stejná data zcela odlišně. Nikdo nehledá společný kámen, každý vidí jen svůj kruh. | Workshop [**Jazyk kamene**](./kreativni_mod.md#2-protílek-na-sémiotický–jazyk-kamene) – překládat všechny interpretace zpět k možným společným příčinám. |
+| **3. Kauzálního řetězce** | Tým řeší symptomy, ne systémové příčiny. Hasí požáry, ale nehledá, co je zapaluje. | Povinné [**5 proč**](./kreativni_mod.md#3-protílek-na-kauzálního-řetězce–5-proč) pro každý významný problém. Zapisovat nejen odpovědi, ale i důkazy. |
+| **4. Paměti prostoru** | Tým ignoruje historii prostředí. Opakuje stejné chyby v novém kontextu s vírou, že tentokrát to bude jinak. | Vytvořit [**paměťovou mapu**](./kreativni_mod.md#4-protílek-na-paměti-prostoru–paměťová-mapa) rozhodnutí a jejich dopadů. Pravidelně aktualizovat. |
+| **5. Nevratnosti** | Tým dělá rychlá rozhodnutí s myšlenkou „to se dá vždycky opravit“. Nedoceňuje nevratnost některých kroků. | Zavést [**kategorizaci rozhodnutí**](./kreativni_mod.md#5-protílek-na-nevratnosti–kategorizace-rozhodnutí): reversibilní × částečně reversibilní × ireversibilní. |
+| **6. Estetizace problémů** | Problémy se balí do krásných slidů a elegantních grafů. Forma přebíjí obsah, iluze profesionality zakrývá závažnost. | Pravidlo [**nejdřív holá věta**](./kreativni_mod.md#6-protílek-na-estetizaci-problémů–holá-věta) – popsat problém jednou větou bez žargonu, teprve pak smí přijít prezentace. |
+| **7. Geometrizace chaosu** | Tým vytváří složité modely a procesy, aby zorganizoval chaotickou realitu. Overengineering místo učení se v chaosu. | Přijmout [**řízený chaos**](./kreativni_mod.md#7-protílek-na-geometrizaci-chaosu–řízený-chaos) – identifikovat, co musí mít řád, a co může zůstat chaotické. |
+| **8. Náhodného světa** | Tým připisuje úspěchy štěstí, neúspěchy smůle. Externalizace kontroly, vyhýbání se analýze a odpovědnosti. | Zakázat slova [**štěstí a smůla**](./kreativni_mod.md#8-protílek-na-náhodného-světa–zakázaná-slova) v profesním kontextu. Nahradit je konkrétním popisem okolností. |
+| **9. Hlubinné perspektivy** | Management rozhoduje bez porozumění realitě frontline. Odtržené rozhodování z výšky. | Pravidelný [**den na dně**](./kreativni_mod.md#9-protílek-na-hlubinné-perspektivy–den-na-dně) – vedoucí stráví den v nejnižší pozici organizace. |
+| **10. Ticha jako svědka** | Tým měří jen hlučné metriky, přehlíží tiché ukazatele – morálku, důvěru, kulturní zdraví. | Identifikovat [**tiché metriky**](./kreativni_mod.md#10-protílek-na-ticha-jako-svědka–tiché-metriky) a začít je pravidelně sledovat kvalitativně. |
+| **11. Kruhového dopadu** | Rozhodnutí se dělají v silech, bez zvážení dopadů na jiná oddělení, zákazníky, partnery, ekosystém. | Před každým větším rozhodnutím mapovat [**1., 2. a 3. řád dopadů**](./kreativni_mod.md#11-protílek-na-kruhového-dopadu–mapa-dopadů). |
+| **12. Pravdy dna** | Tým žije v iluzích, potlačuje nepohodlná data, střílí posly se špatnými zprávami. | Jmenovat [**hvězdici týmu**](./kreativni_mod.md#12-protílek-na-pravdy-dna–hvězdice-týmu) – roli, jejíž jedinou odpovědností je říkat tvrdé pravdy. |
