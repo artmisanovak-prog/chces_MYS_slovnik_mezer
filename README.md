@@ -16,11 +16,14 @@
 
 | Karta | Problém | Ukázka | Plná verze |
 |-------|---------|--------|------------|
-| 🐭 **Myš** | Diagnostika myšlenkových stylů | [Zdarma](./karty/mys/) | – |
-| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/plamenak/) | **15 000 Kč** |
-| 🐱 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/kocour/) | **15 000 Kč** |
-| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/drak/) | **15 000 Kč** |
-| 🐯 **Tygr** | Systém vs. autenticita | [Ukázka](./karty/ryba/) | **15 000 Kč** |
+| 🐭 **Myš** | Diagnostika myšlenkových stylů | [Zdarma](./karty/Mys/) | – |
+| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plameňák/) | **15 000 Kč** |
+| 🐱 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **15 000 Kč** |
+| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Pav/) | **15 000 Kč** |
+| 🐟 **Ryba** | Systém vs. autenticita | [Ukázka](./karty/Tygr/) | **15 000 Kč** |
+| 🐓 **Kohout** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Motyl/) | **15 000 Kč** |
+| 🐦‍⬛ **Vrabec** | Systém vs. autenticita | [Ukázka](./karty/Tygr/) | **15 000 Kč** |
+
 
 ---
 
