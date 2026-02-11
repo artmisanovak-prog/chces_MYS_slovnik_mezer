@@ -20,8 +20,8 @@
 | 🐭 **Myš** | Diagnostika myšlenkových stylů | [Zdarma](./karty/mys/) | – |
 | 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/plamenak/) | **15 000 Kč** |
 | 🐱 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/kocour/) | **15 000 Kč** |
-| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/pav/) | **15 000 Kč** |
-| 🐯 **Tygr** | Systém vs. autenticita | [Ukázka](./karty/tygr/) | **15 000 Kč** |
+| 🐲 **Drak** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/drak/) | **15 000 Kč** |
+| 🐟 **Ryba** | Systém vs. autenticita | [Ukázka](./karty/ryba/) | **15 000 Kč** |
 
 ---
 
