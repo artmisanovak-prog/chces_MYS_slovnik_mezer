@@ -40,7 +40,7 @@ Plná verze karty obsahuje:
 
 **Cena:** 15 000 Kč za kartu
 
-Napište na: **chcesmys@email.cz** (použij svůj skutečný email)
+Napište na: **chcesmys@gmail.com** 
 
 Po zaplacení obdržíte:
 1. Kompletní materiály karty v přehledné struktuře
@@ -54,7 +54,7 @@ Po zaplacení obdržíte:
 
 First card available in English: **Cat (Communication Pathology)**  
 Price: €600  
-Contact: **chcesmys@email.cz**
+Contact: **chcesmys@gmail.com**
 
 ---
 
