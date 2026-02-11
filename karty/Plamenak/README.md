@@ -7,7 +7,7 @@ Iracionální nadšení nahrazující směr a reálné plánování.
 
 Kompletní karta zdarma jako ukázka systému "Chceš myš?".
 
-[Přečíst pohádku](./pohadka.md) | [Diagnostikovat tým](./diagnostika.md) | [Spustit workshop](./workshop.md)
+[Přečíst pohádku](./pohadka.md) | [Diagnostikovat tým](./O_PLAMENAKOVI.md) | [Spustit workshop](./workshop_90_minut.md)
 
 
 Tato karta diagnostikuje a řeší problémy týmů, které jsou poháněny energií a optimismem, ale postrádají smysluplný směr, strategii a reálné plánování.
