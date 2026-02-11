@@ -1,4 +1,4 @@
-KARTA: KOCOUR – Ukázka
+🐈‍⬛ KARTA: KOCOUR – Ukázka
 Tyranie předčasného uzavírání v komunikaci
 
 Tato karta ukazuje a řeší problém týmů, kde lidé skáčou do řeči, dokončují myšlenky za druhou a předčasně uzavírají diskuse, čímž dusí kreativitu a poškozují důvěru.
