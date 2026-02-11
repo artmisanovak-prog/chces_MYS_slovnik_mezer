@@ -4,4 +4,4 @@
 
 Kompletní karta zdarma jako ukázka systému "Chceš myš?".
 
-[Přečíst pohádku](./pohadka.md) | [Diagnostikovat tým](./O_DRACKOVI.md) | [Spustit workshop](./workshop_90_minut.md)
+[Přečíst pohádku](./pohadka.md) | [Diagnostikovat tým](./O_DRACKOVI.md) | [Spustit workshop](./workshop_90_min.md)
