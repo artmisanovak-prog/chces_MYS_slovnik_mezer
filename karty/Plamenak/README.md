@@ -1,6 +1,15 @@
 🦩 KARTA: PLAMEŇÁK – Ukázka
 Iracionální nadšení nahrazující směr a reálné plánování.
 
+# Karta: PLAMEŇÁK
+
+**Iracionální nadšení nahrazující směr a reálné plánování.**
+
+Kompletní karta zdarma jako ukázka systému "Chceš myš?".
+
+[Přečíst pohádku](./pohadka.md) | [Diagnostikovat tým](./diagnostika.md) | [Spustit workshop](./workshop.md)
+
+
 Tato karta diagnostikuje a řeší problémy týmů, které jsou poháněny energií a optimismem, ale postrádají smysluplný směr, strategii a reálné plánování.
 
 Pohádka
