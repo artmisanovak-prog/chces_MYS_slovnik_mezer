@@ -65,4 +65,4 @@ Přečtěte si [pohádku o Kocourovi](./pohadka.md).
 
 **Cena: 15 000 Kč**
 
-Kontakt: **[tvuj@email.cz](mailto:tvuj@email.cz)**
+Kontakt: **[chcesmys@gmail.com](chcesmys@gmail.com)**
