@@ -48,4 +48,4 @@ Plná verze obsahuje:
 ✅ Návod k implementaci
 Cena: 15 000 Kč
 
-Kontakt: tvuj@email.cz
+Kontakt: chcesmys@gmail.com
