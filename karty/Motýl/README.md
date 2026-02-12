@@ -2,60 +2,60 @@
 
 ## Vize bez plánu, strategie bez kroků
 
-*Motýli jsou krásní, ale nezasytí.*  
-*Nakrmíte tým vizemi – a on bude pořád mít hlad.*
+*Motýli jsou krásní, ale nezasytí.  
+Nakrmíme vás metaforou – a vy budete pořád mít hlad.*
 
 ---
 
-### Tři úhly, které odhalují podstatu
+### 🧩 Ukázka 3 úhlů z 12
 
 ---
 
-**1. SYMBOLICKÉ NASYCENÍ – Vize bez plánu**
+**1. ÚHEL SYMBOLICKÉHO NASYCENÍ**  
+*Vize bez plánu, uznání bez změny*
 
 **Jak se projevuje v týmu:**  
-Místo reálných kroků dostáváte prezentace. Místo pravomocí strategické cíle. Místo jídla motýly. Všichni jsou nadšení, ale nikdo není sytý.
+Tým je krmen prezentacemi, vizemi a strategickými setkáními, ale nedostává reálný dopad, pravomoci ani hmatatelné výsledky. Hlad po substanci zůstává, jen se o něm přestane mluvit.
 
-**Co s tím:**  
-Ke každé vizi **tři konkrétní kroky do 14 dnů**.  
-Bez nich je to jen motýl.
+**Co s tím (Q3):**  
+Ke každé vizi dodat **první tři konkrétní kroky do 14 dnů**.  
+Bez nich je to jen motýl. Tým potřebuje housenku, která se promění v něco hmatatelného.
 
 ---
 
-**2. NEFUNKČNÍ KRÁSA – Nástroje bez palců**
+**2. ÚHEL NEFUNKČNÍ KRÁSY**  
+*Elegantní nástroje, které nemají „palce“*
 
 **Jak se projevuje v týmu:**  
-Zavádíte elegantní procesy, které v praxi nikdo nepoužije. Systém je graficky dokonalý, ale neotevře ledničku – nemá palce.
+Nasazujeme sofistikované systémy a procesy, které jsou graficky dokonalé, ale v praxi nepoužitelné. Chybí jim základní atributy pro interakci s realitou – nemají „palce“ na otevření ledničky.
 
-**Co s tím:**  
-**Test palců**: Jaké tři nejjednodušší akce s tím uživatel reálně udělá?  
+**Co s tím (Q3):**  
+Zavést **test palců**.  
+Jaké tři nejjednodušší akce s tím uživatel reálně udělá?  
 Pokud žádné, je to motýl. Škrtněte ho.
 
 ---
 
-**3. ZTRACENÁ CHUŤ – Funkcionalismus bez radosti**
+**3. ÚHEL ZTRACENÉ CHUTI**  
+*Funkcionalismus bez radosti*
 
 **Jak se projevuje v týmu:**  
-Odnaučili jste se motýly, ale zůstal jen holý rohlík. Řešení fungují, ale nikoho netěší. Práce je efektivní – a prázdná.
+Odmítli jsme motýly, ale zůstal jen holý rohlík. Řešení fungují, ale chybí jim chuť, radost, smysl. Žaludek je plný, ale nezpívá.
 
-**Co s tím:**  
-Hledejte **chleba s motýlem**.  
-Ke každému funkčnímu řešení přidejte jeden prvek krásy, hry nebo smyslu.  
+**Co s tím (Q3):**  
+Hledat **chleba s motýlem**.  
+Ke každému utilitárnímu řešení přidat jeden prvek krásy, hry nebo smyslu.  
 Nejdřív chleba, pak motýl – ale obojí.
 
 ---
 
-### Proč právě tyhle tři?
+### 🔭 Chceš vidět kompletní verzi?
 
-Spolu tvoří příběh:  
-1. Proč týmy hlady pořádají motýly.  
-2. Jak poznáte motýla od nástroje.  
-3. A co dělat, když už motýly nechcete – ale ani holý chleba.
+**Kocour** je celý volně k dispozici.  
+[→ Otevřít kompletní kartu Kocour](../kocour/README.md)
 
-**Chcete vidět zbylých 9 úhlů, diagnostickou matici a celý workshop?**  
+Motýl má stejný rozsah:  
+12 úhlů, diagnostickou matici, 12 protiléků, 90minutový workshop, šablony, aplikační kontexty a generátor.
+
+**Chceš ho?**  
 → [Koupit Motýla (15 000 Kč)](../../LICENCE.md)
-
----
-
-*Kocour – celá karta zdarma – ukazuje, jak vypadá plná verze.*  
-[→ Otevřít Kocoura](../kocour/README.md)
