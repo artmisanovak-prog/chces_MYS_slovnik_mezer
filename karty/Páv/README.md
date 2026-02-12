@@ -65,4 +65,4 @@ Přečtěte si [pohádku o Pávovi](./pohadka.md).
 
 **Cena: 15 000 Kč**
 
-Kontakt: **misanovak.web@gmail.com**
+Kontakt: **chcesmys@gmail.com**
