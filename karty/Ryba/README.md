@@ -2,60 +2,62 @@
 
 ## Komunikace bez vnímání, tiché hlasy
 
-*Ryby vibrujou. Neslyšíš je uchem, ale tělem.  
-Ptáci křičí, ale jejich zpěv je jen křikot.*
+*Ryby vibrujou. Neslyšíš je uchem, ale tělem.*  
+*Ptáci křičí – a myslí si, že zpívají.*
 
 ---
 
-### 🧩 Ukázka 3 úhlů z 12
+### Tři úhly, které odhalují podstatu
 
 ---
 
-**1. ÚHEL VIBRAČNÍ KOMUNIKACE**  
-*Ne řev, ale rezonance*
+**1. VIBRAČNÍ KOMUNIKACE – Ne řev, ale rezonance**
 
 **Jak se projevuje v týmu:**  
-Tým komunikuje pouze slovy a slidly, ale ignoruje neverbální signály, atmosféru, energii mezi lidmi. Řeší se, co je „řečeno“, ne co je „cítěno“. Důležité signály se ztrácejí pod hladinou.
+Řešíte, co kdo řekl. Neřešíte, co bylo cítěno.  
+Schůze jsou plné slov, ale důležité signály – napětí, nejistota, tichý souhlas – zůstávají pod hladinou.
 
-**Co s tím (Q3):**  
-Zavést **čtení vibrací**.  
-Před každým meetingem 2 minuty na popis „jak se dnes cítí voda“.  
-Co je nevyřčené, ale přítomné? Trénujte vnímavost k prostředí.
+**Co s tím:**  
+**Čtení vibrací**: Než začnete jednat, 2 minuty na popis „jak se dnes cítí voda“.  
+Co je nevyřčené, ale přítomné?
 
 ---
 
-**2. ÚHEL MLČENÍ JAKO MOCNÉ DOVEDNOSTI**  
-*Síla není v nekonečném projevu*
+**2. MLČENÍ JAKO MOCNÁ DOVEDNOST – Síla není v nekonečném projevu**
 
 **Jak se projevuje v týmu:**  
-Ticho je považováno za nepohodlné, neproduktivní. Pauzy se okamžitě zaplňují slovy. Chybí kultivace produktivního ticha – prostoru na přemýšlení, který není trapný, ale cenný.
+Ticho je trapné. Pauza = selhání. Každou mezeru okamžitě zaplníte slovy – a přicházíte o prostor na přemýšlení.
 
-**Co s tím (Q3):**  
-Zavést **rybí pauzy**.  
-Po klíčových otázkách nebo před rozhodnutím povinná 1–2 minuty naprostého ticha na reflexi.  
+**Co s tím:**  
+**Rybí pauzy**: Po každé klíčové otázce 1–2 minuty absolutního ticha.  
 Zakázáno cokoli říkat. Ticho je součást práce.
 
 ---
 
-**3. ÚHEL NEVIDITELNÉHO VÍTĚZSTVÍ**  
-*Hitparáda pod hladinou*
+**3. NEVIDITELNÉ VÍTĚZSTVÍ – Hitparáda pod hladinou**
 
 **Jak se projevuje v týmu:**  
-Tým oslavuje a oceňuje pouze viditelné, hlasité úspěchy – velké dealy, launch produktu, čísla v reportech. Ale přehlíží tiché, systémové úspěchy: vybudovanou důvěru, vyřešený latentní konflikt, zlepšenou kvalitu spolupráce.
+Oceňujete jen to, co je slyšet – velké dealy, launch, čísla v reportech.  
+Ale co důvěra? Co vyřešený konflikt? Co práce, která zabránila krizi?  
+Ty zůstávají neviděny.
 
-**Co s tím (Q3):**  
-Zavést **hitparádu pod hladinou**.  
-Pravidelně oceňovat a reflektovat neviditelné úspěchy – ty, které změnily kvalitu našeho prostředí, i když o nich nikdo neřve na střeše.
+**Co s tím:**  
+**Hitparáda pod hladinou**: Pravidelně oceňujte neviditelné úspěchy.  
+Ty, které změnily kvalitu vašeho prostředí – i když o nich nikdo nekřičí.
 
 ---
 
-### 🔭 Chceš vidět kompletní verzi?
+### Proč právě tyhle tři?
 
-**Kocour** je celý volně k dispozici.  
-[→ Otevřít kompletní kartu Kocour](../kocour/README.md)
+Spolu tvoří příběh:  
+1. Jak přestat poslouchat a začít vnímat.  
+2. Proč je ticho cennější než řeč.  
+3. A kdo vlastně vyhrává, když se neměří jen hlasitost.
 
-Ryba má stejný rozsah:  
-12 úhlů, diagnostickou matici, 12 protiléků, 90minutový workshop, šablony, aplikační kontexty a generátor.
-
-**Chceš ji?**  
+**Chcete vidět zbylých 9 úhlů, diagnostickou matici a celý workshop?**  
 → [Koupit Rybu (15 000 Kč)](../../LICENCE.md)
+
+---
+
+*Kocour – celá karta zdarma – ukazuje, jak vypadá plná verze.*  
+[→ Otevřít Kocoura](../kocour/README.md)
