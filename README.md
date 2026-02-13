@@ -68,7 +68,7 @@ Proč?
 ## 🚀 Rychlý start
 
 1. 👉 **[Vyzkoušejte pohled z více perspektiv (funkční nástroj)](MYŠ/index.html)**
-2. **Prohlédněte si ukázkové karty** – [Plameňák](./karty/Plamenak/) a [Kocour](./karty/Kocour/)
+2. **Prohlédněte si ukázkové karty** – [Plameňák, který byl na hlavu](./karty/Plamenak/) a [Kocour](./karty/Kocour/)
 3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./_diagnostika/klic_k_uhlum.md)
 
 ---
