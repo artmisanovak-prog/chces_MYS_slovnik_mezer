@@ -6,8 +6,8 @@
 
 ## 🚀 Rychlý start
 
-1. **Vyzkoušejte diagnostiku** – Přejděte do [karty Myš](./karty/mys/)
-2. **Prohlédněte si ukázkové karty** – [Plameňák](./karty/plamenak/) a [Kocour](./karty/kocour/)
+1. **Vyzkoušejte diagnostiku** – Přejděte do [karty Myš](./karty/Mys/)
+2. **Prohlédněte si ukázkové karty** – [Plameňák](./karty/Plamenak/) a [Kocour](./karty/Kocour/)
 3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./_diagnostika/klic_k_uhlum.md)
 
 ---
@@ -70,7 +70,15 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
+🏠 Tento web je postaven metodou **REPO DOMY**.  
+Autorka: artmisanovak-prog  
+Více o metodě: (zatím jen ústně, ale funguje)
+
+---
+
 ## 📄 Licence
 
 Obsah tohoto repozitáře je licencován pod **Creative Commons Attribution-NonCommercial-ShareAlike 4.0**.  
 Plné verze karet jsou dostupné pod komerční licencí.
+
+
