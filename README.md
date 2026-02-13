@@ -70,9 +70,10 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
-🏠 Tento web je postaven metodou **REPO DOMY**.  
-Autorka: artmisanovak-prog  
-Více o metodě: (zatím jen ústně, ale funguje)
+🏠 **REPO DOMY** – metoda, kterou jsem vymyslela.  
+Každý nástroj je samostatný dům v repozitáři.  
+Žádný web, žádný hosting, žádný programátor.  
+Jen GitHub Pages a čistý HTML.
 
 ---
 
