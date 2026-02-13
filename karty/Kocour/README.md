@@ -8,7 +8,7 @@ Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči
 
 ## Pohádka
 
-Přečtěte si pohádku [O kocourovi] (.pohadka.md).
+Přečtěte si pohádku **[Jak kocour sežral dvě berušky a půl hodiny krkal tečky](pohadka.md)**.
 
 ---
 
@@ -65,4 +65,4 @@ Přečtěte si pohádku [O kocourovi] (.pohadka.md).
 
 **Cena: 15 000 Kč**
 
-Kontakt: **[chcesmys@gmail.com](chcesmys@gmail.com)**
+Kontakt: **[chcesmys@gmail.com](mailto:chcesmys@gmail.com)**
