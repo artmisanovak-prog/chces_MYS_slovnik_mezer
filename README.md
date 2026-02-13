@@ -77,7 +77,7 @@ Proč?
 
 | Karta | Problém | Ukázka | Plná verze |
 |-------|---------|--------|------------|
-| 🐀 **Myš** | Diagnostika myšlenkových stylů | [Zdarma](./karty/Mys/) | – |
+| 🐀 **Myš** | Diagnostika myšlenkových stylů | [Zdarma](./MYŠ/index.html/) | – |
 | 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | **15 000 Kč** |
 | 🐈‍⬛ **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **15 000 Kč** |
 | 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | **15 000 Kč** |
