@@ -8,8 +8,7 @@ Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči
 
 ## Pohádka
 
-O KOCOUROVI 
-[jak kocour sežral dvě berušky a půl hodiny krkal tečky](./pohadka.md).
+Přečtěte si pohádku [O kocourovi] (karty./Kocour/pohadka.md).
 
 ---
 
