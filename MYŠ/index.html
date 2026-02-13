@@ -5,57 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐭 Myš – 12 úhlů pohledu</title>
     <style>
-        /* ----- ČERNOBÍLÝ SVĚT ----- */
+        /* ----- ČERNOBÍLÝ SVĚT – ŽÁDNÉ BARVY ----- */
         html { filter: grayscale(1); }
         body {
             font-family: 'Georgia', 'Times New Roman', serif;
             background: #fff;
             color: #000;
-            line-height: 1.6;
-            max-width: 800px;
+            line-height: 1.7;
+            max-width: 900px;
             margin: 0 auto;
             padding: 30px 20px;
         }
-        h1, h2 { font-weight: normal; border-bottom: 1px solid #ccc; padding-bottom: 0.3em; }
-        .pohadka {
-            background: #f9f9f9;
-            padding: 2em;
+        h1, h2, h3 {
+            font-weight: normal;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.3em;
+        }
+        /* ----- POHÁDKA – SCROLLOVACÍ OKNO ----- */
+        .pohadka-container {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #000;
+            padding: 0 1.5em;
             margin: 2em 0;
-            border-left: 6px solid #000;
+            background: #f9f9f9;
             font-style: italic;
         }
+        .pohadka {
+            padding: 0.5em 0;
+        }
+        /* ----- 12 TLAČÍTEK – JEDNODUCHÝ GRID ----- */
         .seznam-uhlu {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8em;
+            gap: 0.6em;
             margin: 2em 0;
             justify-content: center;
         }
         .seznam-uhlu button {
             background: #fff;
             border: 1px solid #000;
-            padding: 0.8em 1.2em;
-            font-size: 1rem;
+            padding: 0.7em 1.2em;
+            font-size: 0.95rem;
+            font-family: inherit;
             cursor: pointer;
             transition: 0.1s;
             color: #000;
         }
-        .seznam-uhlu button:hover { background: #ddd; }
+        .seznam-uhlu button:hover {
+            background: #ddd;
+        }
         .seznam-uhlu button.vybrany {
             background: #000;
             color: #fff;
             border: 2px solid #000;
             font-weight: bold;
         }
+        /* ----- VÝSTUP – POD TLAČÍTKY ----- */
         .vystup {
-            background: #fff;
             border: 1px solid #000;
             padding: 2em;
             margin-top: 2em;
-            min-height: 150px;
+            background: #fff;
+            min-height: 180px;
         }
-        .nazev-uhlu { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5em; }
-        .popis-uhlu { font-style: italic; margin-bottom: 1.5em; color: #333; }
+        .nazev-uhlu {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+        .popis-uhlu {
+            font-style: italic;
+            margin-bottom: 1.2em;
+            color: #333;
+        }
+        /* ----- PATIČKA – TVOJE JMÉNO ----- */
         .paticka {
             margin-top: 4em;
             border-top: 1px solid #ccc;
@@ -64,294 +88,94 @@
             font-size: 0.85rem;
             color: #555;
         }
+        .paticka a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #666;
+        }
     </style>
 </head>
 <body>
 
 <h1>🐭 Myš</h1>
-<p style="font-size: 1.2rem; margin-top: -0.5em;">12 úhlů – jedna pohádka, dvanáct čtení</p>
-
-<!-- ========== POHÁDKA ========== -->
-<div class="pohadka">
-    <h3 style="margin-top: 0; font-style: normal;">O MYŠI</h3>
-    <p>KŘIVÁ POHÁDKA - ROVNÉ SVĚDECTVÍ
-
-
-
-ROVNÉ SVĚDECTVÍ
-
-Zapsáno rukou, která nechtěla nic vysvětlit.
-
-Tyto pohádky nevyprávějí příběhy tak, jak by měly.
-
-Místo kouzel tu vládne nedorozumění.
-
-Místo dobra a zla – podivný klid mezi nimi.
-
-Zvířata tu mluví, ale ne proto, aby nás bavila.
-
-Říkají to, co lidé nemohou vyslovit.
-
-Příběhy, co se spíš staly, než vymyslely –
-
-a možná se pořád dějí.
-
-Jen je nelze vidět z běžného úhlu.
-
-
-
-KŘIVÁ POHÁDKA 
-
-Taková malá, divná, křivá 
-
-pohádka o myši, 
-
-co možná ani není pohádka, 
-
-ale něco,
-
- co se stalo.
-
-A v tom světě jsou i jiná zvířata 
-
-– čáp, páv, kocour, kozel… 
-
-ale všechno to je 
-
-napůl sen,
-
- napůl vtip, 
-
-  napůl výklad 
-
-a napůl úplně mimo
-
-
-
-
-
-Karta: images/mys.jpg
-
-Text: chceš myš ??
-
-
-
-O MYŠI 
-
-a o tom, co se stane, když si jí NEvšimneš
-
-
-
-Kdysi – zároveň ne tak docela dávno.
-
-A ne úplně blízko, ale zase ani ne nijak moc daleko.
-
-Žila jedna myš.
-
-Byla malá, tak jak to u myší 
-
-normálně bývá.
-
-A měla dvě veliké uši, 
-
-což také není u myši žádná vzácnost.
-
-
-
-Nebyla nijak zvlášť rychlá, 
-
-ale ani úplně pomalá.
-
-Nebyla hloupá, 
-
-ale ani kdovíjak chytrá.
-
-Na první pohled
-
- obyčejná, běžná myš.
-
-
-
-Ale ne - normální 
-
-Všímala si věcí, které ostatní přehlíželi.
-
-
-
-Například toho, že se ve vzduchu občas zadrhne věta.
-
-Nebo že páv,
-
- když se nikdo nedívá, 
-
-přepočítává svá oka.
-
-Nebo že čáp,
-
-někdy jen tak
-
- přistane na komíně
-
-a zapomene, 
-
-koho měl donést.
-
-
-
-A tahle myš 
-
-si začala věci zapisovat.
-
-Ne na papír.
-
-Ale tak nějak.
-
- Do ticha.
-
-Do koutů.
-
-Do skulin mezi slovama,
-
- kde to obvykle nikdo nečte.
-
-
-
-A pak si jednoh dne všimla,
-
- že se kolem ní začínají 
-
-hromadit zvířata.
-
-
-
-Ne v řadě.
-
-Ne v kruhu.
-
-Prostě…
-
- tak nějak.
-
-
-
-A každé si neslo něco, 
-
-co nevysvětlovalo.
-
-
-
-Zajíc měl popálené uši 
-
-a voněl po kouři.
-
-Kocour se dusil smíchem, 
-
-protože spolkl tečku.
-
-Slon si v chobotu nesl třešně,
-
- co nikdy nedozrají.
-
-A lemur se nedíval na nic, 
-
-jen na stranu, 
-
-kde nic nebylo.
-
-
-
-Myš neříkala nic.
-
-Ale všechno si poznamenala.
-
-A pak se jednoho dne 
-
-zeptala první větu.
-
-
-
-Ne velkou.
-
-Ne důležitou.
-
-Jenom tu jednu:
-
-
-
-„Chceš myš?“
-
-
-
-A to nebyla otázka, 
-
-co se ptá
-
- na ni samotnou.
-
-                         To byla otázka, 
-
-                              co se ptá
-
- na všechno.
-
-
-
-Na smysl.
-
-Na jazyk.
-
-Na strach.
-
-Na to, 
-
-co si z nás kdo udělá.
-
-
-
-A taky na to,
-
- jestli si tuhle pohádku 
-
-necháš necháš vyprávět
-
- do konce.
-
-Nebo zapištíš a utečeš.
-
-Nebo si ji složíš jinak.
-
-
-
-Protože od té chvíle,
-
- už to nebyla jen myš.
-
-
-
-Byl to klíč.
-
-A pádlo.
-
-A past.
-
-
-
-a  konec úvodu.
-
- Ale začátek něčeho dalšího.
-
-
-
-..možná..
-
-
-
-
-
-
-
-p>
-    <p style="text-align: right; margin-bottom: 0;">— celý příběh ve zkratce, znáš ho</p>
+<p style="font-size: 1.3rem; margin-top: -0.5em;">— 12 úhlů, jak vidět jednu pohádku</p>
+
+<!-- ========== POHÁDKA – CELÁ, VE SCROLLU ========== -->
+<div class="pohadka-container">
+    <div class="pohadka">
+        <h3 style="margin-top: 0.5em; font-style: normal; border-bottom: none;">O MYŠI</h3>
+        <p>Kdysi – zároveň ne tak docela dávno.<br>
+        A ne úplně blízko, ale zase ani ne nijak moc daleko.<br>
+        Žila jedna myš.<br>
+        Byla malá, tak jak to u myší normálně bývá.<br>
+        A měla dvě veliké uši, což také není u myši žádná vzácnost.</p>
+
+        <p>Nebyla nijak zvlášť rychlá, ale ani úplně pomalá.<br>
+        Nebyla hloupá, ale ani kdovíjak chytrá.<br>
+        Na první pohled obyčejná, běžná myš.</p>
+
+        <p>Ale ne – normální.<br>
+        Všímala si věcí, které ostatní přehlíželi.</p>
+
+        <p>Například toho, že se ve vzduchu občas zadrhne věta.<br>
+        Nebo že páv, když se nikdo nedívá, přepočítává svá oka.<br>
+        Nebo že čáp, někdy jen tak přistane na komíně a zapomene, koho měl donést.</p>
+
+        <p>A tahle myš si začala věci zapisovat.<br>
+        Ne na papír.<br>
+        Ale tak nějak.<br>
+        Do ticha.<br>
+        Do koutů.<br>
+        Do skulin mezi slovama, kde to obvykle nikdo nečte.</p>
+
+        <p>A pak si jednoho dne všimla,<br>
+        že se kolem ní začínají hromadit zvířata.</p>
+
+        <p>Ne v řadě.<br>
+        Ne v kruhu.<br>
+        Prostě… tak nějak.</p>
+
+        <p>A každé si neslo něco, co nevysvětlovalo.<br>
+        Zajíc měl popálené uši a voněl po kouři.<br>
+        Kocour se dusil smíchem, protože spolkl tečku.<br>
+        Slon si v chobotu nesl třešně, co nikdy nedozrají.<br>
+        A lemur se nedíval na nic, jen na stranu, kde nic nebylo.</p>
+
+        <p>Myš neříkala nic.<br>
+        Ale všechno si poznamenala.</p>
+
+        <p>A pak se jednoho dne zeptala první větu.<br>
+        Ne velkou.<br>
+        Ne důležitou.<br>
+        Jenom tu jednu:</p>
+
+        <p style="font-size: 1.4rem; font-style: normal; text-align: center; margin: 1.4em 0 0.8em;">„Chceš myš?“</p>
+
+        <p>A to nebyla otázka, co se ptá na ni samotnou.<br>
+        To byla otázka, co se ptá na všechno.</p>
+
+        <p>Na smysl.<br>
+        Na jazyk.<br>
+        Na strach.<br>
+        Na to, co si z nás kdo udělá.</p>
+
+        <p>A taky na to,<br>
+        jestli si tuhle pohádku necháš vyprávět do konce.<br>
+        Nebo zapištíš a utečeš.<br>
+        Nebo si ji složíš jinak.</p>
+
+        <p>Protože od té chvíle,<br>
+        už to nebyla jen myš.</p>
+
+        <p>Byl to klíč.<br>
+        A pádlo.<br>
+        A past.</p>
+
+        <p style="margin-top: 2em;">a konec úvodu.<br>
+        Ale začátek něčeho dalšího.</p>
+
+        <p style="text-align: right; font-style: normal; margin-bottom: 0.5em;">..možná..</p>
+    </div>
 </div>
 
 <!-- ========== 12 TLAČÍTEK ========== -->
@@ -368,24 +192,72 @@ p>
 <!-- ========== PATIČKA ========== -->
 <div class="paticka">
     Autorka: Art Miša Novák – metoda REPO DOMY<br>
-    <a href="mailto:chcesmys@gmail.com?subject=REPO%20DOMY%20–%20MYŠ" style="color:#000; text-decoration: none; border-bottom:1px solid #666;">📬 Zpětná vazba</a>
+    <a href="mailto:chcesmys@gmail.com?subject=REPO%20DOMY%20–%20MYŠ">📬 Napište mi</a>
 </div>
 
 <script>
-    // ----- 12 ÚHLŮ S KRÁTKÝM POPISEM -----
+    // ----- 12 ÚHLŮ S KRÁTKÝM POPISEM A KONKRÉTNÍ VĚTOU O POHÁDCE -----
     const data = [
-        { nazev: "Absurdní", popis: "Hledá nesmysl, paradox, rozpor.", text: "Myš? Co je to za nesmysl? Myš přece nemůže zapisovat do ticha. Celá pohádka je jeden velký paradox – a proto je pravdivá." },
-        { nazev: "Jazykový", popis: "Sleduje slova, rytmus, význam.", text: "Věta 'Chceš myš?' není otázka. Je to past. Jazyková past, která tě donutí odpovědět, i když nevíš na co." },
-        { nazev: "Ironický", popis: "Vidí rozpor mezi záměrem a výsledkem.", text: "Myš nechtěla nic, jen si zapisovat. A najednou je středem lesa. Ironie, ne?" },
-        { nazev: "Filozofický", popis: "Ptá se po smyslu a podstatě.", text: "Co znamená 'být myš'? Je to role, nebo podstata? Celá pohádka je jedna velká otázka bez odpovědi." },
-        { nazev: "Surrealistický", popis: "Propojuje nesouvisející.", text: "Páv s očima na ocase, slon s třešněmi v chobotu, myš co zapisuje do ticha. Tohle není les – je to obraz." },
-        { nazev: "Naivní", popis: "Vidí věci jednoduše, bez předsudků.", text: "Myš si všímá věcí, které ostatní nevidí. A pak se zeptá. To je celé. Nemusíš tomu rozumět víc." },
-        { nazev: "Introspektivní", popis: "Promítá do příběhu vlastní pocity.", text: "Cítím z toho ticho. Myš, co je sama uprostřed lesa, obklopená zvířaty, kterým nerozumí. Jako já." },
-        { nazev: "Konkrétní", popis: "Čte doslovně, fakticky.", text: "Pohádka je o myši, která žila v lese, potkala zvířata, zapsala si je a zeptala se 'Chceš myš?'." },
-        { nazev: "Kulturní", popis: "Hledá archetypy a paralely.", text: "Myš je jako Áriadna – dává nit, aby ses neztratil. Jenže její nit není z klubka, ale z ticha." },
-        { nazev: "Asociační", popis: "Vyvolává osobní vzpomínky.", text: "Připomíná mi to naši projektovou manažerku. Taky si všechno zapisovala a pak jednou položila otázku a všichni ztichli." },
-        { nazev: "Metaforický", popis: "Vidí symboly za věcmi.", text: "Myš není myš. Je to pozornost. Páv je ješitnost, kocour je spěch, slon je paměť." },
-        { nazev: "Groteskní", popis: "Vidí přehnanou, temnou komiku.", text: "Představ si: páv si přepočítává oči, lemur civí do prázdna, a myš je má zachránit otázkou, na kterou nezná odpověď. Fraška." }
+        { 
+            nazev: "Absurdní", 
+            popis: "Hledá nesmysl, paradox, rozpor.", 
+            text: "Myš, která zapisuje do ticha? Co je to za nesmysl? A proč by se zvířata hromadila kolem ní? Celá pohádka je jeden velký paradox – a právě proto je pravdivá." 
+        },
+        { 
+            nazev: "Jazykový", 
+            popis: "Sleduje slova, rytmus, dvojznačnost.", 
+            text: "Věta 'Chceš myš?' není otázka. Je to past. Jazyková past, která tě donutí odpovědět, i když nevíš na co. Pohádka je o tom, jak se jazyk může zaseknout – a jak ho myš zase odpichne." 
+        },
+        { 
+            nazev: "Ironický", 
+            popis: "Vidí rozpor mezi záměrem a výsledkem.", 
+            text: "Myš nechtěla nic, jen si zapisovat do kouta. A najednou je středem lesa. Všichni čekají, co udělá. Ironie? Spíš tragikomedie." 
+        },
+        { 
+            nazev: "Filozofický", 
+            popis: "Ptá se po smyslu a podstatě.", 
+            text: "Co to znamená 'být myš'? Je to role, nebo podstata? A co znamená 'chtít myš'? Touha po smyslu? Po odpovědi? Pohádka je jedna velká otázka, na kterou není odpověď – jen další otázky." 
+        },
+        { 
+            nazev: "Surrealistický", 
+            popis: "Propojuje nesouvisející.", 
+            text: "Páv s očima na ocase, slon s třešněmi v chobotu, myš co zapisuje do ticha. Tohle není les, je to obraz – a každé zvíře je štětec, kterým myš maluje svět." 
+        },
+        { 
+            nazev: "Naivní", 
+            popis: "Vidí věci jednoduše, bez předsudků.", 
+            text: "Myš si všímá věcí, které ostatní nevidí. A pak se jich na jednu věc zeptá. To je celé. Nemusíš tomu rozumět víc, než rozumí myš." 
+        },
+        { 
+            nazev: "Introspektivní", 
+            popis: "Promítá do příběhu vlastní pocity.", 
+            text: "Cítím z toho ticho. Myš, co je sama uprostřed lesa, obklopená zvířaty, kterým nerozumí. Vždycky jsem byl taky ten, kdo si zapisoval věci do kouta, protože venku na ně nikdo nečekal." 
+        },
+        { 
+            nazev: "Konkrétní", 
+            popis: "Čte doslovně, fakticky.", 
+            text: "Pohádka je o myši, která žila v lese, potkala páva, kocoura, slona a lemura, všimla si jejich zvláštností, zapsala si to a pak se jich zeptala 'Chceš myš?'." 
+        },
+        { 
+            nazev: "Kulturní", 
+            popis: "Hledá archetypy a paralely.", 
+            text: "Myš je jako Áriadna – dává nit, aby ses neztratil. Jenže její nit není z klubka, ale z ticha. A nevede z labyrintu, ale do něj. Je to antický mýtus, jen místo Théseje máš lemura." 
+        },
+        { 
+            nazev: "Asociační", 
+            popis: "Vyvolává osobní vzpomínky.", 
+            text: "Připomnělo mi to naši projektovou manažerku. Taky si všechno zapisovala a nikdo nevěděl na co. A pak jednou položila otázku a celý tým ztichl. Přesně jako myš." 
+        },
+        { 
+            nazev: "Metaforický", 
+            popis: "Vidí symboly za věcmi.", 
+            text: "Myš není myš. Je to pozornost. Páv je ješitnost, kocour je spěch, slon je paměť, lemur je ztráta. A otázka 'Chceš myš?' není otázka. Je to volba, jestli chceš vidět." 
+        },
+        { 
+            nazev: "Groteskní", 
+            popis: "Vidí přehnanou, temnou komiku.", 
+            text: "Představ si: páv si přepočítává oči, lemur civí do prázdna, slon s třešněma v chobotu, a myš je má zachránit otázkou, na kterou neznají odpověď. Je to fraška. A je to nádherný." 
+        }
     ];
 
     const tlacitka = document.getElementById('tlacitka');
