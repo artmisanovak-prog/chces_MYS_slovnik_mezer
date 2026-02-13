@@ -1,4 +1,4 @@
-# 🐭 Chceš myš? – Slovník mezer
+# 🐁 Chceš myš? – Slovník mezer
 
 **Generativní systém pro diagnostiku a řešení týmových dysfunkcí.**
 
@@ -90,7 +90,7 @@ Proč?
 | 🦋 **Motýl** | Krása vs praktičnost | [Ukázka](./karty/Motyl/) | **15 000 Kč** |
 | 🦌 **Laň/Klíště** | Bez nás by nebyly oni|  | [Ukázka](./karty/Laň/) | **15 000 Kč** |
 | 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | **15 000 Kč** |
-| 🐆 **Jaguár** | Podceněná excelentnost | [Ukázka](./karty/Jaguár/)
+| 🐆 **Jaguár** | Podceněná excelentnost | [Ukázka](./karty/Jaguar/)
 
 ---
 
