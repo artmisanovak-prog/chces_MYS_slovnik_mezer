@@ -2,6 +2,63 @@
 
 **Generativní systém pro diagnostiku a řešení týmových dysfunkcí.**
 
+**Diagnostický a rozvojový nástroj pro týmy, které potřebují pojmenovat, co se v komunikaci skutečně děje.**
+
+---
+
+## 🎯 Pro koho to je?
+
+Týmy, které:
+- 📉 mají dlouhé a neefektivní porady
+- 🗣️ si skáčou do řeči a nedokončují myšlenky
+- 🧭 tápou ve směřování projektu
+- 💬 cítí, že „něco není v pořádku“, ale neumí to pojmenovat
+- 🔁 řeší dokola stejné problémy
+
+---
+
+## ✅ Co karta obsahuje?
+
+Každá karta je **samostatný, připravený workshop**, který s týmem provedete za 90 minut.
+
+**V ceně 15 000 Kč získáte:**
+
+📘 **Pohádku** – příběh, který otevře téma bez obviňování  
+🧠 **12 úhlů pohledu** – diagnostický klíč, který odhalí, kudy se tým dívá  
+🛠️ **12 konkrétních protiopatření** – každý úhel má svůj „protilék“  
+📋 **Detailní scénář workshopu** – kdo, kdy, co říká, na minuty  
+🧪 **Diagnostický nástroj** – 3 otázky, které zmapují kognitivní profil týmu  
+🎲 **Generativní mód** – jak kartu použít znovu a jinak  
+📎 **Šablony k okamžitému použití** – flipcharty, emaily, pracovní listy  
+📄 **Firemní licence** – kartu může používat celá organizace
+
+---
+
+## 💎 V čem je to jiné?
+
+Většina nástrojů končí u diagnózy: *„Zjistili jsme, že máte problém.“*
+
+**Tenhle nástroj rovnou nabízí řešení.**
+
+- Není to test. Nikdo není „špatný“ ani „dobrý“.
+- Není to teorie. Je to pohádka, která se dá použít hned v pondělí ráno.
+- Není to generický model. Každá karta řeší **jeden konkrétní týmový problém**.
+
+---
+
+## 💰 Cena a návratnost
+
+**15 000 Kč za kartu.**
+
+Proč?
+
+- Jednorázový náklad, celoživotní licence.
+- Ušetříte desítky hodin příprav – workshop je hotový, odzkoušený, funkční.
+- Průměrná délka porady klesá o 30–60 minut. Při 10 poradách měsíčně se investice vrátí do 2 měsíců.
+
+**Chcete ukázku?**  
+👉 [Vyzkoušejte kartu KOCOUR zdarma](odkaz)
+
 ---
 
 ## 🚀 Rychlý start
@@ -25,32 +82,30 @@
 | 🦌 **Laň** | Systém vs. autenticita | [Ukázka](./karty/Laň/) | **15 000 Kč** |
 | 🐟 **Ryba** | Systém vs. autenticita | [Ukázka](./karty/Ryba/) | **15 000 Kč** |
 
+---
+
+## ✅ Co karta obsahuje?
+
+Každá karta je **samostatný, připravený workshop**, který s týmem provedete za 90 minut.
+
+**V ceně 15 000 Kč získáte:**
+
+📘 **Pohádku** – příběh, který otevře téma bez obviňování  
+🧠 **12 úhlů pohledu** – diagnostický klíč, který odhalí, kudy se tým dívá  
+🛠️ **12 konkrétních protiopatření** – každý úhel má svůj „protilék“  
+📋 **Detailní scénář workshopu** – kdo, kdy, co říká, na minuty  
+🧪 **Diagnostický nástroj** – 3 otázky, které zmapují kognitivní profil týmu  
+🎲 **Generativní mód** – jak kartu použít znovu a jinak  
+📎 **Šablony k okamžitému použití** – flipcharty, emaily, pracovní listy  
+📄 **Firemní licence** – kartu může používat celá organizace
 
 ---
 
-## 💡 Co je v plné verzi?
+## 📦 Jak kartu získat?
 
-Plná verze karty obsahuje:
-- ✅ **Všech 12 úhlů** s detailním vysvětlením
-- ✅ **Kompletní workshop** (90 minut) s časováním
-- ✅ **Šablony** k okamžitému použití
-- ✅ **Diagnostické nástroje** pro tým
-- ✅ **Návod** na implementaci v týmu
-- ✅ **Licenci** k použití ve vaší organizaci
-
----
-
-## 🛒 Jak koupit
-
-**Cena:** 15 000 Kč za kartu
-
-Napište na: **chcesmys@gmail.com** 
-
-Po zaplacení obdržíte:
-1. Kompletní materiály karty v přehledné struktuře
-2. Workshopové šablony (Google Docs/Sheets)
-3. Diagnostické nástroje
-4. Licenci k použití ve vaší organizaci
+1. Vyberte si kartu z katalogu.
+2. Napište na **chcesmys@gmail.com**.
+3. Pošleme vám fakturu a přístup k plné verzi (PDF + HTML nástroj).
 
 ---
 
@@ -70,16 +125,18 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
-🏠 **REPO DOMY** – metoda, kterou jsem vymyslela.  
-Každý nástroj je samostatný dům v repozitáři.  
-Žádný web, žádný hosting, žádný programátor.  
-Jen GitHub Pages a čistý HTML.
-
----
-
 ## 📄 Licence
 
 Obsah tohoto repozitáře je licencován pod **Creative Commons Attribution-NonCommercial-ShareAlike 4.0**.  
 Plné verze karet jsou dostupné pod komerční licencí.
+
+---
+
+
+🏠 **REPO DOMY** – způsob, jak to mít po svém 
+Každý nástroj je samostatný dům v repozitáři. 
+Žádný web, žádný hosting, žádný programátor.  
+Jen GitHub Pages a čistý HTML.
+pro dotazy, informace nebo zpětnou vazbu pouzijte email chcesmys@gmail.com s předmětem "repo domy" 
 
 
