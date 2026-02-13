@@ -68,9 +68,9 @@ Proč?
 ## 🚀 Rychlý start
 
 1. 👉 **[Vyzkoušejte pohled z více perspektiv (funkční nástroj)](MYŠ/index.html)**
+   
 2. **Prohlédněte si ukázkové karty**
 [Plameňák, který byl na hlavu](./karty/Plamenak/)
-
  [Jak kocoucour sežral dvě berušky a půl hodiny krkal tečky](./karty/Kocour/)
   
   
