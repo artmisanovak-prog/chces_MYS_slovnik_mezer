@@ -8,7 +8,7 @@ Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči
 
 ## Pohádka
 
-Přečtěte si pohádku [O kocourovi] (.karty./Kocour/pohadka.md).
+Přečtěte si pohádku [O kocourovi] (.pohadka.md).
 
 ---
 
