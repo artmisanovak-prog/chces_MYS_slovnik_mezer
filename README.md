@@ -87,9 +87,10 @@ Proč?
 | 🐈‍⬛ **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **15 000 Kč** |
 | 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | **15 000 Kč** |
 | 🐯 **Tygr** | Systém vs. autenticita | [Ukázka](./karty/Tygr/) | **15 000 Kč** |
-| 🦋 **Motýl** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Motyl/) | **15 000 Kč** |
-| 🦌 **Laň/Klíště** | Systém vs. autenticita | [Ukázka](./karty/Laň/) | **15 000 Kč** |
+| 🦋 **Motýl** | Krása vs praktičnost | [Ukázka](./karty/Motyl/) | **15 000 Kč** |
+| 🦌 **Laň/Klíště** | Bez nás by nebyly oni|  | [Ukázka](./karty/Laň/) | **15 000 Kč** |
 | 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | **15 000 Kč** |
+| 🐆 **Jaguár** | Podceněná excelentnost | [Ukázka](./karty/Jaguár/)
 
 ---
 
