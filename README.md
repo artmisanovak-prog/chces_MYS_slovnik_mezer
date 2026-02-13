@@ -6,7 +6,7 @@
 
 ## 🚀 Rychlý start
 
-1. **Vyzkoušejte diagnostiku** – Přejděte do [karty Myš](./karty/Mys/)
+1. 👉 **[Vyzkoušejte diagnostiku (funkční nástroj)](diagnostika/index.html)**
 2. **Prohlédněte si ukázkové karty** – [Plameňák](./karty/Plamenak/) a [Kocour](./karty/Kocour/)
 3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./_diagnostika/klic_k_uhlum.md)
 
