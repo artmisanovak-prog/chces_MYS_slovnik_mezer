@@ -6,249 +6,139 @@
     <title>🐭 Myš – 12 úhlů pohledu</title>
     <style>
         /* ----- ČERNOBÍLÝ SVĚT ----- */
-        html {
-            filter: grayscale(1);
-        }
+        html { filter: grayscale(1); }
         body {
             font-family: 'Georgia', 'Times New Roman', serif;
-            background-color: #fff;
+            background: #fff;
             color: #000;
-            line-height: 1.7;
+            line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
             padding: 30px 20px;
         }
-        h1, h2, h3 {
-            font-weight: normal;
-            letter-spacing: -0.5px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 0.3em;
-        }
+        h1, h2 { font-weight: normal; border-bottom: 1px solid #ccc; padding-bottom: 0.3em; }
         .pohadka {
-            background-color: #f5f5f5;
+            background: #f9f9f9;
             padding: 2em;
             margin: 2em 0;
             border-left: 6px solid #000;
             font-style: italic;
         }
-        /* ----- ÚHLOMĚR ----- */
-        .uhlomer {
-            background-color: #eee;
-            padding: 2em;
-            margin: 2em 0;
-            border: 1px solid #000;
-        }
-        .uhly-grid {
+        .seznam-uhlu {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8em;
+            margin: 2em 0;
             justify-content: center;
-            margin: 1.5em 0;
         }
-        .uhly-grid button {
+        .seznam-uhlu button {
             background: #fff;
             border: 1px solid #000;
             padding: 0.8em 1.2em;
-            font-family: inherit;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.1s ease;
+            transition: 0.1s;
             color: #000;
         }
-        .uhly-grid button:hover {
-            background: #ddd;
-        }
-        .uhly-grid button.vybrany {
+        .seznam-uhlu button:hover { background: #ddd; }
+        .seznam-uhlu button.vybrany {
             background: #000;
             color: #fff;
             border: 2px solid #000;
             font-weight: bold;
-            transform: scale(1.05);
         }
-        /* ----- VÝSLEDEK ----- */
         .vystup {
             background: #fff;
             border: 1px solid #000;
             padding: 2em;
             margin-top: 2em;
+            min-height: 150px;
         }
-        .vystup h3 {
-            margin-top: 0;
-            border-bottom: none;
-            font-size: 1.6rem;
-            font-weight: bold;
-        }
-        .popis-uhlu {
-            font-style: italic;
-            margin: 1em 0;
-        }
-        .rada-uhlu {
-            background: #000;
-            color: #fff;
-            padding: 1.5em;
-            margin-top: 1.5em;
-            font-weight: 500;
-        }
+        .nazev-uhlu { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5em; }
+        .popis-uhlu { font-style: italic; margin-bottom: 1.5em; color: #333; }
         .paticka {
             margin-top: 4em;
-            color: #666;
-            font-size: 0.85rem;
-            text-align: center;
             border-top: 1px solid #ccc;
             padding-top: 2em;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #555;
         }
     </style>
 </head>
 <body>
 
 <h1>🐭 Myš</h1>
-<p style="font-size: 1.3rem; margin-top: -0.5em;">— 12 úhlů, jak vidět jednu pohádku</p>
+<p style="font-size: 1.2rem; margin-top: -0.5em;">12 úhlů – jedna pohádka, dvanáct čtení</p>
 
-<!-- ========== POHÁDKA (ČERNOBÍLÁ, ŽÁDNÉ BARVY) ========== -->
+<!-- ========== POHÁDKA ========== -->
 <div class="pohadka">
     <h3 style="margin-top: 0; font-style: normal;">O MYŠI</h3>
     <p>Kdysi – zároveň ne tak docela dávno.<br>
     A ne úplně blízko, ale zase ani ne nijak moc daleko.<br>
-    Žila jedna myš.<br>
-    Byla malá, tak jak to u myší normálně bývá.<br>
-    A měla dvě veliké uši, což také není u myši žádná vzácnost.</p>
-    <p>Nebyla nijak zvlášť rychlá, ale ani úplně pomalá.<br>
-    Nebyla hloupá, ale ani kdovíjak chytrá.<br>
-    Na první pohled obyčejná, běžná myš.</p>
-    <p>Ale ne – normální.<br>
-    Všímala si věcí, které ostatní přehlíželi.</p>
-    <p>… a tak dál, celá pohádka, kterou už znáš.</p>
-    <p style="text-align: right; margin-bottom: 0;">— konec úvodu, začátek něčeho dalšího, ..možná..</p>
+    Žila jedna myš…</p>
+    <p style="text-align: right; margin-bottom: 0;">— celý příběh ve zkratce, znáš ho</p>
 </div>
 
-<!-- ========== ÚHLOMĚR ========== -->
-<div class="uhlomer">
-    <h2>🎛️ Vyber úhel pohledu</h2>
-    <p style="margin-bottom: 1.5em;">Každý úhel vidí stejnou pohádku jinak. Klikni a podívej se.</p>
-    
-    <div class="uhly-grid" id="seznamUhlu">
-        <!-- sem se doplní tlačítka JavaScriptem -->
-    </div>
-</div>
+<!-- ========== 12 TLAČÍTEK ========== -->
+<h2>🎯 Vyber úhel pohledu</h2>
+<div class="seznam-uhlu" id="tlacitka"></div>
 
 <!-- ========== VÝSTUP ========== -->
 <div class="vystup" id="vystup">
-    <h3 id="nazevUhlu">—</h3>
-    <div class="popis-uhlu" id="popisUhlu"></div>
-    <div class="rada-uhlu" id="radaUhlu"></div>
+    <div class="nazev-uhlu" id="nazev"></div>
+    <div class="popis-uhlu" id="popis"></div>
+    <div id="text"></div>
 </div>
 
 <!-- ========== PATIČKA ========== -->
 <div class="paticka">
     Autorka: Art Miša Novák – metoda REPO DOMY<br>
-    <a href="mailto:chcesmys@gmail.com?subject=REPO%20DOMY%20–%20MYŠ" style="color: #000; text-decoration: none; border-bottom: 1px solid #666;">📬 Napište mi</a>
+    <a href="mailto:chcesmys@gmail.com?subject=REPO%20DOMY%20–%20MYŠ" style="color:#000; text-decoration: none; border-bottom:1px solid #666;">📬 Zpětná vazba</a>
 </div>
 
 <script>
-    // =============================================
-    //  DATABÁZE 12 ÚHLŮ – každý s vlastním viděním pohádky
-    // =============================================
-    const uhly = [
-        { 
-            nazev: "1. Absurdní úhel",
-            popis: "Vidí rozpor, paradox, nesmysl. Hledá, co nedává smysl.",
-            rada: "Pohádka o myši? Vždyť myš přece nemůže zapisovat do ticha. A proč by se zvířata hromadila kolem ní? Celé je to jeden velký nesmysl – a právě proto je to pravda."
-        },
-        { 
-            nazev: "2. Jazykový úhel",
-            popis: "Soustředí se na slova, rytmus, dvojznačnost.",
-            rada: "Ta věta 'Chceš myš?' není otázka. Je to past. Jazyková past, která tě donutí odpovědět, i když nevíš na co. Celá pohádka je o tom, jak se jazyk může zaseknout – a jak ho myš zase odpichne."
-        },
-        { 
-            nazev: "3. Ironický úhel",
-            popis: "Vidí rozpor mezi záměrem a výsledkem.",
-            rada: "Myš, která si jen tak zapisuje do kouta, se najednou stane středobodem lesa. Nechtěla nic, a má všechno. Zatímco páv přepočítává oka, lemur civí do prázdna – ironie, ne?"
-        },
-        { 
-            nazev: "4. Filozofický úhel",
-            popis: "Ptá se po smyslu, podstatě, bytí.",
-            rada: "Co to znamená 'být myš'? Je to role, nebo podstata? A co znamená 'chtít myš'? Touha po smyslu? Po odpovědi? Pohádka je jedna velká otázka, na kterou není odpověď – jen další otázky."
-        },
-        { 
-            nazev: "5. Surrealistický úhel",
-            popis: "Propojuje nesouvisející, myslí v obrazech.",
-            rada: "Myš, která zapisuje do ticha. Páv s očima na ocase. Slon s třešněmi v chobotu. Tohle není les, je to obraz – a každé zvíře je štětec, kterým myš maluje svět."
-        },
-        { 
-            nazev: "6. Naivní úhel",
-            popis: "Vidí věci přímočaře, bez předsudků.",
-            rada: "Myš si všímá věcí, které ostatní nevidí. A zapisuje si je. Pak se jich zeptá na jednu otázku. To je celé. Nemusíš tomu rozumět víc, než rozumí myš."
-        },
-        { 
-            nazev: "7. Introspektivní úhel",
-            popis: "Projekce vlastních pocitů do příběhu.",
-            rada: "Cítím z toho ticho. Tu myš, která je sama uprostřed lesa, obklopená zvířaty, co nerozumí. Vždycky jsem byl taky ten, kdo si zapisoval věci do kouta, protože venku na ně nikdo nečekal."
-        },
-        { 
-            nazev: "8. Konkrétní úhel",
-            popis: "Doslovné, faktické čtení.",
-            rada: "Pohádka vypráví o myši, která žila v lese, potkala páva, kocoura, slona a lemura, všimla si jejich zvláštností, zapsala si to a pak se jich zeptala 'Chceš myš?'. To je celý děj."
-        },
-        { 
-            nazev: "9. Kulturní úhel",
-            popis: "Hledá archetypy a paralely.",
-            rada: "Myš je jako Áriadna – dává nit, aby ses neztratil. Jenže její nit není z klubka, je z ticha. A nevede z labyrintu, ale do něj. Je to antický mýtus, jen místo Théseje máš lemura."
-        },
-        { 
-            nazev: "10. Asociační úhel",
-            popis: "Rychlé, osobní spojení.",
-            rada: "Připomnělo mi to naši projektovou manažerku. Taky si všechno zapisovala a nikdo nevěděl na co. A pak jednou položila otázku a celý tým ztichl. Přesně jako myš."
-        },
-        { 
-            nazev: "11. Metaforický úhel",
-            popis: "Chápe prvky jako symboly.",
-            rada: "Myš není myš. Je to pozornost. Páv je ješitnost, kocour je spěch, slon je paměť, lemur je ztráta. A otázka 'Chceš myš?' není otázka. Je to volba, jestli chceš vidět."
-        },
-        { 
-            nazev: "12. Groteskní úhel",
-            popis: "Vidí přehnanou, karikující komiku.",
-            rada: "Představ si to: páv, co si přepočítává oka, lemur, co civí do prázdna, a slon s třešněma v chobotu. A všichni čekají, až je myš zachrání otázkou, na kterou neznají odpověď. Je to fraška. A je to nádherný."
-        }
+    // ----- 12 ÚHLŮ S KRÁTKÝM POPISEM -----
+    const data = [
+        { nazev: "Absurdní", popis: "Hledá nesmysl, paradox, rozpor.", text: "Myš? Co je to za nesmysl? Myš přece nemůže zapisovat do ticha. Celá pohádka je jeden velký paradox – a proto je pravdivá." },
+        { nazev: "Jazykový", popis: "Sleduje slova, rytmus, význam.", text: "Věta 'Chceš myš?' není otázka. Je to past. Jazyková past, která tě donutí odpovědět, i když nevíš na co." },
+        { nazev: "Ironický", popis: "Vidí rozpor mezi záměrem a výsledkem.", text: "Myš nechtěla nic, jen si zapisovat. A najednou je středem lesa. Ironie, ne?" },
+        { nazev: "Filozofický", popis: "Ptá se po smyslu a podstatě.", text: "Co znamená 'být myš'? Je to role, nebo podstata? Celá pohádka je jedna velká otázka bez odpovědi." },
+        { nazev: "Surrealistický", popis: "Propojuje nesouvisející.", text: "Páv s očima na ocase, slon s třešněmi v chobotu, myš co zapisuje do ticha. Tohle není les – je to obraz." },
+        { nazev: "Naivní", popis: "Vidí věci jednoduše, bez předsudků.", text: "Myš si všímá věcí, které ostatní nevidí. A pak se zeptá. To je celé. Nemusíš tomu rozumět víc." },
+        { nazev: "Introspektivní", popis: "Promítá do příběhu vlastní pocity.", text: "Cítím z toho ticho. Myš, co je sama uprostřed lesa, obklopená zvířaty, kterým nerozumí. Jako já." },
+        { nazev: "Konkrétní", popis: "Čte doslovně, fakticky.", text: "Pohádka je o myši, která žila v lese, potkala zvířata, zapsala si je a zeptala se 'Chceš myš?'." },
+        { nazev: "Kulturní", popis: "Hledá archetypy a paralely.", text: "Myš je jako Áriadna – dává nit, aby ses neztratil. Jenže její nit není z klubka, ale z ticha." },
+        { nazev: "Asociační", popis: "Vyvolává osobní vzpomínky.", text: "Připomíná mi to naši projektovou manažerku. Taky si všechno zapisovala a pak jednou položila otázku a všichni ztichli." },
+        { nazev: "Metaforický", popis: "Vidí symboly za věcmi.", text: "Myš není myš. Je to pozornost. Páv je ješitnost, kocour je spěch, slon je paměť." },
+        { nazev: "Groteskní", popis: "Vidí přehnanou, temnou komiku.", text: "Představ si: páv si přepočítává oči, lemur civí do prázdna, a myš je má zachránit otázkou, na kterou nezná odpověď. Fraška." }
     ];
 
-    // =============================================
-    //  VYTVOŘENÍ TLAČÍTEK
-    // =============================================
-    function vytvorUhly() {
-        const container = document.getElementById('seznamUhlu');
-        container.innerHTML = '';
-        
-        uhly.forEach((uhel, index) => {
-            const btn = document.createElement('button');
-            btn.textContent = uhel.nazev;
-            btn.onclick = () => vyberUhel(index);
-            container.appendChild(btn);
-        });
-        
-        // Předvyber první úhel
-        vyberUhel(0);
-    }
+    const tlacitka = document.getElementById('tlacitka');
+    const nazevEl = document.getElementById('nazev');
+    const popisEl = document.getElementById('popis');
+    const textEl = document.getElementById('text');
 
-    // =============================================
-    //  VÝBĚR ÚHLU
-    // =============================================
-    function vyberUhel(index) {
-        // Odebrat zvýraznění ze všech tlačítek
-        const vsechnaTlacitka = document.querySelectorAll('.uhly-grid button');
-        vsechnaTlacitka.forEach(btn => btn.classList.remove('vybrany'));
-        
-        // Zvýraznit vybrané tlačítko
-        vsechnaTlacitka[index].classList.add('vybrany');
-        
-        // Zobrazit text vybraného úhlu
-        const uhel = uhly[index];
-        document.getElementById('nazevUhlu').textContent = uhel.nazev;
-        document.getElementById('popisUhlu').textContent = uhel.popis;
-        document.getElementById('radaUhlu').textContent = uhel.rada;
-    }
+    // Vytvoření tlačítek
+    data.forEach((uhel, index) => {
+        const btn = document.createElement('button');
+        btn.textContent = uhel.nazev;
+        btn.onclick = () => {
+            // Zvýraznění
+            document.querySelectorAll('.seznam-uhlu button').forEach(b => b.classList.remove('vybrany'));
+            btn.classList.add('vybrany');
+            // Výpis
+            nazevEl.textContent = uhel.nazev;
+            popisEl.textContent = uhel.popis;
+            textEl.textContent = uhel.text;
+        };
+        tlacitka.appendChild(btn);
+    });
 
-    // Spustit při načtení stránky
-    window.onload = vytvorUhly;
+    // Předvybrat první úhel
+    if (data.length) {
+        document.querySelector('.seznam-uhlu button').click();
+    }
 </script>
 
 </body>
