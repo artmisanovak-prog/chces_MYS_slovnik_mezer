@@ -1,4 +1,4 @@
-# 🐱 KARTA: KOCOUR – Ukázka
+# 🐱 KARTA: KOCOUR – ukázka
 
 **Tyranie předčasného uzavírání v komunikaci**
 
@@ -6,7 +6,11 @@ Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči
 
 ---
 
-[Přečíst pohádku](./pohadka.md) | [Diagnostikovat tým](./diagnostika.md) | [Spustit workshop](./workshop.md)
+[Příběh o kocourovi](./pohadka.md) | [Kognitivní mapa týmu](./diagnostika.md) | [diagnostický__mód](./workshop.md) |
+[kreativní mód](./kreativni_tvůrce.md) | [Generativní_mód](./diagnostika.md) | [Workshop](./workshop.md) |
+[Zpětná_vazba](./pohadka.md) | 
+[workshop](./workshop.md) |
+[Licence](./workshop.md) |
 
 ---
 
