@@ -2,7 +2,7 @@
 
 ## Pro jednotlivce
 
-1. **Začněte s Myší** – Přejděte do [/MYŠ/](../MYŠ/) a projděte si diagnostický nástroj.
+1. **Začněte s Myší** – Přejděte do [MYŠ](../MYŠ/) a projděte si diagnostický nástroj.
 2. **Přečtěte si pohádku** a odpovězte na 3 otázky.
 3. **Vyhodnoťte své odpovědi** pomocí Klíče k úhlům.
 4. **Zjistěte svůj myšlenkový styl** a které karty by pro vás mohly být užitečné.
