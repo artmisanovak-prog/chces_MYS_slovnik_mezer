@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐱 KOCOUR – diagnostický mod</title>
+    <style>
+        /* ZÁKLAD – ČERNOBÍLÝ, JEN PUNTÍKY BAREVNÉ */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #fff;
+            color: #000;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            border: 3px solid #000;
+            padding: 2rem;
+            background: #fff;
+        }
+
+        /* TYPOGRAFIE */
+        h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 3px solid #000; padding-bottom: 0.5rem; }
+        h2 { font-size: 1.8rem; margin: 2rem 0 1rem; }
+        h3 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; }
+        hr { border: none; border-top: 2px solid #000; margin: 2rem 0; }
+
+        /* KROKY */
+        .step { display: none; }
+        .step.active { display: block; }
+
+        /* TLAČÍTKA */
+        .btn {
+            background: #000;
+            color: #fff;
+            border: 2px solid #000;
+            padding: 0.7rem 1.8rem;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 1rem 0.5rem 1rem 0;
+            transition: none;
+        }
+        .btn:hover { background: #fff; color: #000; }
+        .btn:disabled, .btn.hotovo {
+            background: #ccc;
+            color: #666;
+            border-color: #666;
+            cursor: default;
+        }
+        .btn.hotovo:hover { background: #ccc; color: #666; }
+
+        /* FORMULÁŘE */
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #000;
+            background: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            margin: 0.3rem 0;
+        }
+        textarea { min-height: 80px; resize: vertical; }
+        label { font-weight: bold; display: block; margin-top: 1rem; }
+
+        /* BAREVNÉ PUNTÍKY – výběr */
+        .barvy-volba {
+            display: flex;
+            gap: 0.8rem;
+            margin: 0.5rem 0;
+            flex-wrap: wrap;
+        }
+        .barva-polozka {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+        .barva-polozka.vybrana { border: 4px solid #000; outline: 2px solid #fff; outline-offset: 0; }
+
+        /* SEZNAM LIDÍ */
+        .clen-seznam { margin: 1.5rem 0; }
+        .clen-polozka {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 0.8rem;
+            border: 2px solid #000;
+            background: #f9f9f9;
+        }
+        .clen-barva {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #000;
+            flex-shrink: 0;
+        }
+        .clen-jmeno { font-weight: bold; min-width: 120px; }
+        .clen-odpoved { flex: 1; }
+        .clen-tlacitko { min-width: 100px; }
+
+        /* POHÁDKA – SCROLL OKNO */
+        .pohadka-box {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 2px solid #000;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            background: #f5f5f5;
+            white-space: pre-line;
+            font-style: italic;
+        }
+
+        /* GRAF – VÝSLEDKY */
+        .graf-radky { margin: 2rem 0; }
+        .graf-radek {
+            display: grid;
+            grid-template-columns: 200px 1fr 80px;
+            gap: 1rem;
+            align-items: center;
+            margin: 0.8rem 0;
+        }
+        .graf-nazev { font-weight: bold; }
+        .graf-sloupec {
+            height: 28px;
+            background: #ddd;
+            border: 2px solid #000;
+        }
+        .graf-sloupec .fill {
+            height: 100%;
+            background: #000;
+        }
+        .graf-sloupec .fill.deficit { background: #aaa; }  /* světlejší šedá = deficit */
+        .graf-sloupec .fill.premnozeny { background: #000; } /* černá = přetížený */
+        .graf-skore { font-family: monospace; }
+
+        .doporuceni {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 2px solid #000;
+            background: #f5f5f5;
+        }
+        .doporuceni-item {
+            margin: 1.5rem 0;
+            padding-left: 1rem;
+            border-left: 6px solid #000;
+        }
+
+        .poznamka { font-size: 0.9rem; color: #333; margin: 1rem 0; }
+
+        @media (max-width: 700px) {
+            .graf-radek { grid-template-columns: 1fr; }
+            .clen-polozka { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🐱 KOCOUR – diagnostický mod</h1>
+    <p><a href="./README.md" style="color:#000; text-decoration:underline;">← zpět na rozcestník</a></p>
+    <hr>
+
+    <!-- KROK 1: POČET LIDÍ -->
+    <div id="step1" class="step active">
+        <h2>Krok 1: Kolik vás je?</h2>
+        <p>Zadejte počet členů týmu, kteří se diagnostiky účastní.</p>
+        <input type="number" id="pocetLidi" min="1" max="20" value="3">
+        <button class="btn" onclick="krok1Potvrdit()">Potvrdit</button>
+    </div>
+
+    <!-- KROK 2: JMÉNA A BARVY -->
+    <div id="step2" class="step">
+        <h2>Krok 2: Jména a rozlišení</h2>
+        <p>Ke každému doplňte jméno a vyberte barvu puntíku (kliknutím).</p>
+        <div id="cleniKrok2"></div>
+        <button class="btn" onclick="krok2Pokracovat()">Pokračovat</button>
+    </div>
+
+    <!-- KROK 3: POHÁDKA + ODPOVĚDI -->
+    <div id="step3" class="step">
+        <h2>Krok 3: Pohádka a vaše postřehy</h2>
+
+        <!-- POHÁDKA (TRVALE VIDITELNÁ) -->
+        <div class="pohadka-box" id="pohadkaText"></div>
+
+        <!-- SEZNAM ODPOVĚDÍ -->
+        <div id="cleniKrok3"></div>
+
+        <!-- TLAČÍTKO VYHODNOTIT (objeví se až po všech odpovědích) -->
+        <div id="vyhodnotitContainer" style="display:none;">
+            <button class="btn" onclick="vyhodnotit()">Vyhodnotit →</button>
+        </div>
+    </div>
+
+    <!-- KROK 4: VÝSLEDKY + GRAF -->
+    <div id="step4" class="step">
+        <h2>Krok 4: Diagnostický úhloměr</h2>
+        <p>Na základě vašich odpovědí jsme sestavili profil týmu.</p>
+
+        <!-- GRAF -->
+        <div id="grafContainer" class="graf-radky"></div>
+
+        <!-- DOPORUČENÍ -->
+        <div id="doporuceniContainer" class="doporuceni"></div>
+
+        <!-- ULOŽENÍ -->
+        <button class="btn" onclick="ulozVysledky()">💾 Uložit výsledky (s datem/časem)</button>
+        <button class="btn" onclick="novaDiagnostika()">⟲ Nová diagnostika</button>
+        <p class="poznamka">Výsledky obsahují jména, odpovědi, graf a doporučení.</p>
+    </div>
+
+    <hr>
+    <p style="text-align:center;">© KOCOUR – diagnostický mod (součást systému PLAMEŇÁK)</p>
+</div>
+
+<script>
+// ----------------------------------------------------------------
+// DATA – POHÁDKA, 12 ÚHLŮ, KLÍČOVÁ SLOVA (PŘESNĚ PODLE TVÉ TABULKY)
+// ----------------------------------------------------------------
+const POHADKA = `O kocourovi, který sežral dvě berušky a půl hodiny krkal tečky
+
+Sležral dvě – ne tři, ne jednu – dvě – přesně – 14 teček a trvalo to půl hodiny – 30 minut – přesně. 
+Jak to přišlo, tak to přestalo. Ráz na ráz.
+
+Chňap a hlt a chlamst – nebo něco takového a nakonec – mlask, mlask – dvakrát – přesně.
+
+Žily byly dvě berušky, každá sedm teček měla, když uviděl je jeden kocour byla to mela. Aspoň pro ně.
+
+Po 14ti tečkách v jednom mžiku zem se slehla. Rozhodně aspoň kocour se svými útrobami.
+
+Ale ta myš, vždycky zvědavá byla. Odmalička chodívala a kde mohla se vyptávala, kde se tečky na beruškách vzaly? K čemu je maji? Proč si radši nevytvoří pravý maskování?
+
+A ta přesná matika.. Kdo vlastně z těch, co s nimi přijdou do styku, takhle přesně počítá?
+
+No a toho dne – náhle – se to stalo a myš svou odpověď měla. Kocour mlaskl a pak znovu a hned na to začalo to.
+
+Půl hodiny a bylo to zaznamenáno – přesně. Kocour krkal tečky a dokončoval věty! Někdy celé souvětí!!
+
+Jenomže tím zároveň skákal lidem do řeči, tím že za ně dokončoval, co nedokončili. Skočil všem do řeči koncem věty – ale vždycky o něco málo, někdy i o docela dost dřív, než měla věta původně skončit.
+
+A celou půlhodinu nemohl tenkrát nikdo nic – ne – dokončit. Nešlo to. Každému dřív, než se k tomu dostal, všem kocour větu ukončil. Hned.
+
+Kocour se tomu smál, ale krkal dál. A krkal, dokud neskončil. Představte si to: Skončil větu a pak skončil krkat.
+
+A lidé zase začali moct své věty ukončovat sami. Hned.
+
+Jenže, jak se to tak občas stává, přestože nikdo nevěděl co, každý věděl, že něco nebylo stejné. A to, co jednou není stejné dnes, to není jednou stejné nikdy.
+
+Jen nedokončené věty bývají všechny stejné. Jednou, dnes i zítra. Berušky mají na sobě nedokončené konce vět. Věci, které jsou nespolknuté.
+
+Kocour to nevěděl – a dvě spolknul. Spolknuté konce ale vykrkal zpátky a lide se naučili, že všechno se spolknout nedá. A že tečka je někdy silnější, než celá věta.
+
+Kocour se nažral a myš i věty zůstali celé. Díky bohu za to. Štěstí dvou berušek se vrátilo zpátky.
+
+Ale všimly si toho jen kocour a malá myš. A ani jeden neříkali nic.
+
+KONEC`;
+
+// 12 ÚHLŮ – PŘESNĚ Z TVÉ TABULKY
+const UHLY = [
+    {
+        nazev: "1. ABSURDNÍ ÚHEL (Logika naruby)",
+        q3: "Radil by nedělat věci jen proto, že 'se to tak dělá', pokud to nedává smysl.",
+        klicSlova: ["rozpor", "paradox", "nesmysl", "absurdita", "pravidla", "logika", "smysl", "dává smysl"]
+    },
+    {
+        nazev: "2. JAZYKOVÝ ÚHEL (Hra se slovy)",
+        q3: "Radil by pečlivě volit slova, hrát si s formulacemi nebo naslouchat skrytým významům.",
+        klicSlova: ["slovo", "věta", "jazyk", "formulace", "říká", "napsáno", "čte", "vypráví", "otázka", "odpověď"]
+    },
+    {
+        nazev: "3. IRONICKÝ ÚHEL (Převrácení v směšné)",
+        q3: "Radil by se při každém rozhodnutí zeptat: 'A co když to dopadne přesně naopak, než chceme?'",
+        klicSlova: ["ironie", "paradox", "trapný", "vtip", "směšné", "legrační", "pobavilo", "humor", "sarkasmus"]
+    },
+    {
+        nazev: "4. FILOZOFICKÝ ÚHEL (Existenciální otázky)",
+        q3: "Radil by se vždy nejdřív zeptat: 'Jaký je smysl toho, co děláme? Je to opravdu důležité?'",
+        klicSlova: ["smysl", "existence", "bytí", "pravda", "universální", "otázka", "podstata", "hodnota", "filozofie"]
+    },
+    {
+        nazev: "5. SURREALISTICKÝ ÚHEL (Volné asociace)",
+        q3: "Radil by při brainstormu zakázat logiku a nechat pracovat pouze asociace a sny.",
+        klicSlova: ["sen", "obraz", "asociace", "bizarní", "snový", "podivný", "fantazie", "nereálný", "surreal"]
+    },
+    {
+        nazev: "6. NAIVNÍ ÚHEL (Dětská logika)",
+        q3: "Radil by se vždy zeptat: 'Jak by to udělalo dítě?'",
+        klicSlova: ["jednoduchý", "přímočarý", "čistý", "dítě", "dětský", "naivní", "prostý", "morálka", "poučení"]
+    },
+    {
+        nazev: "7. INTROSPEKTIVNÍ ÚHEL (Vnitřní monolog)",
+        q3: "Radil by si před každým rozhodnutím dát minutu ticha a zeptat se sám sebe, co k tomu skutečně cítím.",
+        klicSlova: ["cítím", "pocit", "emoce", "dotklo", "dojal", "vnitřní", "osobní", "vzpomínka", "srdce"]
+    },
+    {
+        nazev: "8. VŠEOBECNÝ (KONKRÉTNÍ) ÚHEL (Co vidíš, to je)",
+        q3: "Radil by nejdřív sepsat všechny známé fakta o problému, než začneme spekulovat.",
+        klicSlova: ["fakt", "děj", "stalo", "popis", "konkrétní", "jasný", "přesný", "vidět", "doslova"]
+    },
+    {
+        nazev: "9. ANALOGICKÝ (KULTURNÍ) ÚHEL (Vztahy, archetypy)",
+        q3: "Radil by se podívat, jestli podobný problém neměli v jiném oddělení nebo firmě, a poučit se z toho.",
+        klicSlova: ["archetyp", "mýtus", "symbol", "kultura", "historie", "podobný", "paralela", "analogie", "jako"]
+    },
+    {
+        nazev: "10. ASOCIAČNÍ ÚHEL (Rychlé spojení)",
+        q3: "Radil by při hledání řešení napsat prvních 10 slov, co vás napadnou, a teprve pak je analyzovat.",
+        klicSlova: ["připomíná", "asociace", "napadá", "spojení", "vzpomněl", "evokuje", "podobné", "jako když"]
+    },
+    {
+        nazev: "11. METAFORICKÝ (SYMBOLICKÝ) ÚHEL (Obraz → význam)",
+        q3: "Radil by si problém nakreslit jako symbol nebo znak a pak se ptát, co ten znak znamená.",
+        klicSlova: ["symbol", "metafora", "znamená", "představuje", "skrytý", "význam", "obraz", "dešifrovat"]
+    },
+    {
+        nazev: "12. GROTESKNÍ ÚHEL (Komické do extrému)",
+        q3: "Radil by si představit, že náš problém je scénář pro špatný komiks, a napsat k němu tři nejtrapnější pointy.",
+        klicSlova: ["přehnaný", "karikatura", "trapný", "extrém", "vtip", "komický", "groteska", "bizarní", "směšný"]
+    }
+];
+
+// ----------------------------------------------------------------
+// STAV APLIKACE
+let pocet = 3;
+let clenove = []; // pole objektů { jmeno, barva, odpoved, hotovo }
+
+// Paleta barev (pro puntíky)
+const BARVY = ['#e61919', '#1e7e1e', '#1e1ec0', '#ff8c00', '#b469b4', '#00a1a1', '#a0522d', '#808080'];
+
+// ----------------------------------------------------------------
+// KROK 1
+function krok1Potvrdit() {
+    pocet = parseInt(document.getElementById('pocetLidi').value);
+    if (isNaN(pocet) || pocet < 1) { alert('Zadejte platný počet (alespoň 1).'); return; }
+    if (pocet > 20) { alert('Maximálně 20 lidí.'); return; }
+
+    // Inicializace pole členů
+    clenove = [];
+    for (let i = 0; i < pocet; i++) {
+        clenove.push({
+            jmeno: '',
+            barva: BARVY[i % BARVY.length],
+            odpoved: '',
+            hotovo: false
+        });
+    }
+    zobrazKrok2();
+}
+
+// ----------------------------------------------------------------
+// KROK 2
+function zobrazKrok2() {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step2').classList.add('active');
+
+    let html = '';
+    for (let i = 0; i < pocet; i++) {
+        html += `
+            <div class="clen-polozka" id="clen2-${i}">
+                <div class="clen-barva" style="background:${clenove[i].barva};"></div>
+                <div style="flex:1;">
+                    <input type="text" id="jmeno-${i}" placeholder="Jméno člena" value="${clenove[i].jmeno}">
+                    <div class="barvy-volba" id="barvy-${i}">
+                        ${BARVY.map((b, idx) => `<div class="barva-polozka ${b === clenove[i].barva ? 'vybrana' : ''}" style="background:${b};" onclick="vybratBarvu(${i}, '${b}')"></div>`).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    document.getElementById('cleniKrok2').innerHTML = html;
+}
+
+function vybratBarvu(index, barva) {
+    clenove[index].barva = barva;
+    // překreslíme výběr barev pro tohoto člena (aktualizace třídy vybrana)
+    let container = document.getElementById(`barvy-${index}`);
+    if (container) {
+        let puntiky = container.children;
+        for (let p of puntiky) {
+            p.classList.remove('vybrana');
+            if (p.style.background === barva) p.classList.add('vybrana');
+        }
+    }
+    document.getElementById(`clen2-${index}`).querySelector('.clen-barva').style.background = barva;
+}
+
+function krok2Pokracovat() {
+    // Uložit jména z inputů
+    for (let i = 0; i < pocet; i++) {
+        let input = document.getElementById(`jmeno-${i}`);
+        clenove[i].jmeno = input.value.trim() || `Člen ${i+1}`;
+    }
+    zobrazKrok3();
+}
+
+// ----------------------------------------------------------------
+// KROK 3
+function zobrazKrok3() {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step3').classList.add('active');
+
+    document.getElementById('pohadkaText').innerText = POHADKA;
+
+    let html = '';
+    for (let i = 0; i < pocet; i++) {
+        let disabledAttr = clenove[i].hotovo ? 'disabled' : '';
+        html += `
+            <div class="clen-polozka" id="clen3-${i}">
+                <div class="clen-barva" style="background:${clenove[i].barva};"></div>
+                <div class="clen-jmeno">${clenove[i].jmeno}</div>
+                <div class="clen-odpoved">
+                    <textarea id="odpoved-${i}" placeholder="Co vás v textu zaujalo?" ${disabledAttr}>${clenove[i].odpoved}</textarea>
+                </div>
+                <div class="clen-tlacitko">
+                    <button class="btn ${clenove[i].hotovo ? 'hotovo' : ''}" id="btn-${i}" onclick="potvrditOdpoved(${i})" ${disabledAttr}>${clenove[i].hotovo ? 'Hotovo' : 'Hotovo?'}</button>
+                </div>
+            </div>
+        `;
+    }
+    document.getElementById('cleniKrok3').innerHTML = html;
+
+    // Schovat/zobrazit tlačítko pro vyhodnocení
+    document.getElementById('vyhodnotitContainer').style.display = (clenove.every(c => c.hotovo)) ? 'block' : 'none';
+}
+
+function potvrditOdpoved(index) {
+    let textarea = document.getElementById(`odpoved-${index}`);
+    clenove[index].odpoved = textarea.value;
+    clenove[index].hotovo = true;
+
+    // Deaktivovat a označit tlačítko
+    let btn = document.getElementById(`btn-${index}`);
+    btn.disabled = true;
+    btn.classList.add('hotovo');
+    btn.innerText = 'Hotovo';
+
+    // Zkontrolovat, jestli všichni hotovi
+    if (clenove.every(c => c.hotovo)) {
+        document.getElementById('vyhodnotitContainer').style.display = 'block';
+    }
+}
+
+// ----------------------------------------------------------------
+// KROK 4 – VYHODNOCENÍ
+function vyhodnotit() {
+    // Sesbírat odpovědi (pro jistotu znovu z textareí, kdyby někdo něco měnil)
+    for (let i = 0; i < pocet; i++) {
+        let ta = document.getElementById(`odpoved-${i}`);
+        if (ta) clenove[i].odpoved = ta.value;
+    }
+
+    // Spojit všechny odpovědi do jednoho textu (pro hledání klíčových slov)
+    let vsechnyTexty = clenove.map(c => c.odpoved.toLowerCase()).join(' ');
+
+    // Spočítat skóre pro každý úhel
+    let skore = UHLY.map(u => {
+        let count = 0;
+        u.klicSlova.forEach(slovo => {
+            let regex = new RegExp(slovo, 'gi');
+            let matches = vsechnyTexty.match(regex);
+            if (matches) count += matches.length;
+        });
+        return count;
+    });
+
+    // Určit hranice pro "přetížený" a "deficitní"
+    // Jednoduchá metoda: seřadit, horních 25 % = přetížené, dolních 25 % = deficitní
+    let sorted = [...skore].sort((a,b) => a - b);
+    let deficitHranice = sorted[Math.floor(sorted.length * 0.25)]; // dolní kvartil
+    let premnozenaHranice = sorted[Math.ceil(sorted.length * 0.75)]; // horní kvartil
+
+    // Vytvořit pole s typy
+    let typy = skore.map(s => {
+        if (s >= premnozenaHranice && premnozenaHranice > 0) return 'premnozeny';
+        else if (s <= deficitHranice && deficitHranice > 0 && s > 0) return 'deficit';
+        else return 'normal';
+    });
+
+    // Vykreslit graf
+    let grafHtml = '';
+    for (let i = 0; i < UHLY.length; i++) {
+        let maxSkore = Math.max(...skore, 1); // aby se dalo dělit
+        let sirka = (skore[i] / maxSkore) * 100;
+        let trida = typy[i] === 'premnozeny' ? 'premnozeny' : (typy[i] === 'deficit' ? 'deficit' : '');
+        grafHtml += `
+            <div class="graf-radek">
+                <div class="graf-nazev">${UHLY[i].nazev}</div>
+                <div class="graf-sloupec">
+                    <div class="fill ${trida}" style="width: ${sirka}%;"></div>
+                </div>
+                <div class="graf-skore">${skore[i]}</div>
+            </div>
+        `;
+    }
+    document.getElementById('grafContainer').innerHTML = grafHtml;
+
+    // Vykreslit doporučení (jen pro přetížené a deficitní)
+    let dopHtml = '<h3>📌 Doporučení z Q3</h3>';
+    for (let i = 0; i < UHLY.length; i++) {
+        if (typy[i] !== 'normal') {
+            let typText = typy[i] === 'premnozeny' ? '🔴 PŘETÍŽENÝ' : '🟢 DEFICITNÍ';
+            dopHtml += `
+                <div class="doporuceni-item">
+                    <strong>${typText}: ${UHLY[i].nazev}</strong><br>
+                    ${UHLY[i].q3}
+                </div>
+            `;
+        }
+    }
+    document.getElementById('doporuceniContainer').innerHTML = dopHtml;
+
+    // Zobrazit krok 4
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step4').classList.add('active');
+}
+
+// ----------------------------------------------------------------
+// ULOŽENÍ VÝSLEDKŮ
+function ulozVysledky() {
+    let d = new Date();
+    let datumCas = `${d.toLocaleDateString()} ${d.toLocaleTimeString()}`;
+
+    let text = `VÝSLEDKY DIAGNOSTIKY – KOCOUR\n`;
+    text += `Datum a čas: ${datumCas}\n`;
+    text += `Členové týmu:\n`;
+    clenove.forEach(c => text += `- ${c.jmeno} (barva)\n`);
+    text += `\nODPOVĚDI NA OTÁZKU "Co vás zaujalo?":\n`;
+    clenove.forEach(c => text += `${c.jmeno}: ${c.odpoved}\n`);
+
+    text += `\nSKÓRE ÚHLŮ:\n`;
+    // tady bychom museli znovu spočítat skóre – pro jednoduchost zopakujeme výpočet
+    let vsechnyTexty = clenove.map(c => c.odpoved.toLowerCase()).join(' ');
+    let skore = UHLY.map(u => {
+        let count = 0;
+        u.klicSlova.forEach(slovo => {
+            let regex = new RegExp(slovo, 'gi');
+            let matches = vsechnyTexty.match(regex);
+            if (matches) count += matches.length;
+        });
+        return count;
+    });
+    for (let i = 0; i < UHLY.length; i++) {
+        text += `${UHLY[i].nazev}: ${skore[i]}\n`;
+    }
+
+    text += `\nDOPORUČENÍ Z Q3 (pro přetížené/deficitní úhly):\n`;
+    // opět bychom potřebovali typy – zjednodušeně zopakujeme logiku
+    let sorted = [...skore].sort((a,b) => a - b);
+    let deficitHranice = sorted[Math.floor(sorted.length * 0.25)];
+    let premnozenaHranice = sorted[Math.ceil(sorted.length * 0.75)];
+    for (let i = 0; i < UHLY.length; i++) {
+        if (skore[i] >= premnozenaHranice && premnozenaHranice > 0) {
+            text += `🔴 PŘETÍŽENÝ: ${UHLY[i].nazev} – ${UHLY[i].q3}\n`;
+        } else if (skore[i] <= deficitHranice && deficitHranice > 0 && skore[i] > 0) {
+            text += `🟢 DEFICITNÍ: ${UHLY[i].nazev} – ${UHLY[i].q3}\n`;
+        }
+    }
+
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `kocour_diagnostika_${d.toISOString().slice(0,19).replace(/:/g, '-')}.txt`;
+    a.click();
+}
+
+// ----------------------------------------------------------------
+// NOVÁ DIAGNOSTIKA
+function novaDiagnostika() {
+    // Reset stavu
+    pocet = 3;
+    clenove = [];
+    document.getElementById('pocetLidi').value = 3;
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step1').classList.add('active');
+}
+
+// ----------------------------------------------------------------
+// PŘI NAČTENÍ STRÁNKY – zobrazení pohádky v data (pro jistotu)
+document.getElementById('pohadkaText').innerText = POHADKA;
+</script>
+</body>
+</html>
