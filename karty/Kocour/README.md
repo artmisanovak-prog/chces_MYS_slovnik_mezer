@@ -6,7 +6,8 @@ Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči
 
 ---
 
-[Příběh o kocourovi](./pohadka.md) | [Kognitivní mapa týmu](./diagnostika.md) | [diagnostický__mód](./workshop_90_minut.md) |
+[Příběh o kocourovi](./pohadka.md) | [Kognitivní mapa týmu](./diagnostika.md) | 
+.[Diagnosticky_mod](./Diagnosticky_mod.html) |
 [kreativní mód](./kreativni_tvůrce.md) | [Generativní_mód](./diagnostika.md) | [Workshop](./workshop.md) |
 [Zpětná_vazba](./pohadka.md) | 
 [workshop](./workshop.md) |
