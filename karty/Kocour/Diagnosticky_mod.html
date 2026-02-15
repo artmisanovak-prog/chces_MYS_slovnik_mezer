@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐱 KOCOUR – diagnostický mód</title>
     <style>
-        /* ZÁKLAD – ČERNOBÍLÝ, JEN PUNTÍKY BAREVNÉ */
+        /* Čistě černobílé, jen ikony jsou barevné (emoji) */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background: #fff;
@@ -24,17 +25,14 @@
             background: #fff;
         }
 
-        /* TYPOGRAFIE */
         h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 1.5rem; border-bottom: 3px solid #000; padding-bottom: 0.5rem; }
         h2 { font-size: 1.8rem; margin: 2rem 0 1rem; }
         h3 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; }
         hr { border: none; border-top: 2px solid #000; margin: 2rem 0; }
 
-        /* KROKY */
         .step { display: none; }
         .step.active { display: block; }
 
-        /* TLAČÍTKA */
         .btn {
             background: #000;
             color: #fff;
@@ -56,7 +54,6 @@
         }
         .btn.hotovo:hover { background: #ccc; color: #666; }
 
-        /* FORMULÁŘE */
         input, textarea {
             width: 100%;
             padding: 0.8rem;
@@ -69,23 +66,25 @@
         textarea { min-height: 80px; resize: vertical; }
         label { font-weight: bold; display: block; margin-top: 1rem; }
 
-        /* BAREVNÉ PUNTÍKY – výběr */
-        .barvy-volba {
+        /* Výběr ikon */
+        .ikony-volba {
             display: flex;
             gap: 0.8rem;
             margin: 0.5rem 0;
             flex-wrap: wrap;
         }
-        .barva-polozka {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid #000;
+        .ikona-polozka {
+            font-size: 2rem;
             cursor: pointer;
+            padding: 0.2rem;
+            border: 2px solid transparent;
         }
-        .barva-polozka.vybrana { border: 4px solid #000; outline: 2px solid #fff; outline-offset: 0; }
+        .ikona-polozka.vybrana {
+            border: 2px solid #000;
+            background: #f0f0f0;
+        }
 
-        /* SEZNAM LIDÍ */
+        /* Seznam členů */
         .clen-seznam { margin: 1.5rem 0; }
         .clen-polozka {
             display: flex;
@@ -95,19 +94,19 @@
             padding: 0.8rem;
             border: 2px solid #000;
             background: #f9f9f9;
+            flex-wrap: wrap;
         }
-        .clen-barva {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #000;
-            flex-shrink: 0;
+        .clen-ikona {
+            font-size: 2.5rem;
+            line-height: 1;
+            min-width: 50px;
+            text-align: center;
         }
         .clen-jmeno { font-weight: bold; min-width: 120px; }
-        .clen-odpoved { flex: 1; }
+        .clen-odpoved { flex: 1; min-width: 250px; }
         .clen-tlacitko { min-width: 100px; }
 
-        /* POHÁDKA – SCROLL OKNO */
+        /* Pohádka - scroll okno */
         .pohadka-box {
             max-height: 300px;
             overflow-y: auto;
@@ -119,29 +118,30 @@
             font-style: italic;
         }
 
-        /* GRAF – VÝSLEDKY */
-        .graf-radky { margin: 2rem 0; }
-        .graf-radek {
-            display: grid;
-            grid-template-columns: 200px 1fr 80px;
-            gap: 1rem;
+        /* Koláčový graf (zjednodušený jako seznam) */
+        .graf-seznam {
+            margin: 2rem 0;
+            border: 2px solid #000;
+            padding: 1.5rem;
+        }
+        .graf-polozka {
+            display: flex;
             align-items: center;
+            gap: 1rem;
             margin: 0.8rem 0;
         }
-        .graf-nazev { font-weight: bold; }
-        .graf-sloupec {
-            height: 28px;
-            background: #ddd;
-            border: 2px solid #000;
-        }
-        .graf-sloupec .fill {
-            height: 100%;
+        .graf-barva {
+            width: 30px;
+            height: 30px;
             background: #000;
+            border-radius: 50%;
         }
-        .graf-sloupec .fill.deficit { background: #aaa; }  /* světlejší šedá = deficit */
-        .graf-sloupec .fill.premnozeny { background: #000; } /* černá = přetížený */
-        .graf-skore { font-family: monospace; }
+        .graf-barva.seda { background: #aaa; }
+        .graf-nazev { font-weight: bold; width: 250px; }
+        .graf-cislo { font-family: monospace; width: 80px; }
+        .graf-procenta { width: 80px; }
 
+        /* Doporučení Q3 */
         .doporuceni {
             margin: 2rem 0;
             padding: 1.5rem;
@@ -157,15 +157,14 @@
         .poznamka { font-size: 0.9rem; color: #333; margin: 1rem 0; }
 
         @media (max-width: 700px) {
-            .graf-radek { grid-template-columns: 1fr; }
             .clen-polozka { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>🐱 KOCOUR – kognitivní MAPA týmu</h1>
-    <p><a href="./Diagnostický_mod.html" style="color:#000; text-decoration:underline;">← zpět na rozcestník</a></p>
+    <h1>🐱 KOCOUR – diagnostický mód</h1>
+    <p><a href="../index.html" style="color:#000; text-decoration:underline;">← zpět na rozcestník karty</a> (uprav odkaz podle své struktury)</p>
     <hr>
 
     <!-- KROK 1: POČET LIDÍ -->
@@ -176,10 +175,10 @@
         <button class="btn" onclick="krok1Potvrdit()">Potvrdit</button>
     </div>
 
-    <!-- KROK 2: JMÉNA A BARVY -->
+    <!-- KROK 2: JMÉNA A IKONY -->
     <div id="step2" class="step">
-        <h2>Krok 2: Jména a rozlišení</h2>
-        <p>Ke každému doplňte jméno a vyberte barvu puntíku (kliknutím).</p>
+        <h2>Krok 2: Jména a ikony</h2>
+        <p>Ke každému doplňte jméno a vyberte ikonu (kliknutím).</p>
         <div id="cleniKrok2"></div>
         <button class="btn" onclick="krok2Pokracovat()">Pokračovat</button>
     </div>
@@ -188,13 +187,12 @@
     <div id="step3" class="step">
         <h2>Krok 3: Pohádka a vaše postřehy</h2>
 
-        <!-- POHÁDKA (TRVALE VIDITELNÁ) -->
         <div class="pohadka-box" id="pohadkaText"></div>
 
-        <!-- SEZNAM ODPOVĚDÍ -->
+        <p><strong>Otázka:</strong> <em>„Co vám tenhle příběh připomíná ve vaší práci? Kde ve vašem týmu vidíte podobný ‚kocouří‘ chování?“</em></p>
+
         <div id="cleniKrok3"></div>
 
-        <!-- TLAČÍTKO VYHODNOTIT (objeví se až po všech odpovědích) -->
         <div id="vyhodnotitContainer" style="display:none;">
             <button class="btn" onclick="vyhodnotit()">Vyhodnotit →</button>
         </div>
@@ -202,28 +200,27 @@
 
     <!-- KROK 4: VÝSLEDKY + GRAF -->
     <div id="step4" class="step">
-        <h2>Krok 4: Diagnostický úhloměr</h2>
-        <p>Na základě vašich odpovědí jsme sestavili profil týmu.</p>
+        <h2>Krok 4: Kognitivní mapa týmu</h2>
+        <p>Na základě vašich odpovědí jsme zjistili, jaké úhly ve vašem týmu převažují.</p>
 
-        <!-- GRAF -->
-        <div id="grafContainer" class="graf-radky"></div>
+        <div id="grafContainer" class="graf-seznam"></div>
 
-        <!-- DOPORUČENÍ -->
-        <div id="doporuceniContainer" class="doporuceni"></div>
+        <div id="doporuceniContainer" class="doporuceni">
+            <h3>📌 Rady (Q3) pro úhly, které se ve vašem týmu objevily</h3>
+        </div>
 
-        <!-- ULOŽENÍ -->
         <button class="btn" onclick="ulozVysledky()">💾 Uložit výsledky (s datem/časem)</button>
         <button class="btn" onclick="novaDiagnostika()">⟲ Nová diagnostika</button>
-        <p class="poznamka">Výsledky obsahují jména, odpovědi, graf a doporučení.</p>
+        <p class="poznamka">Výsledky obsahují jména, odpovědi, graf a rady Q3.</p>
     </div>
 
     <hr>
-    <p style="text-align:center;">© KOCOUR – diagnostický mod (součást systému Chceš myš? Slovník mezer)</p>
+    <p style="text-align:center;">© KOCOUR – diagnostický mód (součást systému PLAMEŇÁK)</p>
 </div>
 
 <script>
 // ----------------------------------------------------------------
-// DATA – POHÁDKA, 12 ÚHLŮ, KLÍČOVÁ SLOVA (PŘESNĚ PODLE TVÉ TABULKY)
+// DATA – POHÁDKA, 12 ÚHLŮ S Q2 (KLÍČOVÁ SLOVA) a Q3 (RADY)
 // ----------------------------------------------------------------
 const POHADKA = `O kocourovi, který sežral dvě berušky a půl hodiny krkal tečky
 
@@ -264,77 +261,76 @@ Ale všimly si toho jen kocour a malá myš. A ani jeden neříkali nic.
 
 KONEC`;
 
-// 12 ÚHLŮ – PŘESNĚ Z TVÉ TABULKY
+// 12 úhlů – název, klíčová slova (z Q2), rada (Q3)
 const UHLY = [
     {
-        nazev: "1. ABSURDNÍ ÚHEL (Logika naruby)",
-        q3: "Radil by nedělat věci jen proto, že 'se to tak dělá', pokud to nedává smysl.",
-        klicSlova: ["rozpor", "paradox", "nesmysl", "absurdita", "pravidla", "logika", "smysl", "dává smysl"]
+        nazev: "1. 🔚 Fyzický konec věty",
+        klicSlova: ["tečka", "konec", "ukončit", "uzavřít", "dokončit", "hotovo", "action point", "rychle", "takže", "možná bychom", "meeting", "přerušen", "řešení"],
+        q3: "Zavést pravidlo 'tří teček' (...). Když někdo něco naznačí, musí mít prostor to rozvést. První, kdo řekne 'tečka', má za úkol pouze shrnout, co slyšel, NE dodat svůj závěr."
     },
     {
-        nazev: "2. JAZYKOVÝ ÚHEL (Hra se slovy)",
-        q3: "Radil by pečlivě volit slova, hrát si s formulacemi nebo naslouchat skrytým významům.",
-        klicSlova: ["slovo", "věta", "jazyk", "formulace", "říká", "napsáno", "čte", "vypráví", "otázka", "odpověď"]
+        nazev: "2. ⏱️ Kvaziefektivita",
+        klicSlova: ["rychle", "hotovo", "odkliknout", "agenda", "krátké", "délka", "rychlost", "efektivita", "akce", "vyřídit", "stihnout", "čas"],
+        q3: "Měřit úspěch schůze nikoli délkou, ale počtem otevřených otázek na konci. Pokud jsou všechny body 'uzavřeny', pravděpodobně jsme byli kocouři."
     },
     {
-        nazev: "3. IRONICKÝ ÚHEL (Převrácení v směšné)",
-        q3: "Radil by se při každém rozhodnutí zeptat: 'A co když to dopadne přesně naopak, než chceme?'",
-        klicSlova: ["ironie", "paradox", "trapný", "vtip", "směšné", "legrační", "pobavilo", "humor", "sarkasmus"]
+        nazev: "3. 🐞 Nespolyknutelný obsah",
+        klicSlova: ["těžké téma", "elephant v místnosti", "neříká se", "potlačuje", "tabu", "vyhýbat se", "dusí", "atmosféra", "citlivé", "nepříjemné"],
+        q3: "Vytvořit 'nástěnku nespolknutého'. Fyzické/virtuální místo, kde lze anonymně psát 'nespolknuté konce' z diskusí. Pravidelně je revidovat a zařazovat do agendy."
     },
     {
-        nazev: "4. FILOZOFICKÝ ÚHEL (Existenciální otázky)",
-        q3: "Radil by se vždy nejdřív zeptat: 'Jaký je smysl toho, co děláme? Je to opravdu důležité?'",
-        klicSlova: ["smysl", "existence", "bytí", "pravda", "universální", "otázka", "podstata", "hodnota", "filozofie"]
+        nazev: "4. 🐭 Pozorovatelská myš",
+        klicSlova: ["tichý", "introvert", "neslyší", "nemluví", "skrytý", "pozorovatel", "neprosadí se", "stydlivý", "nenápadný", "mlčí"],
+        q3: "Jmenovat pro každou důležitou diskusi 'myš'. Její jedinou rolí je pozorovat, kdo mluví, kdo je přerušován, a na konci sdělit pozorování bez hodnocení."
     },
     {
-        nazev: "5. SURREALISTICKÝ ÚHEL (Volné asociace)",
-        q3: "Radil by při brainstormu zakázat logiku a nechat pracovat pouze asociace a sny.",
-        klicSlova: ["sen", "obraz", "asociace", "bizarní", "snový", "podivný", "fantazie", "nereálný", "surreal"]
+        nazev: "5. 🕳️ Trvalá změna",
+        klicSlova: ["pořád stejný", "nic se nemění", "zase", "dokola", "trauma", "minulost", "jizva", "bojí se mluvit", "důvěra", "narušená"],
+        q3: "Úmyslně vytvářet 'nedokončené věty'. Leader musí začít myšlenku a vyzvat ostatní, aby ji dokončili. Obnovovat důvěru tím, že se vzdá kontroly nad tečkou."
     },
     {
-        nazev: "6. NAIVNÍ ÚHEL (Dětská logika)",
-        q3: "Radil by se vždy zeptat: 'Jak by to udělalo dítě?'",
-        klicSlova: ["jednoduchý", "přímočarý", "čistý", "dítě", "dětský", "naivní", "prostý", "morálka", "poučení"]
+        nazev: "6. 🔢 Tyranie metrik",
+        klicSlova: ["číslo", "metrika", "splněno", "nesplněno", "kolik", "počet", "report", "měřit", "jen čísla", "bez kontextu", "kvantita"],
+        q3: "Přidat ke každé kvantitativní metrice kvalitativní příběh. Ne 'dokončili jsme 14 úkolů', ale 'jakých 14 teček jsme vykrkli a co to pro nás znamenalo?'."
     },
     {
-        nazev: "7. INTROSPEKTIVNÍ ÚHEL (Vnitřní monolog)",
-        q3: "Radil by si před každým rozhodnutím dát minutu ticha a zeptat se sám sebe, co k tomu skutečně cítím.",
-        klicSlova: ["cítím", "pocit", "emoce", "dotklo", "dojal", "vnitřní", "osobní", "vzpomínka", "srdce"]
+        nazev: "7. 🤝 Násilný konsenzus",
+        klicSlova: ["souhlas", "ticho", "nikdo nic neřekl", "všichni souhlasí", "rychlé rozhodnutí", "přehlasovat", "nikdo neprotestoval"],
+        q3: "Používat mechanismus 'souhlasu ticha'. Pokud po představení rozhodnutí je ticho, automaticky to znamená NESOUHLAS. Nutí to lidi aktivně říkat 'souhlasím'."
     },
     {
-        nazev: "8. VŠEOBECNÝ (KONKRÉTNÍ) ÚHEL (Co vidíš, to je)",
-        q3: "Radil by nejdřív sepsat všechny známé fakta o problému, než začneme spekulovat.",
-        klicSlova: ["fakt", "děj", "stalo", "popis", "konkrétní", "jasný", "přesný", "vidět", "doslova"]
+        nazev: "8. 🏁 Konkurence místo kolaborace",
+        klicSlova: ["přerušovat", "skákat do řeči", "kdo dřív", "rychlejší", "dominovat", "předvést se", "vyhrát", "soutěž", "překřikovat"],
+        q3: "Zavést 'kolo mluvčího' pro klíčové diskuse. Používat fyzický předmět (talking stick). Mluví pouze ten, kdo ho drží. Ostatní jen aktivně naslouchají."
     },
     {
-        nazev: "9. ANALOGICKÝ (KULTURNÍ) ÚHEL (Vztahy, archetypy)",
-        q3: "Radil by se podívat, jestli podobný problém neměli v jiném oddělení nebo firmě, a poučit se z toho.",
-        klicSlova: ["archetyp", "mýtus", "symbol", "kultura", "historie", "podobný", "paralela", "analogie", "jako"]
+        nazev: "9. 🎁 Nedokončené jako dar",
+        klicSlova: ["řešení skákat", "nedokončený", "otevřený", "nechat plynout", "proces", "nejistota", "zvědavost", "objevovat"],
+        q3: "Cvičení 'úmyslně nedokončovat'. V brainstorming zadat: 'Náš problém je jako...'. A zakázat dokončení přirovnání. Jen generovat začátky. Prozkoumat, která nedokončená metafora je nejsilnější."
     },
     {
-        nazev: "10. ASOCIAČNÍ ÚHEL (Rychlé spojení)",
-        q3: "Radil by při hledání řešení napsat prvních 10 slov, co vás napadnou, a teprve pak je analyzovat.",
-        klicSlova: ["připomíná", "asociace", "napadá", "spojení", "vzpomněl", "evokuje", "podobné", "jako když"]
+        nazev: "10. 💔 Komunikační trauma",
+        klicSlova: ["schůze", "stres", "bojí se", "trapas", "ztrapnit", "ponížit", "ostuda", "úzkost", "strach mluvit", "nepříjemný zážitek"],
+        q3: "Provést 'audit komunikační bezpečnosti'. Anonymní dotazník: Cítím se bezpečně vyjádřit nesouhlas? Jsem často přerušován? Berou moje nápady vážně? Podle výsledků nastavit pravidla."
     },
     {
-        nazev: "11. METAFORICKÝ (SYMBOLICKÝ) ÚHEL (Obraz → význam)",
-        q3: "Radil by si problém nakreslit jako symbol nebo znak a pak se ptát, co ten znak znamená.",
-        klicSlova: ["symbol", "metafora", "znamená", "představuje", "skrytý", "význam", "obraz", "dešifrovat"]
+        nazev: "11. ⚫ Silná tečka",
+        klicSlova: ["rozhodnuto", "hotovo", "uzavřeno", "tečka", "konec diskuze", "bez diskuze", "autorita", "šéf řekl", "bez připomínek"],
+        q3: "Při uzavírání rozhodnutí neptat se 'Je to jasné?', ale 'Kdo cítí, že jeho hlasy nebo obavy nebyly dostatečně vyslyšeny před touto tečkou?'."
     },
     {
-        nazev: "12. GROTESKNÍ ÚHEL (Komické do extrému)",
-        q3: "Radil by si představit, že náš problém je scénář pro špatný komiks, a napsat k němu tři nejtrapnější pointy.",
-        klicSlova: ["přehnaný", "karikatura", "trapný", "extrém", "vtip", "komický", "groteska", "bizarní", "směšný"]
+        nazev: "12. 🍀 Navrácené štěstí",
+        klicSlova: ["uzdravení", "změna k lepšímu", "pomalu", "zlepšuje se", "důvěra", "otevřenost", "křehké", "opatrně", "nový začátek"],
+        q3: "Nastavit 'beruščí rituál'. Kdykoli někdo pocítí, že byl 'sežrán' (přerušován, umlčován), může tichým symbolem (např. položit berušku na stůl) signalizovat potřebu zpomalit a vyslechnout."
     }
 ];
 
-// ----------------------------------------------------------------
-// STAV APLIKACE
-let pocet = 3;
-let clenove = []; // pole objektů { jmeno, barva, odpoved, hotovo }
+// Sada ikon (žádná zvířátka)
+const IKONY = ['🌋', '♟️', '🔌', '🎩', '🛹', '🌪️', '👻', '🤺', '🪽', '⛸️'];
 
-// Paleta barev (pro puntíky)
-const BARVY = ['#e61919', '#1e7e1e', '#1e1ec0', '#ff8c00', '#b469b4', '#00a1a1', '#a0522d', '#808080'];
+// Stav aplikace
+let pocet = 3;
+let clenove = []; // { jmeno, ikona, odpoved, hotovo, uhelIndex }
 
 // ----------------------------------------------------------------
 // KROK 1
@@ -343,14 +339,14 @@ function krok1Potvrdit() {
     if (isNaN(pocet) || pocet < 1) { alert('Zadejte platný počet (alespoň 1).'); return; }
     if (pocet > 20) { alert('Maximálně 20 lidí.'); return; }
 
-    // Inicializace pole členů
     clenove = [];
     for (let i = 0; i < pocet; i++) {
         clenove.push({
             jmeno: '',
-            barva: BARVY[i % BARVY.length],
+            ikona: IKONY[i % IKONY.length],
             odpoved: '',
-            hotovo: false
+            hotovo: false,
+            uhelIndex: -1
         });
     }
     zobrazKrok2();
@@ -366,11 +362,11 @@ function zobrazKrok2() {
     for (let i = 0; i < pocet; i++) {
         html += `
             <div class="clen-polozka" id="clen2-${i}">
-                <div class="clen-barva" style="background:${clenove[i].barva};"></div>
+                <div class="clen-ikona" id="ikona-${i}">${clenove[i].ikona}</div>
                 <div style="flex:1;">
                     <input type="text" id="jmeno-${i}" placeholder="Jméno člena" value="${clenove[i].jmeno}">
-                    <div class="barvy-volba" id="barvy-${i}">
-                        ${BARVY.map((b, idx) => `<div class="barva-polozka ${b === clenove[i].barva ? 'vybrana' : ''}" style="background:${b};" onclick="vybratBarvu(${i}, '${b}')"></div>`).join('')}
+                    <div class="ikony-volba" id="ikony-${i}">
+                        ${IKONY.map(ik => `<span class="ikona-polozka ${ik === clenove[i].ikona ? 'vybrana' : ''}" onclick="vybratIkonu(${i}, '${ik}')">${ik}</span>`).join('')}
                     </div>
                 </div>
             </div>
@@ -379,22 +375,19 @@ function zobrazKrok2() {
     document.getElementById('cleniKrok2').innerHTML = html;
 }
 
-function vybratBarvu(index, barva) {
-    clenove[index].barva = barva;
-    // překreslíme výběr barev pro tohoto člena (aktualizace třídy vybrana)
-    let container = document.getElementById(`barvy-${index}`);
-    if (container) {
-        let puntiky = container.children;
-        for (let p of puntiky) {
-            p.classList.remove('vybrana');
-            if (p.style.background === barva) p.classList.add('vybrana');
-        }
-    }
-    document.getElementById(`clen2-${index}`).querySelector('.clen-barva').style.background = barva;
+function vybratIkonu(index, ikona) {
+    clenove[index].ikona = ikona;
+    document.getElementById(`ikona-${index}`).innerText = ikona;
+    // Odebrat třídu 'vybrana' ze všech v tom řádku
+    let container = document.getElementById(`ikony-${index}`);
+    Array.from(container.children).forEach(el => el.classList.remove('vybrana'));
+    // Najít kliknutý prvek a přidat mu třídu
+    Array.from(container.children).forEach(el => {
+        if (el.innerText === ikona) el.classList.add('vybrana');
+    });
 }
 
 function krok2Pokracovat() {
-    // Uložit jména z inputů
     for (let i = 0; i < pocet; i++) {
         let input = document.getElementById(`jmeno-${i}`);
         clenove[i].jmeno = input.value.trim() || `Člen ${i+1}`;
@@ -415,10 +408,10 @@ function zobrazKrok3() {
         let disabledAttr = clenove[i].hotovo ? 'disabled' : '';
         html += `
             <div class="clen-polozka" id="clen3-${i}">
-                <div class="clen-barva" style="background:${clenove[i].barva};"></div>
+                <div class="clen-ikona">${clenove[i].ikona}</div>
                 <div class="clen-jmeno">${clenove[i].jmeno}</div>
                 <div class="clen-odpoved">
-                    <textarea id="odpoved-${i}" placeholder="Co vás v textu zaujalo?" ${disabledAttr}>${clenove[i].odpoved}</textarea>
+                    <textarea id="odpoved-${i}" placeholder="Vaše odpověď..." ${disabledAttr}>${clenove[i].odpoved}</textarea>
                 </div>
                 <div class="clen-tlacitko">
                     <button class="btn ${clenove[i].hotovo ? 'hotovo' : ''}" id="btn-${i}" onclick="potvrditOdpoved(${i})" ${disabledAttr}>${clenove[i].hotovo ? 'Hotovo' : 'Hotovo?'}</button>
@@ -427,95 +420,91 @@ function zobrazKrok3() {
         `;
     }
     document.getElementById('cleniKrok3').innerHTML = html;
-
-    // Schovat/zobrazit tlačítko pro vyhodnocení
-    document.getElementById('vyhodnotitContainer').style.display = (clenove.every(c => c.hotovo)) ? 'block' : 'none';
+    document.getElementById('vyhodnotitContainer').style.display = clenove.every(c => c.hotovo) ? 'block' : 'none';
 }
 
 function potvrditOdpoved(index) {
-    let textarea = document.getElementById(`odpoved-${index}`);
-    clenove[index].odpoved = textarea.value;
+    let ta = document.getElementById(`odpoved-${index}`);
+    clenove[index].odpoved = ta.value;
     clenove[index].hotovo = true;
 
-    // Deaktivovat a označit tlačítko
     let btn = document.getElementById(`btn-${index}`);
     btn.disabled = true;
     btn.classList.add('hotovo');
     btn.innerText = 'Hotovo';
 
-    // Zkontrolovat, jestli všichni hotovi
     if (clenove.every(c => c.hotovo)) {
         document.getElementById('vyhodnotitContainer').style.display = 'block';
     }
 }
 
 // ----------------------------------------------------------------
-// KROK 4 – VYHODNOCENÍ
+// VYHODNOCENÍ (KROK 4)
 function vyhodnotit() {
-    // Sesbírat odpovědi (pro jistotu znovu z textareí, kdyby někdo něco měnil)
+    // Sesbírat odpovědi (kdyby někdo něco měnil)
     for (let i = 0; i < pocet; i++) {
         let ta = document.getElementById(`odpoved-${i}`);
         if (ta) clenove[i].odpoved = ta.value;
     }
 
-    // Spojit všechny odpovědi do jednoho textu (pro hledání klíčových slov)
-    let vsechnyTexty = clenove.map(c => c.odpoved.toLowerCase()).join(' ');
-
-    // Spočítat skóre pro každý úhel
-    let skore = UHLY.map(u => {
-        let count = 0;
-        u.klicSlova.forEach(slovo => {
-            let regex = new RegExp(slovo, 'gi');
-            let matches = vsechnyTexty.match(regex);
-            if (matches) count += matches.length;
+    // Pro každého člena najít nejlepší úhel podle klíčových slov
+    clenove.forEach(clen => {
+        let text = clen.odpoved.toLowerCase();
+        let skore = UHLY.map(u => {
+            let count = 0;
+            u.klicSlova.forEach(slovo => {
+                if (text.includes(slovo.toLowerCase())) count++;
+            });
+            return count;
         });
-        return count;
+        // Najít index s nejvyšším skóre
+        let maxSkore = Math.max(...skore);
+        if (maxSkore > 0) {
+            clen.uhelIndex = skore.indexOf(maxSkore);
+        } else {
+            clen.uhelIndex = -1; // nezařazeno
+        }
     });
 
-    // Určit hranice pro "přetížený" a "deficitní"
-    // Jednoduchá metoda: seřadit, horních 25 % = přetížené, dolních 25 % = deficitní
-    let sorted = [...skore].sort((a,b) => a - b);
-    let deficitHranice = sorted[Math.floor(sorted.length * 0.25)]; // dolní kvartil
-    let premnozenaHranice = sorted[Math.ceil(sorted.length * 0.75)]; // horní kvartil
-
-    // Vytvořit pole s typy
-    let typy = skore.map(s => {
-        if (s >= premnozenaHranice && premnozenaHranice > 0) return 'premnozeny';
-        else if (s <= deficitHranice && deficitHranice > 0 && s > 0) return 'deficit';
-        else return 'normal';
+    // Spočítat četnosti úhlů v týmu (pouze ty s indexem >=0)
+    let cetnosti = new Array(UHLY.length).fill(0);
+    clenove.forEach(clen => {
+        if (clen.uhelIndex >= 0) cetnosti[clen.uhelIndex]++;
     });
 
-    // Vykreslit graf
-    let grafHtml = '';
+    // Vytvořit seznam úhlů, které se v týmu objevily (cetnost > 0)
+    let pouziteUhly = [];
     for (let i = 0; i < UHLY.length; i++) {
-        let maxSkore = Math.max(...skore, 1); // aby se dalo dělit
-        let sirka = (skore[i] / maxSkore) * 100;
-        let trida = typy[i] === 'premnozeny' ? 'premnozeny' : (typy[i] === 'deficit' ? 'deficit' : '');
+        if (cetnosti[i] > 0) pouziteUhly.push({ index: i, nazev: UHLY[i].nazev, cetnost: cetnosti[i], q3: UHLY[i].q3 });
+    }
+
+    // Vykreslit graf (jen pouzite uhly)
+    let grafHtml = '';
+    pouziteUhly.forEach(u => {
+        let procenta = ((u.cetnost / pocet) * 100).toFixed(1);
         grafHtml += `
-            <div class="graf-radek">
-                <div class="graf-nazev">${UHLY[i].nazev}</div>
-                <div class="graf-sloupec">
-                    <div class="fill ${trida}" style="width: ${sirka}%;"></div>
-                </div>
-                <div class="graf-skore">${skore[i]}</div>
+            <div class="graf-polozka">
+                <div class="graf-barva"></div>
+                <div class="graf-nazev">${u.nazev}</div>
+                <div class="graf-cislo">${u.cetnost} lidí</div>
+                <div class="graf-procenta">${procenta} %</div>
             </div>
         `;
-    }
+    });
+    if (pouziteUhly.length === 0) grafHtml = '<p>Žádný úhel nebyl jednoznačně identifikován. Zkuste odpovědět konkrétněji.</p>';
     document.getElementById('grafContainer').innerHTML = grafHtml;
 
-    // Vykreslit doporučení (jen pro přetížené a deficitní)
-    let dopHtml = '<h3>📌 Doporučení z Q3</h3>';
-    for (let i = 0; i < UHLY.length; i++) {
-        if (typy[i] !== 'normal') {
-            let typText = typy[i] === 'premnozeny' ? '🔴 PŘETÍŽENÝ' : '🟢 DEFICITNÍ';
-            dopHtml += `
-                <div class="doporuceni-item">
-                    <strong>${typText}: ${UHLY[i].nazev}</strong><br>
-                    ${UHLY[i].q3}
-                </div>
-            `;
-        }
-    }
+    // Vykreslit doporučení (Q3 pro pouzite uhly)
+    let dopHtml = '<h3>📌 Rady (Q3) pro úhly, které se ve vašem týmu objevily</h3>';
+    pouziteUhly.forEach(u => {
+        dopHtml += `
+            <div class="doporuceni-item">
+                <strong>${u.nazev}</strong><br>
+                ${u.q3}
+            </div>
+        `;
+    });
+    if (pouziteUhly.length === 0) dopHtml += '<p>Zkuste to znovu s konkrétnějšími odpověďmi.</p>';
     document.getElementById('doporuceniContainer').innerHTML = dopHtml;
 
     // Zobrazit krok 4
@@ -531,39 +520,33 @@ function ulozVysledky() {
 
     let text = `VÝSLEDKY DIAGNOSTIKY – KOCOUR\n`;
     text += `Datum a čas: ${datumCas}\n`;
-    text += `Členové týmu:\n`;
-    clenove.forEach(c => text += `- ${c.jmeno} (barva)\n`);
-    text += `\nODPOVĚDI NA OTÁZKU "Co vás zaujalo?":\n`;
+    text += `Počet členů: ${pocet}\n`;
+    text += `Členové:\n`;
+    clenove.forEach(c => text += `- ${c.ikona} ${c.jmeno}\n`);
+
+    text += `\nODPOVĚDI NA OTÁZKU (Q2):\n`;
     clenove.forEach(c => text += `${c.jmeno}: ${c.odpoved}\n`);
 
-    text += `\nSKÓRE ÚHLŮ:\n`;
-    // tady bychom museli znovu spočítat skóre – pro jednoduchost zopakujeme výpočet
-    let vsechnyTexty = clenove.map(c => c.odpoved.toLowerCase()).join(' ');
-    let skore = UHLY.map(u => {
-        let count = 0;
-        u.klicSlova.forEach(slovo => {
-            let regex = new RegExp(slovo, 'gi');
-            let matches = vsechnyTexty.match(regex);
-            if (matches) count += matches.length;
-        });
-        return count;
+    // Znovu spočítat četnosti (pro jistotu)
+    let cetnosti = new Array(UHLY.length).fill(0);
+    clenove.forEach(clen => {
+        if (clen.uhelIndex >= 0) cetnosti[clen.uhelIndex]++;
     });
+    let pouziteUhly = [];
     for (let i = 0; i < UHLY.length; i++) {
-        text += `${UHLY[i].nazev}: ${skore[i]}\n`;
+        if (cetnosti[i] > 0) pouziteUhly.push({ nazev: UHLY[i].nazev, cetnost: cetnosti[i], q3: UHLY[i].q3 });
     }
 
-    text += `\nDOPORUČENÍ Z Q3 (pro přetížené/deficitní úhly):\n`;
-    // opět bychom potřebovali typy – zjednodušeně zopakujeme logiku
-    let sorted = [...skore].sort((a,b) => a - b);
-    let deficitHranice = sorted[Math.floor(sorted.length * 0.25)];
-    let premnozenaHranice = sorted[Math.ceil(sorted.length * 0.75)];
-    for (let i = 0; i < UHLY.length; i++) {
-        if (skore[i] >= premnozenaHranice && premnozenaHranice > 0) {
-            text += `🔴 PŘETÍŽENÝ: ${UHLY[i].nazev} – ${UHLY[i].q3}\n`;
-        } else if (skore[i] <= deficitHranice && deficitHranice > 0 && skore[i] > 0) {
-            text += `🟢 DEFICITNÍ: ${UHLY[i].nazev} – ${UHLY[i].q3}\n`;
-        }
-    }
+    text += `\nVÝSLEDKY TÝMU (použité úhly):\n`;
+    pouziteUhly.forEach(u => {
+        let procenta = ((u.cetnost / pocet) * 100).toFixed(1);
+        text += `- ${u.nazev}: ${u.cetnost} lidí (${procenta} %)\n`;
+    });
+
+    text += `\nDOPORUČENÍ Q3 PRO POUŽITÉ ÚHLY:\n`;
+    pouziteUhly.forEach(u => {
+        text += `\n${u.nazev}\n${u.q3}\n`;
+    });
 
     const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
     const a = document.createElement('a');
@@ -575,17 +558,12 @@ function ulozVysledky() {
 // ----------------------------------------------------------------
 // NOVÁ DIAGNOSTIKA
 function novaDiagnostika() {
-    // Reset stavu
     pocet = 3;
     clenove = [];
     document.getElementById('pocetLidi').value = 3;
     document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
     document.getElementById('step1').classList.add('active');
 }
-
-// ----------------------------------------------------------------
-// PŘI NAČTENÍ STRÁNKY – zobrazení pohádky v data (pro jistotu)
-document.getElementById('pohadkaText').innerText = POHADKA;
 </script>
 </body>
 </html>
