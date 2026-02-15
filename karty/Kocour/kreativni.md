@@ -125,7 +125,7 @@ Ticho už není bezpečný úkryt.
 Nezávodíme, kdo dřív dokončí větu. Spolupracujeme, kdo najde nejlepší myšlenku.
 
 **Aktivita – Talking stick:**  
-Pro klíčové diskuse zaveďte fyzický předmět (oblázek, berušku, cokoli). Mluví jen ten, kdo ho drží. Ostatní jen naslouchají. Žádné skákání do řeči, žádné dokončování.
+Pro klíčové diskuse zaveďte domluvené znamení nebo přímo fyzický předmět (oblázek, berušku, cokoli). Mluví jen ten, kdo ho drží. Ostatní jen naslouchají. Žádné skákání do řeči, žádné dokončování.
 
 **Otázka pro tým:**  
 *Co se stane s našimi nápady, když je nikdo nepřerušuje?*
