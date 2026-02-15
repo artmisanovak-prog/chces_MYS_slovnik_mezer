@@ -2,8 +2,6 @@
 
 **Generativní systém pro diagnostiku a řešení týmových dysfunkcí.**
 
-**Diagnostický a rozvojový nástroj pro týmy, které potřebují pojmenovat, co se v komunikaci skutečně děje.**
-
 ---
 
 ## 🎯 Pro koho to je?
@@ -141,11 +139,25 @@ Plné verze karet jsou dostupné pod komerční licencí.
 
 ---
 
+## 🏠 Princip „repo domů“: Váš systém, vaše data, váš klid
 
-🏠 **REPO DOMY** – způsob, jak to mít po svém 
-Každý nástroj je samostatný dům v repozitáři. 
-Žádný web, žádný hosting, žádný programátor.  
-Jen GitHub Pages a čistý HTML.
-pro dotazy, informace nebo zpětnou vazbu pouzijte email chcesmys@gmail.com s předmětem "repo domy" 
+Všechny karty, nástroje a mody, které si u nás pořídíte, **nejsou webová aplikace, ke které byste měli jen dočasný přístup**. Je to **váš vlastní digitální dům** – repozitář, který si stáhnete a spravujete **sami u sebe**.
+
+### Co to pro vás znamená?
+
+- 🔐 **Vaše data zůstávají vaše.** Nikam se neodesílají, neukládají se na naše servery, nikdo jiný k nim nemá přístup. Vy máte plnou kontrolu.
+- 🏠 **Máte to u sebe.** Celý systém (všechny HTML nástroje, texty, obrázky) je fyzicky u vás – na vašem disku, na vašem serveru, ve vašem GitHub repozitáři.
+- 🛠️ **Můžete si to přizpůsobit.** Každý soubor si můžete otevřít, upravit, přepsat, přidat vlastní nápady. Systém se stává vaším, ne naším.
+- 🧩 **Funguje to i bez internetu.** Jakmile si to stáhnete, můžete vše používat offline. Skvělé pro interní workshopy nebo pro firmy s přísnými bezpečnostními pravidly.
+- 💎 **Je to transparentní.** Vidíte přesně, jak je který nástroj postavený, jaká data používá, jak funguje. Žádná černá skříňka.
+
+### Proč je to dneska důležité?
+
+Firmy už nechtějí posílat svá interní data do cizích cloudů, nechtějí být závislé na dodavateli, který jim může ze dne na den změnit cenu nebo vypnout přístup. Chtějí **vlastnictví, kontrolu a bezpečí**.
+
+Tento princip (říkáme mu **„repo dům“**) dává tyto jistoty. Platíte si jednou za chytrý nástroj, který vám zůstane navždy, ne za přístup na rok.
+
+**Je to nová cesta, jak stavět digitální nástroje – bez webu, bez závislostí, s plnou mocí ve vašich rukou.**Diagnostický a rozvojový nástroj pro týmy, které potřebují pojmenovat, co se v komunikaci skutečně děje.**
+
 
 
