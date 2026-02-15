@@ -1,4 +1,4 @@
-# 🐱 KOCOUR – 12 úhlů s metaforami, Q1, Q2, Q3
+# 🐈‍⬛ KOCOUR – 12 úhlů s metaforami, Q1, Q2, Q3
 
 ---
 
