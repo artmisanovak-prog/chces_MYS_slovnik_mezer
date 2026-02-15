@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐱 KOCOUR – kreativní mód</title>
+    <style>
+        /* Čistě černobílé */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #fff;
+            color: #000;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            border: 3px solid #000;
+            padding: 2rem;
+            background: #fff;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #000;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #000;
+            margin: 2rem 0;
+        }
+        .btn {
+            background: #000;
+            color: #fff;
+            border: 2px solid #000;
+            padding: 0.8rem 1.8rem;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            transition: none;
+        }
+        .btn:hover {
+            background: #fff;
+            color: #000;
+        }
+        .btn.aktivni {
+            background: #fff;
+            color: #000;
+            border: 3px solid #000;
+        }
+        .kategorie-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 2rem 0;
+        }
+        .inspirace-box {
+            border: 2px solid #000;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            background: #f9f9f9;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-align: center;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        .poznamka {
+            font-size: 0.9rem;
+            color: #444;
+            margin: 1.5rem 0;
+            text-align: center;
+            border-top: 1px solid #aaa;
+            padding-top: 1.5rem;
+        }
+        a {
+            color: #000;
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐱 KOCOUR – kreativní mód</h1>
+        <p><a href="../index.html">← zpět na rozcestník karty</a></p>
+        <hr>
+
+        <h2>Vyber oblast, na kterou hledáš inspiraci</h2>
+
+        <div class="kategorie-box" id="kategorieContainer"></div>
+
+        <div id="inspiraceBox" class="inspirace-box">
+            Klikni na některou kategorii.
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn" id="dalsiButton" disabled onclick="dalsiInspirace()">→ další nápad ←</button>
+        </div>
+
+        <div class="poznamka">
+            Každá věta vychází z metafor a principů karty Kocour.<br>
+            Můžeš ji použít jako startér pro produkt, reklamu, obal, copywriting, firemní kulturu nebo cokoli jiného.
+        </div>
+
+        <hr>
+        <div class="footer">
+            © KOCOUR – kreativní mód (součást systému PLAMEŇÁK)
+        </div>
+    </div>
+
+    <script>
+        // ------------------------------------------------------------
+        // NAČTENÍ DAT Z EXTERNÍHO SOUBORU
+        // ------------------------------------------------------------
+        let kreativniData = [];
+
+        // Načtení JSON souboru
+        fetch('kreativni-data.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Soubor kreativni-data.json se nepodařilo načíst');
+                }
+                return response.json();
+            })
+            .then(data => {
+                kreativniData = data;
+                zobrazKategorie(); // Teprve teď, když máme data
+            })
+            .catch(error => {
+                document.getElementById('inspiraceBox').innerText = 'Chyba: ' + error.message;
+                console.error(error);
+            });
+
+        // ------------------------------------------------------------
+        // KATEGORIE (tyto zůstávají pevné)
+        // ------------------------------------------------------------
+        const kategorie = [
+            { id: "tvorba", nazev: "🔨 Tvorba (produkty, obaly, copywriting, vizuální identita)" },
+            { id: "komunikace", nazev: "📢 Komunikace (reklama, marketing, strategie)" },
+            { id: "vztahy", nazev: "🤝 Vztahy (zákaznická zkušenost, firemní kultura, udržitelnost)" }
+        ];
+
+        let aktualniKategorie = null;
+
+        // ------------------------------------------------------------
+        // Vykreslení tlačítek kategorií
+        // ------------------------------------------------------------
+        function zobrazKategorie() {
+            const container = document.getElementById('kategorieContainer');
+            let html = '';
+            kategorie.forEach(k => {
+                html += `<button class="btn" onclick="vybratKategorii('${k.id}')">${k.nazev}</button>`;
+            });
+            container.innerHTML = html;
+        }
+
+        // ------------------------------------------------------------
+        // Výběr kategorie
+        // ------------------------------------------------------------
+        window.vybratKategorii = function(katId) {
+            aktualniKategorie = katId;
+
+            document.querySelectorAll('#kategorieContainer .btn').forEach(btn => {
+                btn.classList.remove('aktivni');
+                if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(katId)) {
+                    btn.classList.add('aktivni');
+                }
+            });
+
+            document.getElementById('dalsiButton').disabled = false;
+            nahodnyInspirace(katId);
+        };
+
+        // ------------------------------------------------------------
+        // Náhodný výběr věty z dané kategorie
+        // ------------------------------------------------------------
+        function nahodnyInspirace(katId) {
+            if (kreativniData.length === 0) {
+                document.getElementById('inspiraceBox').innerText = 'Data se ještě načítají...';
+                return;
+            }
+
+            const vhodne = kreativniData.filter(item => item.kategorie && item.kategorie.includes(katId));
+            
+            if (vhodne.length === 0) {
+                document.getElementById('inspiraceBox').innerText = 'Pro tuhle oblast zatím není žádná inspirace.';
+                return;
+            }
+
+            const nahodnyIndex = Math.floor(Math.random() * vhodne.length);
+            const vybranyText = vhodne[nahodnyIndex].text;
+            
+            document.getElementById('inspiraceBox').innerText = vybranyText;
+        }
+
+        // ------------------------------------------------------------
+        // Další nápad
+        // ------------------------------------------------------------
+        window.dalsiInspirace = function() {
+            if (aktualniKategorie) {
+                nahodnyInspirace(aktualniKategorie);
+            }
+        };
+    </script>
+</body>
+</html>
