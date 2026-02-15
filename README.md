@@ -23,7 +23,7 @@ Týmy, které:
 
 Každá karta je **samostatný, připravený workshop**, který s týmem provedete za 90 minut.
 
-**V ceně 15 000 Kč získáte:**
+**V ceně 25 000 Kč získáte:**
 
 📘 **Pohádku** – příběh, který otevře téma bez obviňování  
 🧠 **12 úhlů pohledu** – diagnostický klíč, který odhalí, kudy se tým dívá  
@@ -58,9 +58,6 @@ Proč?
 - Ušetříte desítky hodin příprav – workshop je hotový, odzkoušený, funkční.
 - Průměrná délka porady klesá o 30–60 minut. Při 10 poradách měsíčně se investice vrátí do 2 měsíců.
 
-**Chcete ukázku?**  
-👉 [Vyzkoušejte kartu KOCOUR zdarma](odkaz)
-
 ---
 
 ## 🚀 Rychlý start
@@ -76,11 +73,10 @@ Proč?
 ---
 
 ## 🃏 Dostupné karty
-## 🃏 Dostupné karty
 
 | Karta | Problém | Ukázka | Plná verze |
 |-------|---------|--------|------------|
-| 🐈 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | 25 000 Kč |
+| 🐈 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **zdarma** Kč |
 | 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 25 000 Kč |
 | 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 25 000 Kč |
 | 🪰 **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 25 000 Kč |
@@ -93,14 +89,14 @@ Proč?
 
 Každá karta je **samostatný, připravený workshop**, který s týmem provedete za 90 minut.
 
-**V ceně 15 000 Kč získáte:**
+**V ceně 25 000 Kč získáte:**
 
-📘 **Pohádku** – příběh, který otevře téma bez obviňování  
+📘 **Pohádku** – problém jako příběh, který otevře téma bez obviňování  
 🧠 **12 úhlů pohledu** – diagnostický klíč, který odhalí, kudy se tým dívá  
 🛠️ **12 konkrétních protiopatření** – každý úhel má svůj „protilék“  
 📋 **Detailní scénář workshopu** – kdo, kdy, co říká, na minuty  
 🧪 **Diagnostický nástroj** – 3 otázky, které zmapují kognitivní profil týmu  
-🎲 **Generativní mód** – jak kartu použít znovu a jinak  
+🎲 **Generativní mód** – jak kartu použít znovu a jinak. Generuje kreativní nápady a nové přístupy ihned prakticky použitelné 
 📎 **Šablony k okamžitému použití** – flipcharty, emaily, pracovní listy  
 📄 **Firemní licence** – kartu může používat celá organizace
 
@@ -117,7 +113,7 @@ Každá karta je **samostatný, připravený workshop**, který s týmem provede
 ## 🌐 English version
 
 First card available in English: **Cat (Communication Pathology)**  
-Price: €600  
+Price: $ 1.600  
 Contact: **chcesmys@gmail.com**
 
 ---
@@ -136,6 +132,9 @@ Obsah tohoto repozitáře je licencován pod **Creative Commons Attribution-NonC
 Plné verze karet jsou dostupné pod komerční licencí.
 
 ---
+
+## Systém Chceš myš? Slovník mezer je vytvořen metodou REPO DŮM kterou jsem si vytvořila já Michaela Nováková jako další způsob jak dělat věci po svém 
+
 
 ## 🏠 Princip „repo domů“: Váš systém, vaše data, váš klid
 
