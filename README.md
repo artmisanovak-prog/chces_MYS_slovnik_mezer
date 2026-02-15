@@ -85,23 +85,6 @@ Proč?
 
 ---
 
-## ✅ Co karta obsahuje?
-
-Každá karta je **samostatný, připravený workshop**, který s týmem provedete za 90 minut.
-
-**V ceně 25 000 Kč získáte:**
-
-📘 **Pohádku** – problém jako příběh, který otevře téma bez obviňování  
-🧠 **12 úhlů pohledu** – diagnostický klíč, který odhalí, kudy se tým dívá  
-🛠️ **12 konkrétních protiopatření** – každý úhel má svůj „protilék“  
-📋 **Detailní scénář workshopu** – kdo, kdy, co říká, na minuty  
-🧪 **Diagnostický nástroj** – 3 otázky, které zmapují kognitivní profil týmu  
-🎲 **Generativní mód** – jak kartu použít znovu a jinak generuje kreativní nápady a nové přístupy ihned prakticky použitelné 
-📎 **Šablony k okamžitému použití** – flipcharty, emaily, pracovní listy  
-📄 **Firemní licence** – kartu může používat celá organizace
-
----
-
 ## 📦 Jak kartu získat?
 
 1. Vyberte si kartu z katalogu.
