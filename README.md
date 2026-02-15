@@ -96,7 +96,7 @@ Každá karta je **samostatný, připravený workshop**, který s týmem provede
 🛠️ **12 konkrétních protiopatření** – každý úhel má svůj „protilék“  
 📋 **Detailní scénář workshopu** – kdo, kdy, co říká, na minuty  
 🧪 **Diagnostický nástroj** – 3 otázky, které zmapují kognitivní profil týmu  
-🎲 **Generativní mód** – jak kartu použít znovu a jinak. Generuje kreativní nápady a nové přístupy ihned prakticky použitelné 
+🎲 **Generativní mód** – jak kartu použít znovu a jinak generuje kreativní nápady a nové přístupy ihned prakticky použitelné 
 📎 **Šablony k okamžitému použití** – flipcharty, emaily, pracovní listy  
 📄 **Firemní licence** – kartu může používat celá organizace
 
