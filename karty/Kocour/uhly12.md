@@ -35,7 +35,7 @@
 
 ---
 
-## 4. 🐭 Pozorovatelská myš  
+## 4.🐀 Pozorovatelská myš  
 **Metafora:** Tiché hlasy v místnosti jsou jako myš, která si zapisuje – slyší víc, než kdo mluví, ale nikdo neslyší ji.  
 
 **Q1:** „Myš je metaforou facilitátora nebo tichého člena. Nedokáže zabránit kocourovi, ale pozoruje a ukládá si odpověď. Vidí dysfunkci jasně, ale nemá moc ji zastavit.“  
