@@ -50,7 +50,7 @@ Většina nástrojů končí u diagnózy: *„Zjistili jsme, že máte problém.
 
 ## 💰 Cena a návratnost
 
-**15 000 Kč za kartu.**
+**25 000 Kč za kartu.**
 
 Proč?
 
@@ -83,7 +83,7 @@ Proč?
 | 🐈 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **25 000 Kč** |
 | 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | **25 000 Kč** |
 | 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | **25 000 Kč** |
-| 🪰 **Moucha** | Malý problém jako absolutno| [Ukázka](./karty/Moucha/) | **25 000 Kč** |
+| 🪰 **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | **25 000 Kč** |
 | 🦌 **Laň/Klíště** | Bez nás by nebyly oni|  | [Ukázka](./karty/Laň/) | **25 000 Kč** |
 | 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | **25 000 Kč** |
 
