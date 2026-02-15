@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
@@ -44,10 +44,10 @@
             background: #000;
             color: #fff;
             border: 2px solid #000;
-            padding: 0.8rem 1.8rem;
+            padding: 0.8rem 1.5rem;
             font-family: inherit;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             margin: 0.5rem 0.5rem 0.5rem 0;
             transition: none;
@@ -69,17 +69,23 @@
         }
         .inspirace-box {
             border: 2px solid #000;
-            padding: 2.5rem;
+            padding: 2rem;
             margin: 2rem 0;
             background: #f9f9f9;
             min-height: 200px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-align: center;
             line-height: 1.6;
             white-space: pre-wrap;
+        }
+        .inspirace-box small {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 1rem;
         }
         .poznamka {
             font-size: 0.9rem;
@@ -119,8 +125,8 @@
         </div>
 
         <div class="poznamka">
-            Každá věta vychází z metafor a principů karty Kocour.<br>
-            Můžeš ji použít jako startér pro produkt, reklamu, obal, copywriting, firemní kulturu nebo cokoli jiného.
+            Každý nápad vychází z metafor a principů karty Kocour.<br>
+            Můžeš ho použít jako přímou inspiraci pro svůj projekt.
         </div>
 
         <hr>
@@ -131,87 +137,93 @@
 
     <script>
         // ------------------------------------------------------------
-        // NAČTENÍ DAT Z EXTERNÍHO SOUBORU
+        // NAČTENÍ DAT Z EXTERNÍHO JSON SOUBORU
         // ------------------------------------------------------------
         let kreativniData = [];
+        let kategorieSeznam = [];
 
-        // Načtení JSON souboru
-        fetch('kreativni-data.json')
+        fetch('kreativni_tvorba.json')
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Soubor kreativni-data.json se nepodařilo načíst');
-                }
+                if (!response.ok) throw new Error('Soubor kreativni_tvorba.json se nepodařilo načíst');
                 return response.json();
             })
             .then(data => {
                 kreativniData = data;
-                zobrazKategorie(); // Teprve teď, když máme data
+                // Extrahujeme unikátní kategorie (rozdělíme čárkou a ořežeme mezery)
+                const kategorieSet = new Set();
+                data.forEach(item => {
+                    if (item.category) {
+                        item.category.split(',').forEach(kat => {
+                            kategorieSet.add(kat.trim());
+                        });
+                    }
+                });
+                kategorieSeznam = Array.from(kategorieSet).sort();
+                zobrazKategorie();
             })
             .catch(error => {
-                document.getElementById('inspiraceBox').innerText = 'Chyba: ' + error.message;
+                document.getElementById('inspiraceBox').innerHTML = `<p style="color:red;">Chyba: ${error.message}</p>`;
                 console.error(error);
             });
-
-        // ------------------------------------------------------------
-        // KATEGORIE (tyto zůstávají pevné)
-        // ------------------------------------------------------------
-        const kategorie = [
-            { id: "tvorba", nazev: "🔨 Tvorba (produkty, obaly, copywriting, vizuální identita)" },
-            { id: "komunikace", nazev: "📢 Komunikace (reklama, marketing, strategie)" },
-            { id: "vztahy", nazev: "🤝 Vztahy (zákaznická zkušenost, firemní kultura, udržitelnost)" }
-        ];
-
-        let aktualniKategorie = null;
 
         // ------------------------------------------------------------
         // Vykreslení tlačítek kategorií
         // ------------------------------------------------------------
         function zobrazKategorie() {
             const container = document.getElementById('kategorieContainer');
+            if (kategorieSeznam.length === 0) {
+                container.innerHTML = '<p>Žádné kategorie k dispozici.</p>';
+                return;
+            }
             let html = '';
-            kategorie.forEach(k => {
-                html += `<button class="btn" onclick="vybratKategorii('${k.id}')">${k.nazev}</button>`;
+            kategorieSeznam.forEach(kat => {
+                html += `<button class="btn" onclick="vybratKategorii('${kat}')">${kat}</button>`;
             });
             container.innerHTML = html;
         }
 
+        let aktualniKategorie = null;
+
         // ------------------------------------------------------------
         // Výběr kategorie
         // ------------------------------------------------------------
-        window.vybratKategorii = function(katId) {
-            aktualniKategorie = katId;
+        window.vybratKategorii = function(kat) {
+            aktualniKategorie = kat;
 
+            // Zvýraznit aktivní tlačítko
             document.querySelectorAll('#kategorieContainer .btn').forEach(btn => {
                 btn.classList.remove('aktivni');
-                if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(katId)) {
-                    btn.classList.add('aktivni');
-                }
+                if (btn.innerText === kat) btn.classList.add('aktivni');
             });
 
             document.getElementById('dalsiButton').disabled = false;
-            nahodnyInspirace(katId);
+            nahodnyInspirace(kat);
         };
 
         // ------------------------------------------------------------
-        // Náhodný výběr věty z dané kategorie
+        // Náhodný výběr nápadu z dané kategorie
         // ------------------------------------------------------------
-        function nahodnyInspirace(katId) {
-            if (kreativniData.length === 0) {
-                document.getElementById('inspiraceBox').innerText = 'Data se ještě načítají...';
-                return;
-            }
+        function nahodnyInspirace(kat) {
+            if (!kreativniData.length) return;
 
-            const vhodne = kreativniData.filter(item => item.kategorie && item.kategorie.includes(katId));
-            
+            // Vybrat položky, které obsahují tuto kategorii (v poli category rozděleném čárkou)
+            const vhodne = kreativniData.filter(item => {
+                if (!item.category) return false;
+                const kategoriePolozky = item.category.split(',').map(s => s.trim());
+                return kategoriePolozky.includes(kat);
+            });
+
             if (vhodne.length === 0) {
-                document.getElementById('inspiraceBox').innerText = 'Pro tuhle oblast zatím není žádná inspirace.';
+                document.getElementById('inspiraceBox').innerHTML = `<p>Pro tuto oblast zatím není žádný nápad.</p>`;
                 return;
             }
 
-            const nahodnyIndex = Math.floor(Math.random() * vhodne.length);
-            const vybranyText = vhodne[nahodnyIndex].text;
-            
-            document.getElementById('inspiraceBox').innerText = vybranyText;
+            const nahodny = vhodne[Math.floor(Math.random() * vhodne.length)];
+            const angle = nahodny.original_angle || '';
+            document.getElementById('inspiraceBox').innerHTML = `
+                <p>${nahodny.idea}</p>
+                ${angle ? `<small>(vychází z úhlu: ${angle})</small>` : ''}
+            `;
         }
 
         // ------------------------------------------------------------
