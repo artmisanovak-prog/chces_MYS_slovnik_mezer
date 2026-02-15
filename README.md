@@ -76,17 +76,16 @@ Proč?
 ---
 
 ## 🃏 Dostupné karty
+## 🃏 Dostupné karty
 
 | Karta | Problém | Ukázka | Plná verze |
 |-------|---------|--------|------------|
-
-| 🐈 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **25 000 Kč** |
-| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | **25 000 Kč** |
-| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | **25 000 Kč** |
-| 🪰 **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | **25 000 Kč** |
-| 🦌 **Laň/Klíště** | Bez nás by nebyly oni|  | [Ukázka](./karty/Laň/) | **25 000 Kč** |
-| 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | **25 000 Kč** |
-
+| 🐈 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | 25 000 Kč |
+| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 25 000 Kč |
+| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 25 000 Kč |
+| 🪰 **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 25 000 Kč |
+| 🦌 **Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 25 000 Kč |
+| 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 25 000 Kč |
 
 ---
 
