@@ -68,7 +68,7 @@
 
 ---
 
-## 7. 🤝 Násilný konsenzus  
+## 7. 🦾 Násilný konsenzus  
 **Metafora:** Ticho v diskuzi není souhlas, ale jen únava z boje o slovo.  
 
 **Q1:** „Kocour svým dokončováním vět vynucoval souhlas. Lidé přestali mluvit, protože jejich dokončení by bylo stejné jako jeho. Vytvořil iluzi konsensu.“  
