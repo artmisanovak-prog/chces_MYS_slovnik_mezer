@@ -79,15 +79,14 @@ Proč?
 
 | Karta | Problém | Ukázka | Plná verze |
 |-------|---------|--------|------------|
-| 🐀 **Myš** | Diagnostika myšlenkových stylů | [Zdarma](./MYŠ/index.html/) | – |
-| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | **15 000 Kč** |
-| 🐈‍⬛ **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **15 000 Kč** |
-| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | **15 000 Kč** |
-| 🐯 **Tygr** | Systém vs. autenticita | [Ukázka](./karty/Tygr/) | **15 000 Kč** |
-| 🦋 **Motýl** | Krása vs praktičnost | [Ukázka](./karty/Motyl/) | **15 000 Kč** |
-| 🦌 **Laň/Klíště** | Bez nás by nebyly oni|  | [Ukázka](./karty/Laň/) | **15 000 Kč** |
-| 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | **15 000 Kč** |
-| 🐆 **Jaguár** | Podceněná excelentnost | [Ukázka](./karty/Jaguar/)
+
+| 🐈 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **25 000 Kč** |
+| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | **25 000 Kč** |
+| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | **25 000 Kč** |
+| 🪰 **Moucha** | Malý problém jako absolutno| [Ukázka](./karty/Moucha/) | **25 000 Kč** |
+| 🦌 **Laň/Klíště** | Bez nás by nebyly oni|  | [Ukázka](./karty/Laň/) | **25 000 Kč** |
+| 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | **25 000 Kč** |
+
 
 ---
 
@@ -157,7 +156,9 @@ Firmy už nechtějí posílat svá interní data do cizích cloudů, nechtějí 
 
 Tento princip (říkáme mu **„repo dům“**) dává tyto jistoty. Platíte si jednou za chytrý nástroj, který vám zůstane navždy, ne za přístup na rok.
 
-**Je to nová cesta, jak stavět digitální nástroje – bez webu, bez závislostí, s plnou mocí ve vašich rukou.**Diagnostický a rozvojový nástroj pro týmy, které potřebují pojmenovat, co se v komunikaci skutečně děje.**
+**Je to nová cesta, jak stavět digitální nástroje – bez webu, bez závislostí, s plnou mocí ve vašich rukou.**
 
+---
 
+Metodu „repo dům“ jsem navrhla a používám já **Michaela Nováková** jako způsob, jak stavět decentralizované, přenositelné a plně repozitářové weby bez hostingu.
 
