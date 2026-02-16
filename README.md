@@ -70,8 +70,8 @@ Proč?
  [Jak kocoucour sežral dvě berušky a půl hodiny krkal tečky](./karty/Kocour/)
   
   
-3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./karty/Mys_meta.md)
-Přečtěte si [Co myš](./karty/Mys_demo.md)
+3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům - Co zapíše myš](./karty/Mys_meta.md)
+Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
 
 ---
 
