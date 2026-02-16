@@ -5,7 +5,7 @@ Tento klíč slouží k analýze přirozených kognitivních preferencí na zák
 ## 3 univerzální otázky (pro jakoukoli pohádku)
 
 1. **Q1 (Smysl):** "Co je podle vás hlavní pointa nebo sdělení tohoto příběhu?"
-2. **Q2 (Zaujetí):** "Která konkrétní věta, obraz nebo moment vás nejvíc zaujal/a a PROČ?"
+2. **Q2 (Zaujetí):** "Co konkrétního z Vašeho prostředí Vám to připomíná a PROČ?"
 3. **Q3 (Aplikace):** "Kdyby tento příběh byl návodem nebo radou, co by vám radil dělat (nebo nedělat) ve vašem pracovním/projektovém životě?"
 
 ## 12 univerzálních úhlů (ukázka prvních 3)
