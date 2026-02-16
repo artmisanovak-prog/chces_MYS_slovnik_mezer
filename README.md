@@ -14,7 +14,9 @@ Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
 
 3. **Prohlédněte si ukázkovou kartu**
  [Jak kocoucour sežral dvě berušky a půl hodiny krkal tečky](./karty/Kocour/)
-  
+
+4. **Modelové scénáře**[Prohlédněte si](./MYŠ/modelove_scenare.md)
+
 ---
 
 ## 🎯 Pro koho to je?
