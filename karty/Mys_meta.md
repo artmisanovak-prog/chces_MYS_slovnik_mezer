@@ -2,7 +2,8 @@
 
 —
 
-Myš sedí v koutě a zapisuje.
+Myš si zapisuje do ticha.
+Do mezer a skulin mezi slovama.
 
 Nepíše, co se stalo. Píše, **jak** se na to díváme.
 
