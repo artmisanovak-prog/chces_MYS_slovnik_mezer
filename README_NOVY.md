@@ -61,6 +61,13 @@ Dostanete:
 
 ---
 
+## 🪤 Katalog:
+| | Název | Problém | Cena | Akce |
+|---|---|---|---|---|---|
+| <img src="./karty/Plamenak/Plamenak.jpg" width="80"> | **Plameňák** | Energie bez směru, toxický optimismus | 40 000 Kč | [Objednat](#objednávka) |
+
+---
+
 ## ✅ Co získáte v každé kartě?
 
 Každá karta je **kompletní workshop na klíč**:
