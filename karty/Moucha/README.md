@@ -110,7 +110,7 @@ Moucha si slastně zabzukala.
 Ten zvuk nebyl hlasitý.
 Jen nešel ignorovat.
 
-Jeden z chlapů mávl rukou.
+Jeden z bordelářů mávl rukou.
 Druhý zaklel.
 Třetí zvedl botu ze země — a zůstala přilepená k podlaze.
 Čtvrtý si poprvé všiml, že skvrna není skvrna.
@@ -252,7 +252,7 @@ Konec.
 - Úvod, čtení pohádky, individuální psaní (morušový a mouší lístek), společná nástěnka.
 
 **Část 2: Hluboká práce – Jak se stát mouchou? (40 min)**
-- Cvičení „Pohled z mouchy“ (pop sat problém jako ráj) a nácvik „bzukotu“ ve dvojicích.
+- Cvičení „Pohled z mouchy“ (popsat problém jako ráj) a nácvik „bzukotu“ ve dvojicích.
 
 **Část 3: Akční plán – Co bude naším bzukotem? (20 min)**
 - Výběr konkrétního „bzukotu“ k realizaci, formulace „Protokolu mouchy“.
