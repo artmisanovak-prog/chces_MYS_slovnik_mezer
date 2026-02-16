@@ -70,7 +70,7 @@ Proč?
  [Jak kocoucour sežral dvě berušky a půl hodiny krkal tečky](./karty/Kocour/)
   
   
-3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./_diagnostika/klic_k_uhlum.md)
+3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./diagnostika/klic_k_uhlum.md)
 
 ---
 
