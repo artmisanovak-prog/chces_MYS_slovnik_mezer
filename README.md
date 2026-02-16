@@ -109,7 +109,7 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
-[! Přečíst text(https://img.shields.io/badge/-CHYBA_JAKO_ZDROJ-blue?style=for-the-badge)](MYŠ/0%2Omě/CHYBA_JAKO_ZDROJ.md)
+[!Přečíst text(https://img.shields.io/badge/-CHYBA_JAKO_ZDROJ-blue?style=for-the-badge)](MYŠ/0%2Omě/CHYBA_JAKO_ZDROJ.md)
 
 ---
 
@@ -201,4 +201,31 @@ Ale pokud tě zajímá filozofie nebo chceš diskutovat:
 Metoda "Repo dům" | Umělkyně, ne facilitátorka | První projekt tohoto druhu
 
 ---
+
+## 👩‍🎨 O mně:
+Jsem – tvůrce, ne facilitátor.
+Kreslím. Píšu. Tvořím metajazyk.
+
+**"Chceš myš?"** 
+je můj pokus zachytit realitu do ticha – 
+do mezer mezi obrazem a textem, kde vzniká interpretace.
+
+**Karty jsou poruchy.**  
+Dívka = řeč.
+Zvíře = porucha.
+Text = prostor pro tvou hlavu.
+
+**Úhloměr je nástroj na rozšíření myšlení.** 
+Nemusíš se naučit 12 perspektiv. Stačí, když pochopíš, 
+že není nikdy jediná.
+
+---
+
+**Metodu "Repo dům" jsem vymyslela proto, že jsem chtěla dělat co chci, jak chci.**
+Ne proto, že bych přemýšlela o byznysu nebo datové bezpečnosti.  
+Prostě jsem chtěla svobodu.
+
+---
+
+📧 chcesmys@gmail.com
 
