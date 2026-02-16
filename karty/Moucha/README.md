@@ -129,7 +129,7 @@ Vrstvy vytvářely historii.
 Historie vytvářela past.
 
 „Tohle nejde uklidit,“ řekl jeden.
-„Tohle jsme my,“ řekl druhý.
+„Jak se to stalo?“ řekl druhý.
 
 Nikdo neodpověděl.
 
@@ -278,7 +278,7 @@ Princip karty se dá otočit do pozitivního tónu a použít v marketingu, desi
 **3. Pro vizuální identitu: „Estetika lepkavé reality“**
 - **Insight:** Krása vzniká z rozkladu, z vrstev času, z odložených věcí.
 - **Využití:** Vizuální styl pracující s texturami, kapkami, skvrnami.
-- **Příklad:** Logo pro kavárnu, kde má každá skvrna svůj příběh – moucha sedící na nedokonalé kompozici.
+- **Příklad:** Logo, kde má každá skvrna svůj příběh – moucha sedící na nedokonalé kompozici.
 
 [↑ Zpět na obsah](#obsah)
 
