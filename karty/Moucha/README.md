@@ -1,6 +1,7 @@
 # 🪰 MOUCHA
 
-## README – přehled a použití karty
+**Jádrová dysfunkce:**
+Normalizovaný chaos a slepota k vlastnímu problému. Tým (nebo prostředí) se dlouhodobě potýká s dysfunkcí, která se stala natolik běžnou, že ji přestal vnímat. Stala se neviditelnou součástí krajiny. Zlom nastává, až když se objeví vnější, nehodnotící element („moucha“), pro který je tento „průser“ naopak ideálním prostředím. Tento element svou pouhou existencí zviditelní skutečnou povahu problému a donutí tým k reflexi.
 
 ---
 
@@ -213,9 +214,6 @@ Konec.
 ---
 
 ### <a name="jadro"></a>🎯 JÁDROVÁ DYSFUNKCE A 3 OTÁZKY
-
-**Jádrová dysfunkce:**
-Normalizovaný chaos a slepota k vlastnímu problému. Tým (nebo prostředí) se dlouhodobě potýká s dysfunkcí, která se stala natolik běžnou, že ji přestal vnímat. Stala se neviditelnou součástí krajiny. Zlom nastává, až když se objeví vnější, nehodnotící element („moucha“), pro který je tento „průser“ naopak ideálním prostředím. Tento element svou pouhou existencí zviditelní skutečnou povahu problému a donutí tým k reflexi.
 
 **Tři diagnostické otázky:**
 
