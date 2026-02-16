@@ -23,10 +23,7 @@ Týmy, které:
 
 ## ✅ Co karta obsahuje?
 
-Každá karta je **samostatný, připravený workshop**, který s týmem provedete za 90 minut.
-
-**V ceně 35 000 Kč získáte:**
-
+🕺 **samostatný, připravený workshop**, který s týmem provedete za 90 minut.
 📘 **Pohádku** – příběh, který otevře téma bez obviňování  
 🧠 **12 úhlů pohledu** – diagnostický klíč, který odhalí, kudy se tým dívá  
 🛠️ **12 konkrétních protiopatření** – každý úhel má svůj „protilék“  
@@ -85,6 +82,76 @@ Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
 | 🪰 **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 35 000 Kč |
 | 🦌 **Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 35 000 Kč |
 | 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 35 000 Kč |
+
+---
+
+## Modelové scénáře použití
+
+Následující příklady ilustrují, jak práce s úhly pohledu a mezerami v myšlení pomáhá odhalovat skryté příčiny problémů.
+
+### 1. „Nestíháme“
+**Situace:**  
+Tým dlouhodobě nestíhá termíny.
+
+**Pozorovaný výrok:**  
+„Potřebujeme víc času.“
+
+**Identifikovaný úhel:**  
+bezpečí · strach z chyb
+
+**Mezera:**  
+nejasná rozhodovací odpovědnost
+
+**Zásah:**  
+vyjasnění pravomocí a snížení penalizace chyb
+
+**Výsledek:**  
+rychlejší rozhodování, snížení paralýzy
+
+
+---
+
+### 2. „Musíme to mít pod kontrolou“
+**Situace:**  
+Manažer mikromanaguje práci týmu.
+
+**Úhel:**  
+kontrola jako ochrana stability
+
+**Mezera:**  
+nedůvěra v proces, ne v lidi
+
+**Zásah:**  
+nastavení transparentních kontrolních bodů místo průběžného dohledu
+
+**Výsledek:**  
+vyšší autonomie a nižší přetížení manažera
+
+
+---
+
+### 3. „Nikdo nic neříká“
+**Situace:**  
+Na poradách panuje ticho a souhlas.
+
+**Úhel:**  
+vztah · zachování harmonie
+
+**Mezera:**  
+psychologická bezpečnost
+
+**Zásah:**  
+zavedení strukturovaného nesouhlasu („co by mohlo selhat?“)
+
+**Výsledek:**  
+otevřenější komunikace a včasné zachycení rizik
+
+
+---
+
+### Poznámka
+Scénáře jsou modelové.  
+Ukazují princip práce s perspektivou, nikoli hodnocení jednotlivců
 
 ---
 
