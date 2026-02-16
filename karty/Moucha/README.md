@@ -12,7 +12,7 @@ Normalizovaný chaos a slepota k vlastnímu problému. Tým (nebo prostředí) s
 | **Karta** | `images/moucha.jpg` |
 | **Text karty** | `moucha v průseru` |
 | **Jádrová dysfunkce** | Normalizovaný chaos a slepota k vlastnímu problému |
-| **Klíčová otázka** | „Co je naším ‚neviditelným dvorkem‘ a kdo by mohl být naší ‚mouchou‘?“ |
+| **Klíčová otázka** | „Co je naším ‚neviditelným dvorkem‘ a co by mohlo být naší ‚mouchou‘?“ |
 
 ---
 
