@@ -8,12 +8,14 @@
 
 Týmy, které:
 - 📉 mají dlouhé a neefektivní porady
-- 🗣️ si skáčou do řeči a nedokončují myšlenky
+- 🗣️ kocour: pro týmy, kde si lidé skáčou do řeči a nedokončují myšlenky
 - 🧭 tápou ve směřování projektu
 - 💬 cítí, že „něco není v pořádku“, ale neumí to pojmenovat
 - 🔁 řeší dokola stejné problémy
 
 ---
+
+## MYŠ - demo 
 
  👉 **[Vyzkoušejte pohled z více perspektiv (funkční nástroj)](MYŠ/index.html)**
  
@@ -23,7 +25,7 @@ Týmy, které:
 
 Každá karta je **samostatný, připravený workshop**, který s týmem provedete za 90 minut.
 
-**V ceně 25 000 Kč získáte:**
+**V ceně 35 000 Kč získáte:**
 
 📘 **Pohádku** – příběh, který otevře téma bez obviňování  
 🧠 **12 úhlů pohledu** – diagnostický klíč, který odhalí, kudy se tým dívá  
@@ -50,7 +52,7 @@ Většina nástrojů končí u diagnózy: *„Zjistili jsme, že máte problém.
 
 ## 💰 Cena a návratnost
 
-**25 000 Kč za kartu.**
+**35 000 Kč za kartu.**
 
 Proč?
 
@@ -77,11 +79,11 @@ Proč?
 | Karta | Problém | Ukázka | Plná verze |
 |-------|---------|--------|------------|
 | 🐈 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **zdarma** Kč |
-| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 25 000 Kč |
-| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 25 000 Kč |
-| 🪰 **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 25 000 Kč |
-| 🦌 **Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 25 000 Kč |
-| 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 25 000 Kč |
+| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 35 000 Kč |
+| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 35 000 Kč |
+| 🪰 **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 35 000 Kč |
+| 🦌 **Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 35 000 Kč |
+| 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 35 000 Kč |
 
 ---
 
@@ -89,7 +91,7 @@ Proč?
 
 1. Vyberte si kartu z katalogu.
 2. Napište na **chcesmys@gmail.com**.
-3. Pošleme vám fakturu a přístup k plné verzi (PDF + HTML nástroj).
+3. Pošleme vám fakturu a přístup k plné verzi (GitHub zip + HTML nástroj).
 
 ---
 
