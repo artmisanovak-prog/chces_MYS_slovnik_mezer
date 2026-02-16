@@ -1,4 +1,3 @@
-# MYŠ_META
 ## Klíč k úhlům aneb Jak myš čte pohádky
 
 —
