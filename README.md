@@ -17,7 +17,7 @@ Týmy, které:
 
 ## MYŠ - demo 
 
- 👉 **[Vyzkoušejte pohled z více perspektiv (funkční nástroj)](MYŠ/index.html)**
+ 👉 **[Vyzkoušejte pohled z více perspektiv (FUNKČNÍ NÁSTROJ)](MYŠ/index.html)**
  
 ---
 
@@ -155,7 +155,7 @@ Tohle není web. Je to **repozitář** – místo, kde žije celý systém "Chce
 
 Proč jsem to udělala takhle?
 
-**Protože jsem umělkyně, ne vývojářka.**
+**Protože jsem tvůrce, ne vývojářka.**
 
 Chtěla jsem kreslir kartičky, psát pohádky, tvořit interaktivní nástroje – 
 ale **nechtěla jsem se učit "jak se dělá web"**.
