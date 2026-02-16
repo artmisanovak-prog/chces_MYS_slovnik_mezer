@@ -109,6 +109,10 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
+[! Přečíst text(https://img.shields.io/badge/-CHYBA_JAKO_ZDROJ-blue?style=for-the-badge)](MYŠ/0%2Omě/CHYBA_JAKO_ZDROJ.md)
+
+---
+
 ## 📄 Licence
 
 Obsah tohoto repozitáře je licencován pod **Creative Commons Attribution-NonCommercial-ShareAlike 4.0**.  
