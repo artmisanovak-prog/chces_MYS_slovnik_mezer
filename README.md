@@ -4,6 +4,19 @@
 
 ---
 
+## 🚀 Rychlý start
+
+1. 👉 **[Vyzkoušejte pohled z více perspektiv (funkční nástroj)](MYŠ/index.html)**
+   
+  
+2. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./karty/Mys_meta.md)
+Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
+
+3. **Prohlédněte si ukázkovou kartu**
+ [Jak kocoucour sežral dvě berušky a půl hodiny krkal tečky](./karty/Kocour/)
+  
+---
+
 ## 🎯 Pro koho to je?
 
 Týmy, které:
@@ -15,11 +28,6 @@ Týmy, které:
 
 ---
 
-## MYŠ - demo 
-
- 👉 **[Vyzkoušejte pohled z více perspektiv (FUNKČNÍ NÁSTROJ)](MYŠ/index.html)**
- 
----
 
 ## ✅ Co karta obsahuje?
 
@@ -59,19 +67,6 @@ Proč?
 
 ---
 
-## 🚀 Rychlý start
-
-1. 👉 **[Vyzkoušejte pohled z více perspektiv (funkční nástroj)](MYŠ/index.html)**
-   
-2. **Prohlédněte si ukázkové karty**
- [Jak kocoucour sežral dvě berušky a půl hodiny krkal tečky](./karty/Kocour/)
-  
-  
-3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./karty/Mys_meta.md)
-Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
-
----
-
 ## 🃏 Dostupné karty
 
 | Karta | Problém | Ukázka | Plná verze |
@@ -85,75 +80,7 @@ Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
 
 ---
 
-## Modelové scénáře použití
 
-Následující příklady ilustrují, jak práce s úhly pohledu a mezerami v myšlení pomáhá odhalovat skryté příčiny problémů.
-
-### 1. „Nestíháme“
-**Situace:**  
-Tým dlouhodobě nestíhá termíny.
-
-**Pozorovaný výrok:**  
-„Potřebujeme víc času.“
-
-**Identifikovaný úhel:**  
-bezpečí · strach z chyb
-
-**Mezera:**  
-nejasná rozhodovací odpovědnost
-
-**Zásah:**  
-vyjasnění pravomocí a snížení penalizace chyb
-
-**Výsledek:**  
-rychlejší rozhodování, snížení paralýzy
-
-
----
-
-### 2. „Musíme to mít pod kontrolou“
-**Situace:**  
-Manažer mikromanaguje práci týmu.
-
-**Úhel:**  
-kontrola jako ochrana stability
-
-**Mezera:**  
-nedůvěra v proces, ne v lidi
-
-**Zásah:**  
-nastavení transparentních kontrolních bodů místo průběžného dohledu
-
-**Výsledek:**  
-vyšší autonomie a nižší přetížení manažera
-
-
----
-
-### 3. „Nikdo nic neříká“
-**Situace:**  
-Na poradách panuje ticho a souhlas.
-
-**Úhel:**  
-vztah · zachování harmonie
-
-**Mezera:**  
-psychologická bezpečnost
-
-**Zásah:**  
-zavedení strukturovaného nesouhlasu („co by mohlo selhat?“)
-
-**Výsledek:**  
-otevřenější komunikace a včasné zachycení rizik
-
-
----
-
-### Poznámka
-Scénáře jsou modelové.  
-Ukazují princip práce s perspektivou, nikoli hodnocení jednotlivců
-
----
 
 ## 📦 Jak kartu získat?
 
