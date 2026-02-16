@@ -64,7 +64,7 @@ Dostanete:
 ## 🪤 Katalog:
 | | Název | Problém | Cena | Akce |
 |---|---|---|---|---|---|
-| <img src="./karty/Plamenak/Plamenak.jpg" width="80"> | **Plameňák** | Energie bez směru, toxický optimismus | 40 000 Kč | [Objednat](#objednávka) |
+| <img src="./karty/Plamenak/plamenak.jpg" width="80"> | **Plameňák** | Energie bez směru, toxický optimismus | 40 000 Kč | [Objednat](#objednávka) |
 
 ---
 
