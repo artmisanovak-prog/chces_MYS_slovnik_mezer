@@ -1,4 +1,3 @@
-# MYŠ_DEMO
 ## Jak myš čte KOCOURA
 
 —
