@@ -9,7 +9,7 @@ Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči
 ---
 
 [Pohádka o kocourovi](./pohadka.md) | 
-[Diagnostický mód](./kocour-diagnostika.html) | [Kreativní mód](./generator.html) | [Generativní mód](./kreativni_mod.html) | [Workshop](./WORKSHOP_90_MINUT.md) |
+[Diagnostický mód](./kocour-diagnostika.html) | [Kreativní mód](./generator.html) | [Generativní mód](./generativni.html) | [Workshop](./WORKSHOP_90_MINUT.md) |
 [Zpětná_vazba](./pohadka.md) | 
 [Licence](./LICENCE_KARTY_kocour.txt) |
 
