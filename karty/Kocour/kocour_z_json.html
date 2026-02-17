@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+<hlavička>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=šířka zařízení, initial-scale=1.0">
+    <title>Náhodný výrok – Kocour</title>
+    <styl>
+        tělo {
+            rodina-fontů: system-ui, bezpatkové;
+            maximální šířka: 700px;
+            okraj: 3rem auto;
+            odsazení: 0 20px;
+            pozadí: #fafaf8;
+            barva: #1e1e1e;
+            zarovnání textu: na střed;
+        }
+        h1 {
+            tloušťka-fontu: 400;
+            border-bottom: 2px čárkovaná #aaa;
+            polstrování spodní části: 0,5rem;
+        }
+        .statement-box {
+            pozadí: bílé;
+            poloměr okraje: 30px;
+            polstrování: 2,5rem;
+            okraj: 2rem 0;
+            stín rámečku: 0 4px 12px rgba(0,0,0,0,0,03);
+            velikost písma: 1,3rem;
+            výška řádku: 1,6;
+            min-height: 150px;
+            displej: ohebný;
+            zarovnání-položek: na střed;
+            zarovnat-obsah: na střed;
+        }
+        tlačítko {
+            pozadí: #2c3e50;
+            okraj: žádný;
+            barva: bílá;
+            výplň: 0,8rem 2rem;
+            poloměr okraje: 40px;
+            velikost písma: 1,1rem;
+            kurzor: ukazatel;
+            ohraničení: 1px plný #1a2632;
+            přechod: 0,1 s;
+        }
+        tlačítko:najeďte myší {
+            pozadí: #1f2d3a;
+        }
+        .zápatí {
+            horní okraj: 2rem;
+            barva: #6f6f6f;
+            velikost písma: 0,9rem;
+        }
+    </style>
+</head>
+<tělo>
+    <h1 id="card-title">🐱 Kocour – náhodný výrok</h1>
+    <div class="příkaz-box" id="příkaz">
+        Načítám...
+    </div>
+    <button id="generate-btn">Další výrok</button>
+    <div class="footer">
+        Jedna z 36 vět. Žádná teorie, jen inspirace.
+    </div>
+
+    <skript>
+        // Tady stačí změnit název JSON souboru pro jinou kartu
+        const JSON_FILE = 'kocour.json'; // <-- pro Plameňáka dáš 'plamenak.json' atd.
+
+        příkazy let = [];
+
+        asynchronní funkce načítání příkazů() {
+            zkuste {
+                const response = await fetch(JSON_FILE);
+                pokud (!response.ok) throw new Error('JSON nenalezen');
+                const data = await response.json();
+                příkazy = data.příkazy || [];
+                document.getElementById('card-title').innerHTML = `🐱 ${data.card || 'Karta'} – náhodný výrok`;
+                generovatNáhodné();
+            } chytit (e) {
+                document.getElementById('statement').innerText = 'Nepodařilo se načíst výroky. Zkontroluj název souboru JSON.';
+            }
+        }
+
+        funkce generujeRandom() {
+            pokud (příkazy.délka === 0) return;
+            const randomIndex = Math.floor(Math.random() * statements.length);
+            document.getElementById('příkaz').innerText = příkazy[náhodnýIndex];
+        }
+
+        document.getElementById('generate-btn').addEventListener('click', generateRandom);
+        načteníPříkazů();
+    </script>
+</body>
+</html>
