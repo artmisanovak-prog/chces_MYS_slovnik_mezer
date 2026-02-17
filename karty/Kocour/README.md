@@ -1,6 +1,8 @@
-# 🐱 KARTA: KOCOUR – ukázka
+# 🐈‍⬛ KARTA: Kocour PORUCHA: **Tyranie předčasného uzavírání v komunikaci**
 
-**Tyranie předčasného uzavírání v komunikaci**
+---
+
+**Komunikační patolog**
 
 Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči, dokončují myšlenky za druhé a předčasně uzavírají diskuse, čímž dusí kreativitu a poškozují důvěru.
 
