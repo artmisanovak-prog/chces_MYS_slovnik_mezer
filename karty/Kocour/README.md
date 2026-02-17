@@ -69,7 +69,20 @@ Přečtěte si pohádku **[Jak kocour sežral dvě berušky a půl hodiny krkal 
 - ✅ **Šablony:** Workshopová agenda, Protikocouří manifest, Dotazník komunikační bezpečnosti
 - ✅ **Diagnostické nástroje** pro tým
 - ✅ **Návod** na implementaci
+  
+---
 
-**Cena: 15 000 Kč**
+## Katalog poruch
+
+**Plameňák**
+**Motýl**
+**Páv**
+**Vrabec**
+**Moucha**
+**Osel**
+**Žížala**
+**Lev**
+
+---
 
 Kontakt: **[chcesmys@gmail.com](mailto:chcesmys@gmail.com)**
