@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔮 Kocour – generativní mód</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, serif;
+    background: #fff;
+    color: #111;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+    line-height: 1.6;
+  }
+  h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+  h2 { font-size: 1.1rem; margin: 2rem 0 0.7rem; border-bottom: 1px solid #111; padding-bottom: 0.3rem; }
+  h3 { font-size: 1rem; margin: 0 0 0.3rem; }
+  .nav { font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .nav a { color: #111; }
+  .uvod {
+    border-left: 3px solid #111;
+    padding: 0.7rem 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  .kombinace {
+    border: 1px solid #111;
+    margin-bottom: 1.5rem;
+  }
+  .kombinace-hlavicka {
+    background: #111;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+  .kombinace-hlavicka span {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    display: block;
+    margin-top: 0.1rem;
+  }
+  .kombinace-telo { padding: 1rem; }
+  .kombinace-nazev { font-weight: bold; font-size: 1rem; margin-bottom: 0.3rem; }
+  .kombinace-cil { font-size: 0.85rem; color: #555; font-style: italic; margin-bottom: 0.8rem; }
+  .kombinace-cviceni { font-size: 0.88rem; }
+  .kombinace-cviceni p { margin-bottom: 0.4rem; }
+  .kombinace-cviceni ol { margin-left: 1.2rem; }
+  .kombinace-cviceni li { margin-bottom: 0.4rem; }
+  .vlastni-box {
+    border: 1px solid #111;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .vlastni-box p { font-size: 0.88rem; color: #444; margin-bottom: 1rem; }
+  .vybery { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .vyber-skupina { flex: 1; min-width: 200px; }
+  .vyber-skupina label { display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 0.3rem; }
+  .vyber-skupina select {
+    width: 100%;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid #111;
+    font-family: Georgia, serif;
+    font-size: 0.85rem;
+    background: #fff;
+  }
+  .btn {
+    padding: 0.5rem 1.2rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: Georgia, serif;
+  }
+  .btn:hover { background: #333; }
+  .vysledek-kombinace {
+    display: none;
+    margin-top: 1.2rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+  }
+  .vysledek-kombinace h3 { margin-bottom: 0.8rem; }
+  .uhel-panel {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .uhel-panel strong { display: block; margin-bottom: 0.3rem; }
+  .uhel-panel .meta { font-size: 0.8rem; color: #555; font-style: italic; margin-bottom: 0.5rem; }
+  .uhel-panel .q3-text { font-size: 0.88rem; border-left: 2px solid #111; padding-left: 0.7rem; }
+  .hint {
+    background: #f5f5f5;
+    padding: 0.7rem;
+    font-size: 0.82rem;
+    color: #444;
+    margin-top: 0.8rem;
+    font-style: italic;
+  }
+  @media print {
+    .nav, .btn, select { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="../">← Kocour</a> &nbsp;|&nbsp;
+  <a href="../../">Chceš myš?</a>
+</div>
+
+<h1>🔮 Kocour – generativní mód</h1>
+<p style="font-size:0.85rem; color:#555; margin-bottom:1rem;">Kocour sám se sebou</p>
+
+<div class="uvod">
+  Věděli jste, že tahle karta umí generovat nové workshopy, aniž byste potřebovali jinou kartu?<br>
+  Stačí spojit dva různé úhly. Tady máte 4 hotové kombinace — rovnou k použití.
+</div>
+
+<h2>🧩 Hotové kombinace</h2>
+
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 1 + 9
+    <span>Úhel 1 (Fyzický konec věty) × Úhel 9 (Nedokončené jako dar)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Tečka, nebo tři tečky?</div>
+    <div class="kombinace-cil">Cíl: Procvičit přechod od uzavírání k otevírání.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Cvičení (20 minut):</strong></p>
+      <ol>
+        <li>Vezměte si aktuální problém, který „už měl být dávno rozhodnutý".</li>
+        <li><strong>5 minut:</strong> Každý návrh musí skončit tečkou. Žádná „možná", žádné „co kdyby". Jen tvrdá, hotová rozhodnutí.</li>
+        <li><strong>5 minut:</strong> Každý návrh musí skončit třemi tečkami. Žádné uzavření, jen otevření, otázky, možnosti.</li>
+        <li><strong>10 minut:</strong> Reflexe – <em>Kdy nám pomáhá tečka? Kdy nám pomáhají tři tečky? Kde v naší práci potřebujeme víc jedněch nebo druhých?</em></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 2 + 6
+    <span>Úhel 2 (Kvaziefektivita) × Úhel 6 (Tyranie metrik)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">14 teček, které nevidíme</div>
+    <div class="kombinace-cil">Cíl: Odhalit, co čísla nedokážou zachytit.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Cvičení (25 minut):</strong></p>
+      <ol>
+        <li>Každý člen týmu napíše na lísteček <strong>jednu metriku</strong>, kterou tým pravidelně sleduje.</li>
+        <li>Lístky se zamíchají a každý si vylosuje jednu cizí.</li>
+        <li>Úkol: <em>„Vymysli příběh, který tahle metrika NEříká. Co se děje v zákulisí? Kdo nebo co trpí? Jaké úspěchy zůstávají neviditelné?"</em></li>
+        <li>Sdílení. Výstup: seznam <strong>„14 teček"</strong> – věcí, které bychom měli začít sledovat, ale dosud jsme je neměřili.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 4 + 10
+    <span>Úhel 4 (Pozorovatelská myš) × Úhel 10 (Komunikační trauma)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Ticho, které křičí</div>
+    <div class="kombinace-cil">Cíl: Zviditelnit hlasy, které byly umlčeny.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Cvičení (30 minut):</strong></p>
+      <ol>
+        <li>Jmenujte na dnešních 30 minut <strong>„Myš"</strong>. Její jediná role: pozorovat, kdo mluví, kdo je přerušován, kdo se nedostane ke slovu.</li>
+        <li>Tým diskutuje na téma: <em>„Co bychom měli přestat dělat?"</em></li>
+        <li>Myš nemluví, jen zapisuje. Na konci přečte: kolikrát kdo promluvil, kdo byl přerušen, kdo neřekl ani slovo.</li>
+        <li><strong>Nikdo nesmí hodnotit, vysvětlovat, obhajovat.</strong> Jen ticho a vstřebávání.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 5 + 12
+    <span>Úhel 5 (Trvalá změna) × Úhel 12 (Navrácené štěstí)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Beruška na stole</div>
+    <div class="kombinace-cil">Cíl: Vytvořit jemný signál pro zpomalení.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Nové pravidlo pro tým:</strong></p>
+      <p>Zavedeme <strong>Beruščí rituál</strong>. Každý člen týmu má na stole malou berušku (nebo jiný drobný předmět). Kdykoli se během diskuze cítím přerušen, umlčen, nebo prostě potřebuji víc času na dořečení…</p>
+      <p><strong>Položím berušku doprostřed stolu.</strong></p>
+      <p>Nikdo to nesmí komentovat, hodnotit ani se ptát. Všichni zpomalí, ztiší se, nechají mluvčího doříct. Žádná omluva. Žádné vysvětlování. Jen beruška.</p>
+    </div>
+  </div>
+</div>
+
+<h2>🔭 Vlastní kombinace</h2>
+
+<div class="vlastni-box">
+  <p>Vyber dva různé úhly a spojí se jejich Q3 — úkoly, které z nich vyplývají. Zbytek je na tobě: jak cvičení pojmeneš, jak ho časově nastavíš, co z toho uděláš.</p>
+  <div class="vybery">
+    <div class="vyber-skupina">
+      <label>Úhel A (přetížený / dominantní):</label>
+      <select id="uhel-a"><option value="">— vyber úhel —</option></select>
+    </div>
+    <div class="vyber-skupina">
+      <label>Úhel B (deficitní / chybějící):</label>
+      <select id="uhel-b"><option value="">— vyber úhel —</option></select>
+    </div>
+  </div>
+  <button class="btn" onclick="generuj()">🔮 Spojit úhly</button>
+  <div class="vysledek-kombinace" id="vysledek">
+    <h3>Tvoje kombinace</h3>
+    <div id="panel-a" class="uhel-panel"></div>
+    <div id="panel-b" class="uhel-panel"></div>
+    <div class="hint">
+      Toto jsou dva úkoly (Q3) z vybraných úhlů. Spoj je do jednoho cvičení — pojmenuj ho, odhadni čas, popiš postup. Princip: lidé s úhlem A dostanou za úkol pracovat způsobem úhlu B.
+    </div>
+  </div>
+</div>
+
+<script>
+let uhly = [];
+
+fetch('uhly12.json')
+  .then(r => r.json())
+  .then(data => {
+    uhly = data;
+    const options = uhly.map(u => `<option value="${u.id}">${u.id}. ${u.emoji} ${u.nazev}</option>`).join('');
+    document.getElementById('uhel-a').innerHTML = '<option value="">— vyber úhel —</option>' + options;
+    document.getElementById('uhel-b').innerHTML = '<option value="">— vyber úhel —</option>' + options;
+  });
+
+function generuj() {
+  const idA = parseInt(document.getElementById('uhel-a').value);
+  const idB = parseInt(document.getElementById('uhel-b').value);
+  if (!idA || !idB) { alert('Vyber oba úhly.'); return; }
+  if (idA === idB) { alert('Vyber dva různé úhly.'); return; }
+  const a = uhly.find(u => u.id === idA);
+  const b = uhly.find(u => u.id === idB);
+  document.getElementById('panel-a').innerHTML = `
+    <strong>${a.id}. ${a.emoji} ${a.nazev}</strong>
+    <div class="meta">${a.metafora}</div>
+    <div class="q3-text">${a.q3}</div>
+  `;
+  document.getElementById('panel-b').innerHTML = `
+    <strong>${b.id}. ${b.emoji} ${b.nazev}</strong>
+    <div class="meta">${b.metafora}</div>
+    <div class="q3-text">${b.q3}</div>
+  `;
+  const el = document.getElementById('vysledek');
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
