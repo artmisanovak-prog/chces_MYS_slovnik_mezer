@@ -1,95 +1,41 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Náhodný výrok – Kocour</title>
-    <style>
-        body {
-            font-family: system-ui, sans-serif;
-            max-width: 700px;
-            margin: 3rem auto;
-            padding: 0 20px;
-            background: #fafaf8;
-            color: #1e1e1e;
-            text-align: center;
-        }
-        h1 {
-            font-weight: 400;
-            border-bottom: 2px dashed #aaa;
-            padding-bottom: 0.5rem;
-        }
-        .statement-box {
-            background: white;
-            border-radius: 30px;
-            padding: 2.5rem;
-            margin: 2rem 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            font-size: 1.3rem;
-            line-height: 1.6;
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        button {
-            background: #2c3e50;
-            border: none;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 40px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            border: 1px solid #1a2632;
-            transition: 0.1s;
-        }
-        button:hover {
-            background: #1f2d3a;
-        }
-        .footer {
-            margin-top: 2rem;
-            color: #6f6f6f;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
-<body>
-    <h1 id="card-title">🐱 Kocour – náhodný výrok</h1>
-    <div class="statement-box" id="statement">
-        Načítám...
-    </div>
-    <button id="generate-btn">Další výrok</button>
-    <div class="footer">
-        Jedna z 36 vět. Žádná teorie, jen inspirace.
-    </div>
-
-    <script>
-        // Tady stačí změnit název JSON souboru pro jinou kartu
-        const JSON_FILE = 'kocour.json';  // <-- pro Plameňáka dáš 'plamenak.json' atd.
-
-        let statements = [];
-
-        async function loadStatements() {
-            try {
-                const response = await fetch(JSON_FILE);
-                if (!response.ok) throw new Error('JSON nenalezen');
-                const data = await response.json();
-                statements = data.statements || [];
-                document.getElementById('card-title').innerHTML = `🐱 ${data.card || 'Karta'} – náhodný výrok`;
-                generateRandom();
-            } catch (e) {
-                document.getElementById('statement').innerText = 'Nepodařilo se načíst výroky. Zkontroluj název JSON souboru.';
-            }
-        }
-
-        function generateRandom() {
-            if (statements.length === 0) return;
-            const randomIndex = Math.floor(Math.random() * statements.length);
-            document.getElementById('statement').innerText = statements[randomIndex];
-        }
-
-        document.getElementById('generate-btn').addEventListener('click', generateRandom);
-        loadStatements();
-    </script>
-</body>
-</html>
+{
+  "card": "Kocour",
+  "statements": [
+    "Kocour se stal otrokem tečky. Věřil, že hodnota je v ukončení, ne v obsahu.",
+    "V našich meetinzích, když někdo řekne 'takže...' a hned je přerušen řešením.",
+    "Zavést pravidlo 'tří teček' (...). První, kdo řekne 'tečka', jen shrnuje.",
+    "Kocour si myslel, že urychluje práci. 'Půl hodiny a hotovo!' Ale ve skutečnosti jen nahradil společný proces monologem.",
+    "Když projektový manažer tlačí na rychlé 'odkliknutí' bodů z agendy, aniž by se dobral podstaty.",
+    "Měřit úspěch schůze nikoli délkou, ale počtem otevřených otázek na konci.",
+    "Berušky nesou 'nespolknuté konce vět'. To jsou nepříjemné, nezpracované aspekty problému.",
+    "Když potlačujeme 'elefanty v místnosti' – citlivá témata, emocionální frustrace.",
+    "Vytvořit 'nástěnku nespolknutého'. Anonymní místo pro věci, co se neřekly.",
+    "Myš je metaforou facilitátora nebo tichého člena. Vidí dysfunkci, ale nemá moc ji zastavit.",
+    "Když jsou v týmu introverti, kteří potřebují delší čas na formulaci, ale jsou přerušováni.",
+    "Jmenovat pro každou důležitou diskusi 'myš'. Jen pozoruje, na konci sdělí, co viděla.",
+    "I když kocour přestal, 'něco nebylo stejné'. Jednorázové narušení zanechává jizvu.",
+    "Po toxické schůzi tým zůstává pasivní, čeká na pokyny. Důvěra je pryč.",
+    "Leader musí vědomě vytvářet nedokončené věty a vyzývat ostatní k dokončení.",
+    "Příběh je posedlý přesnými čísly: 2 berušky, 14 teček, 30 minut. Parodie na manažerské reporty.",
+    "Když se na retrospektivě řeší jen 'splněno/nesplněno', ne 'jak se cítíme'.",
+    "Přidat ke každé metrice kvalitativní příběh: 'Jakých 14 teček jsme vykrkli?'.",
+    "Kocour svým dokončováním vět vynucoval souhlas. Lidé přestali mluvit.",
+    "Když šéf řekne 'Takže všichni souhlasíme?' a ticho je interpretováno jako souhlas.",
+    "Používat mechanismus 'souhlasu ticha' – ticho znamená NESOUHLAS.",
+    "Kocour soutěžil: 'kdo dokončí větu dřív'. Komunikace je závod, ne spolupráce.",
+    "V týmech, kde se odměňuje individuální výkon, přerušování je projev soutěže.",
+    "Zavést 'kolo mluvčího' – mluví jen ten, kdo drží předmět.",
+    "Nedokončené věty bývají všechny stejné. Jakmile je věta dokončena, je mrtvá.",
+    "Když tým hledá řešení hned, místo aby setrval v problému.",
+    "Cvičení: 'Náš problém je jako...' Zakázat dokončení, jen začátky metafor.",
+    "Kocour skákal lidem do řeči. Komunikace se stala traumatem, tým se 'slehl'.",
+    "Když jsou schůze zdrojem stresu, lidé se bojí promluvit.",
+    "Provést audit komunikační bezpečnosti: anonymní dotazník.",
+    "Tečka je někdy silnější než celá věta. Formální uzavření má větší váhu než diskuze.",
+    "Když se v diskuzi ztrácíme a pak někdo řekne 'Tak rozhodnuto!' z únavy.",
+    "Při uzavírání se ptát: 'Kdo cítí, že jeho hlas nebyl slyšen?'.",
+    "Příběh končí nadějí: štěstí berušek se vrátilo. Ale vyžaduje to mlčenlivé porozumění.",
+    "Když se tým po traumatu pomalu uzdravuje, důvěra je křehká.",
+    "Zavést beruščí rituál – tichý symbol pro zpomalení a vyslechnutí."
+  ]
+}
