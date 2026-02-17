@@ -19,6 +19,17 @@ Přečtěte si pohádku **[Jak kocour sežral dvě berušky a půl hodiny krkal 
 
 ---
 
+## PRAVIDLA SYSTÉMU
+
+1. **Žádné správné** odpovědi – pouze mapování
+2. Úhly **nejsou charakterové** rysy – jsou to momentální stavy
+3. Graf **není hodnocení** – je to mapa aktuálního myšlení
+4. Pohádka není návod – je to zrcadlo
+5. Protikladný úhel není lepší – je jen jiný
+6. **Cílem není shoda – cílem je vidět více možností**
+
+---
+
 ## 3 diagnostické otázky (pro tento konkrétní problém)
 
 1. **Q1 (Analýza):** "Proč kocour skákal lidem do řeči a dokončoval za ně věty? Co tím získával a co tím ničil?"
