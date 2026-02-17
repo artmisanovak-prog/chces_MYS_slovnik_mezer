@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐱 KOCOUR – diagnostický mód</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            background: #fafaf8;
+            color: #1e1e1e;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            border-bottom: 2px dashed #aaa;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        h1::before {
+            content: "🐱 ";
+            font-size: 2rem;
+        }
+        .container {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        /* ===== LEVÝ PANEL – TAHÁK 12 ÚHLŮ ===== */
+        .sidebar {
+            flex: 0 0 300px;
+            background: #f0ede9;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            align-self: stretch;
+        }
+        .sidebar h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.5rem;
+        }
+        .angle-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .angle-item {
+            margin-bottom: 1.4rem;
+            border-left: 3px solid transparent;
+            padding-left: 0.8rem;
+            transition: 0.1s;
+        }
+        .angle-item:hover {
+            border-left-color: #b8a9a9;
+        }
+        .angle-title {
+            font-weight: 600;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.2rem;
+            color: #2c3e50;
+        }
+        .angle-desc {
+            font-size: 0.85rem;
+            color: #4a4a4a;
+            line-height: 1.4;
+            opacity: 0.85;
+        }
+
+        /* ===== PRAVÁ PRACOVNÍ PLOCHA ===== */
+        .main {
+            flex: 1;
+            min-width: 0;
+        }
+        .toolbar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+        .btn {
+            background: white;
+            border: 1px solid #bbb;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.1s;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.02);
+            font-weight: 450;
+        }
+        .btn:hover {
+            background: #f0f0f0;
+            border-color: #8a8a8a;
+        }
+        .btn-primary {
+            background: #2c3e50;
+            border-color: #1a2632;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #1f2d3a;
+        }
+
+        /* Blok jednoho člena */
+        .member-card {
+            background: white;
+            border: 1px solid #e0ddd9;
+            border-radius: 24px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            transition: 0.1s;
+        }
+        .member-card.completed {
+            opacity: 0.7;
+            background: #f6f4f0;
+        }
+        .member-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .member-name-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .member-label {
+            font-weight: 500;
+            color: #4e4e4e;
+        }
+        .member-name-input {
+            border: none;
+            border-bottom: 1px dashed #aaa;
+            background: transparent;
+            padding: 0.3rem 0.5rem;
+            font-size: 1rem;
+            width: 200px;
+            outline: none;
+        }
+        .member-name-input:focus {
+            border-bottom-color: #2c3e50;
+        }
+        .member-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+        .mark-done, .delete-member {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 0 5px;
+            opacity: 0.5;
+            transition: 0.1s;
+        }
+        .mark-done:hover, .delete-member:hover {
+            opacity: 1;
+        }
+        .mark-done:hover { color: #2a7a2a; }
+        .delete-member:hover { color: #b52b2b; }
+
+        /* Jedna otázka uvnitř bloku */
+        .question-block {
+            margin-bottom: 1.5rem;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #1f2d3a;
+        }
+        .answer-input {
+            width: 100%;
+            min-height: 80px;
+            padding: 0.8rem;
+            border: 1px solid #d4cfc8;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            resize: vertical;
+            background: #ffffff;
+        }
+        .answer-input:focus {
+            outline: none;
+            border-color: #9e9e9e;
+        }
+
+        /* ===== VÝSLEDKOVÁ OBLAST ===== */
+        .results {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed #bbb;
+        }
+        .results h2 {
+            font-weight: 400;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        #results-chart {
+            max-height: 350px;
+            max-width: 600px;
+            margin: 1rem 0 2rem 0;
+        }
+        .angle-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .stat-column {
+            flex: 1 1 200px;
+            background: #f6f4ef;
+            padding: 1.2rem;
+            border-radius: 24px;
+        }
+        .stat-column h3 {
+            margin-top: 0;
+            font-weight: 500;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.5rem;
+        }
+        .advice-list {
+            margin: 1rem 0;
+        }
+        .advice-item {
+            background: white;
+            padding: 1rem 1.3rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+            border-left: 5px solid;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>KOCOUR – diagnostický mód</h1>
+
+<div class="container">
+    <!-- LEVÝ PANEL – 12 ÚHLŮ (TAHÁK) -->
+    <div class="sidebar">
+        <h2>📐 12 úhlů pohledu</h2>
+        <ul class="angle-list" id="angle-list"></ul>
+    </div>
+
+    <!-- PRAVÁ PRACOVNÍ PLOCHA -->
+    <div class="main">
+        <div class="toolbar">
+            <button class="btn" id="addMemberBtn">➕ Přidat člena</button>
+            <button class="btn btn-primary" id="evaluateBtn">🔍 Vyhodnotit odpovědi</button>
+        </div>
+
+        <!-- ZDE SE DYNAMICKY VKLÁDAJÍ KARTY JEDNOTLIVÝCH ČLENŮ -->
+        <div id="membersContainer"></div>
+    </div>
+</div>
+
+<!-- VÝSLEDKOVÁ OBLAST -->
+<div class="results" id="resultsArea" style="display: none;">
+    <h2>🧠 Kognitivní mapa týmu</h2>
+    <canvas id="resultsChart"></canvas>
+
+    <div class="angle-stats" id="statsOverloaded"></div>
+
+    <h3 style="margin-top:2rem;">📌 Rady (Q3) pro úhly v týmu</h3>
+    <div id="adviceList" class="advice-list"></div>
+</div>
+
+<script>
+    (function() {
+        // =========================================================
+        // 1. DATA – 12 ÚHLŮ (podle Myš – klíč k úhlům)
+        // =========================================================
+        const angles = [
+            { num: 1, name: "Absurdní", 
+              desc: "Hledá rozpor, paradox, místo kde svět přestal dávat smysl. Důraz na zhroucení pravidel." },
+            { num: 2, name: "Jazykový", 
+              desc: "Hra se slovy, rytmus, citace. Forma je obsah. Konkrétní formulace, hříčky." },
+            { num: 3, name: "Ironický", 
+              desc: "Vidí propast mezi záměrem a výsledkem. Sarkasmus, odhalení pokrytectví." },
+            { num: 4, name: "Filozofický", 
+              desc: "Hledá univerzální pravdu, smysl za smyslem. Tíhne k podstatě, ne ději." },
+            { num: 5, name: "Surrealistický", 
+              desc: "Volné asociace, snová logika, bizarní spojení. Obrazy bez vysvětlení." },
+            { num: 6, name: "Naivní", 
+              desc: "Dětská logika, přímá, bez interpretace. Jednoduchá emoce, čistý dojem." },
+            { num: 7, name: "Intro (introspektivní)", 
+              desc: "Projekce vlastního prožitku. Osobní zkušenost, emoce, vzpomínka." },
+            { num: 8, name: "Všeobecný (konkrétní)", 
+              desc: "Drží se faktů, děj je děj. Odpor k interpretaci, přesné konstatování." },
+            { num: 9, name: "Analogický (kulturní)", 
+              desc: "Hledá vzorce, archetypy. Odkaz na jiné příběhy, mýty, paralely." },
+            { num: 10, name: "Asociační", 
+              desc: "Rychlé spojení, řetěz asociací, odbočky, skokové myšlení." },
+            { num: 11, name: "Metaforický (symbolický)", 
+              desc: "Vše je symbolem. Hledá skrytý význam, převádí obrazy do abstrakce." },
+            { num: 12, name: "Groteskní", 
+              desc: "Přehnané, karikující, černý humor. Komično i v tragédii." }
+        ];
+
+        // =========================================================
+        // 2. Rady Q3 pro Kocoura (doplň vlastními texty z karty)
+        // =========================================================
+        const q3Rad = [
+            "Zavést pravidlo 'tří teček' – první, kdo řekne tečka, jen shrnuje, neuzavírá.",
+            "Měřit úspěch schůze počtem otevřených otázek na konci.",
+            "Vytvořit 'nástěnku nespolknutého' pro nevyřčená témata.",
+            "Jmenovat 'myš' – pozorovatele, který na konci sdělí, kdo mluvil a kdo byl přerušen.",
+            "Leader vědomě tvoří nedokončené věty a vyzývá k dokončení.",
+            "Ke každé metrice přidat kvalitativní příběh – 'jakých 14 teček jsme vykrkli'.",
+            "Zavést 'souhlas ticha = nesouhlas' – mlčení se považuje za nesouhlas.",
+            "Používat mluvící předmět (talking stick). Mluví jen ten, kdo ho drží.",
+            "Cvičení 'úmyslně nedokončovat' – zadávat jen začátky metafor.",
+            "Provést audit komunikační bezpečnosti (anonymní dotazník).",
+            "Při uzavírání se ptát: 'Kdo cítí, že jeho hlas nebyl slyšen?'",
+            "Zavést beruščí rituál – tichý signál pro zpomalení a vyslechnutí."
+        ];
+
+        // =========================================================
+        // 3. Dynamické přidávání členů a ukládání odpovědí
+        // =========================================================
+        let memberCount = 0;
+        const membersContainer = document.getElementById('membersContainer');
+
+        function createMemberCard(index) {
+            const card = document.createElement('div');
+            card.className = 'member-card';
+            card.dataset.index = index;
+
+            // Hlavička – jméno, tlačítka
+            const header = document.createElement('div');
+            header.className = 'member-header';
+            header.innerHTML = `
+                <div class="member-name-wrapper">
+                    <span class="member-label">Člen ${index + 1}</span>
+                    <input type="text" class="member-name-input" placeholder="nepovinné jméno" data-index="${index}">
+                </div>
+                <div class="member-actions">
+                    <span class="mark-done" data-index="${index}" title="označit jako hotové">✓</span>
+                    <span class="delete-member" data-index="${index}" title="odebrat">🗑</span>
+                </div>
+            `;
+            card.appendChild(header);
+
+            // 3 otázky (texty podle Kocoura)
+            const questions = [
+                "Co je podle vás hlavní pointa nebo sdělení tohoto příběhu?",
+                "Která konkrétní věta, obraz nebo moment vás nejvíc zaujal/a a PROČ?",
+                "Kdyby tento příběh byl návodem, co by vám radil dělat/ne dělat?"
+            ];
+
+            for (let qIdx = 0; qIdx < 3; qIdx++) {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'question-block';
+                qDiv.innerHTML = `
+                    <div class="question-text">${questions[qIdx]}</div>
+                    <textarea class="answer-input" data-member="${index}" data-question="${qIdx}" placeholder="odpověď..."></textarea>
+                `;
+                card.appendChild(qDiv);
+            }
+
+            // Tlačítko pro smazání
+            card.querySelector('.delete-member').addEventListener('click', (e) => {
+                e.stopPropagation();
+                card.remove();
+            });
+
+            // Tlačítko pro označení hotovo
+            card.querySelector('.mark-done').addEventListener('click', (e) => {
+                e.stopPropagation();
+                card.classList.toggle('completed');
+            });
+
+            return card;
+        }
+
+        document.getElementById('addMemberBtn').addEventListener('click', () => {
+            const card = createMemberCard(memberCount);
+            membersContainer.appendChild(card);
+            memberCount++;
+        });
+
+        // =========================================================
+        // 4. VYKRESLENÍ LEVÉHO PANELU
+        // =========================================================
+        const angleListEl = document.getElementById('angle-list');
+        angles.forEach(angle => {
+            const li = document.createElement('li');
+            li.className = 'angle-item';
+            li.innerHTML = `<span class="angle-title">${angle.num}. ${angle.name}</span><span class="angle-desc">${angle.desc}</span>`;
+            angleListEl.appendChild(li);
+        });
+
+        // =========================================================
+        // 5. VYHODNOCENÍ – hlavní funkce
+        // =========================================================
+        document.getElementById('evaluateBtn').addEventListener('click', () => {
+            const cards = document.querySelectorAll('.member-card');
+            if (cards.length === 0) {
+                alert('Nejprve přidejte alespoň jednoho člena týmu.');
+                return;
+            }
+
+            // pro každou odpověď zjistíme, jaký úhel facilitátor zvolí (select)
+            // teď vytvoříme select boxy pro každou odpověď (budou vidět až teď)
+            cards.forEach(card => {
+                // pokud už existují selecty, nesmíme je zdvojit – jednoduchá kontrola
+                if (!card.querySelector('.angle-select')) {
+                    const answers = card.querySelectorAll('.question-block');
+                    answers.forEach(ans => {
+                        const sel = document.createElement('select');
+                        sel.className = 'angle-select';
+                        sel.style.marginTop = '8px';
+                        sel.style.padding = '5px';
+                        sel.style.width = '100%';
+                        sel.style.borderRadius = '30px';
+                        sel.style.border = '1px solid #ccc';
+                        // základní prázdná možnost
+                        const blankOpt = document.createElement('option');
+                        blankOpt.value = '';
+                        blankOpt.textContent = '-- vyberte úhel --';
+                        sel.appendChild(blankOpt);
+                        // naplnění úhly
+                        angles.forEach((a, idx) => {
+                            const opt = document.createElement('option');
+                            opt.value = idx; // ukládáme index 0–11
+                            opt.textContent = `${a.num}. ${a.name}`;
+                            sel.appendChild(opt);
+                        });
+                        ans.appendChild(sel);
+                    });
+                }
+            });
+
+            // nyní sesbíráme všechny vybrané úhly
+            const allSelections = [];
+            cards.forEach(card => {
+                const selects = card.querySelectorAll('.angle-select');
+                selects.forEach(sel => {
+                    const val = sel.value;
+                    if (val !== '') allSelections.push(parseInt(val));
+                });
+            });
+
+            if (allSelections.length === 0) {
+                alert('Než vyhodnotíte, vyberte alespoň u některé odpovědi úhel.');
+                return;
+            }
+
+            // počítání četností (12 úhlů)
+            const counts = new Array(12).fill(0);
+            allSelections.forEach(idx => counts[idx]++);
+
+            // výpočet procent
+            const total = allSelections.length;
+            const percentages = counts.map(c => (c / total * 100).toFixed(1));
+
+            // sestavení seznamů pro přetížené, deficitní, vyvážené
+            const overload = [], deficient = [], balanced = [];
+            counts.forEach((c, i) => {
+                if (c >= total * 0.3) overload.push(i);      // >30 % = přetížený (prah lze upravit)
+                else if (c === 0) deficient.push(i);
+                else balanced.push(i);
+            });
+
+            // zobrazení výsledkové oblasti
+            const resultsArea = document.getElementById('resultsArea');
+            resultsArea.style.display = 'block';
+
+            // koláčový graf – jen úhly které mají nenulové %
+            const chartLabels = [];
+            const chartData = [];
+            const chartColors = [];
+            angles.forEach((a, i) => {
+                if (counts[i] > 0) {
+                    chartLabels.push(`${a.num}. ${a.name}`);
+                    chartData.push(counts[i]);
+                    chartColors.push(`hsl(${i * 30}, 70%, 65%)`);
+                }
+            });
+
+            // vykreslení grafu (Chart.js)
+            const ctx = document.getElementById('resultsChart').getContext('2d');
+            if (window.myChart instanceof Chart) window.myChart.destroy();
+            window.myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        data: chartData,
+                        backgroundColor: chartColors,
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'right' },
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw} odpovědí (${((ctx.raw/total)*100).toFixed(1)}%)` } }
+                    }
+                }
+            });
+
+            // textové statistiky (přetížené / deficitní / vyvážené)
+            const statsDiv = document.getElementById('statsOverloaded');
+            statsDiv.innerHTML = '';
+
+            if (overload.length) {
+                const col = document.createElement('div'); col.className = 'stat-column';
+                col.innerHTML = `<h3>🔴 Přetížené (>30%)</h3>`;
+                overload.forEach(i => col.innerHTML += `<div><b>${angles[i].num}. ${angles[i].name}</b><br>${counts[i]}× (${percentages[i]}%)</div>`);
+                statsDiv.appendChild(col);
+            }
+            if (deficient.length) {
+                const col = document.createElement('div'); col.className = 'stat-column';
+                col.innerHTML = `<h3>🟢 Deficitní (0×)</h3>`;
+                deficient.forEach(i => col.innerHTML += `<div><b>${angles[i].num}. ${angles[i].name}</b><br>chybí</div>`);
+                statsDiv.appendChild(col);
+            }
+            if (balanced.length) {
+                const col = document.createElement('div'); col.className = 'stat-column';
+                col.innerHTML = `<h3>⚖️ Vyvážené</h3>`;
+                balanced.forEach(i => col.innerHTML += `<div><b>${angles[i].num}. ${angles[i].name}</b><br>${counts[i]}× (${percentages[i]}%)</div>`);
+                statsDiv.appendChild(col);
+            }
+
+            // rady Q3 pro úhly které se v týmu objevily
+            const adviceDiv = document.getElementById('adviceList');
+            adviceDiv.innerHTML = '';
+            for (let i=0; i<12; i++) {
+                if (counts[i] > 0) {
+                    const item = document.createElement('div');
+                    item.className = 'advice-item';
+                    item.style.borderLeftColor = `hsl(${i*30}, 70%, 65%)`;
+                    item.innerHTML = `<b>${angles[i].num}. ${angles[i].name}</b><br>${q3Rad[i]}`;
+                    adviceDiv.appendChild(item);
+                }
+            }
+        });
+    })();
+</script>
+</body>
+</html>
