@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Náhodný výrok – Kocour</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 700px;
+            margin: 3rem auto;
+            padding: 0 20px;
+            background: #fafaf8;
+            color: #1e1e1e;
+            text-align: center;
+        }
+        h1 {
+            font-weight: 400;
+            border-bottom: 2px dashed #aaa;
+            padding-bottom: 0.5rem;
+        }
+        .statement-box {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            font-size: 1.3rem;
+            line-height: 1.6;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            background: #2c3e50;
+            border: none;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: 1px solid #1a2632;
+            transition: 0.1s;
+        }
+        button:hover {
+            background: #1f2d3a;
+        }
+        .footer {
+            margin-top: 2rem;
+            color: #6f6f6f;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="card-title">🐱 Kocour – náhodný výrok</h1>
+    <div class="statement-box" id="statement">
+        Načítám...
+    </div>
+    <button id="generate-btn">Další výrok</button>
+    <div class="footer">
+        Jedna z 36 vět. Žádná teorie, jen inspirace.
+    </div>
+
+    <script>
+        // Tady stačí změnit název JSON souboru pro jinou kartu
+        const JSON_FILE = 'kocour.json';  // <-- pro Plameňáka dáš 'plamenak.json' atd.
+
+        let statements = [];
+
+        async function loadStatements() {
+            try {
+                const response = await fetch(JSON_FILE);
+                if (!response.ok) throw new Error('JSON nenalezen');
+                const data = await response.json();
+                statements = data.statements || [];
+                document.getElementById('card-title').innerHTML = `🐱 ${data.card || 'Karta'} – náhodný výrok`;
+                generateRandom();
+            } catch (e) {
+                document.getElementById('statement').innerText = 'Nepodařilo se načíst výroky. Zkontroluj název JSON souboru.';
+            }
+        }
+
+        function generateRandom() {
+            if (statements.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * statements.length);
+            document.getElementById('statement').innerText = statements[randomIndex];
+        }
+
+        document.getElementById('generate-btn').addEventListener('click', generateRandom);
+        loadStatements();
+    </script>
+</body>
+</html>
