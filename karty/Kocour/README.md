@@ -13,12 +13,6 @@ Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči
 
 ---
 
-## Pohádka
-
-Přečtěte si pohádku **[Jak kocour sežral dvě berušky a půl hodiny krkal tečky](pohadka.md)**.
-
----
-
 ## PRAVIDLA SYSTÉMU
 
 1. **Žádné správné** odpovědi – pouze mapování
@@ -27,6 +21,12 @@ Přečtěte si pohádku **[Jak kocour sežral dvě berušky a půl hodiny krkal 
 4. Pohádka není návod – je to zrcadlo
 5. Protikladný úhel není lepší – je jen jiný
 6. **Cílem není shoda – cílem je vidět více možností**
+
+---
+
+## Pohádka
+
+Přečtěte si pohádku **[Jak kocour sežral dvě berušky a půl hodiny krkal tečky](pohadka.md)**.
 
 ---
 
