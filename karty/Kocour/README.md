@@ -1,4 +1,4 @@
-# 🐈‍⬛ KARTA: Kocour PORUCHA: **Tyranie předčasného uzavírání v komunikaci**
+# 🐈‍⬛ Kocour - PORUCHA: **Tyranie předčasného uzavírání v komunikaci**
 
 ---
 
