@@ -121,7 +121,7 @@ Proč?
 | <img src="karty/Hvezdice/hvezdice.jpg" width="80"><br>**Mořská hvězdice** | Záměna povrchových jevů (kruhů) za hluboké příčiny (kameny), ignorování systémové paměti | [Ukázka](./karty/Hvezdice/) | 35 000 Kč |
 | <img src="karty/Motyl/motyl.jpg" width="80"><br>**Motýl** | Estetizace hladu, nabídka krásných symbolů místo skutečného nasycení | [Ukázka](./karty/Motyl/) | 35 000 Kč |
 | <img src="karty/Osel/osel.jpg" width="80"><br>**Osel** | Paralýza z nejednoznačnosti, neschopnost rozlišit podstatné od nepodstatného | [Ukázka](./karty/Osel/) | 35 000 Kč |
-| <img src="karty/Zelva_zajic/zelva_zajic.jpg" width="80"><br>**Želva a zajíc** | Nerovnováha mezi explorací a implementací, chybějící dialog mezi vizí a realizací | [Ukázka](./karty/Zelva_zajic/) | 35 000 Kč |
+| <img src="karty/Zelva/zelva.jpg" width="80"><br>**Želva a zajíc** | Nerovnováha mezi explorací a implementací, chybějící dialog mezi vizí a realizací | [Ukázka](./karty/Zelva_zajic/) | 35 000 Kč |
 | <img src="karty/Drak/drak.jpg" width="80"><br>**Drak** | Systémová rigidita, forma zákazu důležitější než jeho smysl, rození života pod cedulemi | [Ukázka](./karty/Drak/) | 35 000 Kč |
 | <img src="karty/Laň/lan_kliste.jpg" width="80"><br>**Laň/Klíště** | Neviditelné role, frustrace a sny, které tvoří realitu, vzájemná závislost opomíjených | [Ukázka](./karty/Laň/) | 35 000 Kč |
 
