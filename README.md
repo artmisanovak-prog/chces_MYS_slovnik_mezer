@@ -30,6 +30,17 @@ Týmy, které:
 
 ---
 
+## 💎 V čem je to jiné?
+
+Většina nástrojů končí u diagnózy: *„Zjistili jsme, že máte problém.“*
+
+**Tenhle nástroj rovnou nabízí řešení.**
+
+- Není to test. Nikdo není „špatný“ ani „dobrý“.
+- Není to teorie. Je to pohádka, která se dá použít hned v pondělí ráno.
+- Není to generický model. Každá karta řeší **jeden konkrétní týmový problém**.
+
+---
 
 ## ✅ Co karta obsahuje?
 
@@ -42,18 +53,6 @@ Týmy, které:
 🎲 **Generativní mód** – jak kartu použít znovu a jinak  
 📎 **Šablony k okamžitému použití** – flipcharty, emaily, pracovní listy  
 📄 **Firemní licence** – kartu může používat celá organizace
-
----
-
-## 💎 V čem je to jiné?
-
-Většina nástrojů končí u diagnózy: *„Zjistili jsme, že máte problém.“*
-
-**Tenhle nástroj rovnou nabízí řešení.**
-
-- Není to test. Nikdo není „špatný“ ani „dobrý“.
-- Není to teorie. Je to pohádka, která se dá použít hned v pondělí ráno.
-- Není to generický model. Každá karta řeší **jeden konkrétní týmový problém**.
 
 ---
 
