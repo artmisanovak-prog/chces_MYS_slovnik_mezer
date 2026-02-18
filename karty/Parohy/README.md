@@ -1,4 +1,4 @@
-# 🦌 PAROŽÍ – Ukázka karty
+# 🫎 PAROŽÍ – Ukázka karty
 
 ## Jádrová dysfunkce
 
