@@ -68,6 +68,19 @@ Dostanete:
 
 ---
 
+## 🃏 Dostupné karty
+
+| Karta | Problém | Ukázka | Cena |
+|-------|---------|--------|------|
+| <img src="karty/Kocour/kocour.jpg" width="80"><br>**Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | zdarma |
+| <img src="karty/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 35 000 Kč |
+| <img src="karty/Páv/pav.jpg" width="80"><br>**Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 35 000 Kč |
+| <img src="karty/Moucha/moucha.jpg" width="80"><br>**Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 35 000 Kč |
+| <img src="karty/Laň/lan.jpg" width="80"><br>**Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 35 000 Kč |
+| <img src="karty/Ryba/ryba.jpg" width="80"><br>**Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 35 000 Kč |
+
+---
+
 ## ✅ Co získáte v každé kartě?
 
 Každá karta je **kompletní workshop na klíč**:
