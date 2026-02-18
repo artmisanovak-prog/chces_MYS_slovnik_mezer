@@ -4,6 +4,22 @@
 
 ---
 
+<div align="center">
+
+<img src="MYŠ/mys.jpg" width="150" align="left" style="margin-right: 20px;">
+
+**Jedna pohádka. Dvanáct pravd.**
+
+Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
+
+👉 [Vyzkoušej si to sám](./MYŠ/index.html)
+
+<br clear="left">
+
+</div>
+
+---
+
 ## 🚀 Rychlý start
 
 1. 👉 **[Vyzkoušejte pohled z více perspektiv (funkční nástroj)](MYŠ/index.html)**
