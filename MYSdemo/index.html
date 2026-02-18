@@ -1,0 +1,197 @@
+<!DOCTYPE html >
+< html  lang =" cs " >
+< hlava >
+    < meta  charset =" UTF-8 " >
+    < meta  name =" viewport " content =" width=šířka-zařízení, initial-scale=1.0 " >
+    < title > 🐭 Myš – 12 úhlů pohledu </ title >
+    < styl >
+        /* ----- ČERNOBÍLÝ SVĚT – ŽÁDNÉ BARVY ----- */
+        html { filtr :  stupně šedi ( 1 ); }
+        tělo {
+            rodina fontů :  'Georgia' ,  'Times New Roman' , serif;
+            pozadí :  #fff ;​
+            barva :  # 000 ;
+            výška řádku :  1,7 ;
+            maximální šířka :  900 px ;
+            okraj :  0 auto;
+            odsazení :  30 px  20 px ;
+        }
+        h1 ,  h2 ,  h3 {
+            tloušťka-fontu : normální;
+            border-bottom :  1 px solid # ccc ;
+            padding-bottom :  0,3 em ;
+        }
+        /* ----- POHÁDKA – SCROLLOVACÍ OKNO ----- */
+        kontejner -pohadka {
+            maximální výška :  400 px ;
+            přetečení-y : automatické;
+            okraj :  1 px plný # 000 ;
+            odsazení :  0  1,5 em ;
+            okraj :  2 em  0 ;
+            pozadí :  # f9f9f9 ;
+            styl písma : kurzíva;
+        }
+        pohádka {​
+            odsazení :  0,5 em  0 ;
+        }
+        /* ----- 12 TLAČÍTEK – JEDNODUCHÝ MŘÍŽKA ----- */
+        seznam -úhlu {
+            displej : flexibilní;
+            flex-wrap : obal;
+            mezera :  0,6 em ;
+            okraj :  2 em  0 ;
+            zarovnat-obsah : na-střed;
+        }
+        tlačítko seznam-  úhlu {
+            pozadí :  #fff ;​
+            okraj :  1 px plný # 000 ;
+            odsazení :  0,7 em  1,2 em ;
+            velikost písma :  0,95 rem ;
+            rodina-písmen : zdědit;
+            kurzor : ukazatel;
+            přechod :  0,1 s ;
+            barva :  # 000 ;
+        }
+        . tlačítko seznam-uhlu  : najetím {
+            pozadí :  #ddd ;​
+        }
+        . tlačítko seznam-uhlu  . vybrany {
+            pozadí :  # 000 ;
+            barva :  #fff ;​
+            okraj :  2 px plný # 000 ;
+            tloušťka-fontu : tučné;
+        }
+        /* ----- VÝSTUP – POD TLAČÍTKY ----- */
+        výstup {​
+            okraj :  1 px plný # 000 ;
+            odsazení :  2 em ;
+            horní okraj :  2 em ;
+            pozadí :  #fff ;​
+            min-výška :  180 px ;
+        }
+        nazev -uhlu {
+            velikost písma :  1,6 rem ;
+            tloušťka-fontu : tučné;
+            spodní okraj :  0,5 em ;
+        <p> Byl to klíč . <br>​
+        Pádlo . <br>​
+        Minulost .​​
+
+        < p  style =" margin-top: 2em; " > a konec úvodu. <br >​​
+        Ale začátek něčeho dalšího. </ p >
+
+        < p  style =" zarovnání textu: vpravo; styl písma: normální; margin-bottom: 0,5em; " > ..možná.. </ p >
+    </div>​​
+</div>​​
+
+<!-- =========== 12 TLAČÍTEK ========== -->
+< h2 > 🎯 Vyber úhel pohledu </ h2 >
+< div  class =" seznam-uhlu " id =" tlacitka " > </ div >
+
+<!-- =========== VÝSTUP ========== -->
+< div  class =" vystup " id =" vystup " >
+    < div  class =" nazev-uhlu " id =" nazev " > </ div >
+    < div  class =" popis-uhlu " id =" popis " > </ div >
+    < div  id = " text " > </div>​
+</div>​​
+
+<!-- ========== PATIČKA ========== -->
+< div  class =" patička " >
+    Autorka: Art Míša Novák – metoda REPO DOMY < br >
+    < a  href =" mailto:chcesmys@gmail.com?subject=REPO%20DOMY%20–%20MYŠ " > 📬 Napište mi </ a >
+</div>​​
+
+< skript >
+    // ----- 12 ÚHLŮ S KRÁTKÝM POPISEM A KONKRÉTNÍ VĚTOU O POHÁDCE -----
+    konstantní  data  =  [
+        { 
+            název : "Absurdní" , 
+            popis : "Hledá nesmysl, paradox, rozpor." , 
+            text : "Myš, která zapisuje do ticha? Co je to za nesmysl? A proč by se zvířata hromadila kolem ní? Celá pohádka je jeden velký paradox – a právě proto je pravdivá." 
+        } ,
+        { 
+            název : "Jazykový" , 
+            popis : "Sleduje slova, rytmus, dvojznačnost." , 
+            text : "Věta 'Chceš myš?' není otázka Je to past, která tě donutí odpovědět, i když nevíš na co, jak se jazyk může zaseknout – a jak ho zase odpichne." 
+        } ,
+        { 
+            název : "Ironický" , 
+            popis : "Vidí rozpor mezi záměrem a výsledkem." , 
+            text : "Myš nechtěl nic, jen si zapisovat do kouta. A najednou je středem lesa. Všichni čekají, co udělá. Ironie? Spíš tragikomedie." 
+        } ,
+        { 
+            název : "Filozofický" , 
+            popis : "Ptá se po smyslu a podstatě." , 
+            text : "Co to znamená 'být myš'? Je to role, nebo podstata? A co znamená 'chtít myš'? Touha po smyslu? Po odpovědi? Pohádka je jedna velká otázka, na kterou není odpověď – jen další otázky." 
+        } ,
+        { 
+            název : "Surrealistický" , 
+            popis : "Propojuje nesouvisející." , 
+            text : "Páv s očima na ocase, slon s třesněmi v chobotu, myš co zapisuje do ticha. Tohle není les, je to obraz – a každé zvíře je štětec, kterým myš maluje svět." 
+        } ,
+        { 
+            název : "Naivní" , 
+            popis : "Vidí věci jednoduše, bez předsudků." , 
+            text : "Myš si všímá věcí, které ostatní nevidí. A pak se jich na jednu věc zeptá. To je celé. Nemusíš tomu rozumět víc, než rozumí myš." 
+        } ,
+        { 
+            název : "Introspektivní" , 
+            popis : "Promítá do příběhu vlastní pocity." , 
+            text : "Cítím z toho ticho. Myš, co je sama uprostřed lesa, obklopená zvířaty, kterým nerozumím. Vždycky jsem byl taky ten, kdo zapisoval věci do kouta, protože venku na ně nikdo nečekal." 
+        } ,
+        { 
+            název : "Betonový" , 
+            popis : "Čte doslovně, fakticky." , 
+            text : "Pohádka je o myši, která žila v lese, potkala páva, kocoura, slona a lemura, všimla si jejich zvláštností, zapsala si to a pak se jich zeptala 'Chceš myš?"." 
+        } ,
+        { 
+            název : "Kulturní" , 
+            popis : "Hledá archetypy a paralely." , 
+            text : "Myš je jako Áriadna – dává nit, aby se neztratil. Jenže její nit není z klubka, ale z ticha. A nevede z labyrintu, ale do něj. Je to antický mýtus, jen místo Théseje máš lemura." 
+        } ,
+        { 
+            název : "Asociační" , 
+            popis : "Vyvolává osobní vzpomínky." , 
+            text : "Připomnělo mi to naši projektovou manažerku. Taky si všechno zapisovala a nikdo na co nevěděl. A pak jednou položil otázku a celý tým ztichl. Přesně jako myš." 
+        } ,
+        { 
+            název : "Metaforický" , 
+            popis : "Vidí symboly za věcmi." , 
+            text : "Myš není myš. Je to pozornost. Páv je ješitnost, kocour je spěch, slon je paměť, lemur je ztráta. A otázka 'Chceš myš?' není otázka. Je to volba, jestli chceš vidět." 
+        } ,
+        { 
+            název : "Groteskní" , 
+            popis : "Vidí přehnanou, temnou komiku." , 
+            text : "Představ si: páv si přepočítávává oči, lemur civí do prázdna, slon s třešněma v chobotu, a myš je zachránit otázku, na kterou neznají odpověď. Je to fraška. A je to nádherný." 
+        }
+    ] ;
+
+    const  tlacitka  =  dokument . getElementById ( 'tlacitka' ) ;
+    const  nazevEl  =  dokument . getElementById ( 'nazev' ) ;
+    const  popisEl  =  dokument . getElementById ( 'popis' ) ;
+    const  textEl  =  dokument . getElementById ( 'text' ) ;
+
+    // Vytvoření tlačítek
+    údaje . forEach ( ( uhel ,  index )  =>  {
+        const  btn  =  document.createElement ( ' tlačítko ' ) ;
+        btn . textContent  =  uhel . nazev ;
+        btn . onclick  =  ( )  =>  {
+            // Zvýraznění
+            dokument . querySelectorAll ( 'tlačítko .seznam-uhlu' ) . forEach ( b  =>  b . classList . remove ( 'vybrany' ) ) ;
+            btn . classList . přidat ( 'vybrany' ) ;
+            // Výpis
+            nazevEl . textContent  =  uhel . nazev ;
+            popisEl . textContent  =  uhel . popis ;
+            textEl . textContent  =  uhel . text ;
+        } ;
+        tlacitka . appendChild ( btn ) ;
+    } ) ;
+
+    // Předvolit první úhel
+    pokud  ( data.délka ) {​​ 
+        dokument . querySelector ( 'tlačítko .seznam-uhlu' ) . klikněte ( ) ;
+    }
+</skript>​​
+
+</ tělo >
+</html>
