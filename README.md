@@ -22,10 +22,13 @@ Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
 ## 🚀 Rychlý start
 
-1. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./karty/Mys_meta.md)
+**jak používat system**
+1. [Jak používat systém](./MYŠ/jak_pouzivat_system.md)
+
+2. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./karty/Mys_meta.md)
 Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
 
-2. **Prohlédněte si ukázkovou kartu**
+3. **Prohlédněte si ukázkovou kartu**
  [Jak kocoucour sežral dvě berušky a půl hodiny krkal tečky](./karty/Kocour/)
 
 ---
@@ -151,9 +154,8 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
-## 🔗 Užitečné odkazy
+## 🔗 Připravuje se:
 
-- [Jak používat systém](./MYŠ/jak_pouzivat_system.md)
 - [Ukázka kombinace karet](./_kombinace/plamenak_a_kocour.md)
 - [Jak kombinovat karty](./_kombinace/jak_kombinovat.md)
 
