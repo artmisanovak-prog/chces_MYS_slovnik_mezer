@@ -6,6 +6,22 @@ Pomůžeme vašemu týmu pojmenovat, co vás brzdí – a hned to vyřešit.
 
 ---
 
+<div align="center">
+
+<img src="MYŠ/mys.jpg" width="150" align="left" style="margin-right: 20px;">
+
+**Jedna pohádka. Dvanáct pravd.**
+
+Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
+
+👉 [Vyzkoušej si to sám](./MYŠ/index.html)
+
+<br clear="left">
+
+</div>
+
+---
+
 ## 🎯 Poznáváte se?
 
 Váš tým:
