@@ -159,7 +159,9 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
-[!Přečíst text](MYŠ/O_me/CHYBA_JAKO_ZDROJ.md)
+## přečtěte si: Chyba jako styl
+
+[!Přečíst text](MYŠ/chyba_jako_styl.md)
 
 ---
 
