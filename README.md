@@ -125,14 +125,14 @@ Proč?
 
 > **Musím umět GitHub?**
 > Ne. GitHub slouží jen ke stažení souboru – jako každý jiný zip na internetu.
-> Co s ním dál dělat je popsáno v přiloženém návodu.
+> Co s ním dál dělat je popsáno v přiloženém návodu. [návod](MYŠ/jak_zacit.md)
 
 > **Lze kartu použít víckrát?**
 > Ano – a je na to přímo navržená. Generativní mód ti z jedné karty vytvoří desítky různých workshopů kombinací úhlů. Nikdy nebudeš dělat stejný workshop dvakrát.
 
 > **Lze karty kombinovat?**
 > Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
-> Jak karty kombinovat popisuje [samostatný návod](../_kombinace/jak_kombinovat.md).
+> Jak karty kombinovat popisuje [samostatný návod] (připravujme)
 
 ---
 
