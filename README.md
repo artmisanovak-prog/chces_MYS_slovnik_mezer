@@ -174,47 +174,21 @@ Tento princip (říkáme mu **„repo dům“**) dává tyto jistoty. Platíte s
 
 ---
 
----
-
 ## 🏠 Metoda "Repo dům" – jak jsem si vzala svobodu dělat věci po svém
 
 Tohle není web. Je to **repozitář** – místo, kde žije celý systém "Chceš myš?" jako soubory, které si můžeš stáhnout, otevřít, upravit, vlastnit.
 
 Proč jsem to udělala takhle?
-
 **Protože jsem tvůrce, ne vývojářka.**
 
-Chtěla jsem kreslir kartičky, psát pohádky, tvořit interaktivní nástroje – 
-ale **nechtěla jsem se učit "jak se dělá web"**.
-
-Nechtěla jsem:
-- Platit za hosting
-- Řešit databáze
-- Být závislá na platformách
-- Někoho prosit o pomoc
-
-**Chtěla jsem prostě tvořit. A hotovo.**
-
 ### Co je "Repo dům"?
-
-**Způsob, jak postavit "web", aniž by to byl web.**
-
-- Všechny soubory (HTML, obrázky, nástroje) jsou **u tebe**
-- Otevřeš to v prohlížeči jako webovou stránku
-- Funguje to **offline**, bez internetu
-- Můžeš to **upravit**, přidat si logo, změnit texty
-- **Nikdo ti to nevypne**, nezmění cenu, nesmažou data
-
-### Proč to sdílím?
-
-**Ne proto, abych to učila nebo prodávala.**
-
-Sdílím to, protože jsem na to **hrdá**.
 
 Vymyslela jsem způsob, jak dělat věci **po svém** – 
 bez závislosti, bez kompromisů, bez dovolení.
 
 **"Chceš myš?" je první projekt postavený tímhle způsobem.**
+
+---
 
 ### Chceš vědět víc?
 
