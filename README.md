@@ -153,7 +153,7 @@ Contact: **chcesmys@gmail.com**
 
 ## 🔗 Užitečné odkazy
 
-- [Jak používat systém](./_diagnostika/jak_pouzivat.md)
+- [Jak používat systém](./MYŠ/jak_pouzivat_system.md)
 - [Ukázka kombinace karet](./_kombinace/plamenak_a_kocour.md)
 - [Jak kombinovat karty](./_kombinace/jak_kombinovat.md)
 
