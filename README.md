@@ -7,6 +7,22 @@ Karty fungují jako vizuální a jazykové kotvy — **otevírají rozhovory, kt
 
 ---
 
+<div align="center">
+
+<img src="MYŠ/mys.jpg" width="120" align="left" style="margin-right: 20px;">
+
+**Jedna pohádka. Dvanáct pravd.**
+
+Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
+
+👉 [Vyzkoušej si to sám](./MYŠ/index.html)
+
+<br clear="left">
+
+</div>
+
+---
+
 **Proč to existuje**
 Většina problémů v týmech nevzniká kvůli lidem, ale kvůli mezerám:
 
@@ -21,22 +37,6 @@ A když je vidět problém, dá se řešit.**
 
 Každá karta představuje jeden typ poruchy, **mezery v komunikaci.**
 Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obviňování.**
-
----
-
-<div align="center">
-
-<img src="MYŠ/mys.jpg" width="120" align="left" style="margin-right: 20px;">
-
-**Jedna pohádka. Dvanáct pravd.**
-
-Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
-
-👉 [Vyzkoušej si to sám](./MYŠ/index.html)
-
-<br clear="left">
-
-</div>
 
 ---
 
