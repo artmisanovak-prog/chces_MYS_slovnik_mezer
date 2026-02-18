@@ -1,4 +1,4 @@
-# 🐁 CHCEŠ MYŠ? – Slovník mezer
+# 🐁 CHCEŠ MYŠ? – slovník mezer
 
 **Generativní systém pro diagnostiku a řešení týmových dysfunkcí.**
 
