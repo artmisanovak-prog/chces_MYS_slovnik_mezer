@@ -22,16 +22,13 @@ Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
 ## 🚀 Rychlý start
 
-1. 👉 **[Vyzkoušejte pohled z více perspektiv (funkční nástroj)](MYŠ/index.html)**
-   
-  
-2. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./karty/Mys_meta.md)
+1. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./karty/Mys_meta.md)
 Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
 
-3. **Prohlédněte si ukázkovou kartu**
+2. **Prohlédněte si ukázkovou kartu**
  [Jak kocoucour sežral dvě berušky a půl hodiny krkal tečky](./karty/Kocour/)
 
-4. **Modelové scénáře**[Prohlédněte si](./MYŠ/modelove_scenare.md)
+**Modelové scénáře**[Prohlédněte si](./MYŠ/modelove_scenare.md)
 
 ---
 
@@ -86,41 +83,16 @@ Proč?
 
 ## 🃏 Dostupné karty
 
-| Karta | Problém | Ukázka | Plná verze |
-|-------|---------|--------|------------|
-| [
-
-![Kocour](karty/Kocour/kocour.jpg)
-
-](./karty/Kocour/) **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **zdarma** |
-| [
-
-![Plameňák](karty/Plamenak/plamenak.jpg)
-
-](./karty/Plamenak/) **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 35 000 Kč |
-| [
-
-![Páv](karty/Páv/pav.jpg)
-
-](./karty/Páv/) **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 35 000 Kč |
-| [
-
-![Moucha](karty/Moucha/moucha.jpg)
-
-](./karty/Moucha/) **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 35 000 Kč |
-| [
-
-![Laň](karty/Laň/lan.jpg)
-
-](./karty/Laň/) **Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 35 000 Kč |
-| [
-
-![Ryba](karty/Ryba/004ryba.jpg.jpg)
-
-](./karty/Ryba/) **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 35 000 Kč |
+| Karta | Problém | Ukázka | Cena |
+|-------|---------|--------|------|
+| <img src="karty/Kocour/kocour.jpg" width="80"><br>**Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | zdarma |
+| <img src="karty/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 35 000 Kč |
+| <img src="karty/Páv/pav.jpg" width="80"><br>**Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 35 000 Kč |
+| <img src="karty/Moucha/moucha.jpg" width="80"><br>**Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 35 000 Kč |
+| <img src="karty/Laň/lan.jpg" width="80"><br>**Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 35 000 Kč |
+| <img src="karty/Ryba/004ryba.jpg" width="80"><br>**Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 35 000 Kč |
 
 ---
-
 
 ## 📦 Jak kartu získat?
 
