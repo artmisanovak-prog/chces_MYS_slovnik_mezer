@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<img src="MYŠ/mys.jpg" width="150" align="left" style="margin-right: 20px;">
+<img src="MYŠ/mys.jpg" width="120" align="left" style="margin-right: 20px;">
 
 **Jedna pohádka. Dvanáct pravd.**
 
