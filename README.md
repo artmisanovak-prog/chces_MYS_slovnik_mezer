@@ -72,12 +72,36 @@ Proč?
 
 | Karta | Problém | Ukázka | Plná verze |
 |-------|---------|--------|------------|
-| 🐈 **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **zdarma** Kč |
-| 🦩 **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 35 000 Kč |
-| 🦚 **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 35 000 Kč |
-| 🪰 **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 35 000 Kč |
-| 🦌 **Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 35 000 Kč |
-| 🐟 **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 35 000 Kč |
+| [
+
+![Kocour](karty/Kocour/kocour.jpg)
+
+](./karty/Kocour/) **Kocour** | Špatná komunikace, skákání do řeči | [Ukázka](./karty/Kocour/) | **zdarma** |
+| [
+
+![Plameňák](karty/Plamenak/plamenak.jpg)
+
+](./karty/Plamenak/) **Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 35 000 Kč |
+| [
+
+![Páv](karty/Páv/pav.jpg)
+
+](./karty/Páv/) **Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 35 000 Kč |
+| [
+
+![Moucha](karty/Moucha/moucha.jpg)
+
+](./karty/Moucha/) **Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 35 000 Kč |
+| [
+
+![Laň](karty/Laň/lan.jpg)
+
+](./karty/Laň/) **Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 35 000 Kč |
+| [
+
+![Ryba](karty/Ryba/004ryba.jpg.jpg)
+
+](./karty/Ryba/) **Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 35 000 Kč |
 
 ---
 
