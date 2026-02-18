@@ -2,7 +2,7 @@
 
 **Generativní systém pro diagnostiku a řešení týmových dysfunkcí.**
 
-**Chceš myš? slovník mezer** je sada pracovních karet, které pomáhají týmům rychle pojmenovat problémy, které se běžně neříkají nahlas.  
+Sada pracovních karet, které pomáhají týmům rychle pojmenovat problémy, které se běžně neříkají nahlas.  
 Karty fungují jako vizuální a jazykové kotvy — **otevírají rozhovory, které by jinak nevznikly.**
 
 ---
