@@ -23,8 +23,9 @@ Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
 ---
 
-**Proč to existuje**
-Většina problémů v týmech nevzniká kvůli lidem, ale kvůli mezerám:
+## 🫗 Proč to existuje
+
+**Většina problémů v týmech nevzniká kvůli lidem, ale kvůli mezerám:**
 
 - mezi očekáváním a realitou  
 - mezi tím, co se řekne, a tím, co se myslí  
