@@ -28,8 +28,6 @@ Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
 2. **Prohlédněte si ukázkovou kartu**
  [Jak kocoucour sežral dvě berušky a půl hodiny krkal tečky](./karty/Kocour/)
 
-**Modelové scénáře**[Prohlédněte si](./MYŠ/modelove_scenare.md)
-
 ---
 
 ## 🎯 Pro koho to je?
@@ -132,6 +130,12 @@ Proč?
 > **Lze karty kombinovat?**
 > Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
 > Jak karty kombinovat popisuje [samostatný návod](../_kombinace/jak_kombinovat.md).
+
+---
+
+**Modelové scénáře**[Prohlédněte si](./MYŠ/modelove_scenare.md)
+
+---
 
 > **Je k dispozici anglická verze?**
 > Zatím první karta – Kocour (Cat). Cena: 1 600 USD.
