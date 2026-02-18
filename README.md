@@ -9,7 +9,7 @@ Karty fungují jako vizuální a jazykové kotvy — **otevírají rozhovory, kt
 
 
 <div align="center">
-<img src="MYS/mys.jpg"width="120" align="left"style="margin-right:20px;">
+<img src="karty/Mys/mys.jpg"width="120" align="left"style="margin-right:20px;">
 
 **Jedna pohádka. Dvanáct pravd.**
 
