@@ -136,6 +136,9 @@ Proč?
 
 ---
 
+## přečtěte si: Chyba jako styl
+[!Přečíst text](MYŠ/chyba_jako_styl.md)
+
 **Modelové scénáře**[Prohlédněte si](./MYŠ/modelove_scenare.md)
 
 ---
@@ -158,12 +161,6 @@ Contact: **chcesmys@gmail.com**
 
 - [Ukázka kombinace karet](./_kombinace/plamenak_a_kocour.md)
 - [Jak kombinovat karty](./_kombinace/jak_kombinovat.md)
-
----
-
-## přečtěte si: Chyba jako styl
-
-[!Přečíst text](MYŠ/chyba_jako_styl.md)
 
 ---
 
