@@ -15,7 +15,7 @@ Karty fungují jako vizuální a jazykové kotvy — **otevírají rozhovory, kt
 
 Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
-👉 <a href="./demoMYS/index.html">Vyzkoušet 12 úhlů</a>
+👉 <a href="./demoMYS/index.html">Podívejte se 12ti úhly</a>
 
 <br clear="left">
 
