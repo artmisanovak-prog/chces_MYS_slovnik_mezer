@@ -1,24 +1,5 @@
-
-chces_MYS_slovnik_mezer
-Navigace v repozitáři
-Kód
-Problémy
-Žádosti o změny (pull requests)
-Agenti
-chces_MYS_slovnik_mezer/ MYŠ/ O mě
-/CHYBA_JAKO_ZDROJ.md
-artmisanovak-prog
-artmisanovak-prog
-před 3 dny
-168 řádků (114 pozic) · 3,6 KB
-
-Náhled
-
-Kód
-
-Obviňovat
-##👩‍🎨 O autorce: CHYBA JAKO STYL
 ### 🐘 Velká myšlenka o „menším zlu“
+
 ## 👩‍🎨 O autorce: CHYBA JAKO STYL
 
 * Popis tvůrčího procesu aneb: Potřebuju něco zkazit, aby to začalo být zajímavé. *
