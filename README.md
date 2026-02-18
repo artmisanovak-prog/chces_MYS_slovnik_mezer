@@ -9,13 +9,13 @@ Karty fungují jako vizuální a jazykové kotvy — **otevírají rozhovory, kt
 
 <div align="center">
 
-<img src="MYSdemo/mys.jpg" width="150" align="left" style="margin-right: 20px;">
+<img src="demoMYS/mys.jpg" width="150" align="left" style="margin-right: 20px;">
 
 **Jedna pohádka. Dvanáct pravd.**
 
 Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
-👉 [Vyzkoušej si to sám](./MYSdemo/index.html)
+👉 [Vyzkoušej si to sám](./demoMYS/index.html)
 
 <br clear="left">
 
