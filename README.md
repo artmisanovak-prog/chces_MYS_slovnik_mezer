@@ -159,7 +159,7 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
-[!Přečíst text(https://img.shields.io/badge/-CHYBA_JAKO_ZDROJ-blue?style=for-the-badge)](MYŠ/0%2Omě/CHYBA_JAKO_ZDROJ.md)
+[!Přečíst text](MYŠ/O_me/CHYBA_JAKO_ZDROJ.md)
 
 ---
 
