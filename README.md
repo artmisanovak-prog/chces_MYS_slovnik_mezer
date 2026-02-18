@@ -2,6 +2,26 @@
 
 **Generativní systém pro diagnostiku a řešení týmových dysfunkcí.**
 
+**Chceš myš? slovník mezer** je sada pracovních karet, které pomáhají týmům rychle pojmenovat problémy, které se běžně neříkají nahlas.  
+Karty fungují jako vizuální a jazykové kotvy — **otevírají rozhovory, které by jinak nevznikly.**
+
+---
+
+**Proč to existuje**
+Většina problémů v týmech nevzniká kvůli lidem, ale kvůli mezerám:
+
+- mezi očekáváním a realitou  
+- mezi tím, co se řekne, a tím, co se myslí  
+- mezi rolí a odpovědností  
+- mezi plánem a kapacitou  
+- mezi úkolem a smyslem  
+
+**Karty tyhle mezery zviditelní.  
+A když je vidět problém, dá se řešit.**
+
+Každá karta představuje jeden typ poruchy, **mezery v komunikaci.**
+Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obviňování.**
+
 ---
 
 <div align="center">
