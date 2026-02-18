@@ -15,7 +15,7 @@ Karty fungují jako vizuální a jazykové kotvy — **otevírají rozhovory, kt
 
 Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
-👉 [Vyzkoušej si to sám](./Chces_mys_slovnik_mezer/MYS/index.html)
+👉 [Vyzkoušej si to sám](./chces_MYS_slovnik_mezer/MYS/index.html)
 
 <br clear="left">
 
