@@ -89,8 +89,10 @@ Proč?
 | <img src="karty/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Energie bez směru, toxický optimismus | [Ukázka](./karty/Plamenak/) | 35 000 Kč |
 | <img src="karty/Páv/pav.jpg" width="80"><br>**Páv** | Sebestředné vnímání, skupinové myšlení | [Ukázka](./karty/Páv/) | 35 000 Kč |
 | <img src="karty/Moucha/moucha.jpg" width="80"><br>**Moucha** | Malý problém jako absolutno | [Ukázka](./karty/Moucha/) | 35 000 Kč |
+| <img src="karty/Ryba/ryba.jpg" width="80"><br>**Ryba** | autentičnost vs. | [Ukázka](./karty/Ryba/) | 35 000 Kč |
+| <img src="karty/Tygr/tygr.jpg" width="80"><br>**Tygr** | Vnímání bez komunikace | [Ukázka](./karty/Tygr/) | 35 000 Kč |
+| <img src="karty/Drak/drak.jpg" width="80"><br>**Drak** | Vnímání bez komunikace | [Ukázka](./karty/Drak/) | 35 000 Kč |
 | <img src="karty/Laň/lan_kliste.jpg" width="80"><br>**Laň/Klíště** | Bez nás by nebyly oni | [Ukázka](./karty/Laň/) | 35 000 Kč |
-| <img src="karty/Ryba/ryba.jpg" width="80"><br>**Ryba** | Vnímání bez komunikace | [Ukázka](./karty/Ryba/) | 35 000 Kč |
 
 ---
 
