@@ -1,4 +1,4 @@
-# 🦆 HUSY – Ukázka karty
+# 🪿 HUSY – Ukázka karty
 
 ## Jádrová dysfunkce
 
