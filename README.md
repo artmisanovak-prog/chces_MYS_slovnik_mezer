@@ -146,11 +146,6 @@ Proč?
 
 ---
 
-
-**Je k dispozici anglická verze?**
-> Zatím první karta – Kocour (Cat). Cena: 1 600 USD.
-> Kontakt: chcesmys@gmail.com
-
 ## 🌐 English version
 First card available in English: **Cat (Communication Pathology)**  
 Price: $ 1.600  
