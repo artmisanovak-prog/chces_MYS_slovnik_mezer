@@ -8,18 +8,20 @@ Karty fungují jako vizuální a jazykové kotvy — **otevírají rozhovory, kt
 ---
 
 <div align="center">
-<img src="MYS/mys.jpg"width="120" align="left"style="margin-right:20px;">
 
-**Jeden příběh. Dvanáct pravd.**
+<img src="MYS/mys.jpg" width="150" align="left" style="margin-right: 20px;">
+
+**Jedna pohádka. Dvanáct pravd.**
 
 Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
 👉 [Vyzkoušej si to sám](./MYS/index.html)
+
 <br clear="left">
+
 </div>
 
 ---
-
 
 ## 🫗 Proč to existuje
 
