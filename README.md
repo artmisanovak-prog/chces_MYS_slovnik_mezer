@@ -136,9 +136,10 @@ Proč?
 
 ---
 
-## přečtěte si: Chyba jako styl
-[!Přečíst text](MYŠ/chyba_jako_styl.md)
+## přečtěte si: 
 
+**Chyba jako styl**
+[!Přečíst text](MYŠ/chyba_jako_styl.md)
 **Modelové scénáře**[Prohlédněte si](./MYŠ/modelove_scenare.md)
 
 ---
