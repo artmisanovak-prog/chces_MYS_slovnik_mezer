@@ -153,9 +153,6 @@ Plné verze karet jsou dostupné pod komerční licencí.
 
 ---
 
-## Systém Chceš myš? Slovník mezer je vytvořen metodou REPO DŮM kterou jsem vytvořila já Michaela Nováková jako způsob, jak dělat věci po svém 
-
-
 ## 🏠 Princip „repo domů“: Váš systém, vaše data, váš klid
 
 Všechny karty, nástroje a mody, které si u nás pořídíte, **nejsou webová aplikace, ke které byste měli jen dočasný přístup**. Je to **váš vlastní digitální dům** – repozitář, který si stáhnete a spravujete **sami u sebe**.
