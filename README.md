@@ -83,12 +83,46 @@ Proč?
 ---
 
 
-
 ## 📦 Jak kartu získat?
 
 1. Vyberte si kartu z katalogu.
 2. Napište na **chcesmys@gmail.com**.
 3. Pošleme vám fakturu a přístup k plné verzi (GitHub zip + HTML nástroj).
+
+---
+
+## ❓ Nejčastější otázky
+
+> **Musím být vyškolený facilitátor?**
+> Ne. Workshop je navržený tak, aby ho bez přípravy mohl vést kdokoli, kdo tým zná.
+> Scénář je na minuty – kdo, kdy, co říká.
+
+> **Musím přiřadit úhly správně?**
+> Ne. Přiřazení nemusí být přesné.
+> Všechny intervence míří na stejný problém – úhly ti jen pomáhají vybrat, kudy do něj vstoupit.
+> I „nepřesná" mapa odhalí něco užitečného.
+
+> **Co dostanu po zaplacení?**
+> Zip s celým repozitářem – HTML nástroje, texty, šablony, pracovní listy.
+> Stáhneš si to k sobě, otevřeš v prohlížeči, používáš offline. Bez předplatného, bez přihlašování.
+
+> **Jak dlouho mi přístup trvá?**
+> Navždy. Platíš jednou, karta je tvoje. Nikdo ti ji nemůže vypnout ani zdražit.
+
+> **Musím umět GitHub?**
+> Ne. GitHub slouží jen ke stažení souboru – jako každý jiný zip na internetu.
+> Co s ním dál dělat je popsáno v přiloženém návodu.
+
+> **Lze kartu použít víckrát?**
+> Ano – a je na to přímo navržená. Generativní mód ti z jedné karty vytvoří desítky různých workshopů kombinací úhlů. Nikdy nebudeš dělat stejný workshop dvakrát.
+
+> **Lze karty kombinovat?**
+> Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
+> Jak karty kombinovat popisuje [samostatný návod](../_kombinace/jak_kombinovat.md).
+
+> **Je k dispozici anglická verze?**
+> Zatím první karta – Kocour (Cat). Cena: 1 600 USD.
+> Kontakt: chcesmys@gmail.com
 
 ---
 
@@ -119,7 +153,7 @@ Plné verze karet jsou dostupné pod komerční licencí.
 
 ---
 
-## Systém Chceš myš? Slovník mezer je vytvořen metodou REPO DŮM kterou jsem si vytvořila já Michaela Nováková jako další způsob jak dělat věci po svém 
+## Systém Chceš myš? Slovník mezer je vytvořen metodou REPO DŮM kterou jsem vytvořila já Michaela Nováková jako způsob, jak dělat věci po svém 
 
 
 ## 🏠 Princip „repo domů“: Váš systém, vaše data, váš klid
