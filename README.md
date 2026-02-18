@@ -146,27 +146,6 @@ Proč?
 
 ---
 
-## 🌐 English version
-First card available in English: **Cat (Communication Pathology)**  
-Price: $ 1.600  
-Contact: **chcesmys@gmail.com**
-
----
-
-## 🔗 Připravuje se:
-
-- [Ukázka kombinace karet](./_kombinace/plamenak_a_kocour.md)
-- [Jak kombinovat karty](./_kombinace/jak_kombinovat.md)
-
----
-
-## 📄 Licence
-
-Obsah tohoto repozitáře je licencován pod **Creative Commons Attribution-NonCommercial-ShareAlike 4.0**.  
-Plné verze karet jsou dostupné pod komerční licencí.
-
----
-
 ## 🏠 Princip „repo domů“: Váš systém, vaše data, váš klid
 
 Všechny karty, nástroje a mody, které si u nás pořídíte, **nejsou webová aplikace, ke které byste měli jen dočasný přístup**. Je to **váš vlastní digitální dům** – repozitář, který si stáhnete a spravujete **sami u sebe**.
@@ -242,6 +221,27 @@ Nemusíš se naučit 12 perspektiv. Stačí, když pochopíš,
 **Metodu "Repo dům" jsem vymyslela proto, že jsem chtěla dělat co chci, jak chci.**
 Ne proto, že bych přemýšlela o byznysu nebo datové bezpečnosti.  
 Prostě jsem chtěla svobodu.
+
+---
+
+## 🌐 English version
+First card available in English: **Cat (Communication Pathology)**  
+Price: $ 1.600  
+Contact: **chcesmys@gmail.com**
+
+---
+
+## 🔗 Připravuje se:
+
+- [Ukázka kombinace karet](./_kombinace/plamenak_a_kocour.md)
+- [Jak kombinovat karty](./_kombinace/jak_kombinovat.md)
+
+---
+
+## 📄 Licence
+
+Obsah tohoto repozitáře je licencován pod **Creative Commons Attribution-NonCommercial-ShareAlike 4.0**.  
+Plné verze karet jsou dostupné pod komerční licencí.
 
 ---
 
