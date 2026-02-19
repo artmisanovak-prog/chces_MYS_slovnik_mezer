@@ -1,3 +1,25 @@
+### KŘIVÁ POHÁDKA - ROVNÉ SVĚDECTVÍ
+
+**ROVNÉ SVĚDECTVÍ**
+Zapsáno rukou, která nechtěla nic vysvětlit.
+Tyto pohádky nevyprávějí příběhy tak, jak by měly.
+Místo kouzel tu vládne nedorozumění.
+Místo dobra a zla – podivný klid mezi nimi.
+Zvířata tu mluví, ale ne proto, aby nás bavila.
+Říkají to, co lidé nemohou vyslovit.
+Příběhy, co se spíš staly, než vymyslely –
+a možná se pořád dějí. 
+Jen je nelze vidět z běžného úhlu.
+
+**KŘIVÁ POHÁDKA**
+Taková malá, divná, křivá pohádka o myši, 
+co možná ani není pohádka, ale něco,
+co se stalo.
+A v tom světě jsou i jiná zvířata 
+– čáp, páv, kocour, kozel… ale všechno to je 
+napůl sen, napůl vtip, napůl výklad a napůl úplně mimo..
+
+
 # O MYŠI a o tom, co se stane, když si jí NEvšimneš
 
 Kdysi – zároveň ne tak docela dávno.
