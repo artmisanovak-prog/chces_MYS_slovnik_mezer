@@ -8,7 +8,7 @@ Tato karta je diagnostický nástroj pro analýzu myšlenkových stylů. Pomocí
 
 ## Jak používat
 
-1. Přečtěte si [pohádku o Myši](../pohadka.md)
+1. Přečtěte si [pohádku o Myši](..demoMYS/pohadka.md)
 2. Odpovězte na 3 otázky níže
 3. Vyhodnoťte odpovědi pomocí [Klíče k úhlům](../demoMYS/klic_k_uhlum.md)
 
