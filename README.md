@@ -23,7 +23,6 @@ Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
 ---
 
-
 ## 🫗 Proč to existuje
 
 **Většina problémů v týmech nevzniká kvůli lidem, ale kvůli mezerám:**
