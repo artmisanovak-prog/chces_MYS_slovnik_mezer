@@ -120,8 +120,6 @@ Proč?
 | <img src="karty/Parohy/parohy.jpg" width="80"><br>**Parohy** | Identita jako archiv performancí, definice skrz dokumentaci, ne skrz podstatu | [Ukázka](./karty/Parohy/) | 29 000 Kč |
 | <img src="karty/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Syndrom podřadného řešení, dočasný kompromis, který se stal trvalou zátěží | [Ukázka](./karty/Vrabec/) | 29 000 Kč |
 | <img src="karty/Osel/osel.jpg" width="80"><br>**Osel** | Paralýza z nejednoznačnosti, neschopnost rozlišit podstatné od nepodstatného | [Ukázka](./karty/Osel/) | 29 000 Kč |
-| <img src="karty/Zelva/zelva.jpg" width="80"><br>**Želva** | Nerovnováha mezi explorací a implementací, chybějící dialog mezi vizí a realizací | [Ukázka](./karty/Zelva/) | 29 000 Kč |
-| <img src="karty/Drak/drak.jpg" width="80"><br>**Drak** | Systémová rigidita, forma zákazu důležitější než jeho smysl, rození života pod cedulemi | [Ukázka](./karty/Drak/) | 29 000 Kč |
 
 ---
 
@@ -160,7 +158,7 @@ Proč?
 
 > **Lze karty kombinovat?**
 > Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
-> Jak karty kombinovat popisuje [samostatný návod] (demoMYS/jak_kombinovat.md) [uvnitř karty](demoMYS/uvnitr_kocoura.md) nebo [karty mezi sebou](plamenak_a_kocour.md)
+> Jak karty kombinovat popisuje [samostatný návod](demoMYS/jak_kombinovat.md) [uvnitř karty](demoMYS/uvnitr_kocoura.md) nebo [karty mezi sebou](demoMYS/plamenak_a_kocour.md)
 
 ---
 
