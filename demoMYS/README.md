@@ -43,7 +43,7 @@ Tato karta je diagnostický nástroj pro analýzu myšlenkových stylů. Pomocí
 
 ## Vyhodnocení
 
-Po zodpovězení otázek přejděte do [Klíče k úhlům](../_diagnostika/klic_k_uhlum.md) a zjistěte, jaké myšlenkové úhly převažují ve vašem týmu.
+Po zodpovězení otázek přejděte do [Klíče k úhlům](../demoMYS/klic_k_uhlum.md) a zjistěte, jaké myšlenkové úhly převažují ve vašem týmu.
 
 ---
 
