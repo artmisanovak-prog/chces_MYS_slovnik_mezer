@@ -21,7 +21,6 @@ Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
 </div>
 
----
 
 ## 🫗 Proč to existuje
 
