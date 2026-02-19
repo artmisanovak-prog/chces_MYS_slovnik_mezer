@@ -10,8 +10,9 @@ Karty fungují jako vizuální a jazykové kotvy — **otevírají rozhovory, kt
 <div align="center">
 
 <img src="demoMYS/mys.jpg" width="150" align="left" style="margin-right: 20px;">
-
+<br>
 **Jeden příběh. Dvanáct pravd.**
+<br>
 <hr>
 Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 <hr>
