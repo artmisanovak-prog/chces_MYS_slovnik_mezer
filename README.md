@@ -81,13 +81,14 @@ Většina nástrojů končí u diagnózy: *„Zjistili jsme, že máte problém.
 
 ## ✅ Co karta obsahuje?
 
-🕺 **samostatný, připravený workshop** - který s týmem provedete za 90 minut.
+🕺 **samostatný, připravený workshop** – který s týmem provedete za 90 minut.
 📘 **Pohádku** – příběh, který otevře téma bez obviňování  
 🧠 **12 úhlů pohledu** – diagnostický klíč, který odhalí, kudy se tým dívá  
 🛠️ **12 konkrétních protiopatření** – každý úhel má svůj „protilék“  
 📋 **Detailní scénář workshopu** – kdo, kdy, co říká, na minuty  
 🧪 **Diagnostický nástroj** – 3 otázky, které zmapují kognitivní profil týmu  
 🎲 **Generativní mód** – jak kartu použít znovu a jinak  
+**Kreativní mód** – použijte pro jakoukoli inspiraci
 📎 **Šablony k okamžitému použití** – flipcharty, emaily, pracovní listy  
 📄 **Firemní licence** – kartu může používat celá organizace
 
