@@ -32,35 +32,73 @@ Systém je extrémně výkonný, robustní, nezastavitelný – ale zcela hluch�
 
 ---
 
-## 📘 Pohádka
+### 📘 Pohádka
 
-## O stádu, které běželo, až zapomnělo proč
+# O BERANECH
+## kteří běželi pořád vpřed
 
-Bylo jednou jedno stádo beranů.
+Bylo nebylo, v krajině, kde se cesty neklikatí, ale lámou, žilo stádo beranů.  
+Silných.  
+Rychlých.  
+Nezastavitelných.  
+Běželi.  
+Vždycky vpřed.  
+Vždycky rovně.  
+Vždycky hlavou napřed.
 
-Běželo. Už dlouho. Možná od počátku světa. Kopyta duněla, prach stoupal, hory se třásly. Byli nejmocnější silou světa. Nikdo je nezastavil. Nikdo se jim nepostavil. Byli nezastavitelní.
+Nikdo neví, kdy začali.  
+Možná běželi už od počátku světa.  
+Možná je někdo popohnal.  
+Možná jen zapomněli, jak se stojí.  
+Ale běželi.  
+A když narazili, běželi dál.  
+A když spadli, vstali.  
+A běželi dál.
 
-Ale nikdo neřekl, že je to síla bez směru.
+Občas někdo z nich zvedl hlavu.  
+„Co kdybychom zkusili jinam?“  
+Ale ostatní ho převálcovali.  
+Ne z nenávisti.  
+Z hybnosti.  
+Z logiky stáda.
 
-Nikdo nevěděl, proč vlastně běží. Kam míří. Jestli tam vůbec chtějí být. Prostě běželi. Protože běželi včera. Protože všichni běží. Protože zastavit by byla slabost.
+A tak se běželo dál.  
+Přes hory.  
+Přes řeky.  
+Přes města, která už dávno nebyla.  
+A každý beran si v duchu říkal:  
+„Možná bych chtěl jinam.“  
+Ale nahlas to neřekl nikdo.  
+Protože změna směru byla tabu.  
+Zakázané slovo.  
+Neexistující možnost.
 
-A v tom stádu byl jeden beran, co měl v oku jiskru. Ne plamen, ne oheň – jen malou, podivnou jiskru, která ho svrběla uvnitř hlavy.
+A přesto – v každém beranovi to bublalo.  
+Ne jako myšlenka.  
+Jako touha.  
+Jako neklid.  
+Jako tiché „co kdyby…“  
+Ale stádo běželo dál.  
+A každý beran si myslel, že je sám, kdo by chtěl jinam.
 
-„Co když…“ pomyslel si.
+A tak se začalo říkat, že stádo beranů je nejmocnější síla světa.  
+Ale nikdo neřekl, že je to síla bez směru.  
+Že je to síla, která neumí zatočit.  
+Že je to síla, která bourá, protože neumí jinak.
 
-„Co když změna směru není slabost? Co když je to odvaha?“
+A někde na kraji stáda běžel jeden beran, co měl v oku jiskru.  
+Ne větší než smítko prachu.  
+Ale jiskru.  
+A šeptal si:  
+„Co když změna směru není slabost?  
+Co když je to odvaha?“
 
-Ale než to stačil říct nahlas, stádo ho vtáhlo zpět. Ne ze zloby, ne z nenávisti. Z hybnosti. Z logiky stáda. Kopyta duněla, prach stoupal, a jeho jiskra zhasla pod tisíci kopyty, která běžela dál.
-
-A stádo běželo. A každý beran si v duchu říkal: „Možná bych chtěl jinam.“ Ale nahlas to neřekl nikdo. Protože každý si myslel, že je sám, kdo pochybuje.
-
-A běželi dál. Do krajiny, kde se cesty neklikatí, ale lámou. Kde každá zatáčka je pád. Kde jediný způsob, jak změnit směr, je narazit hlavou do zdi. A tak naráželi. A běželi dál. Protože náraz není signál k zastavení, náraz je důkaz, že se nesnažili dost.
-
-A ten jeden beran s uhašenou jiskrou? Běžel s nimi. Už si ani nepamatoval, že chtěl jinam. Možná zapomněli, jak se stojí. Možná zapomněli, proč začali. Možná běželi už od počátku světa.
-
-A v dálce, za obzorem, někde tam, kam žádné stádo nikdy nedošlo, ležela země, kde se berani uměli zastavit a zeptat se: „Kam vlastně běžíme?“
-
-Ale sem její ozvěna nikdy nedoletěla. Jen prach a dunění a tisíce kopyta, která běží dál.
+Ale než to stačil říct nahla
+s, stádo ho vtáhlo zpět.  
+A běželo dál.  
+A dál..
+A dál..
+KONEC
 
 ---
 
