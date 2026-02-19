@@ -40,6 +40,7 @@ A: Diagnostika s Myší: 15-30 minut. Workshop z karty: 90 minut.
 
 **Q: Mohu kombinovat karty?**  
 A: Ano, to je jedna z hlavních výhod systému. Podívejte se na [ukázku kombinace](../demoMYS/jak_kombinovat.md).
+nebo: [uvnitř karty](../demoMYS/uvnitr_kocoura.md)
 
 **Q: Je to vhodné pro malé týmy?**  
 A: Ano, pro týmy od 3 lidí. Lze použít i pro jednotlivce nebo velké organizace.
