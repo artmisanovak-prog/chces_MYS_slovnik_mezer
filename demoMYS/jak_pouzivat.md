@@ -39,7 +39,7 @@ A: Ne, ale je to doporučeno. Myš vám pomůže pochopit, jak systém funguje.
 A: Diagnostika s Myší: 15-30 minut. Workshop z karty: 90 minut.
 
 **Q: Mohu kombinovat karty?**  
-A: Ano, to je jedna z hlavních výhod systému. Podívejte se na [ukázku kombinace](../_kombinace/plamenak_a_kocour.md).
+A: Ano, to je jedna z hlavních výhod systému. Podívejte se na [ukázku kombinace](../demoMYS/jak_kombinovat.md).
 
 **Q: Je to vhodné pro malé týmy?**  
 A: Ano, pro týmy od 3 lidí. Lze použít i pro jednotlivce nebo velké organizace.
