@@ -4,7 +4,7 @@
 
 | Produkt | Cena | Co obsahuje |
 |---------|------|-------------|
-| **Jedna karta** (Plameňák, Kocour, Páv, Tygr) | 29 000 Kč | Kompletní karta: 12 úhlů, workshop, šablony, nástroje |
+| **Jedna karta** (Plameňák, Kocour, Páv, Beran, Gepard, Vrabec,Ryba, Moucha, Drak, Osel, Želva, Čáp, Husy, Motýl, Lev, Laň/Klíště) | 29 000 Kč | Kompletní karta: 12 úhlů, workshop, šablony, nástroje |
 | **Balíček 2 karty** | 50 000 Kč | Dvě karty dle výběru |
 | **Balíček 4 karty** | 80 000 Kč | Všechny čtyři karty |
 | **Anglická verze** (Kocour/Cat) | €1.600 | Kompletní karta v angličtině |
