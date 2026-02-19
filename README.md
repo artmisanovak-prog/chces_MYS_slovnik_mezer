@@ -110,22 +110,18 @@ Proč?
 | Karta | Problém | Ukázka | Cena |
 |-------|---------|--------|------|
 | <img src="karty/Kocour/kocour.jpg" width="80"><br>**Kocour** | Předčasné uzavírání diskusí, skákání do řeči, dusení kreativity a důvěry | [Ukázka](./karty/Kocour/) | zdarma |
-| <img src="karty/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Energie bez směru, toxický optimismus, nadšení nahrazující reálné plánování | [Ukázka](./karty/Plamenak/) | 35 000 Kč |
-| <img src="karty/Páv/pav.jpg" width="80"><br>**Páv** | Sebestředné vnímání, projekce vlastních schémat, ztráta objektivity | [Ukázka](./karty/Páv/) | 35 000 Kč |
-| <img src="karty/Moucha/moucha.jpg" width="80"><br>**Moucha** | Normalizovaný chaos, slepota k vlastnímu problému, který se stal neviditelným | [Ukázka](./karty/Moucha/) | 35 000 Kč |
+| <img src="karty/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Energie bez směru, toxický optimismus, nadšení nahrazující reálné plánování | [Ukázka](./karty/Plamenak/) | 29 000 Kč |
+| <img src="karty/Páv/pav.jpg" width="80"><br>**Páv** | Sebestředné vnímání, projekce vlastních schémat, ztráta objektivity | [Ukázka](./karty/Páv/) | 29 000 Kč |
+| <img src="karty/Moucha/moucha.jpg" width="80"><br>**Moucha** | Normalizovaný chaos, slepota k vlastnímu problému, který se stal neviditelným | [Ukázka](./karty/Moucha/) | 29 000 Kč |
 | <img src="karty/Ryba/ryba.jpg" width="80"><br>**Ryba** | Povrchní komunikace („ptačí křik“) místo autentického dialogu, který mění prostředí | [Ukázka](./karty/Ryba/) | 35 000 Kč |
-| <img src="karty/Tygr/tygr.jpg" width="80"><br>**Tygr** | Konflikt mezi systémovými očekáváními a individuální autenticitou | [Ukázka](./karty/Tygr/) | 35 000 Kč |
-| <img src="karty/Beran/beran.jpg" width="80"><br>**Beran** | Stádová setrvačnost, tichá přání bez odvahy je vyslovit, většinové mlčení | [Ukázka](./karty/Beran/) | 35 000 Kč |
-| <img src="karty/Gepard/gepard.jpg" width="80"><br>**Gepard** | Hyperproduktivita jako existence, workoholismus, kolaps po dosažení cíle | [Ukázka](./karty/Gepard/) | 35 000 Kč |
-| <img src="karty/Husy/husy.jpg" width="80"><br>**Husy** | Kolektivní singular, hlasitý sebeklam, ztráta společného „my“ v davu „já“ | [Ukázka](./karty/Husy/) | 35 000 Kč |
-| <img src="karty/Parohy/parohy.jpg" width="80"><br>**Parohy** | Identita jako archiv performancí, definice skrz dokumentaci, ne skrz podstatu | [Ukázka](./karty/Parohy/) | 35 000 Kč |
-| <img src="karty/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Syndrom podřadného řešení, dočasný kompromis, který se stal trvalou zátěží | [Ukázka](./karty/Vrabec/) | 35 000 Kč |
-| <img src="karty/Hvezdice/hvezdice.jpg" width="80"><br>**Mořská hvězdice** | Záměna povrchových jevů (kruhů) za hluboké příčiny (kameny), ignorování systémové paměti | [Ukázka](./karty/Hvezdice/) | 35 000 Kč |
-| <img src="karty/Motýl/motyl.jpg" width="80"><br>**Motýl** | Estetizace hladu, nabídka krásných symbolů místo skutečného nasycení | [Ukázka](./karty/Motyl/) | 35 000 Kč |
-| <img src="karty/Osel/osel.jpg" width="80"><br>**Osel** | Paralýza z nejednoznačnosti, neschopnost rozlišit podstatné od nepodstatného | [Ukázka](./karty/Osel/) | 35 000 Kč |
-| <img src="karty/Zelva/zelva.jpg" width="80"><br>**Želva a zajíc** | Nerovnováha mezi explorací a implementací, chybějící dialog mezi vizí a realizací | [Ukázka](./karty/Zelva/) | 35 000 Kč |
-| <img src="karty/Drak/drak.jpg" width="80"><br>**Drak** | Systémová rigidita, forma zákazu důležitější než jeho smysl, rození života pod cedulemi | [Ukázka](./karty/Drak/) | 35 000 Kč |
-| <img src="karty/Laň/lan_kliste.jpg" width="80"><br>**Laň/Klíště** | Neviditelné role, frustrace a sny, které tvoří realitu, vzájemná závislost opomíjených | [Ukázka](./karty/Laň/) | 35 000 Kč |
+| <img src="karty/Beran/beran.jpg" width="80"><br>**Beran** | Stádová setrvačnost, tichá přání bez odvahy je vyslovit, většinové mlčení | [Ukázka](./karty/Beran/) | 29 000 Kč |
+| <img src="karty/Gepard/gepard.jpg" width="80"><br>**Gepard** | Hyperproduktivita jako existence, workoholismus, kolaps po dosažení cíle | [Ukázka](./karty/Gepard/) | 29 000 Kč |
+| <img src="karty/Husy/husy.jpg" width="80"><br>**Husy** | Kolektivní singular, hlasitý sebeklam, ztráta společného „my“ v davu „já“ | [Ukázka](./karty/Husy/) | 29 000 Kč |
+| <img src="karty/Parohy/parohy.jpg" width="80"><br>**Parohy** | Identita jako archiv performancí, definice skrz dokumentaci, ne skrz podstatu | [Ukázka](./karty/Parohy/) | 29 000 Kč |
+| <img src="karty/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Syndrom podřadného řešení, dočasný kompromis, který se stal trvalou zátěží | [Ukázka](./karty/Vrabec/) | 29 000 Kč |
+| <img src="karty/Osel/osel.jpg" width="80"><br>**Osel** | Paralýza z nejednoznačnosti, neschopnost rozlišit podstatné od nepodstatného | [Ukázka](./karty/Osel/) | 29 000 Kč |
+| <img src="karty/Zelva/zelva.jpg" width="80"><br>**Želva** | Nerovnováha mezi explorací a implementací, chybějící dialog mezi vizí a realizací | [Ukázka](./karty/Zelva/) | 29 000 Kč |
+| <img src="karty/Drak/drak.jpg" width="80"><br>**Drak** | Systémová rigidita, forma zákazu důležitější než jeho smysl, rození života pod cedulemi | [Ukázka](./karty/Drak/) | 29 000 Kč |
 
 ---
 
@@ -157,24 +153,24 @@ Proč?
 
 > **Musím umět GitHub?**
 > Ne. GitHub slouží jen ke stažení souboru – jako každý jiný zip na internetu.
-> Co s ním dál dělat je popsáno v přiloženém návodu. [návod](MYŠ/jak_zacit.md)
+> Co s ním dál dělat je popsáno v přiloženém návodu. [návod](demoMys/jak_zacit.md)
 
 > **Lze kartu použít víckrát?**
 > Ano – a je na to přímo navržená. Generativní mód ti z jedné karty vytvoří desítky různých workshopů kombinací úhlů. Nikdy nebudeš dělat stejný workshop dvakrát.
 
 > **Lze karty kombinovat?**
 > Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
-> Jak karty kombinovat popisuje [samostatný návod] (připravujme)
+> Jak karty kombinovat popisuje [samostatný návod] (demoMYS/jak_kombinovat.md)
 
 ---
 
 ## přečtěte si: 
 
 # **Chyba jako styl**
-[!Přečtěte si](MYŠ/chyba_jako_styl.md)
+[!Přečtěte si](demoMYS/chyba_jako_styl.md)
 
 # **Modelové scénáře** 
-[Prohlédněte si](./MYŠ/modelove_scenare.md)
+[Prohlédněte si](./demoMYS/modelove_scenare.md)
 
 ---
 
