@@ -81,7 +81,7 @@ Většina nástrojů končí u diagnózy: *„Zjistili jsme, že máte problém.
 
 ## ✅ Co karta obsahuje?
 
-🕺 **samostatný, připravený workshop**, který s týmem provedete za 90 minut.
+🕺 **samostatný, připravený workshop** - který s týmem provedete za 90 minut.
 📘 **Pohádku** – příběh, který otevře téma bez obviňování  
 🧠 **12 úhlů pohledu** – diagnostický klíč, který odhalí, kudy se tým dívá  
 🛠️ **12 konkrétních protiopatření** – každý úhel má svůj „protilék“  
@@ -95,7 +95,7 @@ Většina nástrojů končí u diagnózy: *„Zjistili jsme, že máte problém.
 
 ## 💰 Cena a návratnost
 
-**35 000 Kč za kartu.**
+**29 000 Kč za kartu.**
 
 Proč?
 
@@ -162,12 +162,12 @@ Proč?
 
 ---
 
-## přečtěte si: 
+# přečtěte si: 
 
-# **Chyba jako styl**
+## **Chyba jako styl**
 [!Přečtěte si](demoMYS/chyba_jako_styl.md)
 
-# **Modelové scénáře** 
+## **Modelové scénáře** 
 [Prohlédněte si](./demoMYS/modelove_scenare.md)
 
 ---
