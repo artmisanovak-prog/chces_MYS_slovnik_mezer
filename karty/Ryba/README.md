@@ -30,208 +30,113 @@ Tým/organizace zaměňuje hlasitost a viditelnost za vliv, zatímco přehlíž�
 
 ---
 
-## 📘 Pohádka
+#### 📘 Pohádka
 
-## O rybě, která rapovala
+# O RYBĚ 
+## která rapovala
 
 Říká se, že ryby mlčí.
-
-Že nemají hlas.
-
-Že jen plavou, koukají, a občas se nechají chytit.
-
+ Že nemají hlas.
+ Že jen plavou, koukají, a občas se nechají chytit.
 Ale to je omyl. Kec.
-
 Suchozemská lež.
 
-—
+ Ryby totiž nemlčí.
+ Ryby rapujou.
 
-Ryby totiž nemlčí.
+ Ne tak, jak si to představuješ – žádné mikrofony, žádné beaty z repro beden.
+ 
+ „Rybí rap je jinej.
+ Je to rytmus proudů.
+ Je to nížka, výška vln a vlnek.
+ Je to tempo vodních kruhů.
+ Je to mezera mezi bublinama.
 
-Ryby rapujou.
-
-—
-
-Ne tak, jak si to představuješ – žádné mikrofony, žádné beaty z repro beden.
-
-Rybí rap je jinej.
-
-Je to rytmus proudů.
-
-Je to nížka, výška vln a vlnek.
-
-Je to tempo vodních kruhů.
-
-Je to mezera mezi bublinama.
-
-—
-
-Pod vodou se zvuk jinak šíří.
-
-Hlubší. Širší. Pomalejší.
-
-A tak ryby neřvou.
-
-Ryby vibrujou.
-
-—
+ Pod vodou se zvuk jinak šíří.
+ Hlubší. Širší. Pomalejší.
+ A tak ryby neřvou.
+ Ryby vibrujou.
 
 Každej druh rybí má svůj styl hudební.
-
 Kosatky zpívají chansony – dlouhé, nostalgické, ovlivňují směry proudů.
-
 Žraloci zpívaj gospel – hluboký a s ozvěnou. Míchají barevné odstíny hladin s tóny hlubin.
-
-Velryba si troufne na operu
-
+Velryba si troufne na operu 
 a medúzy jí dělaj vokály nebo se daj na triangly, rolničky, zvonce.
-
-Delfín je folklor.
-
-Chobotnice střihne jazzové improvizace.
-
+Delfin je folklor. 
+Chobotnice strihne jazzove imprivizace. 
 Ryba co se nafukuje zvládá dechovky, ale nemá je ráda.
-
 Piraňi balady.
-
-A kapr zkouší hrdelní zpěvy.
-
+A kapr zkouší hrdelní zpěvy. 
 Mušle a lastury pějí lovestory.
-
 Ska umí létací ryby.
-
 Tučňák se vidí v klasice.
-
 Na pop je odbornice bělice.
-
 A úhoř nemá hudební ambice.
 
-—
-
 Je toho více.
-
 Ale tohle všechno není hudba pro uši,
+ Tohle ovlivňuje různé vodní vlastnosti.
 
-Tohle ovlivňuje různé vodní vlastnosti.
+ A ryba?
+ Ryba má rap.
+ Ne kvůli slávě.
+ Kvůli přesnosti.
 
-—
+ Flow je king a king je ryba.
+ Beat jí dělá sea i jezera.
+ Riff kape, flow teče.
+ Přesná slova proudí jak voda.
+ Její punchline je fontána.
 
-A ryba?
+ Každý verš má váhu.
+ A tohle ryby umí.
+ Líp než ptáci.
 
-Ryba má rap.
+ Ptačí zpěv?
+ Křikot je to.
+ Řev, ryk, krákot, jekot.
+ Tempo? Melodie? Text?
+ Ptáci neumí dávat.
+ Ptáci umí jen sprostě nadávat.
+ Píp rýmuje s píp, jinak bez ideje.
+ Cokoli řeknou hned se cenzuruje.
 
-Ne kvůli slávě.
+ Zato ryby fakt dávaj.
+ Dávaj rytmus vodě.
+ Dávaj smysl tichu.
+ Dávají beaty proudům.
 
-Kvůli přesnosti.
-
-—
-
-Flow je king a king je ryba.
-
-Beat jí dělá sea i jezera.
-
-Riff kape, flow teče.
-
-Přesná slova proudí jak voda.
-
-Její punchline je fontána.
-
-—
-
-Každý verš má váhu.
-
-A tohle ryby umí.
-
-Líp než ptáci.
-
-—
-
-Ptačí zpěv?
-
-Křikot je to.
-
-Řev, ryk, krákot, jekot.
-
-Tempo? Melodie? Text?
-
-Ptáci neumí dávat.
-
-Ptáci umí jen sprostě nadávat.
-
-Píp rýmuje s píp, jinak bez ideje.
-
-Cokoli řeknou hned se cenzuruje.
-
-—
-
-Zato ryby fakt dávaj.
-
-Dávaj rytmus vodě.
-
-Dávaj smysl tichu.
-
-Dávají beaty proudům.
-
-—
-
-A stalo se jednoho dne, že ryba začala rapovat i na hladině.
-
+ A stalo se jednoho dne, že ryba začala rapovat i na hladině.
 Ne pro ostatní.
-
 Pro vodu.
 
-—
+ A voda odpověděla.
+ Jinak se zavlnila.
+ Do rytmu se natřásala.
 
-A voda odpověděla.
-
-Jinak se zavlnila.
-
-Do rytmu se natřásala.
-
-Tvořila verše jako vodní kruhy, v kterých byly další kruhy.
+ Tvořila verše jako vodní kruhy, v kterých byly další kruhy.
 
 Mlha, spadlá do polí, opsala jejich flow.
-
 A vytvořila kruhy v obilí.
 
 Rybí hudba byla slyšet – ne uchem, ale okem, tělem.
 
-—
+ A tak se po kapkách roznáší všude kolem,
+ že prvni místo v  hitparádě,
+ vyhrály ryby - nepochybně.
 
-A tak se po kapkách roznáší všude kolem,
-
-že první místo v hitparádě,
-
-vyhrály ryby - nepochybně.
-
-—
-
-Ne proto, že zpívaj.
-
-Ale proto, že ví…
-
-—
-
-…kdy mlčet.
-
-—
+ Ne proto, že zpívaj.
+ Ale proto, že ví..
+..kdy mlčet.
 
 Možná je čas,
-
 aby se svět dozvěděl o rybím rapu.
 
-—
-
 Možná je čas,
-
 aby se
-
 přestalo poslouchat a začalo se vnímat.
 
-—
-
 Možná je čas,
-
 aby se ticho konečně dostalo nad hladinu.
 
 ---
