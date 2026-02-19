@@ -45,10 +45,10 @@ Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obvi
 ## 🚀 Rychlý start
 
 **jak používat system**
-1. [Jak používat systém](./MYŠ/jak_pouzivat_system.md)
+1. [Jak používat systém](./demoMYS/jak_pouzivat.md)
 
-2. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./karty/Mys_meta.md)
-Přečtěte si [Jak číst jako myš](./karty/Mys_demo.md)
+2. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./demoMYS/Mys_meta.md)
+Přečtěte si [Jak číst jako myš](./demoMYS/Mys_demo.md)
 
 3. **Prohlédněte si ukázkovou kartu**
 [Kocour](./karty/Kocour/)
