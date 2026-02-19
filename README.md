@@ -158,7 +158,7 @@ Proč?
 
 > **Lze karty kombinovat?**
 > Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
-> Jak karty kombinovat popisuje [samostatný návod](demoMYS/jak_kombinovat.md) [uvnitř karty](demoMYS/uvnitr_kocoura.md) nebo [karty mezi sebou](demoMYS/plamenak_a_kocour.md)
+> Jak karty kombinovat popisuje [samostatný návod](demoMYS/jak_kombinovat.md) a [uvnitř karty](demoMYS/uvnitr_kocoura.md) nebo [karty mezi sebou](demoMYS/plamenak_a_kocour.md)
 
 ---
 
