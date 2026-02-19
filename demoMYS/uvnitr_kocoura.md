@@ -1,4 +1,4 @@
-# Kombinace uvnitř jedné karty: Kocour × Kocour
+# Kombinace uvnitř jedné karty: 🐈‍⬛ × 🐈‍⬛
 
 **Název mini-workshopu:** "Tečka, nebo tři tečky?"
 
