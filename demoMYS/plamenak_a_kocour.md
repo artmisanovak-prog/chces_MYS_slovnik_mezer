@@ -1,4 +1,4 @@
-# 🦩 + 🐱 Kombinace: Plameňák & Kocour
+# 🦩 + 🐈‍⬛ Kombinace: Plameňák & Kocour
 
 **Diagnostika:** "Nadšeně skákající do řeči při pádu"
 
