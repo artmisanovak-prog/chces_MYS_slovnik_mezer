@@ -1,4 +1,4 @@
-# 🫎 PAROŽÍ – Ukázka karty
+# 🫎 PAROHY – Ukázka karty
 
 ## Jádrová dysfunkce
 
@@ -12,7 +12,7 @@ Identita se stává „živým albem“ prázdných gest, úsměvů a okamžiků
 
 | | |
 | :--- | :--- |
-| **Karta** | 🦌 Paroží |
+| **Karta** | 🦌 Parohy |
 | **Jádrová dysfunkce** | Identita jako archiv performancí |
 | **Klíčová otázka** | „Rostou nám paroží z toho, co o nás zaznamenávají, místo z toho, čím skutečně jsme?“ |
 
