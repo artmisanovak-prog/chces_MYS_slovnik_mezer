@@ -2,7 +2,7 @@
 
 ## Pro jednotlivce
 
-1. **Začněte s Myší** – Přejděte do [MYŠ](../demoMYS/index.html/) a projděte si diagnostický nástroj.
+1. **Začněte s Myší** – Přejděte do [MYŠ](../doma/MYS/index.html/) a projděte si diagnostický nástroj.
 2. **Přečtěte si pohádku** a odpovězte na 3 otázky.
 3. **Vyhodnoťte své odpovědi** pomocí Klíče k úhlům.
 4. **Zjistěte svůj myšlenkový styl** a které karty by pro vás mohly být užitečné.
@@ -39,8 +39,8 @@ A: Ne, ale je to doporučeno. Myš vám pomůže pochopit, jak systém funguje.
 A: Diagnostika s Myší: 15-30 minut. Workshop z karty: 90 minut.
 
 **Q: Mohu kombinovat karty?**  
-A: Ano, to je jedna z hlavních výhod systému. Podívejte se na [ukázku kombinace](../demoMYS/jak_kombinovat.md).
-nebo: [uvnitř karty](../demoMYS/uvnitr_kocoura.md)
+A: Ano, to je jedna z hlavních výhod systému. Podívejte se na [ukázku kombinace](../doma/MYS/jak_kombinovat.md).
+nebo: [uvnitř karty](../doma/MYS/uvnitr_kocoura.md)
 
 **Q: Je to vhodné pro malé týmy?**  
 A: Ano, pro týmy od 3 lidí. Lze použít i pro jednotlivce nebo velké organizace.
