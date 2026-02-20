@@ -1,4 +1,4 @@
-# 🐱 KOCOUR – klíčová slova pro diagnostiku
+# 🐈‍⬛ KOCOUR – klíčová slova pro diagnostiku
 
 Tento soubor obsahuje klíčová slova pro automatické vyhodnocení odpovědí v diagnostickém modu.  
 Každému z 12 úhlů jsou přiřazena slova a fráze, které se typicky objevují v odpovědích lidí, kteří daným úhlem uvažují.
