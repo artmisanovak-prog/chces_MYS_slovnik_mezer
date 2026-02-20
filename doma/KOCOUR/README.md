@@ -9,9 +9,9 @@ Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči
 ---
 
 [Pohádka o kocourovi](./data/pohadka.md) | 
-[Diagnostický mód](./kocour-diagnostika.html) | [Kreativní mód](./generator.html) | [Generativní mód](./generativni.html) | [Workshop](./WORKSHOP_90_MINUT.md) |
-[Zpětná_vazba](./zpetna_vazba.html) | 
-[Licence](./licence_kocour.txt) |
+[Diagnostický mód](./data/kocour-diagnostika.html) | [Kreativní mód](./data/generator.html) | [Generativní mód](./data/generativni.html) | [Workshop](./data/WORKSHOP_90_MINUT.md) |
+[Zpětná_vazba](./data/zpetna_vazba.html) | 
+[Licence](./data/licence_kocour.txt) |
 
 ---
 
@@ -28,7 +28,7 @@ Tato karta diagnostikuje a řeší problém týmů, kde lidé skáčou do řeči
 
 ## Pohádka
 
-Přečtěte si pohádku **[Jak kocour sežral dvě berušky a půl hodiny krkal tečky](pohadka.md)**.
+Přečtěte si pohádku **[Jak kocour sežral dvě berušky a půl hodiny krkal tečky](data/pohadka.md)**.
 
 ---
 
