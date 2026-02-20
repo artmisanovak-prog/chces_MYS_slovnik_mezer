@@ -1,4 +1,4 @@
-# 🐱 KOCOUR – KREATIVNÍ MÓD
+# 🐈‍⬛ KOCOUR – KREATIVNÍ MÓD
 
 ## 12 pozitivních principů pro zdravou komunikaci
 
