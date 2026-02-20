@@ -148,7 +148,7 @@ Proč?
 
 > **Musím umět GitHub?**
 > Ne. GitHub slouží jen ke stažení souboru – jako každý jiný zip na internetu.
-> Co s ním dál dělat je popsáno v přiloženém návodu. [návod](doma/Mys/jak_zacit.md)
+> Co s ním dál dělat je popsáno v přiloženém návodu. [návod](doma/MYS/jak_zacit.md)
 
 > **Lze kartu použít víckrát?**
 > Ano – a je na to přímo navržená. Generativní mód ti z jedné karty vytvoří desítky různých workshopů kombinací úhlů. Nikdy nebudeš dělat stejný workshop dvakrát.
@@ -256,8 +256,8 @@ Contact: **chcesmys@gmail.com**
 
 ## 🔗 Připravuje se:
 
-- [Ukázka kombinace karet](./_doma/MYS/plamenak_a_kocour.md)
-- [Jak kombinovat karty](./_doma/MYS/jak_kombinovat.md)
+- [Ukázka kombinace karet](./doma/MYS/plamenak_a_kocour.md)
+- [Jak kombinovat karty](./doma/MYS/jak_kombinovat.md)
 
 ---
 
