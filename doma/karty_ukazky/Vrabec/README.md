@@ -240,7 +240,7 @@ Vrabec ukazuje cestu od „lepší než nic“ k „tohle nás definuje“. Je t
 
 ## 📦 Chcete celou kartu?
 
-Plná verze (35 000 Kč) obsahuje:
+Plná verze (29 000 Kč) obsahuje:
 
 - ✅ **Všech 12 úhlů** s detailním vysvětlením a Q1–Q3 pro každý z nich
 - ✅ **Kompletní scénář workshopu** (90 min, s časováním a poznámkami facilitátora)
@@ -252,7 +252,7 @@ Plná verze (35 000 Kč) obsahuje:
 ---
 
 📧 **Kontakt:** chcesmys@gmail.com  
-📌 **Ukázka zdarma:** [Karta Kocour](/karty/Kocour/) – vyzkoušejte si, jak systém funguje
+📌 **Ukázka zdarma:** [Karta Kocour](/doma/KOCOUR/) – vyzkoušejte si, jak systém funguje
 
 © Michaela Nováková  
 Licence ukázky: CC BY-NC-SA 4.0
