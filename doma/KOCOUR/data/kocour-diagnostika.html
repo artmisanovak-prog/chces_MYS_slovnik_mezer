@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🐈‍⬛ Kocour – diagnostický mód</title>
 <style>
-  /* styl – zůstává přesně stejný */
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: Georgia, serif;
@@ -26,34 +25,22 @@
     padding: 0.7rem 1rem;
     font-weight: bold;
     list-style: none;
+    user-select: none;
   }
   details summary::before { content: "▶ "; }
   details[open] summary::before { content: "▼ "; }
-  .navod summary { }
-  .pohadka-summary {
-    background: #111;
-    color: #fff;
-  }
+  .pohadka-summary { background: #111; color: #fff; }
   .pohadka-obsah {
     padding: 1rem;
-    max-height: 300px;
-    overflow-y: auto;
     font-size: 0.9rem;
     white-space: pre-line;
     border-top: 1px solid #111;
   }
   .pohadka-img {
-    width: 100%;
-    max-height: 180px;
-    object-fit: contain;
-    display: block;
-    filter: grayscale(100%);
-    padding: 0.5rem;
+    width: 100%; max-height: 180px; object-fit: contain;
+    display: block; filter: grayscale(100%); padding: 0.5rem;
   }
-  .navod-obsah, .klic-obsah {
-    padding: 0.7rem 1rem 1rem;
-    font-size: 0.88rem;
-  }
+  .navod-obsah, .klic-obsah { padding: 0.7rem 1rem 1rem; font-size: 0.88rem; }
   .navod-obsah p, .klic-obsah p { margin-bottom: 0.5rem; }
   .navod-obsah ul { margin-left: 1.2rem; }
   .navod-obsah li { margin-bottom: 0.3rem; }
@@ -61,89 +48,69 @@
   .klic-uhel:last-child { border-bottom: none; }
   .klic-uhel strong { display: block; }
   .klic-uhel em { color: #555; font-size: 0.82rem; }
-  .klic-obsah { max-height: 350px; overflow-y: auto; }
   .otazky {
-    background: #f5f5f5;
-    border-left: 3px solid #111;
-    padding: 0.8rem 1rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
+    background: #f5f5f5; border-left: 3px solid #111;
+    padding: 0.8rem 1rem; margin-bottom: 1.5rem; font-size: 0.9rem;
   }
   .otazky p { margin-bottom: 0.4rem; }
-  .setup {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-  }
+  .setup { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
   .setup label { font-size: 0.9rem; }
   .setup input[type=number] {
-    width: 60px;
-    padding: 0.4rem;
-    border: 1px solid #111;
-    font-size: 1rem;
-    text-align: center;
+    width: 60px; padding: 0.4rem; border: 1px solid #111;
+    font-size: 1rem; text-align: center;
   }
   .btn {
-    padding: 0.5rem 1.2rem;
-    background: #111;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-family: Georgia, serif;
+    padding: 0.5rem 1.2rem; background: #111; color: #fff;
+    border: none; cursor: pointer; font-size: 0.9rem; font-family: Georgia, serif;
   }
   .btn:hover { background: #333; }
-  .btn-outline {
-    background: #fff;
-    color: #111;
-    border: 1px solid #111;
+  .btn-outline { background: #fff; color: #111; border: 1px solid #111; }
+  .btn-danger {
+    background: #fff; color: #aaa; border: 1px solid #ddd;
+    font-size: 0.82rem; padding: 0.3rem 0.8rem;
+    cursor: pointer; font-family: Georgia, serif;
   }
-  .clen-karta {
-    border: 1px solid #111;
-    margin-bottom: 1.2rem;
-    padding: 1rem;
+  .btn-danger:hover { border-color: #111; color: #111; }
+  .autosave-row {
+    display: none; align-items: center; gap: 1rem;
+    flex-wrap: wrap; margin-bottom: 1.2rem;
   }
-  .clen-hlavicka {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    margin-bottom: 0.8rem;
+  .autosave-info { font-size: 0.78rem; color: #888; font-style: italic; flex: 1; }
+  .clen-details { border: 1px solid #111; margin-bottom: 1rem; }
+  .clen-summary {
+    cursor: pointer; padding: 0.7rem 1rem; font-size: 0.9rem;
+    list-style: none; display: flex; align-items: center; gap: 0.5rem;
+    user-select: none; background: #fafafa;
   }
-  .clen-cislo { font-weight: bold; font-size: 0.9rem; min-width: 60px; }
+  .clen-summary::before { content: "▶ "; font-size: 0.75rem; color: #555; }
+  .clen-details[open] .clen-summary::before { content: "▼ "; }
+  .clen-summary-jmeno { font-weight: bold; flex: 1; }
+  .clen-summary-stav { font-size: 0.75rem; color: #888; font-style: italic; }
+  .stav-hotovo { color: #2a7a2a !important; font-weight: bold; }
+  .clen-telo { padding: 1rem; border-top: 1px solid #eee; }
+  .clen-hlavicka { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.8rem; }
   .clen-jmeno {
-    flex: 1;
-    padding: 0.3rem 0.5rem;
-    border: 1px solid #aaa;
-    font-family: Georgia, serif;
-    font-size: 0.9rem;
+    flex: 1; padding: 0.3rem 0.5rem; border: 1px solid #aaa;
+    font-family: Georgia, serif; font-size: 0.9rem;
   }
-  .otazka-radek { margin-bottom: 0.8rem; }
+  .otazka-radek { margin-bottom: 0.9rem; }
   .otazka-radek label {
-    display: block;
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 0.3rem;
-    color: #444;
+    display: block; font-size: 0.8rem; font-weight: bold;
+    margin-bottom: 0.3rem; color: #444;
   }
   .otazka-radek textarea {
-    width: 100%;
-    padding: 0.4rem 0.5rem;
-    border: 1px solid #ccc;
-    font-family: Georgia, serif;
-    font-size: 0.85rem;
-    resize: vertical;
-    min-height: 50px;
+    width: 100%; padding: 0.4rem 0.5rem; border: 1px solid #ccc;
+    font-family: Georgia, serif; font-size: 0.85rem;
+    resize: vertical; min-height: 50px;
   }
   .otazka-radek select {
-    width: 100%;
-    padding: 0.4rem 0.5rem;
-    border: 1px solid #111;
-    font-family: Georgia, serif;
-    font-size: 0.85rem;
-    background: #fff;
-    margin-top: 0.2rem;
+    width: 100%; padding: 0.4rem 0.5rem; border: 1px solid #111;
+    font-family: Georgia, serif; font-size: 0.85rem;
+    background: #fff; margin-top: 0.2rem;
+  }
+  .select-napoveda {
+    display: block; font-size: 0.74rem; color: #999;
+    font-style: italic; margin-top: 0.2rem;
   }
   .vysledky { margin-top: 2rem; border-top: 2px solid #111; padding-top: 1rem; }
   .mapa-tabulka { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1.2rem; }
@@ -156,37 +123,33 @@
   .uhel-vysledek { margin-bottom: 0.8rem; font-size: 0.88rem; }
   .uhel-vysledek strong { display: block; }
   .uhel-doporuceni {
-    border-left: 2px solid #111;
-    padding-left: 0.7rem;
-    margin-top: 0.3rem;
-    color: #333;
-    font-style: italic;
+    border-left: 2px solid #111; padding-left: 0.7rem;
+    margin-top: 0.3rem; color: #333; font-style: italic;
   }
   .generativni-odkaz {
-    margin-top: 1.5rem;
-    font-size: 0.85rem;
-    border-top: 1px solid #ccc;
-    padding-top: 1rem;
+    margin-top: 1.5rem; font-size: 0.85rem;
+    border-top: 1px solid #ccc; padding-top: 1rem;
   }
   .generativni-odkaz a { color: #111; }
   @media print {
-    .btn, .setup, details summary { display: none; }
-    .pohadka-obsah, .klic-obsah { max-height: none; }
+    .btn, .setup, .autosave-row, .nav, .select-napoveda { display: none !important; }
+    details[open] summary { display: none; }
   }
 </style>
 </head>
 <body>
 
+<!-- FIX 1: správná navigace -->
 <div class="nav">
   <a href="../">← Kocour</a> &nbsp;|&nbsp;
-  <a href="../../../README.md">Chceš myš?</a>
+  <a href="../../../">Chceš myš?</a>
 </div>
 
-<h1>🐱 Kocour – diagnostický mód</h1>
+<h1>🐈‍⬛ Kocour – diagnostický mód</h1>
 <p style="font-size:0.85rem; color:#555; margin-bottom:1rem;">Tyranie předčasného uzavírání v komunikaci</p>
 
-<details class="navod">
-  <summary>🐭 Návod pro facilitátora (myš)</summary>
+<details>
+  <summary>🐁 Návod pro facilitátora (myš)</summary>
   <div class="navod-obsah">
     <p><strong>Ty jsi myš.</strong> Sedíš, posloucháš, zapisuješ. Nehodnotíš, kdo má pravdu — mapuješ, jak tým myslí.</p>
     <p><strong>Důležité před začátkem:</strong></p>
@@ -196,12 +159,13 @@
       <li>Úhly nejsou osobnostní typy. Stejný člověk se v jiný den dívá jiným úhlem. Nejde o škatulkování lidí.</li>
       <li>Neexistuje správný nebo špatný úhel. Jde o to mít jich co nejvíc — rozšiřovat pohled.</li>
       <li>Přiřazuješ ty — podle toho, co slyšíš. Úhel vybíráš intuitivně, podle jádra odpovědi.</li>
-      <li>Můžeš přiřazovat hned v průběhu nebo až na konci. Textové okénko je pro tvůj záznam.</li>
+      <li>Zápisník se ukládá průběžně — přežije zavření prohlížeče i refresh stránky.</li>
     </ul>
     <p>Klíč k úhlům máš vždy k dispozici — rozbal ho níže kdykoli potřebuješ.</p>
   </div>
 </details>
 
+<!-- FIX 3: pohádka bez max-height, čte se celá -->
 <details>
   <summary class="pohadka-summary">📖 Pohádka o kocourovi</summary>
   <img src="kocour.jpg" alt="Kocour" class="pohadka-img" onerror="this.style.display='none'">
@@ -226,6 +190,12 @@
   <button class="btn" onclick="vytvorKarty()">Vytvořit zápisník</button>
 </div>
 
+<!-- FIX 5: autosave info + mazání -->
+<div class="autosave-row" id="autosave-row">
+  <span class="autosave-info">💾 Zápisník se průběžně ukládá — přežije i zavření prohlížeče.</span>
+  <button class="btn-danger" onclick="smazatZapisnik()">🗑 Vymazat zápisník</button>
+</div>
+
 <div id="karty-clenu"></div>
 
 <div id="tlacitko-vyhodnotit" style="display:none; margin-top:1rem;">
@@ -237,14 +207,11 @@
 <p class="generativni-odkaz">🔮 Chceš na základě kognitivní mapy vygenerovat nový workshop? Zkus <a href="generativni.html">generativní mód</a>.</p>
 
 <script>
-// █████████████████████████████████████████████████████████
-// 1. POHÁDKA – přesně tvůj text
-// █████████████████████████████████████████████████████████
 const POHADKA_TEXT = `O KOCOUROVI
 Jak kocour sežral dvě berušky a půl hodiny krkal tečky
 _________________
 
-Sležral dvě - ne tři, ne jednu - dvě - přesně -14 teček a trvalo to půl hodiny - 30 minut - přesně. 
+Sležral dvě - ne tři, ne jednu - dvě - přesně - 14 teček a trvalo to půl hodiny - 30 minut - přesně.
 
 Jak to přišlo tak to přestalo.
 Ráz na ráz.
@@ -255,16 +222,16 @@ Chňap a hlt a chlamst - nebo něco takového a nakonec - mlask, mlask - dvakrá
 Aspoň pro ně.
 
 Po 14ti tečkách
-v jednom mžiku 
+v jednom mžiku
 zem se slehla.
 
 Rozhodně aspoň kocour se svými útrobami.
 
 Ale ta myš, vždycky zvědavá byla.
-Odmalička chodívala 
-a kde mohla se vyptávala, 
+Odmalička chodívala
+a kde mohla se vyptávala,
 kde se tečky na beruškách vzaly?
-K čemu je maji? 
+K čemu je mají?
 Proč si radši nevytvoří pravý maskování?
 
 A ta přesná matika..
@@ -273,9 +240,9 @@ Kdo vlastně z těch, co s nimi přijdou do styku, takhle přesně počítá?
 No a toho dne - náhle - se to stalo
 a myš svou odpověď měla.
 
-Kocour mlaskl 
-a pak znovu 
-a hned na to 
+Kocour mlaskl
+a pak znovu
+a hned na to
 začalo to.
 
 Půl hodiny a bylo to zaznamenáno - přesně.
@@ -295,17 +262,16 @@ dřív, než měla věta původně skončit
 
 nebo - než původně věta skončit měla.
 
-
-A celou půlhodinu nemohl tenkrát nikdo nic 
+A celou půlhodinu nemohl tenkrát nikdo nic
 ne - dokončit.
-Nešlo to
+Nešlo to.
 
-Každému dřív.
-než se k tomu dostal.
+Každému dřív,
+než se k tomu dostal,
 všem kocour větu ukončil.
 Hned.
 
-Kocour se tomu smál, 
+Kocour se tomu smál,
 ale krkal dál.
 A krkal, dokud neskončil.
 Představte si to:
@@ -314,12 +280,12 @@ Skončil větu a pak skončil krkat.
 A lidé zase začali moct své věty ukončovat sami.
 Hned.
 
-Jenže, jak se to tak občas stává, 
-přestože nikdo nevěděl co, 
-každý věděl, 
+Jenže, jak se to tak občas stává,
+přestože nikdo nevěděl co,
+každý věděl,
 že něco nebylo stejné.
 
-A to, co jednou není stejné dnes, 
+A to, co jednou není stejné dnes,
 to není jednou stejné nikdy.
 
 Jen nedokončené věty bývají všechny stejné. Jednou, dnes i zítra.
@@ -327,12 +293,12 @@ Jen nedokončené věty bývají všechny stejné. Jednou, dnes i zítra.
 Berušky mají na sobě nedokončené konce vět. Věci, které jsou nespolknuté.
 
 Kocour to nevěděl - a dvě spolknul.
-Spolknuté konce ale vykrkal zpátky 
-a lide se naučili, 
-že všechno se spolknout nedá. 
+Spolknuté konce ale vykrkal zpátky
+a lidé se naučili,
+že všechno se spolknout nedá.
 A že tečka je někdy silnější, než celá věta.
 
-Kocour se nažral a myš i věty zůstali celé.
+Kocour se nažral a myš i věty zůstaly celé.
 Díky bohu za to.
 Štěstí dvou berušek se vrátilo zpátky.
 
@@ -341,414 +307,202 @@ A ani jeden neříkali nic.
 
 KONEC`;
 
-// █████████████████████████████████████████████████████████
-// 2. OBECNÝ KLÍČ K ÚHLŮM (jak myš čte pohádky) – pro nápovědu
-// █████████████████████████████████████████████████████████
-const KLIC_TEXT = `## Klíč k úhlům aneb Jak myš čte pohádky
-
-—
-
-Myš si zapisuje do ticha.
-
-Do mezer a skulin mezi slovama.
-
-Nepíše, co se stalo. Píše, **jak** se na to díváme.
-
-Protože myš dávno není zjištěna, že jedna pohádka jeden příběh.
-
-Je to dvanáct příběhů najednou.
-
-A každý z nich odhaluje jinou pravdu o tom, kdo čte.
-
-—
-
-**Tohle není diagnostická tabulka.**
-
-Tohle je **návod, jak číst myší**.
-
-—
-
-### CO MYŠ VIDÍ, KDYŽ ČTE ODPOVĚDI
-
-Myš neměří správnost. Neměří hloubku.
-
-Myš se přiřazuje.
-
-V každé odpovědi na tři jednoduché otázky (Smysl, Zaujetí, Aplikace)
-
-hledá **jádro** – způsob, jakým se mluvčí napojil na příběh.
-
-—
-
-**1. ABSURDNÍ ÚHEL** — Logika naruby
-
-*Jádro:* Hledá rozpor, paradox, místo, kde svět přestal dávat smysl.
-
-*Myš poznamená:* „Zde se někdo nespokojil s vysvětlením. Zde někdo potřeboval, aby svět byl důsledně nedůsledný.“
-
-*Stopa v odpovědi:* Důraz na nesmysl, na zhroucení pravidel, na absurditu systému.
-
-—
-
-**2. JAZYKOVÝ ÚHEL** — Hra se slovy
-
-*Jádro:* Slyší slovo, větu, rytmus. Forma je obsah.
-
-*Myš poznamená:* „Zde někdo nerozlišuje mezi tím, co se říká, a jak se to říká. Pro něj je způsob vyjádření tím nejvyšším sdělením.“
-
-*Stopa v odpovědi:* Citace konkrétní formule, analýza rytmu, hříčka, zvukomalba.
-
-—
-
-**3. IRONICKÝ ÚHEL** — Převrácení v směšné
-
-*Jádro:* Vidí propast mezi záměrem a výsledkem, mezi pózou a skutečností.
-
-*Myš poznamená:* „Zde někdo ví, že věci nejsou tím, čím se zdají. A dělá mu dobře, že to ví dřív než ostatní.“
-
-*Stopa v odpovědi:* Odhalení pokrytectví, trapnosti, sebeklamu. Lehký sarkasmus, hořký úsměv.
-
-—
-
-**4. FILOZOFICKÝ ÚHEL** — Existenční otázky
-
-*Jádro:* Hledá univerzální pravdu, podstatné bytí, smysl za smyslem.
-
-*Myš poznamená:* „Zde někdo neodpovídá na otázku. Odpovídá na otázku, která je za otázkou. A možná ani to ne.“
-
-*Stopa v odpovědi:* Obecná pravda, metafyzický tón, důraz na použití, ne na děj.
-
-—
-
-**5. SURREALISTICKÝ ÚHEL** — Volné asociace
-
-*Jádro:* Spojuje nespojitelné. Myslí v obrazech, ne v argumentech.
-
-*Myš poznamená:* „Zde někdo neinterpretuje. Zde někdo nechá příběh, aby se v něm rozléval. A pak zapíše, co vyplavalo.“
-
-*Stopa v odpovědi:* Bizarní spojení, snová logika, obraz bez vysvětlení. Krása, která se nehodí.
-
-—
-
-**6. NAIVNÍ ÚHEL** — Dětská logika
-
-*Jádro:* Ptá se jednoduše. Odpovídá přímo. Nepřidává.
-
-*Myš poznamená:* „Zde někdo nepotřebuje být chytrý. Potřebuje být pravdivý. A to je mnohem těžší.“
-
-*Stopa v odpovědi:* Přímočará morálka, jednoduchá emoce, čistý dojem bez racionalizace.
-
-—
-
-**7. INTRO (INTROSPEKTIVNÍ) ÚHEL** — Vnitřní monolog
-
-*Jádro:* Projekce vlastního prožitku. Příběh je záminka k sebepoznání.
-
-*Myš poznamená:* „Zde někdo nereflektuje pohádku. Reflektuje sebe skrze pohádku. A je ochoten to přiznat.“
-
-*Stopa v odpovědi:* Osobní zkušenost, emoce, vzpomínka. „Cítím…“, „Dotklo se mě…“, „Připomnělo mi to…“
-
-—
-
-**8. VŠEOBECNÝ (KONKRÉTNÍ) ÚHEL** — Co vidíš, to je
-
-*Jádro:* Drží se faktů. Děj je děj. Není třeba hledat skryté významy.
-
-*Myš poznamená:* „Zde někdo důvěřuje tomu, co je napsáno. Není proto, že by byl naivní. Protože ví, že pod povrchem často nic není.“
-
-*Stopa v odpovědi:* Převyprávění děje, konstatování faktů, odpor k interpretaci.
-
-—
-
-**9. ANALOGICKÝ (KULTURNÍ) ÚHEL** — Vztahy, archetypy
-
-*Jádro:* Hledá vzorce. Přirovnává k něčemu, co už zná.
-
-*Myš poznamená:* „Zde někdo věří, že nic není nové pod sluncem. Každý příběh už byl vyprávěn – jen v jiném převleku.“
-
-*Stopa v odpovědi:* Odkaz na jiný příběh, mýtus, archetyp, historickou paralelu.
-
-—
-
-**10. ASOCIAČNÍ ÚHEL** — Rychlé spojení
-
-*Jádro:* Myšlení skrz osobní asociace, nečekané souvislosti.
-
-*Myš poznamená:* „Zde někdo nemyslí lineárně. Myslí síťově. Každé slovo je uzel, každá věta spouští deset dalších.“
-
-*Stopa v odpovědi:* Řetěz asociací, odbočky, osobní příhody, skokové myšlení.
-
-—
-
-**11. METAFORICKÝ (SYMBOLICKÝ) ÚHEL** — Obraz → význam
-
-*Jádro:* Vše je symbolem něčeho většího. Nic není jen to, co je.
-
-*Myš poznamená:* „Zde někdo čte pohádku jako šifru. Každé zvíře, každý předmět, každý pohyb je klíčem k něčemu, co není vysloveno.“
-
-*Stopa v odpovědi:* Dekódování symbolů, hledání skrytého významu, převod obrazu do abstrakce.
-
-—
-
-**12. GROTESKNÍ ÚHEL** — Komické do extrému
-
-*Jádro:* Vidí přehnané, karikující, temně komické. Smích, který škrábe.
-
-*Myš poznamená:* „Zde někdo ví, že tragédie a komedie jsou sestry. A že nejlepší způsob, jak mluvit o bolesti, je udělat z ní cirkus.“
-
-*Stopa v odpovědi:* Důraz na přehnanost, trapnost, černý humor, karikaturu.
-
-—
-
-### CO S TÍM MYŠ DĚLÁ?
-
-Myš nesoudí. Myš neříká, který úhel je lepší.
-
-Myš **počítá**.
-
-—
-
-**1. SEPÍŠE VŠECHNY ODPOVĚDI.**
-
-Tři otázky. Každý člen týmu. Anonymně.
-
-—
-
-**2. KE KAŽDÉ ODPOVĚDI PŘIŘADÍ JEDEN ÚHEL.**
-
-Nejvýstižnější. Ne jediný – nejvýraznější.
-
-—
-
-**3. SPOČÍTÁ, KOLIKRÁT SE KTERÝ ÚHEL OBJEVIL.**
-
-A najednou není pohádka o zvířatech.
-
-Je o tom.
-
-—
-
-**4. IDENTIFIKUJE VZORY.**
-
-*PŘETÍŽENÉ ÚHLY* — Tým se dívá pořád stejně. Má klapky na očích. Co vidí, vidí dobře. Co nevidí, neexistuje.
-
-*DEFICIENTNÍ ÚHLY* — Slepá místa. Perspektivy, které tím nepoužívám, i když bych to nutně potřeboval.
-
-*VYVÁŽENÉ ÚHLY* — Zdravé jádro. Odtud se dá stavět most.
-
-—
-
-**5. NÁVRHNÉ AKCE.**
-
-*Přetíženým* dá úkol myslet jinak. (Ironik ať jeden den hledá jen poezii.)
-
-*Deficitní* pošlete na povinný výlet. (Celý týden mluvit v metaforách.)
-
-*Vyvážené* použije jako tlumočníky. (Ať přeloží problém z přetíženého jazyka do deficitního.)
-
-—
-
-### PROČ TO MYŠ DĚLÁ?
-
-Myš nechce být chytrá.
-
-Myš nechce být užitná.
-
-Myš jen zapisuje.
-
-Ale když zapisuje dost dlouho a dost pozorně,
-
-začne v zápiscích vidět věci,
-
-které nikdo jiný nevidí.
-
-Ne proto, že by měla lepší oči.
-
-Protože se dívá **jinam**.
-
-—
-
-**Toto je klíč k úhlům.**
-
-Není to tabulka. Není to návod.
-
-Je to myš, která se dívá.
-
-A ptá se:
-
-—
-
-**„Chceš myš?“**`;
-
-// █████████████████████████████████████████████████████████
-// 3. KONKRÉTNÍ ÚHLY PRO KOCOURA (12 ks vč. q1,q2,q3)
-// █████████████████████████████████████████████████████████
-const uhly = [
-  {
-    "id": 1,
-    "emoji": "🔚",
-    "nazev": "Fyzický konec věty",
-    "metafora": "Čím rychleji se snažíme větu uzavřít, tím víc jejích významů zůstává nedořečených.",
-    "q1": "Kocour se stal otrokem tečky. Věřil, že hodnota je v ukončení, ne v obsahu.",
-    "q2": "V našich meetinzích, když někdo řekne 'takže…' nebo 'možná bychom…' a hned je přerušen řešením. Nebo když management tlačí na rychlý 'action point', než byl problém řádně prozkoumán.",
-    "q3": "Zavést pravidlo 'tří teček' (…). Když někdo něco naznačí, musí mít prostor to rozvést. První, kdo řekne 'tečka', má za úkol pouze shrnout, co slyšel, NE dodat svůj závěr."
-  },
-  {
-    "id": 2,
-    "emoji": "⏱️",
-    "nazev": "Kvaziefektivita",
-    "metafora": "Rychlé odškrtnutí bodů z agendy je jako uklízení nepořádku do skříně – naoko hotovo, ale problém se vrátí.",
-    "q1": "Kocour si myslel, že urychluje práci. 'Půl hodiny a hotovo!' Ale ve skutečnosti jen nahradil společný proces monologem.",
-    "q2": "Když projektový manažer nebo dominantní osoba v týmu tlačí na rychlé 'odkliknutí' bodů z agendy, aniž by se dobrali podstaty. Schůze jsou krátké, ale problémy se vracejí jako nevykrknuté tečky.",
-    "q3": "Měřit úspěch schůze nikoli délkou, ale počtem otevřených otázek na konci. Pokud jsou všechny body 'uzavřeny', pravděpodobně jsme byli kocouři."
-  },
-  {
-    "id": 3,
-    "emoji": "🐞",
-    "nazev": "Nespolyknutelný obsah",
-    "metafora": "Těžká témata, která se snažíme spolknout, nám nakonec vyjdou ven v té nejnevhodnější chvíli.",
-    "q1": "Berušky nesou 'nespolknuté konce vět'. To jsou nepříjemné, nezpracované, složité aspekty problému. Kocour je spolkl, ale jeho tělo (tým) je odmítlo – vykrkl je zpět.",
-    "q2": "Když potlačujeme 'elefanty v místnosti', citlivá témata, emocionální frustrace nebo fundamentální nesouhlas s přístupem. Řekneme 'OK, pojďme dál', ale to téma pak otráví atmosféru.",
-    "q3": "Vytvořit 'nástěnku nespolknutého'. Fyzické/virtuální místo, kde lze anonymně psát 'nespolknuté konce' z diskusí. Pravidelně je revidovat a zařazovat do agendy."
-  },
-  {
-    "id": 4,
-    "emoji": "🐀",
-    "nazev": "Pozorovatelská myš",
-    "metafora": "Tiché hlasy v místnosti jsou jako myš, která si zapisuje – slyší víc, než kdo mluví, ale nikdo neslyší ji.",
-    "q1": "Myš je metaforou facilitátora nebo tichého člena. Nedokáže zabránit kocourovi, ale pozoruje a ukládá si odpověď. Vidí dysfunkci jasně, ale nemá moc ji zastavit.",
-    "q2": "Když v týmu jsou introverti nebo lidé, kteří potřebují delší čas na formulaci myšlenky. Jejich hlasy jsou umlčeny 'kocouřím' stylem komunikace. Nakonec mlčí a frustrace roste.",
-    "q3": "Jmenovat pro každou důležitou diskusi 'myš'. Její jedinou rolí je pozorovat, kdo mluví, kdo je přerušován, a na konci sdělit pozorování bez hodnocení."
-  },
-  {
-    "id": 5,
-    "emoji": "🕳️",
-    "nazev": "Trvalá změna",
-    "metafora": "Důvěra je jako pavučina – jakmile se přetrhne, zůstane díra, i když se snažíme ji spravit.",
-    "q1": "I když kocour přestal, 'něco nebylo stejné'. Jednorázové narušení komunikační kultury zanechává trvalou jizvu. Lidé se podvědomě bojí znovu otevřít ústa.",
-    "q2": "Když po 'toxické' schůzi nebo období s dominantním šéfem tým i po změně chování zůstává pasivní, neiniciuje, čeká na pokyny. Důvěra v bezpečný prostor je pryč.",
-    "q3": "Úmyslně vytvářet 'nedokončené věty'. Leader musí začít myšlenku a vyzvat ostatní, aby ji dokončili. Obnovovat důvěru tím, že se vzdá kontroly nad tečkou."
-  },
-  {
-    "id": 6,
-    "emoji": "🔢",
-    "nazev": "Tyranie metrik",
-    "metafora": "Počítáme tečky, ale nevidíme berušky – čísla bez příběhu jsou jako mapa bez krajiny.",
-    "q1": "Příběh je posedlý přesnými čísly: 2 berušky, 14 teček, 30 minut. To je parodie na manažerské reportování, kde jde o čísla, ne o příběh za nimi ('proč berušky mají tečky?').",
-    "q2": "Když se na retrospektivě nebo review řeší pouze 'splněno/nesplněno', 'počet úkolů', ale ne 'jak se cítíme', 'co jsme se naučili', 'jaké příběhy za čísly jsou'.",
-    "q3": "Přidat ke každé kvantitativní metrice kvalitativní příběh. Ne 'dokončili jsme 14 úkolů', ale 'jakých 14 teček jsme vykrkli a co to pro nás znamenalo?'."
-  },
-  {
-    "id": 7,
-    "emoji": "🦾",
-    "nazev": "Násilný konsenzus",
-    "metafora": "Ticho v diskuzi není souhlas, ale jen únava z boje o slovo.",
-    "q1": "Kocour svým dokončováním vět vynucoval souhlas. Lidé přestali mluvit, protože jejich dokončení by bylo stejné jako jeho. Vytvořil iluzi konsensu.",
-    "q2": "Když šéf v brainstormu řekne 'Takže všichni souhlasíme s X, že?' a pohledem obejde místnost. Ticho je interpretováno jako souhlas, ale ve skutečnosti je to rezignace.",
-    "q3": "Používat mechanismus 'souhlasu ticha'. Pokud po představení rozhodnutí je ticho, automaticky to znamená NESOUHLAS. Nutí to lidi aktivně říkat 'souhlasím'."
-  },
-  {
-    "id": 8,
-    "emoji": "🏁",
-    "nazev": "Konkurence místo kolaborace",
-    "metafora": "Kdo dřív dokončí větu, ten vyhrává – ale prohrává celý tým.",
-    "q1": "Kocour soutěžil: 'kdo dokončí větu dřív'. Komunikace se stala závodem o dominanci, ne spolupráce o nalezení nejlepší myšlenky.",
-    "q2": "V týmech, kde jsou lidé odměňováni za individuální výkon, se objevuje tento vzorec. Přerušování je projevem soutěže: 'Já vím lépe, poslouchej mě'.",
-    "q3": "Zavést 'kolo mluvčího' pro klíčové diskuse. Používat fyzický předmět (talking stick). Mluví pouze ten, kdo ho drží. Ostatní jen aktivně naslouchají."
-  },
-  {
-    "id": 9,
-    "emoji": "🎁",
-    "nazev": "Nedokončené jako dar",
-    "metafora": "Nedokončená věta je jako otevřené okno – může dovnitř vletět cokoliv nového.",
-    "q1": "Příběh říká: 'Nedokončené věty bývají všechny stejné.' To je klíč! Jakmile je věta dokončena, je fixována, mrtvá. Nedokončená je živá, plná potenciálu.",
-    "q2": "Když tým okamžitě hledá řešení ('udělejme A') místo toho, aby déle setrval v definici problému ('co když je to vlastně B?'). Fixujeme se na první 'dokončenou' myšlenku.",
-    "q3": "Cvičení 'úmyslně nedokončovat'. V brainstorming zadat: 'Náš problém je jako…' a zakázat dokončení přirovnání. Jen generovat začátky. Prozkoumat, která nedokončená metafora je nejsilnější."
-  },
-  {
-    "id": 10,
-    "emoji": "💔",
-    "nazev": "Komunikační trauma",
-    "metafora": "Spálená půda neroste – po toxické schůzi se lidé bojí promluvit i o počasí.",
-    "q1": "Kocour 'skákal lidem do řeči' a 'sežral berušky' – to jsou slova násilí. Komunikace se stala traumatizujícím zážitkem. Tým se psychicky 'slehl'.",
-    "q2": "Když jsou schůze zdrojem stresu, kde se lidé bojí promluvit, protože budou přerušeni, ztrapněni nebo jejich nápad bude 'sežrán' bez úcty.",
-    "q3": "Provést 'audit komunikační bezpečnosti'. Anonymní dotazník: Cítím se bezpečně vyjádřit nesouhlas? Jsem často přerušován? Berou moje nápady vážně? Podle výsledků nastavit pravidla."
-  },
-  {
-    "id": 11,
-    "emoji": "⚫",
-    "nazev": "Silná tečka",
-    "metafora": "Tečka na konci diskuze je někdy rána, která utne všechny další myšlenky.",
-    "q1": "Tečka je někdy silnější než celá věta. Někdy formální uzavření (tečka, rozhodnutí, schválení) má větší moc než celá dlouhá diskuse. Může být použita jako zbraň.",
-    "q2": "Když se v dlouhých diskusích ztrácíme a pak někdo autoritativně řekne 'Tak rozhodnuto!' a udělá tečku. Tým přijme tečku z únavy, ne z přesvědčení.",
-    "q3": "Při uzavírání rozhodnutí neptat se 'Je to jasné?', ale 'Kdo cítí, že jeho hlasy nebo obavy nebyly dostatečně vyslyšeny před touto tečkou?'."
-  },
-  {
-    "id": 12,
-    "emoji": "🍀",
-    "nazev": "Navrácené štěstí",
-    "metafora": "Uzdravená důvěra je jako beruška, která se vrátí na místo, kde ji málem sežrali – křehká, ale o to cennější.",
-    "q1": "Příběh končí nadějí: 'Štěstí dvou berušek se vrátilo zpátky.' I po traumatu může dojít k nápravě. Ale vyžaduje to mlčenlivé porozumění – tedy ne grandiózní omluvy, ale změnu chování.",
-    "q2": "Když tým zažije dysfunkční období, ale pak se bez velkých slov změní dynamika. Lidé opatrně znovu nabývají důvěru. To je křehký proces.",
-    "q3": "Nastavit 'beruščí rituál'. Kdykoli někdo pocítí, že byl 'sežrán' (přerušován, umlčován), může tichým symbolem (např. položit berušku na stůl) signalizovat potřebu zpomalit a vyslechnout."
-  }
+const KLIC_UHLY = [
+  { id:1,  nazev:"Absurdní",       popis:"Hledá rozpor a paradox. Svět přestal dávat smysl — a to mu vyhovuje." },
+  { id:2,  nazev:"Jazykový",       popis:"Slyší slova, rytmus, zvuk. Forma je pro něj obsah." },
+  { id:3,  nazev:"Ironický",       popis:"Vidí propast mezi záměrem a výsledkem. Lehký sarkasmus, hořký úsměv." },
+  { id:4,  nazev:"Filozofický",    popis:"Hledá smysl za smyslem. Odpovídá na otázku za otázkou." },
+  { id:5,  nazev:"Surrealistický", popis:"Spojuje nespojitelné. Myslí v obrazech, ne v argumentech." },
+  { id:6,  nazev:"Naivní",         popis:"Ptá se jednoduše, odpovídá přímo. Čistý dojem bez racionalizace." },
+  { id:7,  nazev:"Introspektivní", popis:"Příběh je mu záminkou k sebepoznání. Mluví o sobě skrze pohádku." },
+  { id:8,  nazev:"Konkrétní",      popis:"Drží se faktů. Děj je děj. Nepotřebuje skryté významy." },
+  { id:9,  nazev:"Analogický",     popis:"Hledá vzorce. Přirovnává k něčemu, co už zná." },
+  { id:10, nazev:"Asociační",      popis:"Myslí síťově. Jedno slovo spouští deset dalších." },
+  { id:11, nazev:"Metaforický",    popis:"Vše je symbolem něčeho většího. Dekóduje skryté významy." },
+  { id:12, nazev:"Groteskní",      popis:"Vidí přehnané a temně komické. Smích, který škrábe." }
 ];
 
-// █████████████████████████████████████████████████████████
-// ZBYTEK SKRIPTU – beze změny, jen používá data výše
-// █████████████████████████████████████████████████████████
+const uhly = [
+  { id:1,  emoji:"🔚", nazev:"Fyzický konec věty",
+    q3:"Zavést pravidlo 'tří teček'. Když někdo něco naznačí, musí mít prostor to rozvést. První, kdo řekne 'tečka', jen shrne — NE dodá svůj závěr." },
+  { id:2,  emoji:"⏱️", nazev:"Kvaziefektivita",
+    q3:"Měřit úspěch schůze nikoli délkou, ale počtem otevřených otázek na konci. Pokud jsou všechny body 'uzavřeny', pravděpodobně jsme byli kocouři." },
+  { id:3,  emoji:"🐞", nazev:"Nespolyknutelný obsah",
+    q3:"Vytvořit 'nástěnku nespolknutého'. Anonymní místo pro věci, které se neřekly. Pravidelně je zařazovat do agendy." },
+  { id:4,  emoji:"🐀", nazev:"Pozorovatelská myš",
+    q3:"Jmenovat pro každou diskusi 'myš'. Jen pozoruje, kdo mluví, kdo je přerušován, a na konci sdělí pozorování bez hodnocení." },
+  { id:5,  emoji:"🕳️", nazev:"Trvalá změna",
+    q3:"Úmyslně vytvářet 'nedokončené věty'. Leader začne myšlenku a vyzve ostatní, aby ji dokončili." },
+  { id:6,  emoji:"🔢", nazev:"Tyranie metrik",
+    q3:"Ke každé metrice přidat kvalitativní příběh. Ne '14 úkolů hotovo', ale 'co pro nás těch 14 teček znamenalo?'." },
+  { id:7,  emoji:"🦾", nazev:"Násilný konsenzus",
+    q3:"Mechanismus 'souhlasu ticha': ticho po rozhodnutí automaticky znamená NESOUHLAS. Nutí lidi aktivně říkat 'souhlasím'." },
+  { id:8,  emoji:"🏁", nazev:"Konkurence místo kolaborace",
+    q3:"Zavést 'kolo mluvčího'. Fyzický předmět (talking stick) — mluví jen ten, kdo ho drží." },
+  { id:9,  emoji:"🎁", nazev:"Nedokončené jako dar",
+    q3:"Cvičení 'úmyslně nedokončovat': 'Náš problém je jako…' — zakázat dokončení. Jen generovat začátky." },
+  { id:10, emoji:"💔", nazev:"Komunikační trauma",
+    q3:"'Audit komunikační bezpečnosti': Cítím se bezpečně vyjádřit nesouhlas? Jsem přerušován? Výsledky → pravidla." },
+  { id:11, emoji:"⚫", nazev:"Silná tečka",
+    q3:"Při uzavírání rozhodnutí neptat se 'Je to jasné?', ale 'Kdo cítí, že jeho obavy nebyly vyslyšeny?'." },
+  { id:12, emoji:"🍀", nazev:"Navrácené štěstí",
+    q3:"'Beruščí rituál': kdykoli někdo cítí, že byl umlčen, položí berušku na stůl. Všichni zpomalí a nechají ho doříct." }
+];
 
-// Vložení pohádky a klíče do stránky
 document.getElementById('pohadka-text').textContent = POHADKA_TEXT;
-document.getElementById('klic-uhlu-text').innerHTML = KLIC_TEXT.replace(/\n/g, '<br>'); // zachová zalomení
+document.getElementById('klic-uhlu-text').innerHTML = KLIC_UHLY.map(u => `
+  <div class="klic-uhel">
+    <strong>${u.id}. ${u.nazev}</strong>
+    <em>${u.popis}</em>
+  </div>
+`).join('');
+
+const SAVE_KEY = 'kocour_diagnostika_v1';
+
+function ulozit() {
+  const pocet = parseInt(document.getElementById('pocet-clenu').value) || 0;
+  if (pocet < 1) return;
+  const data = { pocet, clenove: [] };
+  for (let i = 1; i <= pocet; i++) {
+    const jEl = document.getElementById(`jmeno-${i}`);
+    if (!jEl) continue;
+    data.clenove.push({
+      jmeno: jEl.value,
+      o1: document.getElementById(`odpoved-${i}-1`)?.value || '',
+      o2: document.getElementById(`odpoved-${i}-2`)?.value || '',
+      o3: document.getElementById(`odpoved-${i}-3`)?.value || '',
+      u1: document.getElementById(`uhel-${i}-1`)?.value || '',
+      u2: document.getElementById(`uhel-${i}-2`)?.value || '',
+      u3: document.getElementById(`uhel-${i}-3`)?.value || '',
+    });
+  }
+  try { localStorage.setItem(SAVE_KEY, JSON.stringify(data)); } catch(e) {}
+}
+
+function nacistUlozene() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (!data?.pocet) return;
+    document.getElementById('pocet-clenu').value = data.pocet;
+    vytvorKartyHTML(data.pocet);
+    data.clenove.forEach((c, idx) => {
+      const i = idx + 1;
+      const jEl = document.getElementById(`jmeno-${i}`);
+      if (!jEl) return;
+      jEl.value = c.jmeno || '';
+      document.getElementById(`odpoved-${i}-1`).value = c.o1 || '';
+      document.getElementById(`odpoved-${i}-2`).value = c.o2 || '';
+      document.getElementById(`odpoved-${i}-3`).value = c.o3 || '';
+      document.getElementById(`uhel-${i}-1`).value = c.u1 || '';
+      document.getElementById(`uhel-${i}-2`).value = c.u2 || '';
+      document.getElementById(`uhel-${i}-3`).value = c.u3 || '';
+      aktualizujStav(i);
+    });
+    document.getElementById('tlacitko-vyhodnotit').style.display = 'block';
+    document.getElementById('autosave-row').style.display = 'flex';
+  } catch(e) {}
+}
+
+function smazatZapisnik() {
+  if (!confirm('Opravdu vymazat celý zápisník? Tato akce nejde vrátit.')) return;
+  try { localStorage.removeItem(SAVE_KEY); } catch(e) {}
+  document.getElementById('karty-clenu').innerHTML = '';
+  document.getElementById('tlacitko-vyhodnotit').style.display = 'none';
+  document.getElementById('vysledky').style.display = 'none';
+  document.getElementById('autosave-row').style.display = 'none';
+}
+
+function aktualizujStav(i) {
+  const jmeno = document.getElementById(`jmeno-${i}`)?.value?.trim();
+  const u1 = document.getElementById(`uhel-${i}-1`)?.value;
+  const u2 = document.getElementById(`uhel-${i}-2`)?.value;
+  const u3 = document.getElementById(`uhel-${i}-3`)?.value;
+  const prirazeno = [u1, u2, u3].filter(Boolean).length;
+  const nadpisEl = document.getElementById(`nadpis-${i}`);
+  const stavEl = document.getElementById(`stav-${i}`);
+  if (nadpisEl) nadpisEl.textContent = jmeno || `Člen ${i}`;
+  if (stavEl) {
+    if (prirazeno === 3) {
+      stavEl.textContent = '✓ hotovo';
+      stavEl.className = 'clen-summary-stav stav-hotovo';
+    } else if (prirazeno > 0) {
+      stavEl.textContent = `${prirazeno}/3 přiřazeno`;
+      stavEl.className = 'clen-summary-stav';
+    } else {
+      stavEl.textContent = 'nevyplněno';
+      stavEl.className = 'clen-summary-stav';
+    }
+  }
+}
+
+const NAPOVEDA = '↑ Myš vybírá intuitivně podle jádra odpovědi — viz Klíč výše';
+
+function vytvorKartyHTML(pocet) {
+  const options = uhly.map(u =>
+    `<option value="${u.id}">${u.id}. ${u.emoji} ${u.nazev}</option>`
+  ).join('');
+  const sel = `<option value="">— nevybráno —</option>${options}`;
+  let html = '';
+  for (let i = 1; i <= pocet; i++) {
+    html += `
+    <details class="clen-details" id="karta-${i}" open>
+      <summary class="clen-summary">
+        <span class="clen-summary-jmeno" id="nadpis-${i}">Člen ${i}</span>
+        <span class="clen-summary-stav" id="stav-${i}">nevyplněno</span>
+      </summary>
+      <div class="clen-telo">
+        <div class="clen-hlavicka">
+          <input class="clen-jmeno" type="text" id="jmeno-${i}"
+            placeholder="jméno / iniciály (volitelné)"
+            oninput="aktualizujStav(${i}); ulozit();">
+        </div>
+        <div class="otazka-radek">
+          <label>Q1 – Smysl (co řekl/a):</label>
+          <textarea id="odpoved-${i}-1" placeholder="Zapiš odpověď…" oninput="ulozit();"></textarea>
+          <select id="uhel-${i}-1" onchange="aktualizujStav(${i}); ulozit();">${sel}</select>
+          <span class="select-napoveda">${NAPOVEDA}</span>
+        </div>
+        <div class="otazka-radek">
+          <label>Q2 – Zaujetí (co řekl/a):</label>
+          <textarea id="odpoved-${i}-2" placeholder="Zapiš odpověď…" oninput="ulozit();"></textarea>
+          <select id="uhel-${i}-2" onchange="aktualizujStav(${i}); ulozit();">${sel}</select>
+          <span class="select-napoveda">${NAPOVEDA}</span>
+        </div>
+        <div class="otazka-radek">
+          <label>Q3 – Aplikace (co řekl/a):</label>
+          <textarea id="odpoved-${i}-3" placeholder="Zapiš odpověď…" oninput="ulozit();"></textarea>
+          <select id="uhel-${i}-3" onchange="aktualizujStav(${i}); ulozit();">${sel}</select>
+          <span class="select-napoveda">${NAPOVEDA}</span>
+        </div>
+      </div>
+    </details>`;
+  }
+  document.getElementById('karty-clenu').innerHTML = html;
+}
 
 function vytvorKarty() {
   const pocet = parseInt(document.getElementById('pocet-clenu').value);
   if (!pocet || pocet < 1) return;
-  const options = uhly.map(u => `<option value="${u.id}">${u.id}. ${u.emoji} ${u.nazev}</option>`).join('');
-  const selectHtml = `<option value="">— nevybráno —</option>${options}`;
-  let html = '';
-  for (let i = 1; i <= pocet; i++) {
-    html += `
-      <div class="clen-karta" id="clen-${i}">
-        <div class="clen-hlavicka">
-          <span class="clen-cislo">Člen ${i}</span>
-          <input class="clen-jmeno" type="text" placeholder="jméno / číslo (volitelné)" id="jmeno-${i}">
-        </div>
-        <div class="otazka-radek">
-          <label>Q1 – Smysl (co řekl/a):</label>
-          <textarea id="odpoved-${i}-1" placeholder="Zapiš odpověď…"></textarea>
-          <select id="uhel-${i}-1">${selectHtml}</select>
-        </div>
-        <div class="otazka-radek">
-          <label>Q2 – Zaujetí (co řekl/a):</label>
-          <textarea id="odpoved-${i}-2" placeholder="Zapiš odpověď…"></textarea>
-          <select id="uhel-${i}-2">${selectHtml}</select>
-        </div>
-        <div class="otazka-radek">
-          <label>Q3 – Aplikace (co řekl/a):</label>
-          <textarea id="odpoved-${i}-3" placeholder="Zapiš odpověď…"></textarea>
-          <select id="uhel-${i}-3">${selectHtml}</select>
-        </div>
-      </div>
-    `;
-  }
-  document.getElementById('karty-clenu').innerHTML = html;
+  try { localStorage.removeItem(SAVE_KEY); } catch(e) {}
+  vytvorKartyHTML(pocet);
   document.getElementById('tlacitko-vyhodnotit').style.display = 'block';
   document.getElementById('vysledky').style.display = 'none';
+  document.getElementById('autosave-row').style.display = 'flex';
 }
 
 function vyhodnotit() {
   const pocet = parseInt(document.getElementById('pocet-clenu').value);
   const pocty = {};
-  uhly.forEach(u => pocty[u.id] = { count: 0, nazev: u.nazev, emoji: u.emoji, q3: u.q3 });
+  uhly.forEach(u => pocty[u.id] = { count:0, nazev:u.nazev, emoji:u.emoji, q3:u.q3 });
   let celkem = 0;
   const detailClenu = [];
   for (let i = 1; i <= pocet; i++) {
-    const jmeno = document.getElementById(`jmeno-${i}`).value || `Člen ${i}`;
+    const jmeno = document.getElementById(`jmeno-${i}`)?.value?.trim() || `Člen ${i}`;
     const uhlyClena = [];
     for (let q = 1; q <= 3; q++) {
-      const val = document.getElementById(`uhel-${i}-${q}`).value;
+      const val = document.getElementById(`uhel-${i}-${q}`)?.value;
       if (val) { pocty[val].count++; celkem++; uhlyClena.push(parseInt(val)); }
     }
     detailClenu.push({ jmeno, uhly: uhlyClena });
@@ -759,20 +513,19 @@ function vyhodnotit() {
   uhly.forEach(u => {
     const p = pocty[u.id];
     p.procento = celkem > 0 ? p.count / celkem : 0;
-    if (p.count === 0) nepouzite.push(p);
+    if (p.count === 0)           nepouzite.push(p);
     else if (p.procento >= 0.30) pretizene.push(p);
     else if (p.procento <= 0.10) deficitni.push(p);
-    else vyvazene.push(p);
+    else                          vyvazene.push(p);
   });
 
   let html = `<h2>🧠 Kognitivní mapa týmu</h2>`;
   html += `<p style="font-size:0.85rem;color:#555;margin-bottom:1rem;">Celkem přiřazeno: <strong>${celkem}</strong> úhlů od <strong>${pocet}</strong> členů</p>`;
-
   html += `<table class="mapa-tabulka"><tr><th>Úhel</th><th>Počet</th><th>%</th><th>Typ</th></tr>`;
   uhly.map(u => pocty[u.id]).sort((a,b) => b.count - a.count).forEach(p => {
     const proc = Math.round(p.procento * 100);
     let typ = '◇ vyvážený', trida = '';
-    if (p.count === 0) { typ = '—'; trida = 'deficitni'; }
+    if (p.count === 0)           { typ = '—';           trida = 'deficitni'; }
     else if (p.procento >= 0.30) { typ = '▲ přetížený'; trida = 'pretizeny'; }
     else if (p.procento <= 0.10) { typ = '▽ deficitní'; trida = 'deficitni'; }
     html += `<tr class="${trida}"><td>${p.emoji} ${p.nazev}</td><td>${p.count}×</td><td>${proc}%</td><td>${typ}</td></tr>`;
@@ -819,12 +572,13 @@ function vyhodnotit() {
   }
 
   html += `<button class="btn btn-outline" style="margin-top:1rem;" onclick="window.print()">🖨 Vytisknout výsledky</button>`;
-
   const el = document.getElementById('vysledky');
   el.innerHTML = html;
   el.style.display = 'block';
   el.scrollIntoView({ behavior: 'smooth' });
 }
+
+window.addEventListener('DOMContentLoaded', nacistUlozene);
 </script>
 
 </body>
