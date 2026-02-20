@@ -43,10 +43,10 @@ Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obvi
 ## 🚀 Rychlý start
 
 **jak používat system**
-1. [Jak používat systém](./demoMYS/jak_pouzivat.md)
+1. [Jak používat systém](./doma/MYS/jak_pouzivat.md)
 
-2. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./demoMYS/Mys_meta.md)
-Přečtěte si [Jak číst jako myš](./demoMYS/Mys_demo.md)
+2. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./doma/MYS/Mys_meta.md)
+Přečtěte si [Jak číst jako myš](./doma/MYS/Mys_demo.md)
 
 3. **Prohlédněte si ukázkovou kartu**
 [Kocour](./karty/Kocour/)
@@ -150,24 +150,24 @@ Proč?
 
 > **Musím umět GitHub?**
 > Ne. GitHub slouží jen ke stažení souboru – jako každý jiný zip na internetu.
-> Co s ním dál dělat je popsáno v přiloženém návodu. [návod](demoMys/jak_zacit.md)
+> Co s ním dál dělat je popsáno v přiloženém návodu. [návod](doma/Mys/jak_zacit.md)
 
 > **Lze kartu použít víckrát?**
 > Ano – a je na to přímo navržená. Generativní mód ti z jedné karty vytvoří desítky různých workshopů kombinací úhlů. Nikdy nebudeš dělat stejný workshop dvakrát.
 
 > **Lze karty kombinovat?**
 > Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
-> Jak karty kombinovat popisuje [samostatný návod](demoMYS/jak_kombinovat.md) a [uvnitř karty](demoMYS/uvnitr_kocoura.md) nebo [karty mezi sebou](demoMYS/plamenak_a_kocour.md)
+> Jak karty kombinovat popisuje [samostatný návod](doma/MYS/jak_kombinovat.md) a [uvnitř karty](doma/MYS/uvnitr_kocoura.md) nebo [karty mezi sebou](doma/MYS/plamenak_a_kocour.md)
 
 ---
 
 # přečtěte si: 
 
 ## **Chyba jako styl**
-[!Přečtěte si](demoMYS/chyba_jako_styl.md)
+[Přečtěte si](doma/MYS/chyba_jako_styl.md)
 
 ## **Modelové scénáře** 
-[Prohlédněte si](./demoMYS/modelove_scenare.md)
+[Prohlédněte si](./doma/MYS/modelove_scenare.md)
 
 ---
 
@@ -258,8 +258,8 @@ Contact: **chcesmys@gmail.com**
 
 ## 🔗 Připravuje se:
 
-- [Ukázka kombinace karet](./_kombinace/plamenak_a_kocour.md)
-- [Jak kombinovat karty](./_kombinace/jak_kombinovat.md)
+- [Ukázka kombinace karet](./_doma/MYS/plamenak_a_kocour.md)
+- [Jak kombinovat karty](./_doma/MYS/jak_kombinovat.md)
 
 ---
 
