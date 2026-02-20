@@ -12,7 +12,7 @@ Jejich komunikace („já ja jajaja“) je „manifest identity v rozkladu“ �
 
 | | |
 | :--- | :--- |
-| **Karta** | 🦆 Husy |
+| **Karta** | 🪿 Husy |
 | **Jádrová dysfunkce** | Kolektivní singular a hlasitý sebeklam |
 | **Klíčová otázka** | „Kdo jste?“ – „Já. Já. Já.“ |
 
