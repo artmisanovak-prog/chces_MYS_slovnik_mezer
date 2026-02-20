@@ -112,8 +112,7 @@ Proč?
 | <img src="karty/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Energie bez směru, toxický optimismus, nadšení nahrazující reálné plánování | [Ukázka](./doma/karty_ukazky/Plamenak/) | 29 000 Kč |
 | <img src="karty/Páv/pav.jpg" width="80"><br>**Páv** | Sebestředné vnímání, projekce vlastních schémat, ztráta objektivity | [Ukázka](./karty/Páv/) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Moucha/moucha.jpg" width="80"><br>**Moucha** | Normalizovaný chaos, slepota k vlastnímu problému, který se stal neviditelným | [Ukázka](./doma/karty_ukazky/Moucha/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Ryba/ryba.jpg" width="80"><br>**Ryba** | Povrchní komunikace („ptačí křik“) místo autentického dialogu, který mění prostředí | [Ukázka](./doma/karty_ukazky/Ryba/) | 35 000 Kč |
-| <img src="karty/Beran/beran.jpg" width="80"><br>**Beran** | Stádová setrvačnost, tichá přání bez odvahy je vyslovit, většinové mlčení | [Ukázka](./karty/Beran/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Ryba/ryba.jpg" width="80"><br>**Ryba** | Povrchní komunikace („ptačí křik“) místo autentického dialogu, který mění prostředí | [Ukázka](./doma/karty_ukazky/Ryba/) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Husy/husy.jpg" width="80"><br>**Husy** | Kolektivní singular, hlasitý sebeklam, ztráta společného „my“ v davu „já“ | [Ukázka](./doma/karty_ukazky/Husy/) | 29 000 Kč |
 | <img src="karty/Parohy/parohy.jpg" width="80"><br>**Parohy** | Identita jako archiv performancí, definice skrz dokumentaci, ne skrz podstatu | [Ukázka](./karty/Parohy/) | 29 000 Kč |
 | <img src="karty/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Syndrom podřadného řešení, dočasný kompromis, který se stal trvalou zátěží | [Ukázka](./karty/Vrabec/) | 29 000 Kč |
