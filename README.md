@@ -49,7 +49,7 @@ Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obvi
 Přečtěte si [Jak číst jako myš](./doma/MYS/Mys_demo.md)
 
 3. **Prohlédněte si ukázkovou kartu**
-[Kocour](./karty/Kocour/)
+[Kocour](./doma/KOCOUR/)
 skákání do řeči, předčasné ukončování
 
 ---
