@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zpětná vazba – Kocour</title>
+    <style>
+        /* Jednoduchý, čistý styl, který zapadne k tvým kartám */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: white;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 400;
+            border-bottom: 2px solid #000;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .otazka {
+            margin-bottom: 2rem;
+        }
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        textarea, input[type="email"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            font-family: inherit;
+            font-size: 1rem;
+            box-sizing: border-box;
+            background: white;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .helper {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+        button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 0;
+            transition: background 0.2s;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background: #333;
+        }
+        .nepovinne {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+        .poznamka {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-left: 4px solid black;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🐈⬛ Zpětná vazba – Kocour</h1>
+
+    <div class="poznamka">
+        ⚡ Tohle není dotazník spokojenosti. Potřebuju vědět jediné: <strong>pomáhá to?</strong> 
+        Napiš, co tě napadne – klidně stručně, klidně upřímně. Každá věta je pro mě mapa.
+    </div>
+
+    <form action="https://formsubmit.co/chcesmys@gmail.com" method="POST">
+        <!-- Skrytá pole pro FormSubmit -->
+        <input type="hidden" name="_subject" value="Zpětná vazba – Kocour">
+        <input type="hidden" name="_next" value="https://artmisanovak-prog.github.io/chces_MYS_slovnik_mezer/karty/Kocour/?odeslano=1">
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- 1. Čas -->
+        <div class="otazka">
+            <label for="cas">1. ⏱️ Čas</label>
+            <textarea id="cas" name="cas" placeholder="O kolik dřív jste se dostali k věcem, které se v týmu běžně neříkají?"></textarea>
+            <div class="helper">Klidně odhad: „o hodinu“, „hned na začátku“, „vůbec“...</div>
+        </div>
+
+        <!-- 2. Srozumitelnost -->
+        <div class="otazka">
+            <label for="srozumitelnost">2. 🗣️ Srozumitelnost</label>
+            <textarea id="srozumitelnost" name="srozumitelnost" placeholder="Pochopili všichni hned, v čem je problém, jakmile si přečetli o Kocourovi?"></textarea>
+            <div class="helper">Bylo to jasné hned, nebo až v diskuzi? Nebo vůbec?</div>
+        </div>
+
+        <!-- 3. Použitelnost / úhly -->
+        <div class="otazka">
+            <label for="použitelnost">3. 🧩 Použitelnost úhlů</label>
+            <textarea id="použitelnost" name="použitelnost" placeholder="Bylo pro vás těžké přiřadit ty úhly, nebo to šlo intuitivně?"></textarea>
+            <div class="helper">Nebo jste je třeba vůbec nepoužili? Zajímá mě cokoli.</div>
+        </div>
+
+        <!-- 4. Aha moment -->
+        <div class="otazka">
+            <label for="aha">4. 💡 Aha moment</label>
+            <textarea id="aha" name="aha" placeholder="Objevil se v diskuzi úhel pohledu, který by bez karty nikoho nenapadl?"></textarea>
+            <div class="helper">Třeba: „Když to říkáš, tak jo, my jsme vždycky...“</div>
+        </div>
+
+        <!-- Volitelný prostor pro cokoli dalšího -->
+        <div class="otazka">
+            <label for="cokoliv">✏️ Cokoli dalšího?</label>
+            <textarea id="cokoliv" name="cokoliv" placeholder="Co bys chtěl/a dodat? Co chybí? Co naopak funguje skvěle?"></textarea>
+        </div>
+
+        <!-- Nepovinný email (pro případ, že bys chtěla něco dovysvětlit) -->
+        <div class="otazka nepovinne">
+            <label for="email">📧 Tvůj email (nepovinný)</label>
+            <input type="email" id="email" name="email" placeholder="jen pokud chceš odpověď">
+            <div class="helper">Pokud zadáš, můžu se ozvat, když mi nebude něco jasné.</div>
+        </div>
+
+        <button type="submit">Odeslat zpětnou vazbu</button>
+    </form>
+
+    <hr>
+
+    <p style="text-align: center; color: #777; font-size: 0.9rem;">
+        Děkuju. Každá odpověď je pro mě důležitá.<br>
+        (Formulář po odeslání pošle email, nic se nikde neukládá.)
+    </p>
+
+</body>
+</html>
