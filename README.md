@@ -118,7 +118,7 @@ Proč?
 | <img src="karty/Husy/husy.jpg" width="80"><br>**Husy** | Kolektivní singular, hlasitý sebeklam, ztráta společného „my“ v davu „já“ | [Ukázka](./karty/Husy/) | 29 000 Kč |
 | <img src="karty/Parohy/parohy.jpg" width="80"><br>**Parohy** | Identita jako archiv performancí, definice skrz dokumentaci, ne skrz podstatu | [Ukázka](./karty/Parohy/) | 29 000 Kč |
 | <img src="karty/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Syndrom podřadného řešení, dočasný kompromis, který se stal trvalou zátěží | [Ukázka](./karty/Vrabec/) | 29 000 Kč |
-| <img src="karty/Osel/osel.jpg" width="80"><br>**Osel** | Paralýza z nejednoznačnosti, neschopnost rozlišit podstatné od nepodstatného | [Ukázka](./karty/Osel/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Osel/osel.jpg" width="80"><br>**Osel** | Paralýza z nejednoznačnosti, neschopnost rozlišit podstatné od nepodstatného | [Ukázka](./doma/karty_ukazky/Osel/) | 29 000 Kč |
 
 ---
 
