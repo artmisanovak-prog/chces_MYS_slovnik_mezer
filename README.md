@@ -109,7 +109,7 @@ Proč?
 | Karta | Problém | Ukázka | Cena |
 |-------|---------|--------|------|
 | <img src="doma/KOCOUR/data//kocour.jpg" width="80"><br>**Kocour** | Předčasné uzavírání diskusí, skákání do řeči, dusení kreativity a důvěry | [Ukázka](./doma/KOCOUR/) | zdarma |
-| <img src="karty/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Energie bez směru, toxický optimismus, nadšení nahrazující reálné plánování | [Ukázka](./doma/karty_ukazky/Plamenak/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Energie bez směru, toxický optimismus, nadšení nahrazující reálné plánování | [Ukázka](./doma/karty_ukazky/Plamenak/) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Pav/pav.jpg" width="80"><br>**Páv** | Sebestředné vnímání, projekce vlastních schémat, ztráta objektivity | [Ukázka](./doma/karty_ukazky/Pav/) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Moucha/moucha.jpg" width="80"><br>**Moucha** | Normalizovaný chaos, slepota k vlastnímu problému, který se stal neviditelným | [Ukázka](./doma/karty_ukazky/Moucha/) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Ryba/ryba.jpg" width="80"><br>**Ryba** | Povrchní komunikace („ptačí křik“) místo autentického dialogu, který mění prostředí | [Ukázka](./doma/karty_ukazky/Ryba/) | 29 000 Kč |
