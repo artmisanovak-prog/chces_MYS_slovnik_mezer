@@ -181,8 +181,19 @@ Proč?
 
 ---
 
-## **Chyba jako styl**
-[Přečtěte si](doma/MYS/chyba_jako_styl.md)
+## 🏠 Metoda "Repo dům" – jak jsem si vzala svobodu dělat věci po svém
+
+Tohle není web. Je to **repozitář** – místo, kde žije celý systém "Chceš myš?" jako soubory, které si můžeš stáhnout, otevřít, upravit, vlastnit.
+
+Proč jsem to udělala takhle?
+**Protože jsem tvůrce, ne vývojářka.**
+
+### Co je "Repo dům"?
+
+Vymyslela jsem způsob, jak dělat věci **po svém** – 
+bez závislosti, bez kompromisů, bez dovolení.
+
+**"Chceš myš?" je první projekt postavený tímhle způsobem.**
 
 ---
 
@@ -205,22 +216,6 @@ Firmy už nechtějí posílat svá interní data do cizích cloudů, nechtějí 
 Tento princip (říkáme mu **„repo dům“**) dává tyto jistoty. Platíte si jednou za chytrý nástroj, který vám zůstane navždy, ne za přístup na rok.
 
 **Je to nová cesta, jak stavět digitální nástroje – bez webu, bez závislostí, s plnou mocí ve vašich rukou.**
-
----
-
-## 🏠 Metoda "Repo dům" – jak jsem si vzala svobodu dělat věci po svém
-
-Tohle není web. Je to **repozitář** – místo, kde žije celý systém "Chceš myš?" jako soubory, které si můžeš stáhnout, otevřít, upravit, vlastnit.
-
-Proč jsem to udělala takhle?
-**Protože jsem tvůrce, ne vývojářka.**
-
-### Co je "Repo dům"?
-
-Vymyslela jsem způsob, jak dělat věci **po svém** – 
-bez závislosti, bez kompromisů, bez dovolení.
-
-**"Chceš myš?" je první projekt postavený tímhle způsobem.**
 
 ---
 
@@ -258,9 +253,8 @@ Nemusíš se naučit 12 perspektiv. Stačí, když pochopíš,
 
 ---
 
-**Metodu "Repo dům" jsem vymyslela proto, že jsem chtěla dělat co chci, jak chci.**
-Ne proto, že bych přemýšlela o byznysu nebo datové bezpečnosti.  
-Prostě jsem chtěla svobodu.
+## **Chyba jako styl**
+[Přečtěte si](doma/MYS/chyba_jako_styl.md)
 
 ---
 
