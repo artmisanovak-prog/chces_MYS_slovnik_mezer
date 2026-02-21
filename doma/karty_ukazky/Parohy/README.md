@@ -1,5 +1,19 @@
 # 🫎 PAROHY – Ukázka karty
 
+---
+
+### OBSAH
+
+- [📘 Pohádka](#-pohádka)
+- [🎯 3 diagnostické otázky](#-3-diagnostické-otázky)
+- [🧠 Ukázka úhlů](#-ukázka-úhlů)
+- [🛠️ Workshop (struktura)](#️-workshop-struktura)
+- [📊 Diagnostická matice](#-diagnostická-matice)
+- [💡 Proč je Paroží klíčové](#-proč-je-paroží-klíčové)
+- [🔗 Propojení s kartami](#-propojení-s-dalšími-kartami)
+
+---
+
 ## Jádrová dysfunkce
 
 **Identita jako archiv performancí.** Tým (nebo jednotlivec) je definován nikoli tím, co dělá nebo čím je, ale tím, jak je zdokumentován, hodnocen a vystavován. Každý „blesk“ pozornosti (meeting, prezentace, report, pochvala) přidává větev do „paroží“ image, ale nedochází k hlubšímu prožitku, rezonanci („hromu“) či skutečné změně („dešti“).
@@ -15,18 +29,6 @@ Identita se stává „živým albem“ prázdných gest, úsměvů a okamžiků
 | **Karta** | 🦌 Parohy |
 | **Jádrová dysfunkce** | Identita jako archiv performancí |
 | **Klíčová otázka** | „Rostou nám paroží z toho, co o nás zaznamenávají, místo z toho, čím skutečně jsme?“ |
-
----
-
-### OBSAH
-
-- [📘 Pohádka](#-pohádka)
-- [🎯 3 diagnostické otázky](#-3-diagnostické-otázky)
-- [🧠 Ukázka úhlů](#-ukázka-úhlů)
-- [🛠️ Workshop (struktura)](#️-workshop-struktura)
-- [📊 Diagnostická matice](#-diagnostická-matice)
-- [💡 Proč je Paroží klíčové](#-proč-je-paroží-klíčové)
-- [🔗 Propojení s kartami](#-propojení-s-dalšími-kartami)
 
 ---
 
