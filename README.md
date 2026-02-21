@@ -25,7 +25,6 @@ Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 > **Úhly nemusíš přiřadit přesně.**
 > Všechny míří na stejný problém — a ten se řeší tak jako tak.
 > I „nepřesná" mapa odhalí něco užitečného.
-
 ---
 
 ## 🫗 Proč to existuje
