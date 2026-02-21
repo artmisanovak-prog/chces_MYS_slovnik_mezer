@@ -180,8 +180,6 @@ Proč?
 
 ---
 
-# přečtěte si: 
-
 ## **Chyba jako styl**
 [Přečtěte si](doma/MYS/chyba_jako_styl.md)
 
