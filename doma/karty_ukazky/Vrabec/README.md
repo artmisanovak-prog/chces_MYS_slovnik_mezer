@@ -84,8 +84,6 @@ podívala se nahoru
 a řekla:
 „Možná je lepší holub na střeše než vrabec na hlavě.“
 
-—
-
 A vrabec se jen zavrtěl.
 A přidal další větvičku.
 
