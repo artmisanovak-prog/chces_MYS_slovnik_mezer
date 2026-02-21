@@ -100,6 +100,19 @@ Většina nástrojů končí u diagnózy: *„Zjistili jsme, že máte problém.
 
 ---
 
+# Cena pro facilitátory
+## 💡 Pro facilitátory: počítejte jinak
+
+Nekupujete jeden workshop. Kupujete nástroj na desítky workshopů.
+
+| Počet použití | Cena za workshop |
+|---|---|
+| 10× | 2 900 Kč |
+| 20× | 1 450 Kč |
+| 50× | 580 Kč |
+
+Jednorázový náklad. Žádné předplatné. Karta je vaše navždy.
+
 ## 💰 Cena a návratnost
 
 **29 000 Kč za kartu.**
