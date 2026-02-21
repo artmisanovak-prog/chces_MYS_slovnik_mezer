@@ -6,16 +6,6 @@
 
 ---
 
-### RYCHLÝ POHLED
-
-| | |
-| :--- | :--- |
-| **Karta** | 🐦 Vrabec |
-| **Jádrová dysfunkce** | Syndrom podřadného řešení, které se stalo trvalou zátěží |
-| **Klíčová otázka** | „Kterého vrabce v hrsti dnes nosíme na hlavě?“ |
-
----
-
 ### OBSAH
 
 - [📘 Pohádka](#-pohádka)
@@ -25,6 +15,16 @@
 - [📊 Diagnostická matice](#-diagnostická-matice)
 - [💡 Proč je Vrabec klíčový](#-proč-je-vrabec-klíčový)
 - [🔗 Propojení s kartami](#-propojení-s-dalšími-kartami)
+
+---
+
+### RYCHLÝ POHLED
+
+| | |
+| :--- | :--- |
+| **Karta** | 🐦 Vrabec |
+| **Jádrová dysfunkce** | Syndrom podřadného řešení, které se stalo trvalou zátěží |
+| **Klíčová otázka** | „Kterého vrabce v hrsti dnes nosíme na hlavě?“ |
 
 ---
 
