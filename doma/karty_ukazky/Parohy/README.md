@@ -34,96 +34,52 @@ Identita se stává „živým albem“ prázdných gest, úsměvů a okamžiků
 
 ## 📘 Pohádka
 
-## O parozích, které sbíraly blesky
+## O PAROZÍCH, které sbíraly blesky
 
 Byl jednou jeden člověk. Nebo jelen. Nebo něco mezi.
-
 Měla parohy. Ale ne obyčejné.
-
 Byly to bleskosběrné parohy.
-
 Ne pro počasí.
-
 Pro paměť.
 
-—
-
 Každý den do ní uhodil blesk.
-
 Ne z nebe.
-
 Z foťáku.
-
 Z cvaknutí.
-
 Z „sýýýr!“
 
-—
-
 Tisíckrát.
-
 Blesk.
-
 Ale nikdy hrom.
-
 Žádný déšť.
-
 Jen světlo.
-
 A úsměv.
-
 A paměť, co se nikdy neptá, jestli je pravdivá.
 
-—
-
 Říkali jí Sýýýr.
-
 Jako „sýr“, ale s ozvěnou.
-
 Protože když se usmívala, bylo to jako když se slovo snaží být obrazem.
-
 A když se neusmívala, stejně se to vyfotilo.
 
-—
-
 Parohy jí rostly pokaždé, když ji někdo vyfotil.
-
 Jedna větev za každou vzpomínku.
-
 Jedna zákruta za každé „sýýýr“.
-
 A tak se stala živým albem.
-
 Chodila po světě a nosila na hlavě všechny momenty, které nikdo už nechtěl pamatovat.
 
-—
-
 Tak chodila dál a šla dál
-
 s parohy jako s anténami.
-
 Těžká od světla.
-
 Lehká od smyslu.
-
 A když ji někdo potkal, řekl:
-
 „To je ta, co má parohy z paměti. Ta, co nikdy nezmokne. Ta, co se usmívá, i když neví proč.“
 
-—
-
 Od té doby se říká, že když tě někdo vyfotí a ty se usměješ,
-
 možná se ti právě začíná klubat nový paroh.
 
-—
-
 A že „sýýýr“ není jen zvuk.
-
 Je to stopa řeči v obraze.
-
 Je to blesk bez bouřky.
-
 Je to paměť, co se tváří jako přítomnost.
 
 ---
@@ -183,7 +139,7 @@ Zavést rituál **„snímání parohů“** – pravidelné (např. čtvrtletn�
 
 **Část 2: Přivolání bouře (40 min)**
 - Skupinová práce **'Alchymie blesku'** – jak přeměnit vybraný „blesk“ na činnost s rezonancí (hrom) a obnovou (déšť)
-- Skupinová práce **'Sundávání paroží'** – návrh „rituálu transformace“ pro vybraný paroh podle skrytého „sýra“
+- Skupinová práce **'Sundávání parohů'** – návrh „rituálu transformace“ pro vybraný paroh podle skrytého „sýra“
 
 **Část 3: Nový růst (20 min)**
 - Výběr jednoho nápadu na přeměnu a jednoho rituálu k zavedení
@@ -193,7 +149,7 @@ Zavést rituál **„snímání parohů“** – pravidelné (např. čtvrtletn�
 
 ## 📊 Diagnostická matice
 
-| Dominantní úhel | Diagnóza | Intervence („Odstranění paroží“) |
+| Dominantní úhel | Diagnóza | Intervence („Odstranění parohů“) |
 | :--- | :--- | :--- |
 | **Blesk bez bouřky** | Tým je zahlcen aktivitami bez reálného dopadu. | **„Týden bez blesků“:** Zrušit všechny neesenciální reporty a meetingy. Místo nich zavést jeden krátký „hromový brief“. |
 | **Těžká od světla, lehká od smyslu** | Tým produkuje tuny výstupů, ale postrádá smysl. | **„Hunt na smysl“:** U hlavního úkolu každý napíše, jaký smysl v něm vidí. Společně najít společnou linii. |
@@ -203,22 +159,22 @@ Zavést rituál **„snímání parohů“** – pravidelné (např. čtvrtletn�
 
 ---
 
-## 💡 Proč je Paroží klíčové?
+## 💡 Proč jsou Parohy klíčové?
 
-Je to karta digitálního věku a performativní kultury. Dokonale navazuje na **Krokodýla** (komodifikace) a **Hada** (pokřivený jazyk), ale posouvá je do éry totální dokumentace a image. Zatímco Krokodýl prodává emoce a Had má roztržený jazyk, **Paroží** ukazuje, jak se stáváme sami sobě archivem, živoucí prezentací.
+Je to karta digitálního věku a performativní kultury. Dokonale navazuje na **Krokodýla** (komodifikace) a **Hada** (pokřivený jazyk), ale posouvá je do éry totální dokumentace a image. Zatímco Krokodýl prodává emoce a Had má roztržený jazyk, **Parohy** ukazují, jak se stáváme sami sobě archivem, živoucí prezentací.
 
-Je to o týmech řízených daty z nástrojů na sledování produktivity, o kultuře „dělejme to pro LinkedIn“, o nemožnosti být neviditelný. Je to karta vyhoření z vlastní image. Paroží přidává klíčovou dimenzi času a paměti v digitální podobě: **Jsme to, co je o nás zaznamenáno.** A to je děsivě silná metafora.
+Je to o týmech řízených daty z nástrojů na sledování produktivity, o kultuře „dělejme to pro LinkedIn“, o nemožnosti být neviditelný. Je to karta vyhoření z vlastní image. Parohy přidává klíčovou dimenzi času a paměti v digitální podobě: **Jsme to, co je o nás zaznamenáno.** A to je děsivě silná metafora.
 
 ---
 
 ## 🔗 Propojení s dalšími kartami
 
-| Karta | Vztah k Paroží |
+| Karta | Vztah k Parohům |
 | :--- | :--- |
-| **Krokodýl** | Krokodýl prodává emoce jako zboží. Paroží ukazuje, jak se tyto emoce archivují a stávají součástí identity. |
-| **Had** | Had má roztržený jazyk – nedokáže sdělit celou pravdu. Paroží tuto pravdu nahrazuje obrazem, dokumentací. |
-| **Páv** | Páv je sebestředný a vytváří svou image. Paroží ukazuje, co se stane, když tuto image začne definovat okolí. |
-| **Husy** | Husy křičí svá „já“. Paroží dokumentuje jejich křik a mění ho na věčné paroží. |
+| **Krokodýl** | Krokodýl prodává emoce jako zboží. Parohy ukazují, jak se tyto emoce archivují a stávají součástí identity. |
+| **Had** | Had má roztržený jazyk – nedokáže sdělit celou pravdu. Parohy tuto pravdu nahrazují obrazem, dokumentací. |
+| **Páv** | Páv je sebestředný a vytváří svou image. Parohy ukazují, co se stane, když tuto image začne definovat okolí. |
+| **Husy** | Husy křičí svá „já“. Parohy dokumentují jejich křik a mění ho na věčné paroží. |
 | **Myš** | Myš tiše zapisuje do mezer. Paroží je naopak hlasitě zaznamenáváno a vystavováno. |
 
 ---
