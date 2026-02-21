@@ -45,10 +45,13 @@ Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obvi
 **jak používat system**
 1. [Jak používat systém](./doma/MYS/jak_pouzivat.md)
 
-2. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./doma/MYS/Mys_meta.md)
+**Modelové scénáře** 
+2. [Prohlédněte si](./doma/MYS/modelove_scenare.html)
+
+3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./doma/MYS/Mys_meta.md)
 Přečtěte si [Jak číst jako myš](./doma/MYS/Mys_demo.md)
 
-3. **Prohlédněte si ukázkovou kartu**
+4. **Prohlédněte si ukázkovou kartu**
 [Kocour](./doma/KOCOUR/)
 skákání do řeči, předčasné ukončování
 
@@ -163,9 +166,6 @@ Proč?
 
 ## **Chyba jako styl**
 [Přečtěte si](doma/MYS/chyba_jako_styl.md)
-
-## **Modelové scénáře** 
-[Prohlédněte si](./doma/MYS/modelove_scenare.html)
 
 ---
 
