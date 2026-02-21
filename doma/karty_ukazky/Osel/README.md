@@ -32,154 +32,81 @@ Jde o dysfunkci ztraceného kontaktu s realitou, neschopnosti rozlišit podstatn
 
 ## 📘 Pohádka
 
-## O oslovi, který šel vlevo, ale myslel si, že jde vpravo
+## O OSLOVI, který šel vlevo, ale myslel si, že jde vpravo
 
 Osel se narodil mezi dvěma hromadami.
-
 Jedna byla seno.
-
 Druhá sláma.
-
 A nikdo mu neřekl, která je která.
 
-—
-
 „Levá,“ řekl někdo.
-
 „Pravá,“ řekl jiný.
-
 „Seno,“ řekl hlas.
-
 „Sláma,“ řekl stín.
 
-—
-
 Osel se podíval.
-
 Obě hromady vypadaly stejně.
-
 Jedna trochu měkčí.
-
 Jedna trochu hlučnější.
-
 Ale jinak? Chaos.
 
-—
-
 „Pro jednoho psina,“ řekl hlas.
-
 „Pro druhého oslovina,“ dodal jiný.
-
 A osel se zamyslel:
-
 „Kdo jsem já? Psina, nebo oslovina?“
 
-—
-
 Šel vlevo.
-
 Pak se otočil.
-
 A šel vpravo.
-
 Ale vypadalo to stejně.
-
 Země byla země.
-
 Hromada byla hromada.
-
 A pravidla? Neviditelná.
 
-—
-
 Potkal myš.
-
 Ta si zapisovala, co se děje.
-
 „Kam jdeš?“ zeptala se.
-
 „Nevím,“ řekl osel.
-
 „Levá, pravá, seno, sláma. Všechno se mi míchá.“
 
-—
-
 Myš si poznamenala:
-
 Osel – zmatený, ale důsledný.
 
-—
-
 „A co hledáš?“
-
 „Správnost,“ řekl osel.
-
 „A co to je?“
-
 „To, co se neřekne nahlas, ale všichni to očekávají.“
 
-—
-
 Myš se zamyslela.
-
 A pak mu podala cedulku.
-
 Na jedné straně bylo napsáno „seno“.
-
 Na druhé „sláma“.
-
 Ale písmo bylo stejné.
 
-—
-
 Osel si ji pověsil na krk.
-
 A šel dál.
-
 Levá.
-
 Pravá.
-
 Seno.
-
 Sláma.
 
-—
-
 A když ho někdo zastavil a zeptal se:
-
 „Kam jdeš?“
-
 Řekl:
-
 „Podle cedulky.“
-
 „A co je na ní?“
-
 „To, co si myslíš, že tam je.“
 
-—
-
 A tak se stal průvodcem.
-
 Ne tím, co ví.
-
 Ale tím, co jde.
-
 A když se někdo ztratil,
-
 šel za oslem.
-
 Protože i když neví,
-
 vypadá, že ví.
 
-—
-
 A když se někdo ptal, co je to „oslovina“,
-
 myš řekla:
-
 „To je, když jdeš dál, i když nevíš, kam.“
 
 ---
