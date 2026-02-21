@@ -1,10 +1,6 @@
 # O PÁVOVI
 
-Pohádka o pávovi  
-
-Oko za okem, páv za pávem – a nikdo neví proč.
-
-
+## Oko za okem, páv za pávem – a nikdo neví proč.
 
 Byl jednou jeden páv, který měl tolik ok na ocase, že se mu začaly dívat zpátky.  
 
