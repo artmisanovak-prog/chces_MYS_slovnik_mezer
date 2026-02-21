@@ -1,5 +1,21 @@
 # 🫏 OSEL – Ukázka karty
 
+---
+
+### OBSAH
+
+- [📘 Pohádka](#-pohádka)
+- [🎯 3 diagnostické otázky](#-3-diagnostické-otázky)
+- [🧠 Ukázka úhlů](#-ukázka-úhlů)
+- [🛠️ Workshop (struktura)](#️-workshop-struktura)
+- [📊 Diagnostická matice](#-diagnostická-matice)
+- [💡 Proč je Osel klíčový](#-proč-je-osel-klíčový)
+- [🔗 Propojení s kartami](#-propojení-s-dalšími-kartami)
+
+---
+
+---
+
 ## Jádrová dysfunkce
 
 **Paralýza z nejednoznačnosti a falešná jistota.** Tým je uvězněn mezi alternativami, které nedokáže rozlišit („seno vs. sláma“), protože mu chybí jasná kritéria, vlastní úsudek nebo odvaha volit. Místo toho přijímá prázdné symboly („cedulky“) a stává se „průvodcem“, který pouze vypadá, že ví, kam jde. Tím udržuje systém v iluzi směru, zatímco ve skutečnosti bloudí.
@@ -15,18 +31,6 @@ Jde o dysfunkci ztraceného kontaktu s realitou, neschopnosti rozlišit podstatn
 | **Karta** | 🫏 Osel |
 | **Jádrová dysfunkce** | Paralýza z nejednoznačnosti a falešná jistota |
 | **Klíčová otázka** | „Rozlišujeme ještě seno od slámy, nebo už jen věříme cedulkám?“ |
-
----
-
-### OBSAH
-
-- [📘 Pohádka](#-pohádka)
-- [🎯 3 diagnostické otázky](#-3-diagnostické-otázky)
-- [🧠 Ukázka úhlů](#-ukázka-úhlů)
-- [🛠️ Workshop (struktura)](#️-workshop-struktura)
-- [📊 Diagnostická matice](#-diagnostická-matice)
-- [💡 Proč je Osel klíčový](#-proč-je-osel-klíčový)
-- [🔗 Propojení s kartami](#-propojení-s-dalšími-kartami)
 
 ---
 
