@@ -20,6 +20,8 @@ Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 <hr>
 <br clear="left">
 </div>
+---
+
 # „Nejde to zkazit"
 > **Úhly nemusíš přiřadit přesně.**
 > Všechny míří na stejný problém — a ten se řeší tak jako tak.
