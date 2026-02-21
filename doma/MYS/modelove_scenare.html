@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modelové scénáře – Chceš MYŠ?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1612;
+      --paper: #f8f5ef;
+      --accent: #2b2b2b;
+      --muted: #7a6f63;
+      --rule: #d4cec5;
+      --highlight: #e8e0d0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ink); color: var(--paper);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      font-size: 0.85rem; letter-spacing: 0.04em;
+    }
+    nav a { color: var(--paper); text-decoration: none; opacity: 0.75; transition: opacity 0.15s; }
+    nav a:hover { opacity: 1; }
+    nav .nav-brand { font-weight: 700; opacity: 1; font-size: 0.95rem; }
+    nav .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+    /* LAYOUT */
+    .container { max-width: 740px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* HERO IMAGE */
+    .hero-image {
+      width: 100%; max-height: 320px;
+      object-fit: cover; object-position: center;
+      border-radius: 4px; margin-bottom: 0.75rem;
+      filter: contrast(1.05);
+    }
+    .image-caption {
+      text-align: center; font-size: 0.8rem; color: var(--muted);
+      margin-bottom: 2.5rem; font-style: italic;
+    }
+
+    /* TYPOGRAPHY */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400; line-height: 1.2; margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1rem; color: var(--muted); font-style: italic;
+      margin-bottom: 3rem; padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem;
+    }
+
+    /* SCENARIO CARDS */
+    .scenarios { display: flex; flex-direction: column; gap: 2.5rem; margin-bottom: 4rem; }
+    .scenario { border-left: 3px solid var(--ink); padding-left: 1.5rem; }
+    .scenario-number {
+      font-size: 0.7rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem;
+    }
+    .scenario h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem;
+    }
+    .scenario-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem;
+    }
+    @media (max-width: 540px) { .scenario-grid { grid-template-columns: 1fr; } }
+    .scenario-field label {
+      display: block; font-size: 0.7rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem;
+    }
+    .scenario-field p { font-size: 0.95rem; line-height: 1.55; }
+    .scenario-field.result {
+      grid-column: 1 / -1;
+      background: var(--highlight); padding: 0.8rem 1rem; border-radius: 2px;
+    }
+
+    /* PRICE SECTION */
+    .price-section {
+      background: var(--ink); color: var(--paper);
+      padding: 2.5rem; border-radius: 4px; margin-bottom: 3rem;
+    }
+    .price-section h2 { color: var(--paper); margin-bottom: 0.5rem; }
+    .price-tag {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 700; margin-bottom: 1.5rem; opacity: 0.9;
+    }
+    .price-section p { font-size: 0.95rem; line-height: 1.7; opacity: 0.85; margin-bottom: 1rem; }
+    .calc-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 1.5rem 0; }
+    .calc-table tr { border-bottom: 1px solid rgba(248,245,239,0.15); }
+    .calc-table td { padding: 0.55rem 0.25rem; opacity: 0.85; }
+    .calc-table td:last-child { text-align: right; font-weight: 600; opacity: 1; }
+    .calc-table tr.total td {
+      border-top: 1px solid rgba(248,245,239,0.4); border-bottom: none;
+      opacity: 1; font-weight: 700; font-size: 1rem; padding-top: 0.8rem;
+    }
+    .price-note { font-size: 0.8rem; font-style: italic; opacity: 0.6; }
+
+    /* NOTE */
+    .note {
+      background: var(--highlight); padding: 1.5rem; border-radius: 2px;
+      font-size: 0.9rem; color: var(--muted); line-height: 1.6;
+    }
+    .note strong { color: var(--ink); }
+
+    /* FOOTER NAV */
+    .footer-nav {
+      display: flex; justify-content: space-between;
+      margin-top: 4rem; padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-nav a {
+      color: var(--ink); text-decoration: none; font-size: 0.9rem;
+    }
+    .footer-nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../../index.html" class="nav-brand">🐁 Chceš MYŠ?</a>
+    <div class="nav-links">
+      <a href="../../index.html">Úvod</a>
+      <a href="index.html">12 úhlů pohledu</a>
+      <a href="../../doma/KOCOUR/">Kocour (zdarma)</a>
+      <a href="mailto:chcesmys@gmail.com">Kontakt</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <img src="../mix01.jpg"
+         alt="Tři ukázkové karty systému Chceš MYŠ?"
+         class="hero-image" />
+    <p class="image-caption">Ukázkové karty — každá řeší jednu konkrétní týmovou poruchu.</p>
+
+    <h1>Modelové scénáře použití</h1>
+    <p class="subtitle">
+      Takhle to funguje v praxi. Tři situace, které se dějí v týmech pořád —
+      a jeden způsob, jak je konečně pojmenovat a řešit.
+    </p>
+
+    <div class="scenarios">
+
+      <div class="scenario">
+        <p class="scenario-number">Scénář 01</p>
+        <h3>„Nestíháme"</h3>
+        <div class="scenario-grid">
+          <div class="scenario-field">
+            <label>Situace</label>
+            <p>Tým dlouhodobě nestíhá termíny. Každý ví, ale nikdo neví proč.</p>
+          </div>
+          <div class="scenario-field">
+            <label>Co se říká nahlas</label>
+            <p>„Potřebujeme víc času." / „Máme moc úkolů."</p>
+          </div>
+          <div class="scenario-field">
+            <label>Identifikovaný úhel</label>
+            <p>Bezpečí · strach z chyb · nejasná odpovědnost</p>
+          </div>
+          <div class="scenario-field">
+            <label>Mezera (co se neříká)</label>
+            <p>Nikdo neví, kdo smí rozhodovat. Takže nikdo nerozhoduje — a čeká.</p>
+          </div>
+          <div class="scenario-field result">
+            <label>Zásah a výsledek</label>
+            <p>Vyjasnění pravomocí + snížení penalizace chyb → rychlejší rozhodování, konec paralýzy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario">
+        <p class="scenario-number">Scénář 02</p>
+        <h3>„Musíme mít vše pod kontrolou"</h3>
+        <div class="scenario-grid">
+          <div class="scenario-field">
+            <label>Situace</label>
+            <p>Manažer mikromanaguje. Tým je frustrovaný, manažer přetížený.</p>
+          </div>
+          <div class="scenario-field">
+            <label>Co se říká nahlas</label>
+            <p>„Já si to radši zkontroluju sám." / „Chci vědět o všem."</p>
+          </div>
+          <div class="scenario-field">
+            <label>Identifikovaný úhel</label>
+            <p>Kontrola jako ochrana stability · nedůvěra v proces (ne v lidi)</p>
+          </div>
+          <div class="scenario-field">
+            <label>Mezera (co se neříká)</label>
+            <p>Chybí sdílená definice „hotovo". Každý ji má jinou — manažer neví, jak si toho všimnout bez průběžného sledování.</p>
+          </div>
+          <div class="scenario-field result">
+            <label>Zásah a výsledek</label>
+            <p>Transparentní kontrolní body místo průběžného dohledu → vyšší autonomie, nižší přetížení manažera.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario">
+        <p class="scenario-number">Scénář 03</p>
+        <h3>„Nikdo nic neříká"</h3>
+        <div class="scenario-grid">
+          <div class="scenario-field">
+            <label>Situace</label>
+            <p>Porady probíhají hladce. Všichni souhlasí. Za dveřmi se ale vše zpochybňuje.</p>
+          </div>
+          <div class="scenario-field">
+            <label>Co se říká nahlas</label>
+            <p>„OK, jdeme dál." / „Jasně, to dá smysl."</p>
+          </div>
+          <div class="scenario-field">
+            <label>Identifikovaný úhel</label>
+            <p>Vztah · zachování harmonie · psychologická bezpečnost</p>
+          </div>
+          <div class="scenario-field">
+            <label>Mezera (co se neříká)</label>
+            <p>Lidé se bojí, že nesouhlas ohrozí vztah nebo jejich pozici. Tichý souhlas je ochrana, ne přesvědčení.</p>
+          </div>
+          <div class="scenario-field result">
+            <label>Zásah a výsledek</label>
+            <p>„Co by mohlo selhat?" jako standard na každé poradě → rizika zachycená včas, otevřenější komunikace.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PRICE -->
+    <div class="price-section">
+      <h2>Proč 29 000 Kč?</h2>
+      <p class="price-tag">29 000 Kč · jednorázově · navždy</p>
+      <p>Nejde o poradenství na den. Jde o nástroj, který koupíte jednou a použijete stokrát — bez předplatného, bez upgradů, bez závislosti na dodavateli.</p>
+      <table class="calc-table">
+        <tr><td>Průměrná délka porady (bez struktury)</td><td>90–120 min</td></tr>
+        <tr><td>Průměrná délka po zavedení systému</td><td>~60 min</td></tr>
+        <tr><td>Počet porad / měsíc (tým 8 lidí)</td><td>~10</td></tr>
+        <tr><td>Ušetřené hodiny za měsíc (celý tým)</td><td>~40–80 hod</td></tr>
+        <tr><td>Hodnota při průměrné sazbě 500 Kč/os/hod</td><td>20 000–40 000 Kč</td></tr>
+        <tr class="total"><td>Návratnost investice</td><td>do 1–2 měsíců</td></tr>
+      </table>
+      <p>A to nezapočítáváme čas ušetřený přípravou — workshop na 90 minut je hotový, odzkoušený, připravený k použití hned v pondělí.</p>
+      <p class="price-note">Čísla jsou orientační. Nabízíme beta testování před nákupem — napište na chcesmys@gmail.com.</p>
+    </div>
+
+    <div class="note">
+      <strong>Scénáře jsou modelové.</strong><br>
+      Ukazují princip práce s perspektivou — nikoli hodnocení konkrétních lidí.
+      Úhly pohledu nejsou osobnostní typy. Stejný člověk se v jiný den dívá jiným úhlem.
+    </div>
+
+    <div class="footer-nav">
+      <a href="../../index.html">← Zpět na úvod</a>
+      <a href="../../doma/KOCOUR/">Vyzkoušet ukázkovou kartu →</a>
+    </div>
+
+  </div>
+</body>
+</html>
