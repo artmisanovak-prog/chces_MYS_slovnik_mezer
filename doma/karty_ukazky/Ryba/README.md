@@ -246,13 +246,13 @@ Zavést pravidlo **„váhy slova“** – každý má na meetingu limitovaný p
 | **Mořská hvězdice** | Hvězdice vidí kameny (příčiny), Ryba rapuje o tom, jak kruhy (důsledky) rezonují. |
 | **Motýl** | Motýl je estetizace hladu – krásné, ale prázdné. Rybí rap je přesný a má váhu. |
 | **Osel** | Osel neví, kam jde, a přijímá prázdné cedulky. Ryba ví, kdy mlčet, a její slova mají dopad. |
-| **Želva a zajíc** | Zajíc posílá pohlednice (inspiraci), Ryba ukazuje, jak tuto inspiraci autenticky komunikovat dál. |
+| **Želva** | Zelvě posílá zajíc pohlednice (inspiraci), Ryba ukazuje, jak tuto inspiraci autenticky komunikovat dál. |
 
 ---
 
 ## 📦 Chcete celou kartu?
 
-Plná verze (35 000 Kč) obsahuje:
+Plná verze (29 000 Kč) obsahuje:
 
 - ✅ **Všech 12 úhlů** s detailním vysvětlením a Q1–Q3 pro každý z nich
 - ✅ **Kompletní scénář workshopu** (90 min, s časováním a poznámkami facilitátora)
@@ -264,7 +264,7 @@ Plná verze (35 000 Kč) obsahuje:
 ---
 
 📧 **Kontakt:** chcesmys@gmail.com  
-📌 **Ukázka zdarma:** [Karta Kocour](/karty/Kocour/) – vyzkoušejte si, jak systém funguje
+📌 **Ukázka zdarma:** [Karta Kocour](/doma/KOCOUR/) – vyzkoušejte si, jak systém funguje
 
 © Michaela Nováková  
 Licence ukázky: CC BY-NC-SA 4.0
