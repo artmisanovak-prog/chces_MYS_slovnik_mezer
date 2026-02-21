@@ -6,6 +6,10 @@ Tato karta diagnostikuje a řeší problém týmů, které jsou poháněny energ
 
 ---
 
+[Přečíst pohádku](./pohadka.md) | [Diagnostikovat tým](./O_PLAMENAKOVI.md) | [Spustit workshop](./workshop_90_minut.md)
+
+---
+
 ## Pohádka
 
 Přečtěte si [pohádku o Plameňákovi](./pohadka.md).
