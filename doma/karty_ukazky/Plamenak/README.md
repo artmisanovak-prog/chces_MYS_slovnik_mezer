@@ -66,6 +66,6 @@ Přečtěte si [pohádku o Plameňákovi](./pohadka.md).
 - ✅ **Diagnostické nástroje** pro tým
 - ✅ **Návod** na implementaci
 
-**Cena: 15 000 Kč**
+**Cena: 29 000 Kč**
 
-Kontakt: **[tvuj@email.cz](mailto:tvuj@email.cz)**
+Kontakt: **[chcesmys@gmail.com](mailto:chcesmys@gmail.com)**
