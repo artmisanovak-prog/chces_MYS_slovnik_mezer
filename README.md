@@ -21,13 +21,13 @@ Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 <br clear="left">
 </div>
 
-# „Nejde to zkazit"
+## „Nejde to zkazit"
 > **Úhly nemusíš přiřadit přesně.**
 > Všechny míří na stejný problém — a ten se řeší tak jako tak.
 > I „nepřesná" mapa odhalí něco užitečného.
 ---
 
-## 🫗 Proč to existuje
+# 🫗 Proč to existuje
 
 **Většina problémů v týmech nevzniká kvůli lidem, ale kvůli mezerám:**
 
