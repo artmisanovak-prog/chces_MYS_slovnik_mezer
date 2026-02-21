@@ -125,19 +125,20 @@ Proč?
 
 ---
 
+
 ## 🃏 Dostupné karty
 
 | Karta | Problém | Ukázka | Cena |
 |-------|---------|--------|------|
-| <img src="doma/KOCOUR/data//kocour.jpg" width="80"><br>**Kocour** | Předčasné uzavírání diskusí, skákání do řeči, dusení kreativity a důvěry | [Ukázka](./doma/KOCOUR/) | zdarma |
-| <img src="doma/karty_ukazky/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Energie bez směru, toxický optimismus, nadšení nahrazující reálné plánování | [Ukázka](./doma/karty_ukazky/Plamenak/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Pav/pav.jpg" width="80"><br>**Páv** | Sebestředné vnímání, projekce vlastních schémat, ztráta objektivity | [Ukázka](./doma/karty_ukazky/Pav/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Moucha/moucha.jpg" width="80"><br>**Moucha** | Normalizovaný chaos, slepota k vlastnímu problému, který se stal neviditelným | [Ukázka](./doma/karty_ukazky/Moucha/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Ryba/ryba.jpg" width="80"><br>**Ryba** | Povrchní komunikace („ptačí křik“) místo autentického dialogu, který mění prostředí | [Ukázka](./doma/karty_ukazky/Ryba/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Husy/husy.jpg" width="80"><br>**Husy** | Kolektivní singular, hlasitý sebeklam, ztráta společného „my“ v davu „já“ | [Ukázka](./doma/karty_ukazky/Husy/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Parohy/parohy.jpg" width="80"><br>**Parohy** | Identita jako archiv performancí, definice skrz dokumentaci, ne skrz podstatu | [Ukázka](./doma/karty_ukazky/Parohy/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Syndrom podřadného řešení, dočasný kompromis, který se stal trvalou zátěží | [Ukázka](./doma/karty_ukazky/Vrabec/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Osel/osel.jpg" width="80"><br>**Osel** | Paralýza z nejednoznačnosti, neschopnost rozlišit podstatné od nepodstatného | [Ukázka](./doma/karty_ukazky/Osel/) | 29 000 Kč |
+| <img src="doma/KOCOUR/data/kocour.jpg" width="80"><br>**Kocour** | Skáčeme si do řeči — myšlenky umírají dřív, než dostanou šanci | [Ukázka](./doma/KOCOUR/) | zdarma |
+| <img src="doma/karty_ukazky/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Nadšení bez plánu — energie, která nikam nevede | [Ukázka](./doma/karty_ukazky/Plamenak/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Pav/pav.jpg" width="80"><br>**Páv** | Vidíme projekt skrz sebe — a přestáváme vidět realitu | [Ukázka](./doma/karty_ukazky/Pav/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Moucha/moucha.jpg" width="80"><br>**Moucha** | Chaos se stal normou — a nikdo si ho už nevšimne | [Ukázka](./doma/karty_ukazky/Moucha/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Ryba/ryba.jpg" width="80"><br>**Ryba** | Mluvíme hodně, ale nic se nemění | [Ukázka](./doma/karty_ukazky/Ryba/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Husy/husy.jpg" width="80"><br>**Husy** | Každý křičí „my" — ale každý myslí jen na sebe | [Ukázka](./doma/karty_ukazky/Husy/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Parohy/parohy.jpg" width="80"><br>**Parohy** | Definujeme se tím, co jsme dělali — ne tím, kdo jsme | [Ukázka](./doma/karty_ukazky/Parohy/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Dočasné řešení, které tu bude navždy | [Ukázka](./doma/karty_ukazky/Vrabec/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Osel/osel.jpg" width="80"><br>**Osel** | Tolik možností — že nevybereme žádnou | [Ukázka](./doma/karty_ukazky/Osel/) | 29 000 Kč |
 
 ---
 
@@ -271,9 +272,21 @@ First card available in English: **Cat (Communication Pathology)**
 Price: $ 1.600  
 Contact: **chcesmys@gmail.com**
 
-
 - [Ukázka kombinace karet](./doma/MYS/plamenak_a_kocour.md)
 - [Jak kombinovat karty](./doma/MYS/jak_kombinovat.md)
+
+
+## 🔜 Připravované karty
+
+| Karta | Porucha |
+|-------|---------|
+| <img src="doma/karty_ukazky/morska_hvezdice.jpg" width="80"><br>**Mořská hvězdice** | Léčíme symptomy, ne příčinu |
+| <img src="doma/karty_ukazky/beran.jpg" width="80"><br>**Beran** | Děláme to, co ostatní — i když to nedává smysl |
+| <img src="doma/karty_ukazky/drak.jpg" width="80"><br>**Drak** | Dodržujeme pravidlo, ale zapomněli jsme proč |
+| <img src="doma/karty_ukazky/gepard.jpg" width="80"><br>**Gepard** | Jedeme naplno — ale po cíli přijde prázdno |
+| <img src="doma/karty_ukazky/motyl.jpg" width="80"><br>**Motýl** | Problém vypadá dobře, takže ho nikdo neřeší |
+| <img src="doma/karty_ukazky/tygr.jpg" width="80"><br>**Tygr** | Systém chce jedno, člověk je jiný — a nikdo to neřekne nahlas |
+| <img src="doma/karty_ukazky/zelva.jpg" width="80"><br>**Želva** | Dva přístupy si odporují, ale bez sebe nefungují |
 
 ---
 
