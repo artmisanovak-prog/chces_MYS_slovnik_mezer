@@ -165,7 +165,7 @@ Proč?
 [Přečtěte si](doma/MYS/chyba_jako_styl.md)
 
 ## **Modelové scénáře** 
-[Prohlédněte si](./doma/MYS/modelove_scenare.md)
+[Prohlédněte si](./doma/MYS/modelove_scenare.html)
 
 ---
 
