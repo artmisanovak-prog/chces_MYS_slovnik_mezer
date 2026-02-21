@@ -1,12 +1,5 @@
 # 🐟 RYBA – Ukázka karty
 
-## Jádrová dysfunkce
-
-**Neschopnost rozlišit mezi autentickou, systémovou komunikací, která utváří a synchronizuje prostředí („rybí rap“), a povrchním, performativním šumem, který pouze naplňuje prostor („ptačí zpěv“).**
-
-Tým/organizace zaměňuje hlasitost a viditelnost za vliv, zatímco přehlíží jemné, vibrační, neviditelné formy komunikace, které skutečně formují kulturu, procesy a vztahy. Dysfunkce spočívá v orientaci na „co je slyšet“ místo na „co rezonuje a mění prostředí“.
-
----
 
 ### RYCHLÝ POHLED
 
@@ -15,6 +8,14 @@ Tým/organizace zaměňuje hlasitost a viditelnost za vliv, zatímco přehlíž�
 | **Karta** | 🐟 Ryba |
 | **Jádrová dysfunkce** | Povrchní šum („ptačí křik“) nahrazuje autentickou, systémovou komunikaci („rybí rap“) |
 | **Klíčová otázka** | „Posloucháme, nebo vnímáme?“ |
+
+---
+
+## Jádrová dysfunkce
+
+**Neschopnost rozlišit mezi autentickou, systémovou komunikací, která utváří a synchronizuje prostředí („rybí rap“), a povrchním, performativním šumem, který pouze naplňuje prostor („ptačí zpěv“).**
+
+Tým/organizace zaměňuje hlasitost a viditelnost za vliv, zatímco přehlíží jemné, vibrační, neviditelné formy komunikace, které skutečně formují kulturu, procesy a vztahy. Dysfunkce spočívá v orientaci na „co je slyšet“ místo na „co rezonuje a mění prostředí“.
 
 ---
 
@@ -233,7 +234,7 @@ Zavést pravidlo **„váhy slova“** – každý má na meetingu limitovaný p
    - 🐈‍⬛ **KOCOUR** – Uzavírání vs. otevřenost
    - 🦄 **JEDNOROŽEC** – Image vs. hybridita
    - 🐉 **DRÁČEK** – Pravidla vs. život
-   - 🐭 **MYŠ** – Pozornost vs. přehlížení
+   - 🐀 **MYŠ** – Pozornost vs. přehlížení
 
 ---
 
