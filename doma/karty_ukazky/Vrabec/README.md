@@ -30,114 +30,64 @@
 
 ## 📘 Pohádka
 
-## O vrabci, který se dostal z hrsti na hlavu
+# O VRABCOVI
+## který se dostal z hrsti na hlavu
 
 Byla jednou jedna dáma, co si řekla:
-
 „Lepší vrabec v hrsti než holub na střeše.“
-
 A tak si jednoho dne chytila vrabce.
-
 Malého.
-
 Pípajícího.
-
 Trochu nervózního.
-
-Ale byl její.
-
-—
+Ale jejího.
 
 Holub seděl dál na střeše.
-
 Velký.
-
 Důstojný.
-
 Nedosažitelný.
-
 Ale ona má přece vrabce.
-
 V hrsti.
-
 Jistotu.
 
-—
-
 Jenže vrabec se nechtěl držet.
-
 Začal se vrtět.
-
 Škrábat.
-
 Pípat.
-
 A nakonec – šup! – vyskočil z hrsti rovnou na hlavu.
-
 A tam zůstal.
-
 Ne jako trofej.
-
 Jako názor.
-
 Jako myšlenka, co se nedá setřást.
 
-—
-
 Seděl jí na temeni.
-
 Na čele.
-
 Na představách.
-
 A nejen to – začal si tam stavět hnízdo.
-
 Z peří.
-
 Z pochybností.
-
 Z ranních vlasů.
 
-—
-
 A ona chodila po světě s vrabcem na hlavě.
-
 Rozcuchaná.
-
 Rozladěná.
-
 Rozmyšlená.
-
 A všichni říkali:
-
 „To je vrabčí hnízdo.“
 
-—
-
 A holub?
-
 Ten pořád seděl na střeše.
-
 Tichý.
-
 Vznešený.
-
 Nedotěrný.
 
-—
-
 A tak si dáma jednoho dne sedla,
-
 podívala se nahoru
-
 a řekla:
-
 „Možná je lepší holub na střeše než vrabec na hlavě.“
 
 —
 
 A vrabec se jen zavrtěl.
-
 A přidal další větvičku.
 
 ---
