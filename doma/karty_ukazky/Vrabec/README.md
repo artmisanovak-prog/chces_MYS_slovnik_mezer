@@ -30,8 +30,7 @@
 
 ## 📘 Pohádka
 
-# O VRABCOVI
-## který se dostal z hrsti na hlavu
+# O VRABCOVI který se dostal z hrsti na hlavu
 
 Byla jednou jedna dáma, co si řekla:
 „Lepší vrabec v hrsti než holub na střeše.“
