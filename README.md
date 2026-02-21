@@ -265,14 +265,14 @@ Prostě jsem chtěla svobodu.
 
 ---
 
+# 🔗 Připravuje se:
+
 ## 🌐 English version
 First card available in English: **Cat (Communication Pathology)**  
+**další karty na vyžádání**
 Price: $ 1.600  
 Contact: **chcesmys@gmail.com**
 
----
-
-## 🔗 Připravuje se:
 
 - [Ukázka kombinace karet](./doma/MYS/plamenak_a_kocour.md)
 - [Jak kombinovat karty](./doma/MYS/jak_kombinovat.md)
