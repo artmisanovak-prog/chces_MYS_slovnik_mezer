@@ -8,7 +8,8 @@ Tato karta diagnostikuje a řeší problém sebestředného myšlení, kdy tým 
 
 ## Pohádka
 
-Přečtěte si [pohádku o Pávovi](/pohadka.md).
+Přečtěte si 
+[pohádku o Pávovi](./pohadka.md).
 
 ---
 
