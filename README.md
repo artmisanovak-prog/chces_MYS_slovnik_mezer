@@ -289,7 +289,7 @@ Contact: **chcesmys@gmail.com**
 | <img src="doma/karty_ukazky/morska_hvezdice.jpg" width="60"><br>**Mořská hvězdice** | Léčíme symptomy, ne příčinu | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Mořská%20hvězdice) |
 | <img src="doma/karty_ukazky/beran.jpg" width="60"><br>**Beran** | Děláme to, co ostatní — i když to nedává smysl | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Beran) |
 | <img src="doma/karty_ukazky/drak.jpg" width="60"><br>**Drak** | Dodržujeme pravidlo, ale zapomněli jsme proč | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Drak) |
-| <img src="doma/karty_ukazky/gepard.jpg" width="60"><br>**Gepard** | Jedeme naplno — ale po cíli přijde prázdno | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Gepard) |
+| <img src="doma/karty_ukazky/gepard.jpg" width="60"><br>**Gepard** | Jedeme naplno — ale po cíli přijde prázdno - vyhoření | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Gepard) |
 | <img src="doma/karty_ukazky/motyl.jpg" width="60"><br>**Motýl** | Problém vypadá dobře, takže ho nikdo neřeší | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Motýl) |
 | <img src="doma/karty_ukazky/tygr.jpg" width="60"><br>**Tygr** | Systém chce jedno, člověk je jiný — a nikdo to neřekne nahlas | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Tygr) |
 | <img src="doma/karty_ukazky/zelva.jpg" width="60"><br>**Želva** | Dva přístupy si odporují, ale bez sebe nefungují | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Želva) |
