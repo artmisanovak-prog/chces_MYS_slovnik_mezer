@@ -8,7 +8,7 @@ Tato karta diagnostikuje a řeší problém sebestředného myšlení, kdy tým 
 
 ## Pohádka
 
-Přečtěte si [pohádku o Pávovi](./pohadka.md).
+Přečtěte si [pohádku o Pávovi](.doma/karty_ukazky/Pav/pohadka.md).
 
 ---
 
@@ -63,6 +63,6 @@ Přečtěte si [pohádku o Pávovi](./pohadka.md).
 - ✅ **Diagnostické nástroje** pro tým
 - ✅ **Návod** na implementaci
 
-**Cena: 15 000 Kč**
+**Cena: 29 000 Kč**
 
 Kontakt: **chcesmys@gmail.com**
