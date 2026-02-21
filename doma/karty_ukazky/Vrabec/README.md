@@ -1,11 +1,5 @@
 # 🐦 VRABEC – Ukázka karty
 
-## Jádrová dysfunkce
-
-**Syndrom podřadného řešení, které se stalo trvalou zátěží.** Tým se rozhodne pro „vrabce v hrsti“ – dostupné, ale neideální řešení (špatná technologie, nevhodný kandidát, kompromisní funkcionalita) s přesvědčením, že to je „lepší než nic“. Postupem času se tento vrabec vymkne kontrole („vyskočí na hlavu“), zabydlí se v systému („staví hnízdo“) a stane se definující vlastností týmu („vrabčí hnízdo“). Tým pak ztrácí schopnost vidět nebo dosáhnout původního, lepšího cíle („holuba na střeše“).
-
----
-
 ### OBSAH
 
 - [📘 Pohádka](#-pohádka)
@@ -15,6 +9,12 @@
 - [📊 Diagnostická matice](#-diagnostická-matice)
 - [💡 Proč je Vrabec klíčový](#-proč-je-vrabec-klíčový)
 - [🔗 Propojení s kartami](#-propojení-s-dalšími-kartami)
+
+---
+
+## Jádrová dysfunkce
+
+**Syndrom podřadného řešení, které se stalo trvalou zátěží.** Tým se rozhodne pro „vrabce v hrsti“ – dostupné, ale neideální řešení (špatná technologie, nevhodný kandidát, kompromisní funkcionalita) s přesvědčením, že to je „lepší než nic“. Postupem času se tento vrabec vymkne kontrole („vyskočí na hlavu“), zabydlí se v systému („staví hnízdo“) a stane se definující vlastností týmu („vrabčí hnízdo“). Tým pak ztrácí schopnost vidět nebo dosáhnout původního, lepšího cíle („holuba na střeše“).
 
 ---
 
