@@ -22,6 +22,12 @@ Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.
 
 </div>
 
+# „Nejde to pokazit"
+
+> **Úhly nemusíš přiřadit přesně.**
+> Všechny míří na stejný problém — a ten se řeší tak jako tak.
+> I „nepřesná" mapa odhalí něco užitečného.
+
 ---
 
 ## 🫗 Proč to existuje
@@ -56,14 +62,6 @@ Přečtěte si [Jak číst jako myš](./doma/MYS/Mys_demo.md)
 4. **Prohlédněte si ukázkovou kartu**
 [Kocour](./doma/KOCOUR/)
 skákání do řeči, předčasné ukončování
-
----
-
-# „Nejde to pokazit"
-
-> **Úhly nemusíš přiřadit přesně.**
-> Všechny míří na stejný problém — a ten se řeší tak jako tak.
-> I „nepřesná" mapa odhalí něco užitečného.
 
 ---
 
