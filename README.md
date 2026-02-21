@@ -42,11 +42,11 @@ Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obvi
 
 ## 🚀 Rychlý start
 
-**jak používat system**
-1. [Jak používat systém](./doma/MYS/jak_pouzivat.md)
+1. **jak používat system**
+[Jak používat systém](./doma/MYS/jak_pouzivat.md)
 
-**Modelové scénáře** 
-2. [Prohlédněte si](./doma/MYS/modelove_scenare.html)
+2. **Modelové scénáře** 
+[Prohlédněte si](./doma/MYS/modelove_scenare.html)
 
 3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./doma/MYS/Mys_meta.md)
 Přečtěte si [Jak číst jako myš](./doma/MYS/Mys_demo.md)
