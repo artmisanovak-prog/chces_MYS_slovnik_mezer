@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zpětná vazba – Kocour</title>
     <style>
-        /* Jednoduchý, čistý styl, který zapadne k tvým kartám */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             line-height: 1.6;
@@ -31,7 +30,7 @@
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
-        textarea, input[type="email"] {
+        textarea, input[type="email"], input[type="url"] {
             width: 100%;
             padding: 0.75rem;
             border: 1px solid #ccc;
@@ -62,9 +61,7 @@
             transition: background 0.2s;
             margin-top: 1rem;
         }
-        button:hover {
-            background: #333;
-        }
+        button:hover { background: #333; }
         .nepovinne {
             opacity: 0.8;
             font-size: 0.9rem;
@@ -79,6 +76,95 @@
             padding: 1rem;
             border-left: 4px solid black;
             font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- UPLOAD ZÓNA --- */
+        .upload-zona {
+            border: 2px dashed #ccc;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            position: relative;
+        }
+        .upload-zona:hover, .upload-zona.drag-over {
+            border-color: #000;
+            background: #f9f9f9;
+        }
+        .upload-zona input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+        .upload-ikona { font-size: 2rem; margin-bottom: 0.3rem; }
+        .upload-text { font-size: 0.95rem; color: #444; }
+        .upload-text strong { color: #000; }
+        .upload-limit { font-size: 0.8rem; color: #888; margin-top: 0.3rem; }
+
+        /* NÁHLED FOTEK */
+        .nahled-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .nahled-item {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        .nahled-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+        .nahled-item .odstranit {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.65rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+        .nahled-pocet {
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 0.4rem;
+        }
+
+        /* VIDEO sekce */
+        .video-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 1rem;
+        }
+        .video-box .helper { margin-top: 0.5rem; }
+        .video-tipy {
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        .video-tipy span {
+            display: inline-block;
+            background: #eee;
+            padding: 0.15rem 0.5rem;
+            margin: 0.15rem 0.1rem;
+            font-style: normal;
         }
     </style>
 </head>
@@ -87,11 +173,11 @@
     <h1>🐈‍⬛ Zpětná vazba – Kocour</h1>
 
     <div class="poznamka">
-        ⚡ Tohle není dotazník spokojenosti. Potřebuju vědět jediné: <strong>pomáhá to?</strong> 
+        ⚡ Tohle není dotazník spokojenosti. Potřebuju vědět jediné: <strong>pomáhá to?</strong>
         Napiš, co tě napadne – klidně stručně, klidně upřímně. Každá věta je pro mě mapa.
     </div>
 
-    <form action="https://formsubmit.co/chcesmys@gmail.com" method="POST">
+    <form action="https://formsubmit.co/chcesmys@gmail.com" method="POST" enctype="multipart/form-data">
         <!-- Skrytá pole pro FormSubmit -->
         <input type="hidden" name="_subject" value="Zpětná vazba – Kocour">
         <input type="hidden" name="_next" value="https://artmisanovak-prog.github.io/chces_MYS_slovnik_mezer/karty/Kocour/?odeslano=1">
@@ -101,7 +187,7 @@
         <div class="otazka">
             <label for="cas">1. ⏱️ Čas</label>
             <textarea id="cas" name="cas" placeholder="O kolik dřív jste se dostali k věcem, které se v týmu běžně neříkají?"></textarea>
-            <div class="helper">Klidně odhad: „o hodinu“, „hned na začátku“, „vůbec“...</div>
+            <div class="helper">Klidně odhad: „o hodinu", „hned na začátku", „vůbec"...</div>
         </div>
 
         <!-- 2. Srozumitelnost -->
@@ -113,8 +199,8 @@
 
         <!-- 3. Použitelnost / úhly -->
         <div class="otazka">
-            <label for="použitelnost">3. 🧩 Použitelnost úhlů</label>
-            <textarea id="použitelnost" name="použitelnost" placeholder="Bylo pro vás těžké přiřadit ty úhly, nebo to šlo intuitivně?"></textarea>
+            <label for="pouzitelnost">3. 🧩 Použitelnost úhlů</label>
+            <textarea id="pouzitelnost" name="pouzitelnost" placeholder="Bylo pro vás těžké přiřadit ty úhly, nebo to šlo intuitivně?"></textarea>
             <div class="helper">Nebo jste je třeba vůbec nepoužili? Zajímá mě cokoli.</div>
         </div>
 
@@ -122,16 +208,48 @@
         <div class="otazka">
             <label for="aha">4. 💡 Aha moment</label>
             <textarea id="aha" name="aha" placeholder="Objevil se v diskuzi úhel pohledu, který by bez karty nikoho nenapadl?"></textarea>
-            <div class="helper">Třeba: „Když to říkáš, tak jo, my jsme vždycky...“</div>
+            <div class="helper">Třeba: „Když to říkáš, tak jo, my jsme vždycky..."</div>
         </div>
 
-        <!-- Volitelný prostor pro cokoli dalšího -->
+        <!-- 5. Cokoli dalšího -->
         <div class="otazka">
             <label for="cokoliv">✏️ Cokoli dalšího?</label>
             <textarea id="cokoliv" name="cokoliv" placeholder="Co bys chtěl/a dodat? Co chybí? Co naopak funguje skvěle?"></textarea>
         </div>
 
-        <!-- Nepovinný email (pro případ, že bys chtěla něco dovysvětlit) -->
+        <hr>
+
+        <!-- 6. FOTKY Z WORKSHOPU -->
+        <div class="otazka nepovinne">
+            <label>📸 Fotky z workshopu (nepovinné)</label>
+            <div class="upload-zona" id="uploadZona">
+                <input type="file" name="foto" id="fotoInput" accept="image/*" multiple onchange="zobrazNahled(this)">
+                <div class="upload-ikona">🖼️</div>
+                <div class="upload-text">Klikni nebo přetáhni fotky sem<br><strong>max. 3 fotky, každá do 5 MB</strong></div>
+                <div class="upload-limit">JPG, PNG, WEBP</div>
+            </div>
+            <div class="nahled-grid" id="nahledGrid"></div>
+            <div class="nahled-pocet" id="nahledPocet"></div>
+            <div class="helper">Flipchart, manifest, tým u práce — cokoli, co zachytí moment.</div>
+        </div>
+
+        <!-- 7. ODKAZ NA VIDEO -->
+        <div class="otazka nepovinne">
+            <label for="video">🎥 Odkaz na video (nepovinné)</label>
+            <div class="video-box">
+                <input type="url" id="video" name="video_odkaz" placeholder="https://drive.google.com/...">
+                <div class="video-tipy">
+                    Kde video uložit:
+                    <span>Google Drive</span>
+                    <span>YouTube (neveřejné)</span>
+                    <span>Dropbox</span>
+                    <span>WeTransfer</span>
+                </div>
+                <div class="helper">Nahraj video kamkoli a vlož sem odkaz. Stačí i krátký klip.</div>
+            </div>
+        </div>
+
+        <!-- Email -->
         <div class="otazka nepovinne">
             <label for="email">📧 Tvůj email (nepovinný)</label>
             <input type="email" id="email" name="email" placeholder="jen pokud chceš odpověď">
@@ -147,6 +265,63 @@
         Děkuju. Každá odpověď je pro mě důležitá.<br>
         (Formulář po odeslání pošle email, nic se nikde neukládá.)
     </p>
+
+<script>
+    const MAX_FOTO = 3;
+    let vybraneFoto = [];
+
+    // Drag & drop vizuál
+    const zona = document.getElementById('uploadZona');
+    zona.addEventListener('dragover', e => { e.preventDefault(); zona.classList.add('drag-over'); });
+    zona.addEventListener('dragleave', () => zona.classList.remove('drag-over'));
+    zona.addEventListener('drop', e => { e.preventDefault(); zona.classList.remove('drag-over'); });
+
+    function zobrazNahled(input) {
+        const soubory = Array.from(input.files);
+        const grid = document.getElementById('nahledGrid');
+        const pocet = document.getElementById('nahledPocet');
+        grid.innerHTML = '';
+
+        if (soubory.length > MAX_FOTO) {
+            alert('Maximálně ' + MAX_FOTO + ' fotky. Vybrány budou první ' + MAX_FOTO + '.');
+        }
+
+        const vybrany = soubory.slice(0, MAX_FOTO);
+        vybraneFoto = vybrany;
+
+        vybrany.forEach((soubor, i) => {
+            if (!soubor.type.startsWith('image/')) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                const item = document.createElement('div');
+                item.className = 'nahled-item';
+                item.innerHTML = `
+                    <img src="${e.target.result}" alt="foto ${i+1}">
+                    <button type="button" class="odstranit" onclick="odstranFoto(${i})" title="Odebrat">✕</button>
+                `;
+                grid.appendChild(item);
+            };
+            reader.readAsDataURL(soubor);
+        });
+
+        pocet.textContent = vybrany.length > 0
+            ? vybrany.length + ' fotka' + (vybrany.length > 1 ? (vybrany.length < 5 ? 'y' : '') : '') + ' vybrána'
+            : '';
+    }
+
+    function odstranFoto(index) {
+        // Informativní — uživatel musí znovu vybrat soubory bez tohoto
+        // (File input nelze programově upravit ze security důvodů)
+        const grid = document.getElementById('nahledGrid');
+        const polozky = grid.querySelectorAll('.nahled-item');
+        if (polozky[index]) polozky[index].remove();
+        vybraneFoto.splice(index, 1);
+        const pocet = document.getElementById('nahledPocet');
+        pocet.textContent = vybraneFoto.length > 0
+            ? vybraneFoto.length + ' fotka' + (vybraneFoto.length > 1 ? 'y' : '') + ' vybrána'
+            : '';
+    }
+</script>
 
 </body>
 </html>
