@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐈‍⬛ Workshop: Půl hodiny ticha – 90 minut</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, serif;
+    background: #fff;
+    color: #111;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+    line-height: 1.65;
+  }
+
+  .nav { font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .nav a { color: #111; }
+
+  h1 { font-size: 1.4rem; margin-bottom: 0.2rem; }
+  .subtitle { font-size: 0.85rem; color: #555; margin-bottom: 2rem; }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    height: 4px;
+    background: #eee;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: #111;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-label {
+    font-size: 0.78rem;
+    color: #888;
+    text-align: right;
+    margin-top: 0.3rem;
+  }
+
+  /* SEKCE */
+  .section-header {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #888;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.4rem;
+    margin: 2.5rem 0 1.2rem;
+  }
+
+  /* KROK */
+  .step {
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+  .step.active { border-color: #111; }
+  .step.done { border-color: #bbb; background: #fafafa; }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .step-check {
+    width: 22px; height: 22px;
+    border: 1.5px solid #111;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    transition: background 0.2s;
+  }
+  .step.done .step-check {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+  }
+  .step-title {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: bold;
+  }
+  .step.done .step-title { color: #999; text-decoration: line-through; }
+  .step-time {
+    font-size: 0.78rem;
+    color: #888;
+    white-space: nowrap;
+  }
+
+  .step-body {
+    padding: 0 1rem 1rem;
+    font-size: 0.9rem;
+    display: none;
+  }
+  .step.active .step-body { display: block; }
+
+  .step-body ul, .step-body ol { margin-left: 1.3rem; margin-top: 0.5rem; }
+  .step-body li { margin-bottom: 0.4rem; }
+  .step-body p { margin-top: 0.5rem; }
+  .step-body strong { font-weight: bold; }
+
+  .rule-box {
+    border-left: 3px solid #111;
+    padding: 0.6rem 0.9rem;
+    margin: 0.8rem 0;
+    font-size: 0.88rem;
+    background: #f9f9f9;
+  }
+
+  /* TIMER */
+  .timer-block {
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .timer-display {
+    font-size: 2.2rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.05em;
+    min-width: 90px;
+  }
+  .timer-display.running { color: #111; }
+  .timer-display.finished { color: #c00; }
+
+  .timer-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .btn {
+    padding: 0.45rem 1rem;
+    border: 1px solid #111;
+    background: #fff;
+    color: #111;
+    font-family: Georgia, serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .btn:hover { background: #f0f0f0; }
+  .btn.primary { background: #111; color: #fff; }
+  .btn.primary:hover { background: #333; }
+  .btn.done-btn { background: #111; color: #fff; }
+
+  /* MATERIÁLY */
+  .materials {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1rem 1.2rem;
+    margin-bottom: 2rem;
+    font-size: 0.88rem;
+  }
+  .materials h3 { font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .materials ul { margin-left: 1.2rem; }
+  .materials li { margin-bottom: 0.2rem; }
+
+  /* MANIFEST */
+  .manifest-box {
+    border: 1px solid #111;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  .manifest-box h4 { font-size: 0.9rem; margin-bottom: 0.6rem; }
+  .manifest-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.88rem;
+  }
+  .manifest-line span { min-width: 1.2rem; color: #888; }
+  .manifest-input {
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-family: Georgia, serif;
+    font-size: 0.88rem;
+    padding: 0.2rem 0;
+    background: transparent;
+    outline: none;
+  }
+  .manifest-input:focus { border-bottom-color: #111; }
+
+  .print-btn {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+    cursor: pointer;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    font-family: Georgia, serif;
+  }
+
+  .finish-box {
+    margin-top: 2.5rem;
+    border: 2px solid #111;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .finish-box h2 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .finish-box p { font-size: 0.88rem; color: #555; }
+
+  @media print {
+    .nav, .btn, .timer-btns, .timer-block, .print-btn { display: none !important; }
+    .step-body { display: block !important; }
+    .step { border: 1px solid #ccc; page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="../">← Kocour</a> &nbsp;|&nbsp;
+  <a href="../../../">Chceš myš?</a>
+</div>
+
+<h1>🐈‍⬛ Workshop: „Půl hodiny ticha"</h1>
+<p class="subtitle">90 minut · Facilitátorský průvodce · Karta KOCOUR</p>
+
+<div class="progress-bar">
+  <div class="progress-fill" id="progressFill"></div>
+</div>
+<p class="progress-label" id="progressLabel">0 / 9 kroků</p>
+
+<div class="materials">
+  <h3>📋 Připravte před workshopem</h3>
+  <ul>
+    <li>Stopky / timer (nebo použijte tento nástroj)</li>
+    <li>Flipchart nebo tabule + fixy</li>
+    <li>Papíry pro každého účastníka</li>
+    <li>Volitelně: fyzická beruška jako talking stick</li>
+  </ul>
+</div>
+
+<!-- ČÁST 1 -->
+<div class="section-header">Část 1 — Diagnóza · 25 minut</div>
+
+<div class="step" id="step-1">
+  <div class="step-header" onclick="toggleStep(1)">
+    <div class="step-check" id="check-1"></div>
+    <div class="step-title">Krok 1: Přečtení pohádky</div>
+    <div class="step-time">5 min</div>
+  </div>
+  <div class="step-body">
+    <p>Facilitátor čte celou pohádku <strong>nahlas</strong>. Účastníci pouze poslouchají — žádné poznámky, žádné telefony.</p>
+    <div class="rule-box">💡 Čtěte pomalu. Pauzy jsou záměrné. Nespěchejte k dalšímu kroku.</div>
+    <div class="timer-block">
+      <div class="timer-display" id="timer-1">5:00</div>
+      <div class="timer-btns">
+        <button class="btn primary" onclick="startTimer(1, 5)">▶ Spustit</button>
+        <button class="btn" onclick="resetTimer(1, 5)">↺ Reset</button>
+      </div>
+      <button class="btn done-btn" onclick="markDone(1)">✓ Hotovo</button>
+    </div>
+  </div>
+</div>
+
+<div class="step" id="step-2">
+  <div class="step-header" onclick="toggleStep(2)">
+    <div class="step-check" id="check-2"></div>
+    <div class="step-title">Krok 2: Individuální reflexe</div>
+    <div class="step-time">10 min</div>
+  </div>
+  <div class="step-body">
+    <p>Každý účastník <strong>samostatně písemně</strong> odpovídá na dvě otázky:</p>
+    <ol>
+      <li>Jedna situace, kdy <strong>mi bylo skočeno do řeči</strong> nebo moje myšlenka nebyla dotažena do konce.</li>
+      <li>Jedna situace, kdy <strong>jsem sám/sama přerušil/a</strong> nebo dokončil/a větu za druhého.</li>
+    </ol>
+    <div class="rule-box">💡 Zdůrazněte: píšou pro sebe, nebudou to číst nahlas celému týmu (jen ve skupinkách).</div>
+    <div class="timer-block">
+      <div class="timer-display" id="timer-2">10:00</div>
+      <div class="timer-btns">
+        <button class="btn primary" onclick="startTimer(2, 10)">▶ Spustit</button>
+        <button class="btn" onclick="resetTimer(2, 10)">↺ Reset</button>
+      </div>
+      <button class="btn done-btn" onclick="markDone(2)">✓ Hotovo</button>
+    </div>
+  </div>
+</div>
+
+<div class="step" id="step-3">
+  <div class="step-header" onclick="toggleStep(3)">
+    <div class="step-check" id="check-3"></div>
+    <div class="step-title">Krok 3: Sdílení v malých skupinách</div>
+    <div class="step-time">10 min</div>
+  </div>
+  <div class="step-body">
+    <p>Rozdělte na skupinky po <strong>3–4 lidech</strong>. Sdílejí situace podle pravidla:</p>
+    <div class="rule-box">
+      <strong>Pravidlo tohoto kola:</strong><br>
+      Pouze popis: „Stalo se… Cítil/a jsem…"<br>
+      <strong>Žádné hodnocení. Žádné „ale". Žádné rady.</strong>
+    </div>
+    <p>Facilitátor obchází skupiny a hlídá, zda se nediskutuje, ale pouze sdílí.</p>
+    <div class="timer-block">
+      <div class="timer-display" id="timer-3">10:00</div>
+      <div class="timer-btns">
+        <button class="btn primary" onclick="startTimer(3, 10)">▶ Spustit</button>
+        <button class="btn" onclick="resetTimer(3, 10)">↺ Reset</button>
+      </div>
+      <button class="btn done-btn" onclick="markDone(3)">✓ Hotovo</button>
+    </div>
+  </div>
+</div>
+
+<!-- ČÁST 2 -->
+<div class="section-header">Část 2 — Experiment a nová pravidla · 45 minut</div>
+
+<div class="step" id="step-4">
+  <div class="step-header" onclick="toggleStep(4)">
+    <div class="step-check" id="check-4"></div>
+    <div class="step-title">Krok 4a: Experiment – fáze A</div>
+    <div class="step-time">15 min</div>
+  </div>
+  <div class="step-body">
+    <p>Facilitátor předloží <strong>jeden konkrétní aktuální problém</strong> týmu (připravte si ho předem).</p>
+    <div class="rule-box">
+      <strong>Pravidlo fáze A:</strong><br>
+      Nikdo nesmí dokončovat větu za druhého.<br>
+      Lze se ptát, parafrázovat — ale <strong>ne doplňovat</strong> „a proto…", „čímž myslíš…"<br>
+      Facilitátor přísně hlídá a přerušení pojmenovává: „To byla tečka za větou Martiny."
+    </div>
+    <div class="timer-block">
+      <div class="timer-display" id="timer-4">15:00</div>
+      <div class="timer-btns">
+        <button class="btn primary" onclick="startTimer(4, 15)">▶ Spustit</button>
+        <button class="btn" onclick="resetTimer(4, 15)">↺ Reset</button>
+      </div>
+      <button class="btn done-btn" onclick="markDone(4)">✓ Hotovo</button>
+    </div>
+  </div>
+</div>
+
+<div class="step" id="step-5">
+  <div class="step-header" onclick="toggleStep(5)">
+    <div class="step-check" id="check-5"></div>
+    <div class="step-title">Krok 4b: Experiment – fáze B</div>
+    <div class="step-time">15 min</div>
+  </div>
+  <div class="step-body">
+    <p>Pokračování diskuse o stejném problému, nové pravidlo:</p>
+    <div class="rule-box">
+      <strong>Pravidlo fáze B:</strong><br>
+      <strong>Zakázaná slova:</strong> „ale", „ovšem", „nicméně", „však"<br>
+      <strong>Povolené náhrady:</strong> „a zároveň…", „doplňuji…", „vidím to i takto…", „a co kdyby…"
+    </div>
+    <p>Napište zakázaná slova na tabuli. Kdykoliv někdo použije zakázané slovo — zapamatujete si to a na konci pojmenujete kolikrát.</p>
+    <div class="timer-block">
+      <div class="timer-display" id="timer-5">15:00</div>
+      <div class="timer-btns">
+        <button class="btn primary" onclick="startTimer(5, 15)">▶ Spustit</button>
+        <button class="btn" onclick="resetTimer(5, 15)">↺ Reset</button>
+      </div>
+      <button class="btn done-btn" onclick="markDone(5)">✓ Hotovo</button>
+    </div>
+  </div>
+</div>
+
+<div class="step" id="step-6">
+  <div class="step-header" onclick="toggleStep(6)">
+    <div class="step-check" id="check-6"></div>
+    <div class="step-title">Krok 5: Reflexe experimentu</div>
+    <div class="step-time">15 min</div>
+  </div>
+  <div class="step-body">
+    <p>Celá skupina dohromady. Facilitátor klade otázky — odpovědi píše na tabuli:</p>
+    <ol>
+      <li>Co bylo <strong>jinak</strong> než na běžné poradě?</li>
+      <li>Co bylo <strong>těžké</strong>? Co vás překvapilo?</li>
+      <li>Jaké myšlenky se <strong>objevily</strong>, které by jinak „sežral kocour"?</li>
+    </ol>
+    <div class="rule-box">💡 Nespěchejte. I ticho je odpověď — vydržte v něm alespoň 10 sekund.</div>
+    <div class="timer-block">
+      <div class="timer-display" id="timer-6">15:00</div>
+      <div class="timer-btns">
+        <button class="btn primary" onclick="startTimer(6, 15)">▶ Spustit</button>
+        <button class="btn" onclick="resetTimer(6, 15)">↺ Reset</button>
+      </div>
+      <button class="btn done-btn" onclick="markDone(6)">✓ Hotovo</button>
+    </div>
+  </div>
+</div>
+
+<div class="step" id="step-7">
+  <div class="step-header" onclick="toggleStep(7)">
+    <div class="step-check" id="check-7"></div>
+    <div class="step-title">Krok 6: Tvorba Protikocouřího manifestu</div>
+    <div class="step-time">10 min</div>
+  </div>
+  <div class="step-body">
+    <p>Společně formulujte <strong>3 konkrétní pravidla</strong> pro vaši komunikaci. Napište je na tabuli, pak sem:</p>
+    <div class="manifest-box">
+      <h4>🐾 Náš Protikocouří manifest</h4>
+      <div class="manifest-line"><span>1.</span><input class="manifest-input" type="text" placeholder='např. „Každý nápad dostane 60 sekund ticha před reakcí"'></div>
+      <div class="manifest-line"><span>2.</span><input class="manifest-input" type="text" placeholder='např. „Používáme talking stick pro klíčové diskuse"'></div>
+      <div class="manifest-line"><span>3.</span><input class="manifest-input" type="text" placeholder='např. „Každá schůze má svou Myš — tichého pozorovatele"'></div>
+      <button class="print-btn" onclick="window.print()">🖨 Vytisknout manifest</button>
+    </div>
+    <div class="timer-block">
+      <div class="timer-display" id="timer-7">10:00</div>
+      <div class="timer-btns">
+        <button class="btn primary" onclick="startTimer(7, 10)">▶ Spustit</button>
+        <button class="btn" onclick="resetTimer(7, 10)">↺ Reset</button>
+      </div>
+      <button class="btn done-btn" onclick="markDone(7)">✓ Hotovo</button>
+    </div>
+  </div>
+</div>
+
+<!-- ČÁST 3 -->
+<div class="section-header">Část 3 — Akční závazek · 20 minut</div>
+
+<div class="step" id="step-8">
+  <div class="step-header" onclick="toggleStep(8)">
+    <div class="step-check" id="check-8"></div>
+    <div class="step-title">Krok 7 + 8: Souhlas a Strážce berušek</div>
+    <div class="step-time">10 min</div>
+  </div>
+  <div class="step-body">
+    <p><strong>Souhlas s manifestem:</strong> Každý řekne nahlas „souhlasím" nebo podepíše vytištěný manifest. Fyzický závazek je silnější.</p>
+    <p style="margin-top: 0.8rem;"><strong>Jmenování Strážce berušek:</strong> Na příští měsíc se určí <strong>2 lidé</strong> (mohou se střídat po schůzích).</p>
+    <div class="rule-box">
+      <strong>Úkol Strážce:</strong><br>
+      Pozorovat komunikaci na schůzích.<br>
+      Na konci každé schůze říct: „Dnes jsem zaznamenal/a X situací, kdy…"<br>
+      <em>Bez obviňování — pouze pojmenování.</em>
+    </div>
+    <div class="timer-block">
+      <div class="timer-display" id="timer-8">10:00</div>
+      <div class="timer-btns">
+        <button class="btn primary" onclick="startTimer(8, 10)">▶ Spustit</button>
+        <button class="btn" onclick="resetTimer(8, 10)">↺ Reset</button>
+      </div>
+      <button class="btn done-btn" onclick="markDone(8)">✓ Hotovo</button>
+    </div>
+  </div>
+</div>
+
+<div class="step" id="step-9">
+  <div class="step-header" onclick="toggleStep(9)">
+    <div class="step-check" id="check-9"></div>
+    <div class="step-title">Krok 9: Rituál zakončení</div>
+    <div class="step-time">10 min</div>
+  </div>
+  <div class="step-body">
+    <p>Jdete dokola. Každý nahlas <strong>dokončí tuto větu</strong> — vlastními slovy, bez přerušení:</p>
+    <div class="rule-box" style="font-size: 1rem; font-style: italic;">
+      „Abych nebyl/nebyla kocourem, příště budu…"
+    </div>
+    <p style="margin-top: 0.8rem;">Facilitátor jde jako <strong>poslední</strong>. Nikdo nekomentuje odpovědi ostatních.</p>
+    <div class="rule-box">💡 Pokud někdo neví, přeskočte a vraťte se k němu na konci. Ticho je v pořádku.</div>
+    <div class="timer-block">
+      <div class="timer-display" id="timer-9">10:00</div>
+      <div class="timer-btns">
+        <button class="btn primary" onclick="startTimer(9, 10)">▶ Spustit</button>
+        <button class="btn" onclick="resetTimer(9, 10)">↺ Reset</button>
+      </div>
+      <button class="btn done-btn" onclick="markDone(9)">✓ Hotovo</button>
+    </div>
+  </div>
+</div>
+
+<div class="finish-box" id="finishBox" style="display:none;">
+  <h2>🐾 Workshop dokončen</h2>
+  <p>Tým měl 90 minut. Teď má manifest, Strážce a jinou zkušenost s poradou.<br>
+  Uvidíte se za měsíc — co se změnilo?</p>
+</div>
+
+<script>
+const TOTAL = 9;
+const done = new Array(TOTAL + 1).fill(false);
+const timers = {};
+
+function updateProgress() {
+  const count = done.filter(Boolean).length;
+  const pct = (count / TOTAL) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = count + ' / ' + TOTAL + ' kroků';
+  if (count === TOTAL) document.getElementById('finishBox').style.display = 'block';
+}
+
+function toggleStep(n) {
+  const step = document.getElementById('step-' + n);
+  const isActive = step.classList.contains('active');
+  // Close all
+  for (let i = 1; i <= TOTAL; i++) {
+    document.getElementById('step-' + i).classList.remove('active');
+  }
+  if (!isActive) step.classList.add('active');
+}
+
+function markDone(n) {
+  done[n] = true;
+  const step = document.getElementById('step-' + n);
+  step.classList.remove('active');
+  step.classList.add('done');
+  document.getElementById('check-' + n).textContent = '✓';
+  // Stop timer
+  if (timers[n]) { clearInterval(timers[n].interval); }
+  updateProgress();
+  // Open next
+  if (n < TOTAL) {
+    document.getElementById('step-' + (n + 1)).classList.add('active');
+    document.getElementById('step-' + (n + 1)).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function startTimer(n, minutes) {
+  if (timers[n] && timers[n].running) return;
+  const display = document.getElementById('timer-' + n);
+  let remaining = timers[n] ? timers[n].remaining : minutes * 60;
+  timers[n] = { running: true, remaining };
+
+  timers[n].interval = setInterval(() => {
+    remaining--;
+    timers[n].remaining = remaining;
+    if (remaining <= 0) {
+      clearInterval(timers[n].interval);
+      timers[n].running = false;
+      display.textContent = '0:00';
+      display.classList.add('finished');
+      display.classList.remove('running');
+      // Beep-like visual
+      display.textContent = '⏰ čas!';
+      return;
+    }
+    const m = Math.floor(remaining / 60);
+    const s = remaining % 60;
+    display.textContent = m + ':' + String(s).padStart(2, '0');
+    display.classList.add('running');
+  }, 1000);
+}
+
+function resetTimer(n, minutes) {
+  if (timers[n]) {
+    clearInterval(timers[n].interval);
+    timers[n] = null;
+  }
+  const display = document.getElementById('timer-' + n);
+  display.textContent = minutes + ':00';
+  display.classList.remove('running', 'finished');
+}
+
+// Open first step on load
+document.getElementById('step-1').classList.add('active');
+updateProgress();
+</script>
+</body>
+</html>
