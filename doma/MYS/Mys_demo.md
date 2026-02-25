@@ -1,4 +1,4 @@
-# Jak KOCOURA čte myš:
+# jak MYŠ zapisuje KOCOURA:
 
 Myš dostala pohádku o kocourovi,
 který sežral dvě berušky a půl hodiny krkal tečky.
