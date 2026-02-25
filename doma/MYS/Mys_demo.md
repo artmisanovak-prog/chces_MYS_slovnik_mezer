@@ -14,6 +14,8 @@ Tým dostal tři otázky.
 Odpověděl.
 Myš přiřadila.
 
+(doma/KOCOUR/data/kocour.jpg)
+
 ---
 
 **OTÁZKA 1 (Smysl):** *„Co je podle vás hlavní pointa nebo sdělení tohoto příběhu?“*
