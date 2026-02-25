@@ -18,23 +18,23 @@ Myš přiřadila.
 
 ---
 
-## **OTÁZKA 1 (Smysl):** *„Co je podle vás hlavní pointa nebo sdělení tohoto příběhu?“*
+## **OTÁZKA 1 (Smysl):** *„Co je podle vás hlavní pointa nebo sdělení příběhu?“*
 
 
 **Odpověď A:** „Že kocour ničí komunikaci tím, že za každého dokončuje věty. Je to o tom, že rychlost není totéž co efektivita.“
-# → **MYŠ PŘIŘADILA:** *Úhel 3 – Ironický*
+ → **MYŠ PŘIŘADILA:** *Úhel 3 – Ironický*
 (Jádro: vidí rozpor mezi záměrem – urychlit – a výsledkem – ochromit.)
 
 **Odpověď B:** „Nevím, ale ta věta ‚půl hodiny krkal tečky‘ je skvělá. Ten rytmus. Ta konkrétnost. Jako by se čas zastavil a zároveň plynul.“
-# → **MYŠ PŘIŘADILA:** *Úhel 2 – Jazykový*
+ → **MYŠ PŘIŘADILA:** *Úhel 2 – Jazykový*
 (Jádro: forma je obsah. Zaujala ho věta, ne pointa.)
 
 **Odpověď C:** „Že někdo musí být ten, kdo věci uzavírá, i když to bolí. Kocour je vlastně oběť systému.“
-# → **MYŠ PŘIŘADILA:** *Úhel 7 – Intro*
+ → **MYŠ PŘIŘADILA:** *Úhel 7 – Intro*
 (Jádro: projekce vlastní zkušenosti do role kocoura.)
 
 **Odpověď D:** „Je to o tom, že každá tečka je vlastně nedokončená. Když ji kocour vykrkl, nebyla už jeho. Patřila všem.“
-# → **MYŠ PŘIŘADILA:** *Úhel 11 – Metaforický*
+ → **MYŠ PŘIŘADILA:** *Úhel 11 – Metaforický*
 (Jádro: tečka není tečka, je to symbol sdíleného významu.)
 
 ---
@@ -43,19 +43,19 @@ Myš přiřadila.
 
 
 **Odpověď A:** „Když myš říká, že berušky mají na sobě nedokončené konce vět. To je přesný obraz toho, co nosíme v týmu – věci, co nikdo nedokončil, ale všichni je cítí.“
-# → **MYŠ PŘIŘADILA:** *Úhel 4 – Filozofický*
+ → **MYŠ PŘIŘADILA:** *Úhel 4 – Filozofický*
 (Jádro: hledá univerzální pravdu o břemenu nedokončeného.)
 
 **Odpověď B:** „Ta pasáž, kde ‚každý věděl, že něco nebylo stejné, ale nikdo nevěděl co‘. Přesně takhle se cítím po každé retrospektivě.“
-# → **MYŠ PŘIŘADILA:** *Úhel 10 – Asociační*
+ → **MYŠ PŘIŘADILA:** *Úhel 10 – Asociační*
 (Jádro: osobní spojení s vlastní zkušeností, rychlý přeskok do praxe.)
 
 **Odpověď C:** „Nejvíc mě dostalo, že se kocour tomu všemu smál a krkal dál. To není zlý, to je vtipálek, co neví, že ubližuje.“
-# → **MYŠ PŘIŘADILA:** *Úhel 6 – Naivní*
+ → **MYŠ PŘIŘADILA:** *Úhel 6 – Naivní*
 (Jádro: jednoduché, neinterpretované čtení postavy. Kocour je prostě vtipálek.)
 
 **Odpověď D:** „Ten beruščí počet – přesně 14 teček. Jako by někdo chtěl dodat: vidíš, není to náhoda, je to systémová chyba, kterou lze kvantifikovat.“
-# → **MYŠ PŘIŘADILA:** *Úhel 1 – Absurdní*
+ → **MYŠ PŘIŘADILA:** *Úhel 1 – Absurdní*
 (Jádro: vidí paradox v tom, že trauma je přesně spočítané.)
 
 ---
@@ -63,19 +63,19 @@ Myš přiřadila.
 ## **OTÁZKA 3 (Aplikace):** *„Kdyby tento příběh byl návodem nebo radou, co by vám radil dělat (nebo nedělat) ve vašem pracovním/projektovém životě?“*
 
 **Odpověď A:** „Nedokončovat věty za druhé. Nechat lidi domluvit. I kdyby to trvalo půl hodiny.“
-# → **MYŠ PŘIŘADILA:** *Úhel 8 – Všeobecný*
+ → **MYŠ PŘIŘADILA:** *Úhel 8 – Všeobecný*
 (Jádro: drží se faktů, přímá aplikace bez metafor.)
 
 **Odpověď B:** „Hledat v týmu ‚nespolknuté konce‘ – věci, které se neřekly, ale visí ve vzduchu. A pak je vykrknout.“
-# → **MYŠ PŘIŘADILA:** *Úhel 5 – Surrealistický*
+ → **MYŠ PŘIŘADILA:** *Úhel 5 – Surrealistický*
 (Jádro: spojuje nespojitelné – abstraktní koncept komunikace s obrazem krkání.)
 
 **Odpověď C:** „Radil by nebrat se tak vážně. Někdo musí být kocour, i když to štve. Hlavně že se u toho smějeme.“
-# → **MYŠ PŘIŘADILA:** *Úhel 12 – Groteskní*
+ → **MYŠ PŘIŘADILA:** *Úhel 12 – Groteskní*
 (Jádro: vidí komiku i v patologii, smích jako obranný mechanismus.)
 
 **Odpověď D:** „Připomíná mi to našeho šéfa. Kdysi nám skákal do řeči tak dlouho, až jsme přestali mluvit. A pak si stěžoval, že nemáme nápady.“
-# → **MYŠ PŘIŘADILA:** *Úhel 9 – Analogický*
+ → **MYŠ PŘIŘADILA:** *Úhel 9 – Analogický*
 (Jádro: hledá paralelu v konkrétní historce, archetypální situaci.)
 
 ---
