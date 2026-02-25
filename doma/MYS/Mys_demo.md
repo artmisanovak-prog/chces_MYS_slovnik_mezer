@@ -1,7 +1,5 @@
 ## Jak myš čte KOCOURA
 
-—
-
 Myš dostala pohádku o kocourovi,
 který sežral dvě berušky a půl hodiny krkal tečky.
 
@@ -9,7 +7,7 @@ Přečetla ji.
 Odložila.
 A začala si zapisovat.
 
-—
+---
 
 ### CO MYŠ VIDÍ, KDYŽ ČTE ODPOVĚDI TÝMU
 
@@ -17,7 +15,7 @@ Tým dostal tři otázky.
 Odpověděl.
 Myš přiřadila.
 
-—
+---
 
 **OTÁZKA 1 (Smysl):** *„Co je podle vás hlavní pointa nebo sdělení tohoto příběhu?“*
 
@@ -37,7 +35,7 @@ Myš přiřadila.
 → **MYŠ PŘIŘADILA:** *Úhel 11 – Metaforický*
 (Jádro: tečka není tečka, je to symbol sdíleného významu.)
 
-—
+---
 
 **OTÁZKA 2 (Zaujetí):** *„Která konkrétní věta, obraz nebo moment vás nejvíc zaujal/a a PROČ?“*
 
@@ -57,7 +55,7 @@ Myš přiřadila.
 → **MYŠ PŘIŘADILA:** *Úhel 1 – Absurdní*
 (Jádro: vidí paradox v tom, že trauma je přesně spočítané.)
 
-—
+---
 
 **OTÁZKA 3 (Aplikace):** *„Kdyby tento příběh byl návodem nebo radou, co by vám radil dělat (nebo nedělat) ve vašem pracovním/projektovém životě?“*
 
@@ -77,7 +75,7 @@ Myš přiřadila.
 → **MYŠ PŘIŘADILA:** *Úhel 9 – Analogický*
 (Jádro: hledá paralelu v konkrétní historce, archetypální situaci.)
 
-—
+---
 
 ### CO Z TOHO MYŠ VYČETLA?
 
@@ -85,7 +83,7 @@ Myš přiřadila.
 Myš zpracovala 36 odpovědí.
 Výsledek?
 
-—
+---
 
 **PŘETÍŽENÉ ÚHLY** (vyskytly se více než 10×)
 
@@ -94,7 +92,7 @@ Výsledek?
 
 → Diagnóza: Tým je chytrý, sebereflektivní, ale trochu cynický. Všichni vědí, co se děje špatně, a rádi o tom mluví. Méně už o tom, co s tím dělat.
 
-—
+---
 
 **DEFICIENTNÍ ÚHLY** (vyskytly se 0–1×)
 
@@ -104,7 +102,7 @@ Výsledek?
 
 → Diagnóza: Tým neumí být jednoduchý. Bojí se být naivní, bojí se absurdity, bojí se smát věcem, které bolí. Všechno musí dávat smysl. A to je právě ten problém.
 
-—
+---
 
 **VYVÁŽENÉ ÚHLY** (2–6×)
 
@@ -114,7 +112,7 @@ Výsledek?
 
 → Diagnóza: Tým umí pracovat s obrazem a jazykem. To jsou mosty, po kterých se dá přejít.
 
-—
+---
 
 ### CO MYŠ NAVRHLA?
 
@@ -125,7 +123,7 @@ Na příští poradě nesmí nikoho hodnotit, ironizovat, ani se ptát „co tí
 Místo toho mají za úkol **převyprávět problém jako pohádku pro dítě**.
 (Úhel 6 – Naivní – trénink deficitu.)
 
-—
+---
 
 **PRAVIDLO 2 – PRO DEFICITNÍ**
 
@@ -134,7 +132,7 @@ Každý návrh musí nejprve zaznít v extrémně přehnané, téměř nesmysln�
 Teprve pak se hledá, co by na tom mohlo být užitečné.
 (Úhel 1 a 12 – trénink deficitu.)
 
-—
+---
 
 **PRAVIDLO 3 – MOSTY**
 
@@ -142,7 +140,7 @@ Lidé s vyváženými úhly (Jazyk, Metafora, Asociace) dostanou roli **tlumočn
 Jejich úkolem je vzít jeden problém z ironického diskurzu
 a přeložit ho do jazyka, kterému rozumí absurdní a groteskní úhel.
 
-—
+---
 
 ### PROČ MYŠ UKÁZALA PRÁVĚ KOCOURA?
 
@@ -155,7 +153,7 @@ Je o vztahu k času, o strachu z prázdna, o touze být užitečný, i když to 
 A když myš vidí, **jak** o tom tým mluví,
 vidí, co se v týmu skutečně děje.
 
-—
+---
 
 **Tohle je MYŠ_DEMO.**
 Ukázka, jak systém funguje na jedné kartě.
@@ -165,8 +163,8 @@ Není to diagnóza.
 
 Je to **ukázka myšího pohledu**.
 
-—
+---
 
 **„Chceš myš?“**
 
-—
+---
