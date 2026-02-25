@@ -89,7 +89,6 @@ Myš přiřadila.
 Myš zpracovala 36 odpovědí.
 Výsledek?
 
----
 
 **PŘETÍŽENÉ ÚHLY** (vyskytly se více než 10×)
 
