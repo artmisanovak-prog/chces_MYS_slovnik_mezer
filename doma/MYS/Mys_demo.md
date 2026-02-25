@@ -19,6 +19,8 @@ Myš přiřadila.
 
 **OTÁZKA 1 (Smysl):** *„Co je podle vás hlavní pointa nebo sdělení tohoto příběhu?“*
 
+---
+
 **Odpověď A:** „Že kocour ničí komunikaci tím, že za každého dokončuje věty. Je to o tom, že rychlost není totéž co efektivita.“
 → **MYŠ PŘIŘADILA:** *Úhel 3 – Ironický*
 (Jádro: vidí rozpor mezi záměrem – urychlit – a výsledkem – ochromit.)
@@ -39,6 +41,8 @@ Myš přiřadila.
 
 **OTÁZKA 2 (Zaujetí):** *„Která konkrétní věta, obraz nebo moment vás nejvíc zaujal/a a PROČ?“*
 
+---
+
 **Odpověď A:** „Když myš říká, že berušky mají na sobě nedokončené konce vět. To je přesný obraz toho, co nosíme v týmu – věci, co nikdo nedokončil, ale všichni je cítí.“
 → **MYŠ PŘIŘADILA:** *Úhel 4 – Filozofický*
 (Jádro: hledá univerzální pravdu o břemenu nedokončeného.)
@@ -58,6 +62,8 @@ Myš přiřadila.
 ---
 
 **OTÁZKA 3 (Aplikace):** *„Kdyby tento příběh byl návodem nebo radou, co by vám radil dělat (nebo nedělat) ve vašem pracovním/projektovém životě?“*
+
+---
 
 **Odpověď A:** „Nedokončovat věty za druhé. Nechat lidi domluvit. I kdyby to trvalo půl hodiny.“
 → **MYŠ PŘIŘADILA:** *Úhel 8 – Všeobecný*
