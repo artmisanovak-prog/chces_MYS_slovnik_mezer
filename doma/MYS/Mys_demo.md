@@ -14,7 +14,7 @@ Tým dostal tři otázky.
 Odpověděl.
 Myš přiřadila.
 
-![Kocour](KOCOUR/data/cat.jpg)
+![Kocour](doma/KOCOUR/data/cat.jpg)
 
 ---
 
