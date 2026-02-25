@@ -7,7 +7,6 @@ Přečetla ji.
 Odložila.
 A začala si zapisovat.
 
----
 
 ### CO MYŠ VIDÍ, KDYŽ ČTE ODPOVĚDI TÝMU
 
