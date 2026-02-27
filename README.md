@@ -291,7 +291,9 @@ Contact: **chcesmys@gmail.com**
 | <img src="doma/karty_ukazky/zelva.jpg" width="60"><br>**Želva** | Dva přístupy si odporují, ale bez sebe nefungují | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Želva) |
 
 ---
-KOCOURweb(doma/KOCOUR/data/landing_page_kocour.html)
+
+[KOCOURweb](doma/KOCOUR/data/landing_page_kocour.html)
+
 ---
 
 ## 📄 Licence
