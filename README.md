@@ -260,6 +260,10 @@ Nemusíš se naučit 12 perspektiv. Stačí, když pochopíš,
 
 ---
 
+[prohlédněte](doma/KOCOUR/data/landing_page_kocour.html)
+
+---
+
 # 🔗 Připravujeme:
 
 ### 🌐 English version
