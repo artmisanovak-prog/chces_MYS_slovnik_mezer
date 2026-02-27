@@ -260,10 +260,6 @@ Nemusíš se naučit 12 perspektiv. Stačí, když pochopíš,
 
 ---
 
-[prohlédněte](doma/KOCOUR/data/landing_page_kocour.html)
-
----
-
 # 🔗 Připravujeme:
 
 ### 🌐 English version
@@ -294,6 +290,8 @@ Contact: **chcesmys@gmail.com**
 | <img src="doma/karty_ukazky/tygr.jpg" width="60"><br>**Tygr** | Systém chce jedno, člověk je jiný — a nikdo to neřekne nahlas | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Tygr) |
 | <img src="doma/karty_ukazky/zelva.jpg" width="60"><br>**Želva** | Dva přístupy si odporují, ale bez sebe nefungují | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Želva) |
 
+---
+KOCOURweb(doma/KOCOUR/data/landing_page_kocour.html)
 ---
 
 ## 📄 Licence
