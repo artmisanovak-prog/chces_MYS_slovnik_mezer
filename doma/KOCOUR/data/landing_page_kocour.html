@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐈‍⬛ Kocour – Diagnostika pro týmy kde se skáče do řeči</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: Georgia, serif;
+            background: #fff;
+            color: #111;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 3px solid #111;
+            margin-bottom: 50px;
+        }
+        
+        .hero img {
+            max-width: 250px;
+            margin: 0 auto 30px;
+            display: block;
+            border: 2px solid #111;
+            filter: grayscale(100%);
+        }
+        
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .hero .problem {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            padding: 8px 20px;
+            font-size: 1em;
+            margin: 10px 5px;
+        }
+        
+        /* Nástroje - 2x2 grid */
+        .tools {
+            margin: 50px 0;
+        }
+        
+        .tools h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #111;
+            padding-bottom: 15px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .tool-card {
+            border: 2px solid #111;
+            padding: 30px;
+            background: #fafafa;
+            transition: all 0.3s;
+        }
+        
+        .tool-card:hover {
+            background: #111;
+            color: #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .tool-card:hover a {
+            color: #fff;
+            border-color: #fff;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        
+        .tool-card p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+        
+        .tool-card .what-you-get {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.5);
+            border-left: 3px solid #111;
+            font-size: 0.95em;
+        }
+        
+        .tool-card:hover .what-you-get {
+            background: rgba(255,255,255,0.1);
+            border-left-color: #fff;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #fff;
+            color: #111;
+            text-decoration: none;
+            border: 2px solid #111;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #111;
+            color: #fff;
+        }
+        
+        .tool-card:hover .btn {
+            background: #111;
+            color: #fff;
+            border-color: #fff;
+        }
+        
+        .tool-card:hover .btn:hover {
+            background: #fff;
+            color: #111;
+        }
+        
+        /* CTA sekce */
+        .cta-section {
+            background: #111;
+            color: #fff;
+            padding: 50px 30px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta {
+            padding: 18px 40px;
+            background: #fff;
+            color: #111;
+            text-decoration: none;
+            border: 2px solid #fff;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-cta:hover {
+            background: #111;
+            color: #fff;
+        }
+        
+        /* Další karty */
+        .other-cards {
+            margin: 50px 0;
+        }
+        
+        .other-cards h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .other-cards .intro {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cards-showcase {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .card-thumb {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
+        }
+        
+        .card-thumb:hover {
+            border-color: #111;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card-thumb img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: grayscale(100%);
+        }
+        
+        .card-thumb h4 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .card-thumb p {
+            font-size: 0.85em;
+            color: #666;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 2px solid #111;
+            margin-top: 50px;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #111;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cards-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .cards-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Hero -->
+    <div class="hero">
+        <img src="data/kocour.jpg" alt="Kocour" onerror="this.style.display='none'">
+        <h1>🐈‍⬛ Kocour</h1>
+        <p class="problem">
+            <strong>Týmy, kde se lidé skáčou do řeči.</strong><br>
+            Kde se myšlenky uzavírají dřív, než dozní.<br>
+            Kde kocour spolkne polovinu toho, co se mělo říct.
+        </p>
+        <div>
+            <span class="tag">KOMPLETNÍ KARTA ZDARMA</span>
+            <span class="tag">4 NÁSTROJE</span>
+            <span class="tag">OFFLINE I ONLINE</span>
+        </div>
+    </div>
+    
+    <!-- Nástroje -->
+    <div class="tools">
+        <h2>Co dostanete: 4 nástroje</h2>
+        
+        <div class="tools-grid">
+            
+            <!-- Pohádka -->
+            <div class="tool-card">
+                <h3>📖 Pohádka</h3>
+                <p>Krátký příběh o kocourovi, který spolkne myšlenky. Tým si přečte za 5 minut.</p>
+                <div class="what-you-get">
+                    <strong>Co získáte:</strong> Společnou zkušenost. Metaforu, kterou budete používat ("to je jako ten kocour"). Základ pro diagnostiku.
+                </div>
+                <a href="data/pohadka.html" class="btn">→ Přečíst pohádku</a>
+            </div>
+            
+            <!-- Diagnostika -->
+            <div class="tool-card">
+                <h3>🧠 Diagnostika</h3>
+                <p>Tým odpoví na 3 otázky o pohádce. Facilitátor přiřazuje úhly. Nástroj vygeneruje kognitivní mapu.</p>
+                <div class="what-you-get">
+                    <strong>Co získáte:</strong> Mapu jak tým myslí. Přetížené úhly (používáte pořád dokola). Deficitní úhly (slepá místa). Konkrétní návrhy cvičení.
+                </div>
+                <a href="data/kocour-diagnostika.html" class="btn">→ Spustit diagnostiku</a>
+            </div>
+            
+            <!-- Workshop -->
+            <div class="tool-card">
+                <h3>⚙️ Workshop 90 minut</h3>
+                <p>Průvodce workshopem s timery, checklisty, úkoly. Vede vás krok za krokem od problému k řešení.</p>
+                <div class="what-you-get">
+                    <strong>Co získáte:</strong> Strukturovaný workshop. Konkrétní pravidla komunikace pro váš tým. Závazky kdo co udělá. Termín kontroly za 30 dní.
+                </div>
+                <a href="data/workshop_90_min.html" class="btn">→ Spustit workshop</a>
+            </div>
+            
+            <!-- Generativní -->
+            <div class="tool-card">
+                <h3>🔮 Generativní mód</h3>
+                <p>Na základě kognitivní mapy vygeneruje NOVÝ workshop šitý přímo na míru deficitům vašeho týmu.</p>
+                <div class="what-you-get">
+                    <strong>Co získáte:</strong> Unikátní workshop. Cvičení pro vaše konkrétní slepé úhly. Nikdy nedostanete stejný workshop dvakrát.
+                </div>
+                <a href="data/generativni.html" class="btn">→ Vygenerovat workshop</a>
+            </div>
+            
+        </div>
+        
+        <p style="text-align: center; font-size: 1.1em; color: #666;">
+            + Bonus: <a href="data/generator.html" style="color: #111;">🎲 Generátor scénářů</a> pro rychlé nápady
+        </p>
+    </div>
+    
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2>🙏 Potřebuji vaši zpětnou vazbu</h2>
+        <p>
+            Kocour je ZDARMA. Všechny nástroje můžete vyzkoušet hned teď.<br>
+            <strong>Výměnou za jednu věc: Dejte mi vědět, jak to fungovalo.</strong>
+        </p>
+        <div class="cta-buttons">
+            <a href="data/zpetna_vazba.html" class="btn-cta">📝 Dát zpětnou vazbu</a>
+            <a href="data/kocour-diagnostika.html" class="btn-cta">🐈‍⬛ Vyzkoušet diagnostiku</a>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.95em; opacity: 0.8;">
+            Hledám týmy, které to zkusí a řeknou mi: co fungovalo, co ne, co chybělo.<br>
+            Email: <a href="mailto:chcesmys@gmail.com" style="color: #fff; text-decoration: underline;">chcesmys@gmail.com</a>
+        </p>
+    </div>
+    
+    <!-- Další karty -->
+    <div class="other-cards">
+        <h2>Kocour je část většího systému</h2>
+        <p class="intro">
+            7+ karet. Každá mapuje jinou týmovou dysfunkci. Stejný princip: příběh → diagnostika → workshop → řešení.
+        </p>
+        
+        <div class="cards-showcase">
+            <div class="card-thumb">
+                <a href="../../karty_ukazky/Plamenak/" style="text-decoration: none; color: inherit;">
+                    <img src="../../karty_ukazky/Plamenak/data/plamenak.jpg" alt="Plameňák" onerror="this.style.display='none'">
+                    <h4>🦩 Plameňák</h4>
+                    <p>Energie bez směru</p>
+                </a>
+            </div>
+            
+            <div class="card-thumb">
+                <a href="../../karty_ukazky/Pav/" style="text-decoration: none; color: inherit;">
+                    <img src="../../karty_ukazky/Pav/data/pav.jpg" alt="Páv" onerror="this.style.display='none'">
+                    <h4>🦚 Páv</h4>
+                    <p>Okázalost vs. skromnost</p>
+                </a>
+            </div>
+            
+            <div class="card-thumb">
+                <a href="../../karty_ukazky/Moucha/" style="text-decoration: none; color: inherit;">
+                    <img src="../../karty_ukazky/Moucha/data/moucha.jpg" alt="Moucha" onerror="this.style.display='none'">
+                    <h4>🪰 Moucha</h4>
+                    <p>Rušivé detaily</p>
+                </a>
+            </div>
+            
+            <div class="card-thumb">
+                <a href="../../karty_ukazky/Ryba/" style="text-decoration: none; color: inherit;">
+                    <img src="../../karty_ukazky/Ryba/data/ryba.jpg" alt="Ryba" onerror="this.style.display='none'">
+                    <h4>🐟 Ryba</h4>
+                    <p>Ptačí křikot vs. rap</p>
+                </a>
+            </div>
+            
+            <div class="card-thumb">
+                <a href="../../karty_ukazky/Husy/" style="text-decoration: none; color: inherit;">
+                    <img src="../../karty_ukazky/Husy/data/husy.jpg" alt="Husy" onerror="this.style.display='none'">
+                    <h4>🪿 Husy</h4>
+                    <p>Formace bez vůdce</p>
+                </a>
+            </div>
+            
+            <div class="card-thumb">
+                <a href="../../karty_ukazky/Parohy/" style="text-decoration: none; color: inherit;">
+                    <img src="../../karty_ukazky/Parohy/data/parohy.jpg" alt="Parohy" onerror="this.style.display='none'">
+                    <h4>🦌 Parohy</h4>
+                    <p>Zbytečná okázalost</p>
+                </a>
+            </div>
+            
+            <div class="card-thumb">
+                <a href="../../karty_ukazky/Vrabec/" style="text-decoration: none; color: inherit;">
+                    <img src="../../karty_ukazky/Vrabec/data/vrabec.jpg" alt="Vrabec" onerror="this.style.display='none'">
+                    <h4>🐦 Vrabec</h4>
+                    <p>Drobnosti vs. strategie</p>
+                </a>
+            </div>
+            
+            <div class="card-thumb">
+                <a href="../../karty_ukazky/Osel/" style="text-decoration: none; color: inherit;">
+                    <img src="../../karty_ukazky/Osel/data/osel.jpg" alt="Osel" onerror="this.style.display='none'">
+                    <h4>🫏 Osel</h4>
+                    <p>Tvrdohlavost</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Chceš myš?</strong> — Diagnostický systém pro týmy</p>
+        <p style="margin-top: 15px;">
+            <a href="../../">← Hlavní stránka projektu</a> · 
+            <a href="../MYS/index.html">🐁 Vyzkoušet úhly podle myši</a> · 
+            <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a>
+        </p>
+    </div>
+    
+</div>
+
+</body>
+</html>
