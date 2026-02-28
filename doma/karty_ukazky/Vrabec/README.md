@@ -30,7 +30,8 @@
 
 ## 📘 Pohádka
 
-# O VRABCOVI který se dostal z hrsti na hlavu
+# O VRABCOVI
+## který se dostal z hrsti na hlavu
 
 Byla jednou jedna dáma, co si řekla:
 „Lepší vrabec v hrsti než holub na střeše.“
@@ -52,7 +53,8 @@ Jenže vrabec se nechtěl držet.
 Začal se vrtět.
 Škrábat.
 Pípat.
-A nakonec – šup! – vyskočil z hrsti rovnou na hlavu.
+A nakonec – šup! – hop!
+Vyskočil z hrsti rovnou na hlavu.
 A tam zůstal.
 Ne jako trofej.
 Jako názor.
