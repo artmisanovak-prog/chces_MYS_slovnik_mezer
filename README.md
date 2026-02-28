@@ -292,7 +292,7 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
-[KOCOURweb](doma/KOCOUR/data/landing_page_kocour.html)
+[KOCOUR landing page](doma/KOCOUR/data/landing_page_kocour.html)
 
 ---
 
