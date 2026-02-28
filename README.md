@@ -292,6 +292,8 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
+[LANDING PAGE](index.html)
+
 [KOCOUR landing page](doma/KOCOUR/data/landing_page_kocour.html)
 
 ---
