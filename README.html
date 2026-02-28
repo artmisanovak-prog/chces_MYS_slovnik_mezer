@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐁 CHCEŠ MYŠ? – slovník mezer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: Georgia, serif;
+            background: #fff;
+            color: #111;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 3px solid #111;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.4em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .hero .description {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Mouse intro */
+        .mouse-intro {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #f9f9f9;
+            padding: 40px;
+            margin: 50px 0;
+            border: 2px solid #111;
+        }
+        
+        .mouse-intro img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            filter: grayscale(100%);
+        }
+        
+        .mouse-intro-text h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .mouse-intro-text p {
+            margin-bottom: 20px;
+        }
+        
+        /* Sections */
+        .section {
+            margin: 60px 0;
+        }
+        
+        .section h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #111;
+            padding-bottom: 15px;
+        }
+        
+        .section h3 {
+            font-size: 1.6em;
+            margin: 30px 0 15px;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        
+        .section ul {
+            margin: 20px 0 20px 30px;
+            font-size: 1.05em;
+        }
+        
+        .section li {
+            margin-bottom: 10px;
+        }
+        
+        /* Highlight box */
+        .highlight-box {
+            background: #111;
+            color: #fff;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .highlight-box h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 15px;
+        }
+        
+        .highlight-box p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        /* Cards table */
+        .cards-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        
+        .cards-table th,
+        .cards-table td {
+            border: 1px solid #111;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .cards-table th {
+            background: #111;
+            color: #fff;
+            font-size: 1.1em;
+        }
+        
+        .cards-table img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
+        }
+        
+        .cards-table .card-name {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .cards-table .price {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .cards-table .price.free {
+            color: #2a7a2a;
+        }
+        
+        /* Price table */
+        .price-table {
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+        
+        .price-table th,
+        .price-table td {
+            border: 1px solid #111;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .price-table th {
+            background: #111;
+            color: #fff;
+        }
+        
+        /* FAQ */
+        .faq {
+            margin: 40px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-left: 4px solid #111;
+        }
+        
+        .faq-item strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #111;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #111;
+            transition: all 0.3s;
+            font-size: 1em;
+        }
+        
+        .btn:hover {
+            background: #fff;
+            color: #111;
+        }
+        
+        .btn-outline {
+            background: #fff;
+            color: #111;
+        }
+        
+        .btn-outline:hover {
+            background: #111;
+            color: #fff;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 2px solid #111;
+            margin-top: 60px;
+            color: #666;
+        }
+        
+        .footer a {
+            color: #111;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .mouse-intro {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cards-table {
+                font-size: 0.9em;
+            }
+            
+            .cards-table img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Hero -->
+    <div class="hero">
+        <h1>🐁 CHCEŠ MYŠ?</h1>
+        <p class="tagline">slovník mezer</p>
+        <p class="description">
+            <strong>Generativní systém pro diagnostiku a řešení týmových dysfunkcí.</strong><br>
+            Sada pracovních karet, které pomáhají týmům rychle pojmenovat problémy, které se běžně neříkají nahlas.  
+            Karty fungují jako vizuální a jazykové kotvy — <strong>otevírají rozhovory, které by jinak nevznikly.</strong>
+        </p>
+    </div>
+    
+    <!-- Mouse intro -->
+    <div class="mouse-intro">
+        <img src="doma/MYS/mys.jpg" alt="Myš" onerror="this.style.display='none'">
+        <div class="mouse-intro-text">
+            <h2>Jeden příběh. Dvanáct pravd.</h2>
+            <p>Vyber úhel pohledu a přečti stejný příběh dvanácti různými způsoby.</p>
+            <a href="./doma/MYS/index.html" class="btn">→ O MYŠI - Podívejte se 12ti úhly</a>
+        </div>
+    </div>
+    
+    <!-- Highlight -->
+    <div class="highlight-box">
+        <h2>🔥 „Nejde to zkazit"</h2>
+        <p><strong>Úhly nemusíš přiřadit přesně.</strong></p>
+        <p>Všechny míří na stejný problém — a ten se řeší tak jako tak.</p>
+        <p>I „nepřesná" mapa odhalí něco užitečného.</p>
+    </div>
+    
+    <!-- Proč to existuje -->
+    <div class="section">
+        <h2>🫗 Proč to existuje</h2>
+        <p><strong>Většina problémů v týmech nevzniká kvůli lidem, ale kvůli mezerám:</strong></p>
+        <ul>
+            <li>mezi očekáváním a realitou</li>
+            <li>mezi tím, co se řekne, a tím, co se myslí</li>
+            <li>mezi rolí a odpovědností</li>
+            <li>mezi plánem a kapacitou</li>
+            <li>mezi úkolem a smyslem</li>
+        </ul>
+        <p><strong>Karty tyhle mezery zviditelní. A když je vidět problém, dá se řešit.</strong></p>
+        <p>Každá karta představuje jeden typ poruchy, <strong>mezery v komunikaci.</strong> Díky příběhům se lidé dokáží domluvit rychleji, přesněji a <strong>bez obviňování.</strong></p>
+    </div>
+    
+    <!-- Rychlý start -->
+    <div class="section">
+        <h2>🚀 Rychlý start</h2>
+        <ol style="margin-left: 30px; font-size: 1.05em;">
+            <li style="margin-bottom: 15px;"><a href="./doma/MYS/jak_pouzivat.md" style="color: #111; font-weight: bold;">Jak používat systém</a></li>
+            <li style="margin-bottom: 15px;"><a href="./doma/MYS/modelove_scenare.html" style="color: #111; font-weight: bold;">Modelové scénáře</a> - prohlédněte si</li>
+            <li style="margin-bottom: 15px;">Naučte se diagnostikovat: <a href="./doma/MYS/Mys_meta.md" style="color: #111;">Klíč k úhlům</a> | <a href="./doma/MYS/Mys_demo.md" style="color: #111;">Jak číst jako myš</a></li>
+            <li style="margin-bottom: 15px;"><a href="./doma/KOCOUR/" style="color: #111; font-weight: bold;">Kocour</a> - ukázková karta zdarma (skákání do řeči, předčasné ukončování)</li>
+        </ol>
+    </div>
+    
+    <!-- Pro koho -->
+    <div class="section">
+        <h2>🎯 Pro koho to je?</h2>
+        <p><strong>Týmy, které:</strong></p>
+        <ul>
+            <li>📉 mají dlouhé a neefektivní porady</li>
+            <li>🗣️ si lidé skáčou do řeči a nedokončují myšlenky</li>
+            <li>🧭 tápou ve směřování projektu</li>
+            <li>💬 cítí, že „něco není v pořádku", ale neumí to pojmenovat</li>
+            <li>🔁 řeší dokola stejné problémy</li>
+        </ul>
+    </div>
+    
+    <!-- V čem je to jiné -->
+    <div class="section">
+        <h2>💎 V čem je to jiné?</h2>
+        <p>Většina nástrojů končí u diagnózy: <em>„Zjistili jsme, že máte problém."</em></p>
+        <p><strong>Tenhle nástroj rovnou nabízí řešení.</strong></p>
+        <ul>
+            <li>Není to test. Nikdo není „špatný" ani „dobrý".</li>
+            <li>Není to teorie. Je to pohádka, která se dá použít hned v pondělí ráno.</li>
+            <li>Není to generický model. Každá karta řeší <strong>jeden konkrétní týmový problém</strong>.</li>
+        </ul>
+    </div>
+    
+    <!-- Co karta obsahuje -->
+    <div class="section">
+        <h2>✅ Co karta obsahuje?</h2>
+        <ul>
+            <li>🕺 <strong>Samostatný, připravený workshop</strong> – který s týmem provedete za 90 minut</li>
+            <li>📘 <strong>Pohádku</strong> – příběh, který otevře téma bez obviňování</li>
+            <li>🧠 <strong>12 úhlů pohledu</strong> – diagnostický klíč, který odhalí, kudy se tým dívá</li>
+            <li>🛠️ <strong>12 konkrétních protiopatření</strong> – každý úhel má svůj „protilék"</li>
+            <li>📋 <strong>Detailní scénář workshopu</strong> – kdo, kdy, co říká, na minuty</li>
+            <li>🧪 <strong>Diagnostický nástroj</strong> – 3 otázky, které zmapují kognitivní profil týmu</li>
+            <li>🎲 <strong>Generativní mód</strong> – jak kartu použít znovu a jinak</li>
+            <li>🏹 <strong>Kreativní mód</strong> – použijte pro vaši inspiraci</li>
+            <li>📎 <strong>Šablony k okamžitému použití</strong> – flipcharty, emaily, pracovní listy</li>
+            <li>📄 <strong>Firemní licence</strong> – kartu může používat celá organizace</li>
+        </ul>
+    </div>
+    
+    <!-- Dostupné karty -->
+    <div class="section">
+        <h2>🃏 Dostupné karty</h2>
+        
+        <table class="cards-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Karta</th>
+                    <th>Problém</th>
+                    <th>Cena</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="doma/KOCOUR/data/kocour.jpg" alt="Kocour" onerror="this.style.display='none'"></td>
+                    <td class="card-name">🐈‍⬛ Kocour</td>
+                    <td>Skáčeme si do řeči — myšlenky umírají dřív, než dostanou šanci</td>
+                    <td class="price free">ZDARMA</td>
+                    <td><a href="./doma/KOCOUR/" class="btn btn-outline">Ukázka</a></td>
+                </tr>
+                <tr>
+                    <td><img src="doma/karty_ukazky/Plamenak/plamenak.jpg" alt="Plameňák" onerror="this.style.display='none'"></td>
+                    <td class="card-name">🦩 Plameňák</td>
+                    <td>Nadšení bez plánu — energie, která nikam nevede</td>
+                    <td class="price">29 000 Kč</td>
+                    <td><a href="./doma/karty_ukazky/Plamenak/" class="btn btn-outline">Ukázka</a></td>
+                </tr>
+                <tr>
+                    <td><img src="doma/karty_ukazky/Pav/pav.jpg" alt="Páv" onerror="this.style.display='none'"></td>
+                    <td class="card-name">🦚 Páv</td>
+                    <td>Vidíme projekt skrz sebe — a přestáváme vidět realitu</td>
+                    <td class="price">29 000 Kč</td>
+                    <td><a href="./doma/karty_ukazky/Pav/" class="btn btn-outline">Ukázka</a></td>
+                </tr>
+                <tr>
+                    <td><img src="doma/karty_ukazky/Moucha/moucha.jpg" alt="Moucha" onerror="this.style.display='none'"></td>
+                    <td class="card-name">🪰 Moucha</td>
+                    <td>Chaos se stal normou — a nikdo si ho už nevšimne</td>
+                    <td class="price">29 000 Kč</td>
+                    <td><a href="./doma/karty_ukazky/Moucha/" class="btn btn-outline">Ukázka</a></td>
+                </tr>
+                <tr>
+                    <td><img src="doma/karty_ukazky/Ryba/ryba.jpg" alt="Ryba" onerror="this.style.display='none'"></td>
+                    <td class="card-name">🐟 Ryba</td>
+                    <td>Mluvíme hodně, ale nic se nemění</td>
+                    <td class="price">29 000 Kč</td>
+                    <td><a href="./doma/karty_ukazky/Ryba/" class="btn btn-outline">Ukázka</a></td>
+                </tr>
+                <tr>
+                    <td><img src="doma/karty_ukazky/Husy/husy.jpg" alt="Husy" onerror="this.style.display='none'"></td>
+                    <td class="card-name">🪿 Husy</td>
+                    <td>Každý křičí „my" — ale každý myslí jen na sebe</td>
+                    <td class="price">29 000 Kč</td>
+                    <td><a href="./doma/karty_ukazky/Husy/" class="btn btn-outline">Ukázka</a></td>
+                </tr>
+                <tr>
+                    <td><img src="doma/karty_ukazky/Parohy/parohy.jpg" alt="Parohy" onerror="this.style.display='none'"></td>
+                    <td class="card-name">🦌 Parohy</td>
+                    <td>Definujeme se tím, co jsme dělali — ne tím, kdo jsme</td>
+                    <td class="price">29 000 Kč</td>
+                    <td><a href="./doma/karty_ukazky/Parohy/" class="btn btn-outline">Ukázka</a></td>
+                </tr>
+                <tr>
+                    <td><img src="doma/karty_ukazky/Vrabec/vrabec.jpg" alt="Vrabec" onerror="this.style.display='none'"></td>
+                    <td class="card-name">🐦 Vrabec</td>
+                    <td>Dočasné řešení, které tu bude navždy</td>
+                    <td class="price">29 000 Kč</td>
+                    <td><a href="./doma/karty_ukazky/Vrabec/" class="btn btn-outline">Ukázka</a></td>
+                </tr>
+                <tr>
+                    <td><img src="doma/karty_ukazky/Osel/osel.jpg" alt="Osel" onerror="this.style.display='none'"></td>
+                    <td class="card-name">🫏 Osel</td>
+                    <td>Tolik možností — že nevybereme žádnou</td>
+                    <td class="price">29 000 Kč</td>
+                    <td><a href="./doma/karty_ukazky/Osel/" class="btn btn-outline">Ukázka</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Cena -->
+    <div class="section">
+        <h2>💰 Cena a návratnost</h2>
+        <p style="font-size: 1.3em; text-align: center; margin: 30px 0;"><strong>29 000 Kč za kartu.</strong></p>
+        
+        <p><strong>Proč?</strong></p>
+        <ul>
+            <li>Jednorázový náklad, celoživotní licence.</li>
+            <li>Ušetříte desítky hodin příprav – workshop je hotový, odzkoušený, funkční.</li>
+            <li>Průměrná délka porady klesá o 30–60 minut. Při 10 poradách měsíčně se investice vrátí do 2 měsíců.</li>
+        </ul>
+        
+        <h3 style="margin-top: 40px;">💡 Pro facilitátory: počítejte jinak</h3>
+        <p>Nekupujete jeden workshop. Kupujete nástroj na desítky workshopů.</p>
+        
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Počet použití</th>
+                    <th>Cena za workshop</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10×</td>
+                    <td>2 900 Kč</td>
+                </tr>
+                <tr>
+                    <td>20×</td>
+                    <td>1 450 Kč</td>
+                </tr>
+                <tr>
+                    <td>50×</td>
+                    <td>580 Kč</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p style="text-align: center; margin-top: 20px; font-style: italic;">Jednorázový náklad. Žádné předplatné. Karta je vaše navždy.</p>
+    </div>
+    
+    <!-- Jak získat -->
+    <div class="section">
+        <h2>📦 Jak kartu získat?</h2>
+        <ol style="margin-left: 30px; font-size: 1.1em;">
+            <li style="margin-bottom: 15px;">Vyberte si kartu z katalogu.</li>
+            <li style="margin-bottom: 15px;">Napište na <strong><a href="mailto:chcesmys@gmail.com" style="color: #111;">chcesmys@gmail.com</a></strong>.</li>
+            <li style="margin-bottom: 15px;">Pošleme vám fakturu a přístup k plné verzi (GitHub zip + HTML nástroj).</li>
+        </ol>
+    </div>
+    
+    <!-- FAQ -->
+    <div class="section">
+        <h2>❓ Nejčastější otázky</h2>
+        
+        <div class="faq">
+            <div class="faq-item">
+                <strong>Musím být vyškolený facilitátor?</strong>
+                <p>Ne. Workshop je navržený tak, aby ho bez přípravy mohl vést kdokoli, kdo tým zná. Scénář je na minuty – kdo, kdy, co říká.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>Musím přiřadit úhly správně?</strong>
+                <p>Ne. Přiřazení nemusí být přesné. Všechny intervence míří na stejný problém – úhly ti jen pomáhají vybrat, kudy do něj vstoupit. I „nepřesná" mapa odhalí něco užitečného.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>Co dostanu po zaplacení?</strong>
+                <p>Zip s celým repozitářem – HTML nástroje, texty, šablony, pracovní listy. Stáhneš si to k sobě, otevřeš v prohlížeči, používáš offline. Bez předplatného, bez přihlašování.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>Jak dlouho mi přístup trvá?</strong>
+                <p>Navždy. Platíš jednou, karta je tvoje. Nikdo ti ji nemůže vypnout ani zdražit.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>Musím umět GitHub?</strong>
+                <p>Ne. GitHub slouží jen ke stažení souboru – jako každý jiný zip na internetu. Co s ním dál dělat je popsáno v přiloženém <a href="doma/MYS/jak_zacit.md" style="color: #111;">návodu</a>.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>Lze kartu použít víckrát?</strong>
+                <p>Ano – a je na to přímo navržená. Generativní mód ti z jedné karty vytvoří desítky různých workshopů kombinací úhlů. Nikdy nebudeš dělat stejný workshop dvakrát.</p>
+            </div>
+            
+            <div class="faq-item">
+                <strong>Lze karty kombinovat?</strong>
+                <p>Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství. Jak karty kombinovat popisuje <a href="doma/MYS/jak_kombinovat.md" style="color: #111;">samostatný návod</a>, <a href="doma/MYS/uvnitr_kocoura.md" style="color: #111;">uvnitř karty</a> nebo <a href="doma/MYS/plamenak_a_kocour.md" style="color: #111;">karty mezi sebou</a>.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Repo dům -->
+    <div class="section">
+        <h2>🏠 Metoda "Repo dům"</h2>
+        <p><strong>Tohle není web. Je to repozitář</strong> – místo, kde žije celý systém "Chceš myš?" jako soubory, které si můžeš stáhnout, otevřít, upravit, vlastnit.</p>
+        
+        <h3>Proč jsem to udělala takhle?</h3>
+        <p><strong>Protože jsem tvůrce, ne vývojářka.</strong></p>
+        
+        <h3>Princip „repo domů": Váš systém, vaše data, váš klid</h3>
+        <p>Všechny karty, nástroje a mody, které si u nás pořídíte, <strong>nejsou webová aplikace, ke které byste měli jen dočasný přístup</strong>. Je to <strong>váš vlastní digitální dům</strong> – repozitář, který si stáhnete a spravujete <strong>sami u sebe</strong>.</p>
+        
+        <h3>Co to pro vás znamená?</h3>
+        <ul>
+            <li>🔐 <strong>Vaše data zůstávají vaše.</strong> Nikam se neodesílají, neukládají se na naše servery, nikdo jiný k nim nemá přístup.</li>
+            <li>🏠 <strong>Máte to u sebe.</strong> Celý systém je fyzicky u vás – na vašem disku, serveru, GitHub repozitáři.</li>
+            <li>🛠️ <strong>Můžete si to přizpůsobit.</strong> Každý soubor si můžete otevřít, upravit, přepsat.</li>
+            <li>🧩 <strong>Funguje to i bez internetu.</strong> Skvělé pro interní workshopy nebo firmy s přísnými bezpečnostními pravidly.</li>
+            <li>💎 <strong>Je to transparentní.</strong> Vidíte přesně, jak je který nástroj postavený. Žádná černá skříňka.</li>
+        </ul>
+        
+        <p style="margin-top: 30px;"><strong>Chceš vědět víc?</strong></p>
+        <p>Metodu <strong>nevyučuji</strong> ani <strong>neprodávám</strong> (zatím). Ale pokud tě zajímá filozofie nebo chceš diskutovat:</p>
+        <p>📧 <strong><a href="mailto:chcesmys@gmail.com?subject=REPO%20DŮM" style="color: #111;">chcesmys@gmail.com</a></strong> · Do předmětu napiš: <strong>REPO DŮM</strong></p>
+    </div>
+    
+    <!-- O mně -->
+    <div class="section">
+        <h2>👩‍🎨 O mně</h2>
+        <p>Jsem – tvůrce, ne facilitátor. Kreslím. Píšu. Tvořím metajazyk.</p>
+        <p><strong>"Chceš myš?"</strong> je můj pokus zachytit realitu do ticha – do mezer mezi obrazem a textem, kde vzniká interpretace.</p>
+        <p><strong>Karty jsou poruchy.</strong> Dívka = řeč. Zvíře = porucha. Text = prostor pro tvou hlavu.</p>
+        <p><strong>Úhloměr je nástroj na rozšíření myšlení.</strong> Nemusíš se naučit 12 perspektiv. Stačí, když pochopíš, že není nikdy jediná.</p>
+        <p style="margin-top: 20px;"><a href="doma/MYS/chyba_jako_styl.md" style="color: #111; font-weight: bold;">→ Chyba jako styl</a></p>
+    </div>
+    
+    <!-- English version -->
+    <div class="section">
+        <h2>🌐 English version</h2>
+        <p>First card available in English: <strong>Cat (Communication Pathology)</strong></p>
+        <p><strong>Další karty na vyžádání</strong></p>
+        <p>Price: <strong>$ 1,600</strong></p>
+        <p>Contact: <strong><a href="mailto:chcesmys@gmail.com" style="color: #111;">chcesmys@gmail.com</a></strong></p>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>© 2026 Michaela Nováková</strong></p>
+        <p style="margin: 15px 0;">Metoda "Repo dům" | Umělkyně, ne facilitátorka | První projekt tohoto druhu</p>
+        <p>
+            📧 <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a> · 
+            <a href="doma/KOCOUR/data/landing_page_kocour.html">Kocour landing page</a>
+        </p>
+        <p style="margin-top: 20px; font-size: 0.9em;">
+            Obsah tohoto repozitáře je licencován pod <strong>Creative Commons Attribution-NonCommercial-ShareAlike 4.0</strong>.<br>
+            Plné verze karet jsou dostupné pod komerční licencí.
+        </p>
+    </div>
+    
+</div>
+
+</body>
+</html>
