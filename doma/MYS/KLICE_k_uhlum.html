@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klíč k úhlům · Diagnostická tabulka</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 950px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            margin: 3rem 0 1.2rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 2.5rem 0 1rem;
+            color: #222;
+            font-weight: 400;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Běžný text */
+        p, li, .note, .instruction {
+            color: #222;
+            font-size: 1.05rem;
+        }
+
+        /* Instrukce a otázky */
+        .instructions {
+            background: #f8f8f8;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .questions-box {
+            background: #f5f5f5;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #ccc;
+        }
+
+        .questions-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .question-item {
+            font-weight: 500;
+            margin-top: 0.8rem;
+        }
+
+        /* Sekce úhlů */
+        .angle-section {
+            margin: 2.5rem 0;
+        }
+
+        .angle-card {
+            margin: 2.2rem 0;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .angle-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .angle-core {
+            font-style: italic;
+            color: #444;
+            margin: 0.4rem 0 0.8rem 1rem;
+            border-left: 2px solid #ccc;
+            padding-left: 1rem;
+        }
+
+        .angle-q {
+            margin: 0.8rem 0 0.2rem 1.5rem;
+            font-weight: 500;
+            color: #111;
+        }
+
+        .angle-example {
+            margin: 0.2rem 0 0.5rem 2.5rem;
+            color: #333;
+            font-size: 0.98rem;
+            background: #f9f9f9;
+            padding: 0.4rem 1rem;
+            border-left: 2px solid #aaa;
+        }
+
+        .badge {
+            background: #333;
+            color: #fff;
+            padding: 0.15rem 0.6rem;
+            font-size: 0.9rem;
+            margin-right: 0.6rem;
+            display: inline-block;
+        }
+
+        /* Interpretační kroky */
+        .step-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.8rem 0;
+        }
+
+        .step-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .step-list li::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .rule-block {
+            background: #f4f4f4;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .rule-block strong {
+            font-weight: 600;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 3rem 0;
+            width: 30%;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        /* Seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .note-italic {
+            font-style: italic;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS -->
+        <h1>KLÍČ K ÚHLŮM:<br>Diagnostická tabulka</h1>
+
+        <!-- ÚVOD -->
+        <p style="font-size:1.1rem; margin-bottom:2rem;">
+            Tato tabulka slouží k analýze přirozených kognitivních preferencí na základě odpovědí na 3 univerzální otázky po přečtení/zaslechnutí pohádky.
+        </p>
+
+        <!-- INSTRUKCE PRO POUŽITÍ -->
+        <h2>INSTRUKCE PRO POUŽITÍ</h2>
+        <ol>
+            <li>Shromážděte anonymní odpovědi každého člena týmu na 3 otázky.</li>
+            <li>Pro každou odpověď najděte v tabulce nejvýstižnější charakteristiku.</li>
+            <li>Každé přiřazení k úhlu si poznamenejte.</li>
+            <li>Na konci spočítejte, kolikrát se který úhel objevil → získáte "Kognitivní mapu týmu".</li>
+        </ol>
+
+        <!-- TŘI UNIVERZÁLNÍ OTÁZKY -->
+        <h3 style="margin-top:2.5rem;">Tři univerzální otázky:</h3>
+        <div class="questions-box">
+            <div class="question-item">1. <strong>Q1 (Smysl):</strong> "Co je podle vás hlavní pointa nebo sdělení tohoto příběhu?"</div>
+            <div class="question-item">2. <strong>Q2 (Zaujetí):</strong> "Která konkrétní věta, obraz nebo moment vás nejvíc zaujal/a a PROČ?"</div>
+            <div class="question-item">3. <strong>Q3 (Aplikace):</strong> "Kdyby tento příběh byl návodem nebo radou, co by vám radil dělat (nebo nedělat) ve vašem pracovním/projektovém životě?"</div>
+        </div>
+
+        <!-- DIAGNOSTICKÁ TABULKA – 12 ÚHLŮ -->
+        <h2>DIAGNOSTICKÁ TABULKA – 12 ÚHLŮ</h2>
+
+        <div class="angle-section">
+
+            <!-- 1. ABSURDNÍ -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">1</span> ABSURDNÍ ÚHEL (Logika naruby)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Vidí rozpor mezi očekávanou logikou a absurdní realitou. Hledá nesmysly.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví odhalením rozporu, paradoxu nebo nesmyslu.<br>
+                <em>Příklad: "Že svět nedává smysl a snažit se ho dělat logickým je marné."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho moment největší absurdity nebo rozbití pravidel.<br>
+                <em>Příklad: "Nejvíc mě zaujalo, že kocour krká tečky, protože je to dokonalý nesmysl."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí přestat hledat smysl, přijmout chaos nebo záměrně jednat nelogicky.<br>
+                <em>Příklad: "Radil by nedělat věci jen proto, že 'se to tak dělá', pokud to nedává smysl."</em></div>
+            </div>
+
+            <!-- 2. JAZYKOVÝ -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">2</span> JAZYKOVÝ ÚHEL (Hra se slovy)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Soustředí se na formu, zvuk, dvojznačnost a strukturu jazyka samotného.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví analýzou jazyka, slovního spojení nebo narativní struktury.<br>
+                <em>Příklad: "Pointa je v té otázce 'Chceš myš?'. Je to jazyková past, otevírá mnoho významů."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho konkrétní formulace, rytmus nebo slovní hříčka.<br>
+                <em>Příklad: "Zaujala mě věta 'půl hodiny krkal tečky' – ten rytmus a konkrétnost času."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí pečlivě volit slova, hrát si s formulacemi nebo naslouchat skrytým významům.<br>
+                <em>Příklad: "Radil by si všímat, jaké slovo zvolíme jako první, když něco popisujeme."</em></div>
+            </div>
+
+            <!-- 3. IRONICKÝ -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">3</span> IRONICKÝ ÚHEL (Převrácení v směšné)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Vidí rozpor mezi záměrem a výsledkem, mezi tím, co se říká a co se děje. Smysl pro hořký/sarkastický humor.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví odhalením pokrytectví, paradoktu nebo trapnosti.<br>
+                <em>Příklad: "Že to, co má být řešením (políbit žábu), vytvoří úplně jiný problém (tygra)."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho moment největší ironie nebo trapné situace.<br>
+                <em>Příklad: "Nejvíc mě pobavilo, že páv přepočítává oka, když se na něj nikdo nedívá – to je dokonalá sebeklam."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí nebrat se příliš vážně, ptát se 'co kdyby opak byl pravdou' nebo zkoumat skryté motivy.<br>
+                <em>Příklad: "Radil by se při každém rozhodnutí zeptat: 'A co když to dopadne přesně naopak, než chceme?'"</em></div>
+            </div>
+
+            <!-- 4. FILOZOFICKÝ -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">4</span> FILOZOFICKÝ ÚHEL (Existenciální otázky)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Hledá univerzální pravdy, klade otázky po smyslu, hodnotě, podstatě bytí.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví obecnou, univerzální pravdou nebo hlubokou otázkou.<br>
+                <em>Příklad: "Ptá se, co to znamená 'být' a jak se naše přání stávají realitou."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho moment, který otevírá metafyzickou nebo etickou otázku.<br>
+                <em>Příklad: "Zaujala mě myš, co se ptá 'Chceš myš?', protože to je čistá existenciální otázka volby."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí klást základní otázky, zastavit se a reflektovat 'proč to vlastně děláme'.<br>
+                <em>Příklad: "Radil by se vždy nejdřív zeptat: 'Jaký je smysl toho, co děláme? Je to opravdu důležité?'"</em></div>
+            </div>
+
+            <!-- 5. SURREALISTICKÝ -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">5</span> SURREALISTICKÝ ÚHEL (Volné asociace)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Propojuje zdánlivě nesouvisející koncepty, myslí v obrazech, snech, metaforách.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví podivným, obrazným nebo snovým spojením.<br>
+                <em>Příklad: "Že realita je jako sen, kde zvířata nesou naše nepřiznané myšlenky."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho nejbizarnější, nejvíce snový nebo obrazný moment.<br>
+                <em>Příklad: "Nejvíc mě zaujalo, že slon nese v chobotu třešně, co nikdy nedozrají – to je krásný, smutný obraz."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí spojovat nespojitelné, kreslit myšlenkové mapy nebo pracovat s metafou.<br>
+                <em>Příklad: "Radil by při brainstormu zakázat logiku a nechat pracovat pouze asociace a sny."</em></div>
+            </div>
+
+            <!-- 6. NAIVNÍ -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">6</span> NAIVNÍ ÚHEL (Dětská logika)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Vidí věci přímočaře, jednoduše, bez předsudků. Klade zdánlivě naivní, ale provokativní otázky.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví jednoduchou, přímočarou morálkou nebo poučením.<br>
+                <em>Příklad: "Že máme poslouchat a všímat si maličkostí, které ostatní přehlížejí."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho jednoduchý, lidský nebo emocionálně čistý moment.<br>
+                <em>Příklad: "Nejvíc mě dojal okamžik, kdy vlk věnuje pandě svůj zrzavý chlup. To je tak čisté."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí ptát se na jednoduché otázky ('proč?', 'jak?'), nedělat zbytečné komplikace.<br>
+                <em>Příklad: "Radil by se vždy zeptat: 'Jak by to udělalo dítě?'"</em></div>
+            </div>
+
+            <!-- 7. INTRO (INTROSPEKTIVNÍ) -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">7</span> INTRO (INTROSPEKTIVNÍ) ÚHEL (Vnitřní monolog)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Projekce vlastních pocitů a zkušeností. Vidí příběh skrz vlastní emoce a vnitřní stavy.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví popisem vnitřního stavu, emocí nebo osobní zkušenosti, kterou příběh vyvolal.<br>
+                <em>Příklad: "Cítím z toho smutek z osamění a touhu po pochopení."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho moment, který rezonuje s jeho vlastním vnitřním pocitem nebo vzpomínkou.<br>
+                <em>Příklad: "Nejvíc se mě dotklo, když pavouk říká 'když to visí, ještě to může být'. Tak se často cítím."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí zpomalit, naslouchat vlastnímu vnitřnímu hlasu, reflektovat pocity před akcí.<br>
+                <em>Příklad: "Radil by si před každým rozhodnutím dát minutu ticha a zeptat se sám sebe, co k tomu skutečně cítím."</em></div>
+            </div>
+
+            <!-- 8. VŠEOBECNÝ (KONKRÉTNÍ) -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">8</span> VŠEOBECNÝ (KONKRÉTNÍ) ÚHEL (Co vidíš, to je)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Literální, faktické čtení. Soustředí se na děj, fakta, popis toho, "co se stalo".</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví převyprávěním děje nebo konstatováním faktů.<br>
+                <em>Příklad: "Pohádka vypráví o myši, která si všímá podivných věcí a pak se zeptá 'Chceš myš?'."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho klíčová dějová pointa nebo jasně popsaná situace.<br>
+                <em>Příklad: "Nejvíc mě zaujalo, že kocour sežral berušky a krkal tečky. To je jasný a vtipný děj."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí držet se faktů, popsat situaci jasně a bez interpretace, jednat podle toho, 'co je'.<br>
+                <em>Příklad: "Radil by nejdřív sepsat všechny známé fakta o problému, než začneme spekulovat."</em></div>
+            </div>
+
+            <!-- 9. ANALOGICKÝ (KULTURNÍ) -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">9</span> ANALOGICKÝ (KULTURNÍ) ÚHEL (Vztahy, archetypy)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Hledá vzory, paralely, archetypy a vztahy k širším kulturním nebo historickým kontextům.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví přirovnáním k jinému příběhu, archetypu nebo kulturnímu jevu.<br>
+                <em>Příklad: "To je jako mýtus o Sisyfovi – neustále dokola, bez naděje na změnu."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho moment, který připomíná univerzální archetyp nebo kulturní symbol.<br>
+                <em>Příklad: "Zaujal mě pavouk jako archetyp tvůrce/strůjce sítí a pastí, to je starý symbol."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí hledat podobné případy v historii, používat analogie nebo se ptát 'jak to řešili jinde/jindy'.<br>
+                <em>Příklad: "Radil by se podívat, jestli podobný problém neměli v jiném oddělení nebo firmě, a poučit se z toho."</em></div>
+            </div>
+
+            <!-- 10. ASOCIAČNÍ -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">10</span> ASOCIAČNÍ ÚHEL (Rychlé spojení)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Myšlení skrz rychlé, nečekané asociace a osobní spojení. Spojuje prvky příběhu s vlastními myšlenkami.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví řetězem asociací nebo osobních připomínek.<br>
+                <em>Příklad: "Mě to připomíná, jak jsem jednou... a tak si myslím, že jde o to, že..."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho detail, který v něm vyvolal silnou osobní asociaci.<br>
+                <em>Příklad: "Nejvíc mě zaujal ten lemur, co se díval, kde nic nebylo. Připomnělo mi to našeho kolegu, když..."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí brainstormovat bez cenzury, psát myšlenkové mapy nebo se nechat vést prvními nápady.<br>
+                <em>Příklad: "Radil by při hledání řešení napsat prvních 10 slov, co vás napadnou, a teprve pak je analyzovat."</em></div>
+            </div>
+
+            <!-- 11. METAFORICKÝ (SYMBOLICKÝ) -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">11</span> METAFORICKÝ (SYMBOLICKÝ) ÚHEL (Obraz → význam)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Chápe prvky příběhu jako symboly pro něco jiného, většího. Hledá skryté vrstvy významu.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví dešifrováním symboliky a metafor.<br>
+                <em>Příklad: "Myš není myš. Je to metafora pro pozornost nebo pro skrytou příležitost."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho nejvýraznější symbol nebo metafora.<br>
+                <em>Příklad: "Nejvíc mě zaujalo vejce s nápisem 'Zákaz kouření'. To je skvělá metafora pro zrození něčeho zakázaného."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí překládat problémy do symbolické řeči, kreslit je jako diagramy nebo hledat, 'co to zastupuje'.<br>
+                <em>Příklad: "Radil by si problém nakreslit jako symbol nebo znak a pak se ptát, co ten znak znamená."</em></div>
+            </div>
+
+            <!-- 12. GROTESKNÍ -->
+            <div class="angle-card">
+                <div class="angle-title"><span class="badge">12</span> GROTESKNÍ ÚHEL (Komické do extrému)</div>
+                <div class="angle-core"><strong>Jádro:</strong> Vidí přehnanou, karikující, až děsivou komiku. Směs směšného a znepokojivého.</div>
+                <div class="angle-q">Q1 (Smysl):</div>
+                <div class="angle-example">Odpoví zdůrazněním přehnaného, karikujícího nebo temně komického prvku.<br>
+                <em>Příklad: "Že svět je jeden velký, trapný vtip, kde se pořád dokola dělají stejné hloupé chyby."</em></div>
+                <div class="angle-q">Q2 (Zaujetí):</div>
+                <div class="angle-example">Zaujme ho nejvíce přehnaný, trapný nebo temně komický moment.<br>
+                <em>Příklad: "Nejvíc mě pobavilo, že panda řve 'Jsem barevnější než dalmatin!' – to je tak přehnané a trapné, že je to skvělé."</em></div>
+                <div class="angle-q">Q3 (Aplikace):</div>
+                <div class="angle-example">Poradí přehánět problémy do absurdna, aby se ukázala jejich podstata, nebo se na ně dívat jako na špatnou komedii.<br>
+                <em>Příklad: "Radil by si představit, že náš problém je scénář pro špatný komiks, a napsat k němu tři nejtrapnější pointy."</em></div>
+            </div>
+        </div>
+
+        <!-- INTERPRETAČNÍ KROKY – CO S DATY? -->
+        <h2>INTERPRETAČNÍ KROKY – CO S DATY?</h2>
+
+        <ol class="step-list">
+            <li><strong>Vytvořte mapu:</strong> Po analýze všech odpovědí sečtěte výskyty každého úhlu.</li>
+            <li><strong>Identifikujte vzory:</strong><br>
+                <span style="font-weight:500;">PŘETÍŽENÉ ÚHLY (>30% odpovědí):</span> Tým jich používá příliš mnoho → hrozí kognitivní zkreslení (např. příliš mnoho Logického = paralýza analýzou).<br>
+                <span style="font-weight:500;">DEFICIENTNÍ ÚHLY (0-1 výskyt):</span> Tým je opomíjí → jsou to slepé úhly týmu.<br>
+                <span style="font-weight:500;">VYVÁŽENÉ ÚHLY (2-20%):</span> Zdravě zastoupené perspektivy.
+            </li>
+            <li><strong>Diagnóza a akce:</strong>
+                <div class="rule-block" style="margin-top:0.8rem;">
+                    <p><strong>Pravidlo 1 (Pro přetížené úhly):</strong> Lidé, kteří je přirozeně používají, dostanou úkoly z protikladných nebo opomíjených úhlů (Logik dostane úkol Asociační).</p>
+                    <p><strong>Pravidlo 2 (Pro deficitní úhly):</strong> Celý tým dostane povinný experiment s tímto úhlem na 1 týden (např. "Každé ráno si vylosujte kartu s deficitním úhlem a aplikujte ho na první problém dne.").</p>
+                    <p><strong>Pravidlo 3 (Pro vyvážené úhly):</strong> Použijte je jako mosty – úkoly, které propojují přetížené a deficitní úhly (např. "Použijte Metaforický úhel k převedení Logického problému do podoby, které rozumí Naivní úhel.").</p>
+                </div>
+            </li>
+        </ol>
+
+        <!-- ZÁVĚREČNÁ POZNÁMKA -->
+        <hr>
+        <p style="text-align:center; font-size:1.2rem; max-width:800px; margin:2rem auto; font-style:italic;">
+            <strong>Tato tabulka je tvůj diagnostický stroj.</strong><br>
+            S ní může kdokoli analyzovat tým a předepsat cílenou "kognitivní fyzioterapii".<br>
+            Není potřeba rozumět psychologii – stačí postupovat podle tohoto klíče.
+        </p>
+
+        <!-- PATIČKA -->
+        <div class="footer">
+            © Michaela Nováková · diagnostická tabulka
+        </div>
+
+    </div>
+</body>
+</html>
