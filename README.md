@@ -180,7 +180,7 @@ html) | 29 000 Kč |
 
 > **Lze karty kombinovat?**
 > Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
-> Jak karty kombinovat popisuje [samostatný návod](doma/MYS/jak_kombinovat.html) a [uvnitř karty](doma/MYS/uvnitr_kocour.html) nebo [karty mezi sebou](doma/MYS/plamenak_a_kocour.html)
+> Jak karty kombinovat popisuje [samostatný návod](doma/MYS/jak_kombinovat.html) a [uvnitř karty](https://artmisanovak-prog.github.io/chces_MYS_slovnik_mezer/doma/KOCOUR/data/generativni.html) nebo [karty mezi sebou](doma/MYS/plamenak_a_kocour.html)
 
 ---
 
@@ -276,7 +276,7 @@ Contact: **chcesmys@gmail.com**
 
 - [Ukázka kombinace karet](./doma/MYS/plamenak_a_kocour.html)
 - [Jak kombinovat karty](./doma/MYS/jak_kombinovat.html)
-
+- [Jak kombinovat kartu uvnitr - **funkční nástroj**](./doma/MYS/jak_kombinovat.html)
 ---
 
 ## 🔜 další karty:
