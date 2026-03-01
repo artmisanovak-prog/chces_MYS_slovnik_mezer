@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moucha · Karta systému</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+            font-weight: 400;
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 0.3rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Obrázek */
+        .main-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 2rem auto;
+            border: 1px solid #444;
+            filter: grayscale(100%);
+            transition: filter 0.2s ease;
+            display: block;
+        }
+
+        .main-image:hover {
+            filter: grayscale(80%);
+        }
+
+        /* Běžný text */
+        p, li, .table-text {
+            color: #222;
+            font-size: 1.05rem;
+        }
+
+        /* Rychlý pohled – tabulka */
+        .quick-look {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #ccc;
+        }
+
+        .quick-look table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .quick-look td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .quick-look td:first-child {
+            font-weight: 600;
+            width: 30%;
+        }
+
+        /* Bloky pro úhly, kreativní mód */
+        .angle-block, .creative-block {
+            background: #f9f9f9;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .angle-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Matice */
+        .matrix-row {
+            display: flex;
+            border-bottom: 1px dotted #aaa;
+            padding: 0.8rem 0;
+        }
+
+        .matrix-cell {
+            flex: 1;
+            padding: 0 0.5rem;
+        }
+
+        .matrix-cell:first-child {
+            font-weight: 600;
+            flex: 0.8;
+        }
+
+        /* Seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Propojení s kartami – mřížka */
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .connection-item {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-left: 3px solid #333;
+        }
+
+        .connection-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* CTA / kontakt */
+        .cta-box {
+            background: #f2f2f2;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid #aaa;
+        }
+
+        .cta-box a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+
+        .cta-box a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        /* Obsah (toc) */
+        .toc {
+            background: #f5f5f5;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+        }
+
+        .toc a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+            margin-right: 1.2rem;
+            display: inline-block;
+        }
+
+        /* Zpět na obsah */
+        .back-to-top {
+            text-align: right;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .back-to-top a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS S EMOJI -->
+        <h1>🪰 MOUCHA</h1>
+
+        <!-- OBRAZEK – cesta: doma/moucha.jpg (podle RYCHLÝ POHLED) -->
+        <img class="main-image" src="doma/moucha.jpg" alt="Ilustrace mouchy – černobílá" onerror="this.style.opacity='0.3'; this.alt='Obrázek nenalezen (doma/moucha.jpg)';">
+
+        <!-- JÁDROVÁ DYSFUNKCE -->
+        <p style="font-size:1.2rem; background:#f4f4f4; padding:1.5rem; border-left:4px solid #333;">
+            <strong>Jádrová dysfunkce:</strong> Normalizovaný chaos a slepota k vlastnímu problému. Tým (nebo prostředí) se dlouhodobě potýká s dysfunkcí, která se stala natolik běžnou, že ji přestal vnímat. Stala se neviditelnou součástí krajiny. Zlom nastává, až když se objeví vnější, nehodnotící element („moucha“), pro který je tento „průser“ naopak ideálním prostředím. Tento element svou pouhou existencí zviditelní skutečnou povahu problému a donutí tým k reflexi.
+        </p>
+
+        <!-- RYCHLÝ POHLED -->
+        <div class="quick-look">
+            <h3 style="margin-top:0; border-bottom:none;">RYCHLÝ POHLED</h3>
+            <table>
+                <tr><td><strong>Karta</strong></td><td><code>images/moucha.jpg</code></td></tr>
+                <tr><td><strong>Text karty</strong></td><td><code>moucha v průseru</code></td></tr>
+                <tr><td><strong>Jádrová dysfunkce</strong></td><td>Normalizovaný chaos a slepota k vlastnímu problému</td></tr>
+                <tr><td><strong>Klíčová otázka</strong></td><td>„Co je naším ‚neviditelným dvorkem‘ a co by mohlo být naší ‚mouchou‘?“</td></tr>
+            </table>
+        </div>
+
+        <!-- OBSAH -->
+        <div class="toc" id="obsah">
+            <strong>OBSAH:</strong>
+            <a href="#pohadka">📘 Pohádka</a>
+            <a href="#jadro">🎯 Jádro a 3 otázky</a>
+            <a href="#uhly">🧠 12 úhlů</a>
+            <a href="#workshop">📋 Workshop</a>
+            <a href="#kreativni-mod">🎨 Kreativní mód</a>
+            <a href="#matice">📊 Matice</a>
+            <a href="#pouziti">🚀 Použití</a>
+            <a href="#propojeni">🔗 Propojení</a>
+            <a href="#licence">📄 Licence</a>
+        </div>
+
+        <!-- ========== POHÁDKA ========== -->
+        <h2 id="pohadka">📘 POHÁDKA</h2>
+        <h3>O moruši a mouše</h3>
+        <p><em>aneb jak se průser stal rájem</em></p>
+
+        <p>Kdysi — ale klidně i dnes odpoledne —<br>
+        stála na dvorku stará moruše.<br>
+        Nebyla krásná.<br>
+        Nebyla vznešená.<br>
+        Nebyla praktická.<br>
+        Padala z ní sladká, temná plíseň léta,<br>
+        která barvila chodník, boty i svědomí.</p>
+
+        <p>Pod moruší žili bordeláři.<br>
+        Ne ti dramaticky rozházení.<br>
+        Ti by měli styl.<br>
+        Tihle bordeláři byli tiší.<br>
+        Nechávali věci tam, kde zůstaly.<br>
+        Hrnek, který „ještě použiju“.<br>
+        Papíry, které „se budou hodit“.<br>
+        Skvrny, které „zaschnou a zmizí“.<br>
+        Nezmizely.</p>
+
+        <p>Slunce peklo.<br>
+        Moruše kapala.<br>
+        Zbytky hnily.<br>
+        A svět pod stromem pomalu měnil skupenství.</p>
+
+        <p>Pak přiletěla moucha.<br>
+        Nebyla výjimečná.<br>
+        Nebyla hrdinská.<br>
+        Byla dokonale mouchovitá</p>
+
+        <p>Přiletěla z průseru.<br>
+        Cizího.<br>
+        Jejího ne.</p>
+
+        <p>Kroužila nad dvorkem.<br>
+        Zachytila vůni.<br>
+        Země.<br>
+        Sladkosti.<br>
+        Rozkladu.<br>
+        Možnosti.</p>
+
+        <p>A přistála.</p>
+
+        <p>Pro bordeláře: katastrofa.<br>
+        Pro mouchu: švédský stůl existence.</p>
+
+        <p>Sedla si na flek pod moruší,<br>
+        který vznikl pomalu,<br>
+        po kapkách,<br>
+        bez zlého úmyslu,<br>
+        bez plánu,<br>
+        bez svědků.</p>
+
+        <p>Zabzučela.<br>
+        Ne hlasitě.<br>
+        Jen dost, aby to v tichu bylo slyšet.</p>
+
+        <p>Bordeláři zvedli hlavy.</p>
+
+        <p>„Fuj.“</p>
+
+        <p>A v tu chvíli si všimli:<br>
+        skvrn,<br>
+        lepkavosti,<br>
+        vůně, která není vůně,<br>
+        života, který se dal do pohybu.</p>
+
+        <p>Mávali rukama.<br>
+        Nadávali.<br>
+        Hledali hadr.<br>
+        Hledali viníka.</p>
+
+        <p>Moucha si slastně zabzukala.<br>
+        Ten zvuk nebyl hlasitý.<br>
+        Jen nešel ignorovat.</p>
+
+        <p>Jeden z bordelářů mávl rukou.<br>
+        Druhý zaklel.<br>
+        Třetí zvedl botu ze země — a zůstala přilepená k podlaze.<br>
+        Čtvrtý si poprvé všiml, že skvrna není skvrna.<br>
+        Je to geologie.</p>
+
+        <p>Moucha přeběhla o pár centimetrů dál.</p>
+
+        <p>A náhle to viděli.<br>
+        Ne mouchu.<br>
+        Sebe.</p>
+
+        <p>Lepkavá metafyzika reality se přilepila na jejich pozornost.<br>
+        Šlápnutí zanechávalo otisky.<br>
+        Otisky vytvářely vrstvy.<br>
+        Vrstvy vytvářely historii.<br>
+        Historie vytvářela past.</p>
+
+        <p>„Tohle nejde uklidit,“ řekl jeden.<br>
+        „Jak se to stalo?“ řekl druhý.</p>
+
+        <p>Nikdo neodpověděl.</p>
+
+        <p>Moucha se najedla.<br>
+        Pro ni to byl ráj.<br>
+        Pro ně to byl konečně viditelný problém.<br>
+        Ne proto, že by byl nový.<br>
+        Ale protože začal bzučet.</p>
+
+        <p>A v tom bzučení bylo slyšet:<br>
+        odkládání,<br>
+        únava,<br>
+        zítřek,<br>
+        který nikdy nepřišel.</p>
+
+        <p>Jeden zvedl krabici.<br>
+        Pod ní byl jiný svět.<br>
+        Druhý otevřel okno.<br>
+        Vzduch nevěděl, že smí dovnitř.<br>
+        Třetí vynesl pytel.<br>
+        Byl těžší, než čekal.<br>
+        Čtvrtý se poprvé nerozhodl sednout.</p>
+
+        <p>Nikdo nic nesliboval.<br>
+        Nikdo se nepřevtělil v lepšího člověka.<br>
+        Jen poprvé uviděli tvar problému.</p>
+
+        <p>Moucha seděla.<br>
+        Nebyl to pro průser její, ale byl pro ní.<br>
+        Průser byl domov.<br>
+        Tam, kde ostatní viděli zkázu,<br>
+        ona viděla hojnost.<br>
+        Tam, kde oni cítili hanbu,<br>
+        ona cítila teplo světa.<br>
+        Tam, kde oni začali uklízet,<br>
+        ona začala hodovat.</p>
+
+        <p>A bordeláři?<br>
+        Uklízeli.<br>
+        A čím víc uklízeli,<br>
+        tím víc zjišťovali,<br>
+        že bordel nevznikl dnes.<br>
+        Vznikal po kapkách.<br>
+        Rozhodnutí po rozhodnutí.<br>
+        Odložením po odložení.</p>
+
+        <p>A moucha?<br>
+        Ta bzučela.<br>
+        Ne jako výčitka.<br>
+        Jako komentář.</p>
+
+        <p>Najedla se.<br>
+        Ohřála se.<br>
+        Pak odletěla.<br>
+        Protože ráj není místo,<br>
+        kde zůstaneš.<br>
+        Je to místo,<br>
+        které tě už nepotřebuje.</p>
+
+        <p>Pod moruší zůstal dvorek.<br>
+        Čistší.<br>
+        Pomalejší.<br>
+        Trochu stydlivý.</p>
+
+        <p>Bordeláři stáli v tichu,<br>
+        které nebylo prázdné.</p>
+
+        <p>A někde vysoko nad nimi<br>
+        kroužila moucha,<br>
+        hledající další cizí průser,<br>
+        který by se dal proměnit<br>
+        v dokonalý svět.</p>
+
+        <p>Protože pro mouchu není hovno problém.<br>
+        Je to příležitost.<br>
+        A svět je plný příležitostí.</p>
+
+        <p>Konec.</p>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== JÁDROVÁ DYSFUNKCE A 3 OTÁZKY ========== -->
+        <h2 id="jadro">🎯 JÁDROVÁ DYSFUNKCE A 3 OTÁZKY</h2>
+        <p><strong>Tři diagnostické otázky:</strong></p>
+        <ol>
+            <li><strong>Q1:</strong> Proč si bordeláři přestali všímat vlastního dvorku, a naopak moucha v něm okamžitě našla ráj?</li>
+            <li><strong>Q2:</strong> Kde v našem týmu máme vlastní „moruši“ – místo, proces nebo zvyk, který je už tak dlouho nefunkční, že jsme si ho přestali všímat? Kdo by mohl být naší „mouchou“?</li>
+            <li><strong>Q3:</strong> Co by se muselo stát, abychom my sami dokázali vidět svůj „dvorek“ očima mouchy – ne jako vlastní selhání, ale jako prostředí, které lze změnit?</li>
+        </ol>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== 12 PRACOVNÍCH ÚHLŮ ========== -->
+        <h2 id="uhly">🧠 12 PRACOVNÍCH ÚHLŮ (ukázka)</h2>
+
+        <div class="angle-block">
+            <div class="angle-title">1. Absurdní úhel (paradoxní realita)</div>
+            <p><strong>Q1:</strong> „Průser je relativní. Co je pro jednoho katastrofa, je pro druhého ráj.“</p>
+            <p><strong>Q2:</strong> „Zaujala mě věta: 'Moucha v průseru'. Je to dokonalý absurdní obraz.“</p>
+            <p><strong>Q3:</strong> „Podívat se na největší problém a zkusit ho popsat jako ráj pro někoho jiného.“</p>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">2. Jazykový úhel (řeč ticha a bzukotu)</div>
+            <p><strong>Q1:</strong> „Příběh je o tom, jak se problém stane slyšitelným. Bordeláři žili v tichu, dokud se neozval bzukot.“</p>
+            <p><strong>Q2:</strong> „Moucha zabzučela. Ne hlasitě. Jen dost, aby to v tichu bylo slyšet.“</p>
+            <p><strong>Q3:</strong> „Hledat v týmu 'bzukot' – tiché signály, že něco není v pořádku.“</p>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">3. Ironický úhel (když se řešení stává problémem)</div>
+            <p><strong>Q1:</strong> „Ironií je, že bordeláři by nejradši zabili mouchu, která jim problém zviditelnila.“</p>
+            <p><strong>Q2:</strong> „Pro mouchu nebyl průser její, ale byl pro ní.“</p>
+            <p><strong>Q3:</strong> „Ptát se: Kdo nebo co z tohoto průseru profituje?“</p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== WORKSHOP ========== -->
+        <h2 id="workshop">📋 WORKSHOP 90 MINUT (struktura)</h2>
+        <p><strong>Část 1: Diagnóza – Kdo jsme v tom příběhu? (30 min)</strong><br>
+        Úvod, čtení pohádky, individuální psaní (morušový a mouší lístek), společná nástěnka.</p>
+        <p><strong>Část 2: Hluboká práce – Jak se stát mouchou? (40 min)</strong><br>
+        Cvičení „Pohled z mouchy“ (popsat problém jako ráj) a nácvik „bzukotu“ ve dvojicích.</p>
+        <p><strong>Část 3: Akční plán – Co bude naším bzukotem? (20 min)</strong><br>
+        Výběr konkrétního „bzukotu“ k realizaci, formulace „Protokolu mouchy“.</p>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== KREATIVNÍ MÓD ========== -->
+        <h2 id="kreativni-mod">🎨 KREATIVNÍ MÓD – UKÁZKY</h2>
+        <p>Princip karty se dá otočit do pozitivního tónu a použít v marketingu, designu či firemní kultuře.</p>
+
+        <div class="creative-block">
+            <strong>1. Pro copywriting: „Hledači skrytých příležitostí“</strong><br>
+            <em>Insight:</em> Moucha vidí ráj tam, kde ostatní vidí průser.<br>
+            <em>Využití:</em> Kampaň pro firmu, která nachází řešení v místech, kde ostatní vidí slepou uličku.<br>
+            <em>Příklad:</em> „Zatímco jiní vidí nepořádek, my vidíme švédský stůl. Specialisté na objevování příležitostí.“
+        </div>
+        <div class="creative-block">
+            <strong>2. Pro product design: „Design, který bzučí“</strong><br>
+            <em>Insight:</em> Malý, neignorovatelný impuls spustí velkou změnu.<br>
+            <em>Využití:</em> Produkt s vestavěným „bzukotem“, který jemně upozorní na přehlížené věci.<br>
+            <em>Příklad:</em> Aplikace, která jednou denně pošle otázku: „Na co jsi dnes zapomněl?“
+        </div>
+        <div class="creative-block">
+            <strong>3. Pro vizuální identitu: „Estetika lepkavé reality“</strong><br>
+            <em>Insight:</em> Krása vzniká z rozkladu, z vrstev času, z odložených věcí.<br>
+            <em>Využití:</em> Vizuální styl pracující s texturami, kapkami, skvrnami.<br>
+            <em>Příklad:</em> Logo, kde má každá skvrna svůj příběh – moucha sedící na nedokonalé kompozici.
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== DIAGNOSTICKÁ MATICE ========== -->
+        <h2 id="matice">📊 DIAGNOSTICKÁ MATICE</h2>
+
+        <div class="matrix-row" style="border-top:1px solid #aaa;">
+            <div class="matrix-cell"><strong>Dominantní úhel</strong></div>
+            <div class="matrix-cell"><strong>Diagnóza</strong></div>
+            <div class="matrix-cell"><strong>Intervence</strong></div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Absurdní</div>
+            <div class="matrix-cell">Tým si zvykl na absurdní stav a považuje ho za normální.</div>
+            <div class="matrix-cell">Pozvat externího pozorovatele, ať popíše, co vidí.</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Jazykový</div>
+            <div class="matrix-cell">V týmu panuje ticho o zásadních problémech.</div>
+            <div class="matrix-cell">Zavést „minutu bzukotu“ na každém meetingu.</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Ironický</div>
+            <div class="matrix-cell">Systém profituje z chaosu.</div>
+            <div class="matrix-cell">Identifikovat, kdo z problému těží, a přesměrovat ho.</div>
+        </div>
+        <div class="matrix-row" style="border-bottom:1px solid #aaa;">
+            <div class="matrix-cell">Naivní</div>
+            <div class="matrix-cell">Tým ztratil schopnost vidět věci poprvé.</div>
+            <div class="matrix-cell">Každý si zkusí roli nováčka a ptá se „proč?“.</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== JAK KARTU POUŽÍVAT ========== -->
+        <h2 id="pouziti">🚀 JAK KARTU POUŽÍVAT</h2>
+        <ol>
+            <li>Přečtěte <strong>pohádku</strong> – nahlas, společně.</li>
+            <li>Položte <strong>3 diagnostické otázky</strong> – každý odpovídá sám za sebe.</li>
+            <li>Analyzujte odpovědi podle <strong>12 úhlů</strong> – získáte profil týmu.</li>
+            <li>Podle převažujících úhlů vyberte <strong>intervenci</strong> z matice.</li>
+            <li>Proveďte <strong>workshop</strong> (90 minut) pro hlubší práci.</li>
+            <li>Využijte <strong>kreativní mód</strong> pro pozitivní inspiraci.</li>
+        </ol>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== PROPOJENÍ S DALŠÍMI KARTAMI ========== -->
+        <h2 id="propojeni">🔗 PROPOJENÍ S DALŠÍMI KARTAMI</h2>
+
+        <div class="connection-grid">
+            <div class="connection-item"><strong>Kocour</strong> Kocour problémy „sežere“ (ukončí je), moucha je zviditelní.</div>
+            <div class="connection-item"><strong>Paroží</strong> Paroží sbírá „blesky“ pozornosti, moucha přináší „bzukot“.</div>
+            <div class="connection-item"><strong>Osel</strong> Osel bloudí mezi hromadami, moucha si v tom udělá ráj.</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== LICENCE ========== -->
+        <h2 id="licence">📄 LICENCE</h2>
+        <p>Tato karta podléhá licenci <strong>Creative Commons Attribution-NonCommercial-ShareAlike 4.0</strong>. Můžete ji sdílet a upravovat pro nekomerční účely, pokud uvedete autorku a zachováte stejnou licenci.</p>
+        <p>Plná komerční verze (včetně všech souborů a firemní licence) je dostupná za 25 000 Kč. Kontakt: <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a></p>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- PATIČKA -->
+        <div class="footer">
+            © Michaela Nováková · licence CC BY-NC-SA 4.0
+        </div>
+
+    </div>
+</body>
+</html>
