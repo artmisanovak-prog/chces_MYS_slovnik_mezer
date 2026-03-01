@@ -180,7 +180,7 @@ html) | 29 000 Kč |
 
 > **Lze karty kombinovat?**
 > Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
-> Jak karty kombinovat popisuje [samostatný návod](doma/MYS/jak_kombinovat.html) a [uvnitř karty](doma/MYS/uvnitr_kocoura.md) nebo [karty mezi sebou](doma/MYS/plamenak_a_kocour.md)
+> Jak karty kombinovat popisuje [samostatný návod](doma/MYS/jak_kombinovat.html) a [uvnitř karty](doma/MYS/uvnitr_kocour.html) nebo [karty mezi sebou](doma/MYS/plamenak_a_kocour.html)
 
 ---
 
@@ -257,7 +257,7 @@ Nemusíš se naučit 12 perspektiv. Stačí, když pochopíš,
 ---
 
 ## **Chyba jako styl**
-[Přečtěte si](doma/MYS/chyba_jako_styl.md)
+[Přečtěte si](doma/MYS/chyba_jako_styl.html)
 
 ---
 
@@ -274,7 +274,7 @@ Contact: **chcesmys@gmail.com**
 
 ## ✨ Kombinace:
 
-- [Ukázka kombinace karet](./doma/MYS/plamenak_a_kocour.md)
+- [Ukázka kombinace karet](./doma/MYS/plamenak_a_kocour.html)
 - [Jak kombinovat karty](./doma/MYS/jak_kombinovat.html)
 
 ---
