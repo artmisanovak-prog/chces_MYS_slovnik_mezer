@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chyba jako styl · Velká myšlenka o menším zlu</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin: 3rem 0 1.2rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+            color: #000;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin: 2.5rem 0 1rem;
+            color: #222;
+            font-style: italic;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.8rem 0 0.5rem;
+            color: #000;
+        }
+
+        /* Běžný text */
+        p {
+            color: #222;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Odrážky a seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+
+        /* Zvýrazněné bloky */
+        .highlight-box {
+            background: #f8f8f8;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .separator {
+            text-align: center;
+            margin: 2rem 0;
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        /* Citace / kurzíva */
+        .quote {
+            font-style: italic;
+            color: #444;
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            border-left: 2px solid #aaa;
+        }
+
+        .bold {
+            font-weight: 600;
+            color: #000;
+        }
+
+        /* Číslované kroky s odsazením */
+        .step-item {
+            margin: 1.2rem 0;
+            padding-left: 1rem;
+            border-left: 2px solid #ccc;
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .step-desc {
+            margin-left: 1.5rem;
+            color: #333;
+        }
+
+        /* Patička */
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        /* Pro zvýraznění tučného textu */
+        strong {
+            color: #000;
+        }
+
+        /* Obrázek (volitelný) */
+        .main-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 2rem auto;
+            border: 1px solid #444;
+            filter: grayscale(100%);
+            display: block;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 2.5rem 0;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS S EMOJI -->
+        <h1>🐘 Velká myšlenka o „menším zlu“</h1>
+
+        <!-- SEKCE O AUTORCE -->
+        <h2>👩‍🎨 O autorce: CHYBA JAKO STYL</h2>
+
+        <p><em>Popis tvůrčího procesu aneb: Potřebuju něco zkazit, aby to začalo být zajímavé.</em></p>
+
+        <p>Lidé se tváří, že tvoří s vizí a kontrolou. Ve skutečnosti většina hodnotných věcí vznikne ve chvíli, kdy se plán rozpadne a člověk místo paniky začne být zvědavý.</p>
+
+        <h3>🧠 Můj mechanismus učení</h3>
+
+        <div class="step-item">
+            <div class="step-title">1. <strong>Záměr</strong></div>
+            <div class="step-desc"><em>„Namaluju to takhle.“</em><br>Mozek jede podle známého vzorce.</div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-title">2. <strong>Chyba</strong></div>
+            <div class="step-desc">
+                Něco se ukazuje.<br>
+                - barva se slije<br>
+                - tvar ujede<br>
+                - kompozice se rozpadnou<br>
+                ➡ Vypnutí autopilota.
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-title">3. <strong>Přizpůsobit se</strong></div>
+            <div class="step-desc">
+                <em>„Co s tím teď?“</em><br>
+                → nové řešení<br>
+                → jiný tah<br>
+                → jiný dráz<br>
+                → nový styl
+            </div>
+        </div>
+
+        <p>A najednou vznikne něco živého.<br>
+        Ne proto, že jsem to plánovala.<br>
+        Proto jsem reagovala.</p>
+
+        <p>Až díky chybě mě to teprve začne bavit.</p>
+
+        <hr>
+
+        <!-- DOKUD JDE VŠE PODLE PLÁNU -->
+        <h3>🤖 Dokud jde vše podle plánu</h3>
+
+        <ul>
+            <li>může jed rutinu</li>
+            <li>minimální pozornost</li>
+            <li>minimální objevování</li>
+        </ul>
+
+        <p><strong>Chyba přepne mozek do režimu:</strong><br>
+        ✔ soustředění<br>
+        ✔ hledání řešení<br>
+        ✔ experiment<br>
+        ✔ přítomnost</p>
+
+        <p>To je stav, kdy se opravdu učíme.</p>
+
+        <hr>
+
+        <!-- CHYBA JAKO NARUŠENÍ AUTOPILOTA -->
+        <h3>⚡ Chyba jako narušení autopilota</h3>
+
+        <p>Mozek šetří energii. Rád opakuje známé.<br>
+        Chyba = narušení vzorku<br>
+        → pozornost zapnutá<br>
+        → vzniká nové spojení</p>
+
+        <p>Bez narušení není růst.</p>
+
+        <hr>
+
+        <!-- KDYŽ JE TO "ZKAŽENÉ" -->
+        <h3>🕊️ Když je to "zkažené"</h3>
+
+        <p>Přestanu se bát, že to zkazím.<br>
+        A ačkoli mi nikdo neřekl, jak to má být správně, zmizí tlak dokonalosti.</p>
+
+        <p><strong>Dokonalost svazuje. Zkaženost osvobozuje.</strong></p>
+
+        <p>Hned <em>"už je to zničené"</em> :<br>
+        → můžeš experimentovat<br>
+        → můžeš riskovat<br>
+        → můžeš si hrát</p>
+
+        <p>A hra je prostor obj.</p>
+
+        <hr>
+
+        <!-- HISTORICKY: CHYBY POSOUVAJÍ SVĚT -->
+        <h3>🔥 Historicky: chyby posouvají svět</h3>
+
+        <p><em>(Ne metafora. Fakt.)</em></p>
+
+        <ul>
+            <li><strong>Keramika</strong> vznikla z přepálené hliny.</li>
+            <li><strong>Sklo</strong> z přehřátého písku.</li>
+            <li><strong>Penicilin</strong> z kontaminované kultury.</li>
+            <li><strong>Post-it</strong> z neúspěšného lepidla.</li>
+        </ul>
+
+        <p>Neúspěch = nová kategorie.</p>
+
+        <hr>
+
+        <!-- ZVÍŘATA VS. LIDÉ -->
+        <h3>🐑 Zvířata vs. lidé</h3>
+
+        <p>Ovce reaguje instinktem.<br>
+        Člověk dokazuje:<br>
+        - zapamatovat si chybu<br>
+        - změnit chování<br>
+        - vytvořit nástroj<br>
+        - změnit prostředí</p>
+
+        <hr>
+
+        <!-- UČENÍ NENÍ MEMOROVÁNÍ -->
+        <h3>📚 Učení není memorování</h3>
+
+        <p>Je to <strong>změna strategie</strong>.<br>
+        „Učit se“ není cpát vědomosti – to je školní zkratka.</p>
+
+        <p>Skutečné učení je:<br>
+        ✔ rozšiřování perspektiv<br>
+        ✔ schopnost vidět souvislosti<br>
+        ✔ orientace v neznámém<br>
+        ✔ schopnost najít informace<br>
+        ✔ přizpůsobení se situaci</p>
+
+        <p>Nemít všechno v hlavě.<br>
+        Vědět, <strong>jak myslet</strong>.</p>
+
+        <hr>
+
+        <!-- MINULÉ BEZCHYBNOSTI -->
+        <h3>⚠️ Minulé bezchybnosti</h3>
+
+        <p>Když je cílem nikdy nechybovat:<br>
+        - vyhrazuješ si bezpečnostní postupy<br>
+        - neriskuješ<br>
+        - neexperimentuješ<br>
+        - nerozšiřuješ možnosti</p>
+
+        <p>Výsledek: správně, ale mrtvě.</p>
+
+        <hr>
+
+        <!-- VELKÁ MYŠLENKA O MENŠÍM ZLU -->
+        <h2>🐘 Velká myšlenka o „menším zlu“</h2>
+
+        <ul>
+            <li><strong>Velké riziko:</strong> viditelné, hlídané, regulované, kontrolované.</li>
+            <li><strong>Malé drobné chyby:</strong> přehlížené, hromadí se, normalizují se, škodí dlouhodobě.</li>
+        </ul>
+
+        <p>V systémech často nezabíjí katastrofa.<br>
+        Zabíjejí drobná zanedbání.</p>
+
+        <hr>
+
+        <!-- PROČ VĚCI NEJSOU TAK, JAK ČEKÁME -->
+        <h3>🌈 Proč věci nejsou tak, jak čekáme</h3>
+
+        <p>Protože mozek miluje jednoduché příběhy:<br>
+        - dobré × špatné<br>
+        - bezpečné × nebezpečné<br>
+        - správné × chybné</p>
+
+        <p>Realita je:<br>
+        - kontext<br>
+        - dopady<br>
+        - čas<br>
+        - souvislosti</p>
+
+        <p><strong>Slovník mezer</strong> ukazuje, jak vidět tyhle vrstvy.</p>
+
+        <hr>
+
+        <!-- SHRNUTÍ -->
+        <h3>🧩 Shrnutí</h3>
+
+        <p>Chyba tě vyruší z automatismu.<br>
+        Vyrušení zapne pozornost.<br>
+        Pozornost otevírá nové možnosti.<br>
+        A tam začíná skutečné učení.</p>
+
+        <p>A možná mě tvorba začne opravdu bavit až ve chvíli, kdy přestanu kontrolovat a reagovat na realitu, která vzniká.</p>
+
+        <p>To se netýká procesu selhání.<br>
+        To je <strong>proces</strong>.</p>
+
+        <!-- PATIČKA -->
+        <div class="footer">
+            © Michaela Nováková · Chyba jako styl
+        </div>
+
+    </div>
+</body>
+</html>
