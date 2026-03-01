@@ -201,7 +201,7 @@ Plná verze (29 000 Kč) obsahuje:
 ---
 
 📧 **Kontakt:** chcesmys@gmail.com  
-📌 **Ukázka zdarma:** [Karta Kocour](/doma/KOCOUR/) – vyzkoušejte si, jak systém funguje
+📌 **Ukázka zdarma:** [Karta Kocour](https://artmisanovak-prog.github.io/chces_MYS_slovnik_mezer/doma/KOCOUR/data/landing_page_kocour.html) – vyzkoušejte si, jak systém funguje
 
 © Michaela Nováková  
 Licence ukázky: CC BY-NC-SA 4.0
