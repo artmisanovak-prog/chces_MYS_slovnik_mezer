@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jak používat systém · Chceš myš?</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 950px;
+            width: 100%;
+        }
+
+        /* Nadpisy – pouze stupně šedi */
+        h1, h2, h3 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 2rem 0 0.8rem;
+            color: #222;
+            font-weight: 400;
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 0.3rem;
+        }
+
+        /* Běžný text */
+        p, li, .note {
+            color: #222;
+            font-size: 1.05rem;
+        }
+
+        /* Zvýrazněné bloky */
+        .highlight-box {
+            background: #f6f6f6;
+            padding: 1.5rem 2rem;
+            border-left: 4px solid #333;
+            margin: 2rem 0;
+        }
+
+        .tip-box {
+            background: #f8f8f8;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border: 1px solid #ddd;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 3rem 0;
+            width: 30%;
+        }
+
+        /* Seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* FAQ blok */
+        .faq-item {
+            margin: 1.2rem 0;
+            padding-left: 0.5rem;
+            border-left: 2px solid #ccc;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-answer {
+            color: #333;
+        }
+
+        /* Odkazy – černobílé, bez podtržení */
+        a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        .badge {
+            background: #333;
+            color: #fff;
+            padding: 0.15rem 0.6rem;
+            font-size: 0.85rem;
+            margin-right: 0.6rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS -->
+        <h1>Jak používat systém<br>„Chceš myš?“</h1>
+
+        <!-- SEKCE PRO JEDNOTLIVCE -->
+        <h2>Pro jednotlivce</h2>
+        <ol>
+            <li><strong>Začněte s Myší</strong> – Přejděte do <a href="../MYS/index.html">MYŠ</a> a projděte si diagnostický nástroj.</li>
+            <li><strong>Přečtěte si pohádku</strong> a odpovězte na 3 otázky.</li>
+            <li><strong>Vyhodnoťte své odpovědi</strong> pomocí Klíče k úhlům.</li>
+            <li><strong>Zjistěte svůj myšlenkový styl</strong> a které karty by pro vás mohly být užitečné.</li>
+        </ol>
+
+        <!-- SEKCE PRO TÝMY -->
+        <h2>Pro týmy</h2>
+        <ol>
+            <li><strong>Nechte každého člena</strong> projít diagnostikou s Myší.</li>
+            <li><strong>Vytvořte kolektivní mapu</strong> myšlenkových stylů v týmu.</li>
+            <li><strong>Identifikujte potenciální problémy</strong> – pokud tým převažuje v určitých úhlech, může to signalizovat dysfunkce.</li>
+            <li><strong>Vyberte vhodnou kartu</strong> k řešení identifikovaného problému.</li>
+        </ol>
+
+        <!-- SEKCE PRO FACILITÁTORY -->
+        <h2>Pro facilitátory/konzultanty</h2>
+        <ol>
+            <li><strong>Použijte Myš</strong> jako úvodní diagnostický nástroj pro klienty.</li>
+            <li><strong>Doporučte konkrétní karty</strong> na základě zjištěných problémů.</li>
+            <li><strong>Použijte workshopy</strong> z karet jako strukturované intervence.</li>
+            <li><strong>Kombinujte karty</strong> pro řešení komplexních problémů.</li>
+        </ol>
+
+        <!-- TIPY PRO EFEKTIVNÍ POUŽITÍ -->
+        <h2>Tipy pro efektivní použití</h2>
+        <div class="tip-box">
+            <ul style="margin:0;">
+                <li><strong>Pohádky čtěte nahlas</strong> – vytváří to silnější zážitek a lepší porozumění.</li>
+                <li><strong>Odpovídejte anonymně</strong> – získáte upřímnější odpovědi.</li>
+                <li><strong>Nespěchejte</strong> – nechte myšlenkám čas dozrát.</li>
+                <li><strong>Diskutujte o rozdílech</strong> – různé pohledy jsou hodnotou, ne problémem.</li>
+            </ul>
+        </div>
+
+        <!-- ODDĚLOVAČ -->
+        <hr>
+
+        <!-- ČASTÉ OTÁZKY -->
+        <h2>Časté otázky</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">Q: Musím začít s Myší?</div>
+            <div class="faq-answer">A: Ne, ale je to doporučeno. Myš vám pomůže pochopit, jak systém funguje.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q: Kolik času to zabere?</div>
+            <div class="faq-answer">A: Diagnostika s Myší: 15–30 minut. Workshop z karty: 90 minut.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q: Mohu kombinovat karty?</div>
+            <div class="faq-answer">A: Ano, to je jedna z hlavních výhod systému. Podívejte se na <a href="../MYS/jak_kombinovat.md">ukázku kombinace</a> nebo <a href="../MYS/uvnitr_kocoura.md">uvnitř karty</a>.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Q: Je to vhodné pro malé týmy?</div>
+            <div class="faq-answer">A: Ano, pro týmy od 3 lidí. Lze použít i pro jednotlivce nebo velké organizace.</div>
+        </div>
+
+        <!-- PATIČKA (VOLITELNÉ) -->
+        <div class="footer">
+            &copy; 2026 • myš_DEMO • Jak používat systém
+        </div>
+
+    </div>
+</body>
+</html>
