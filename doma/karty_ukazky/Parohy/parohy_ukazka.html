@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parohy · Ukázka karty</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+            font-weight: 400;
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 0.3rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Obrázek */
+        .main-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 2rem auto;
+            border: 1px solid #444;
+            filter: grayscale(100%);
+            transition: filter 0.2s ease;
+            display: block;
+        }
+
+        .main-image:hover {
+            filter: grayscale(80%);
+        }
+
+        /* Běžný text */
+        p, li, .table-text {
+            color: #222;
+            font-size: 1.05rem;
+        }
+
+        /* Rychlý pohled – tabulka */
+        .quick-look {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #ccc;
+        }
+
+        .quick-look table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .quick-look td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .quick-look td:first-child {
+            font-weight: 600;
+            width: 30%;
+        }
+
+        /* Bloky pro úhly */
+        .angle-block {
+            background: #f9f9f9;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .angle-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Matice */
+        .matrix-row {
+            display: flex;
+            border-bottom: 1px dotted #aaa;
+            padding: 0.8rem 0;
+        }
+
+        .matrix-cell {
+            flex: 1;
+            padding: 0 0.5rem;
+        }
+
+        .matrix-cell:first-child {
+            font-weight: 600;
+            flex: 0.8;
+        }
+
+        /* Seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Propojení s kartami – mřížka */
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .connection-item {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-left: 3px solid #333;
+        }
+
+        .connection-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* CTA / kontakt */
+        .cta-box {
+            background: #f2f2f2;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid #aaa;
+        }
+
+        .cta-box a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+
+        .cta-box a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        /* Obsah (toc) */
+        .toc {
+            background: #f5f5f5;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+        }
+
+        .toc a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+            margin-right: 1.2rem;
+            display: inline-block;
+        }
+
+        /* Zpět na obsah */
+        .back-to-top {
+            text-align: right;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .back-to-top a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS S EMOJI -->
+        <h1>🫎 PAROHY – Ukázka karty</h1>
+
+        <!-- OBRAZEK – cesta: doma/parohy.jpg (lze upravit) -->
+        <img class="main-image" src="doma/parohy.jpg" alt="Ilustrace paroží – černobílá" onerror="this.style.opacity='0.3'; this.alt='Obrázek nenalezen (doma/parohy.jpg)';">
+
+        <!-- OBSAH -->
+        <div class="toc" id="obsah">
+            <strong>OBSAH:</strong>
+            <a href="#pohadka">📘 Pohádka</a>
+            <a href="#otazky">🎯 3 otázky</a>
+            <a href="#uhly">🧠 Ukázka úhlů</a>
+            <a href="#workshop">🛠️ Workshop</a>
+            <a href="#matice">📊 Matice</a>
+            <a href="#proc">💡 Proč jsou klíčové</a>
+            <a href="#propojeni">🔗 Propojení</a>
+        </div>
+
+        <!-- JÁDROVÁ DYSFUNKCE -->
+        <h2>Jádrová dysfunkce</h2>
+        <p><strong>Identita jako archiv performancí.</strong> Tým (nebo jednotlivec) je definován nikoli tím, co dělá nebo čím je, ale tím, jak je zdokumentován, hodnocen a vystavován. Každý „blesk“ pozornosti (meeting, prezentace, report, pochvala) přidává větev do „paroží“ image, ale nedochází k hlubšímu prožitku, rezonanci („hromu“) či skutečné změně („dešti“).</p>
+        <p>Identita se stává „živým albem“ prázdných gest, úsměvů a okamžiků, které „nikdo už nechce pamatovat“, ale které subjekt musí nést. Je to o vyprázdněné identitě budované na zpětné vazbě v reálném čase – o bytosti, která je těžká od světla (dat, obrazů, pozornosti) a lehká od smyslu.</p>
+
+        <!-- RYCHLÝ POHLED -->
+        <div class="quick-look">
+            <h3 style="margin-top:0; border-bottom:none;">RYCHLÝ POHLED</h3>
+            <table>
+                <tr><td><strong>Karta</strong></td><td>🦌 Parohy</td></tr>
+                <tr><td><strong>Jádrová dysfunkce</strong></td><td>Identita jako archiv performancí</td></tr>
+                <tr><td><strong>Klíčová otázka</strong></td><td>„Rostou nám paroží z toho, co o nás zaznamenávají, místo z toho, čím skutečně jsme?“</td></tr>
+            </table>
+        </div>
+
+        <!-- ========== POHÁDKA ========== -->
+        <h2 id="pohadka">📘 Pohádka</h2>
+        <h3>O PAROZÍCH, které sbíraly blesky</h3>
+
+        <p>Byl jednou jeden člověk. Nebo jelen. Nebo něco mezi.<br>
+        Měla parohy. Ale ne obyčejné.<br>
+        Byly to bleskosběrné parohy.<br>
+        Ne pro počasí.<br>
+        Pro paměť.</p>
+
+        <p>Každý den do ní uhodil blesk.<br>
+        Ne z nebe.<br>
+        Z foťáku.<br>
+        Z cvaknutí.<br>
+        Z „sýýýr!“</p>
+
+        <p>Tisíckrát.<br>
+        Blesk.<br>
+        Ale nikdy hrom.<br>
+        Žádný déšť.<br>
+        Jen světlo.<br>
+        A úsměv.<br>
+        A paměť, co se nikdy neptá, jestli je pravdivá.</p>
+
+        <p>Říkali jí Sýýýr.<br>
+        Jako „sýr“, ale s ozvěnou.<br>
+        Protože když se usmívala, bylo to jako když se slovo snaží být obrazem.<br>
+        A když se neusmívala, stejně se to vyfotilo.</p>
+
+        <p>Parohy jí rostly pokaždé, když ji někdo vyfotil.<br>
+        Jedna větev za každou vzpomínku.<br>
+        Jedna zákruta za každé „sýýýr“.<br>
+        A tak se stala živým albem.<br>
+        Chodila po světě a nosila na hlavě všechny momenty, které nikdo už nechtěl pamatovat.</p>
+
+        <p>Tak chodila dál a šla dál<br>
+        s parohy jako s anténami.<br>
+        Těžká od světla.<br>
+        Lehká od smyslu.<br>
+        A když ji někdo potkal, řekl:<br>
+        „To je ta, co má parohy z paměti. Ta, co nikdy nezmokne. Ta, co se usmívá, i když neví proč.“</p>
+
+        <p>Od té doby se říká, že když tě někdo vyfotí a ty se usměješ,<br>
+        možná se ti právě začíná klubat nový paroh.</p>
+
+        <p>A že „sýýýr“ není jen zvuk.<br>
+        Je to stopa řeči v obraze.<br>
+        Je to blesk bez bouřky.<br>
+        Je to paměť, co se tváří jako přítomnost.</p>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== 3 DIAGNOSTICKÉ OTÁZKY ========== -->
+        <h2 id="otazky">🎯 3 diagnostické otázky</h2>
+        <ol>
+            <li><strong>Q1 (Inventura našeho paroží):</strong> „Co jsou v našem týmu ty ‚bleskosběrné parohy‘? Které procesy, metriky, reporty nebo rituály generují prázdné ‚blesky‘ (světlo, data, image) bez následného ‚hromu‘ (reálného dopadu, diskuse, změny) a ‚deště‘ (občerstvení, růstu, uvolnění)?“</li>
+            <li><strong>Q2 (Rozpoznání ‚Sýýýr‘):</strong> „Kdo nebo co v našem systému říká ‚Sýýýr‘ – tedy spouští ten okamžik performativního úsměvu, zaznamenání, vytvoření image? Je to manažer s foťákem hodnocení? Kultura neustálého reportování? Tlak na veřejné úspěchy?“</li>
+            <li><strong>Q3 (Hledání hromu a deště):</strong> „Jsme ‚těžcí od světla a lehcí od smyslu‘. Co by pro nás znamenal ‚hrom‘ (hluboká, rezonující odezva na naši práci) a ‚déšť‘ (živná, osvěžující zpětná vazba nebo změna)? Jak můžeme přetavit sběr blesků v něco, co má váhu a smysl?“</li>
+        </ol>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== UKÁZKA ÚHLŮ (3 Z 12) ========== -->
+        <h2 id="uhly">🧠 Ukázka úhlů (3 z 12)</h2>
+
+        <div class="angle-block">
+            <div class="angle-title">1. ÚHEL BLESKU BEZ BOUŘKY (Akce bez konsekvence)</div>
+            <p><strong>Jak se projevuje v týmu:</strong> Tým je zahlcen aktivitami, meetingy, reporty, které spotřebovávají energii (blesky), ale nikdy nevedou k rezonující změně (hrom) nebo občerstvujícímu výsledku (déšť). Vzniká iluze pohybu bez skutečného dopadu. Rovnice vyhoření: Světlo + Úsměv – Dopad – Obnova = Prázdná paměť.</p>
+            <p><strong>Co s tím (ukázka řešení):</strong> U každého nového úkolu či meetingu si položit otázku: <strong>„Jaký ‚hrom‘ (dopad) a jaký ‚déšť‘ (užitek pro nás) od toho očekáváme?“</strong> Pokud nejsou, jde o další blesk do paroží.</p>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">2. ÚHEL TĚŽKÁ OD SVĚTLA, LEHKÁ OD SMYSLU (Přehlcení bez významu)</div>
+            <p><strong>Jak se projevuje v týmu:</strong> Tým produkuje tuny výstupů, prezentací, dat, metrik (je těžký od světla), ale zároveň cítí, že jeho práce postrádá hlubší význam (je lehký od smyslu). Množství nahrazuje kvalitu. Členové jsou unavení z kvanta práce, ale prázdní z její podstaty.</p>
+            <p><strong>Co s tím (ukázka řešení):</strong> Provádět pravidelné <strong>„testy hustoty smyslu“</strong>: U každého většího úkolu se zastavit a jednou větou odpovědět: „Proč to děláme a proč je to důležité?“ Pokud nelze, je to jen světlo bez hodnoty.</p>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">3. ÚHEL NOSIČE CIZÍCH VZPOMÍNEK (Dědictví, která nechceme)</div>
+            <p><strong>Jak se projevuje v týmu:</strong> Tým je nucen nést tíhu nesplněných slibů, zastaralých strategií, legacy systémů a zapomenutých selhání vedení. Stává se „živým albem“ pro momenty a rozhodnutí, které už nikdo nechce řešit, ale všichni na nich závisí.</p>
+            <p><strong>Co s tím (ukázka řešení):</strong> Zavést rituál <strong>„snímání parohů“</strong> – pravidelné (např. čtvrtletní) setkání, kde se tým symbolicky zbavuje (archivuje, ruší, deleguje) starých, nepotřebných závazků a procesů, které mu kdosi jiný naložil. Co z našeho „paroží“ nám už neslouží?</p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== WORKSHOP ========== -->
+        <h2 id="workshop">🛠️ Workshop (struktura)</h2>
+        <h3>Workshop: „SBĚR BLESKŮ NEBO ŽIVOT V BOUŘI?“ – 90 minut</h3>
+        <p><strong>Cíl:</strong> Odhalit, co v týmu generuje prázdné „blesky“ (aktivity bez dopadu), identifikovat ztracený „hrom“ (rezonance) a „déšť“ (obnova), a začít transformovat energii z budování image (paroží) do vytváření smysluplné změny.</p>
+
+        <h4>Část 1: Fotografování našeho paroží (30 min)</h4>
+        <ul>
+            <li>Úvod, čtení pohádky</li>
+            <li>Individuální psaní: <strong>ŽLUTÝ LÍSTEK</strong> (blesk – činnost bez dopadu), <strong>MODRÝ LÍSTEK</strong> (paroh – součást našeho vnějšího image), <strong>ŠEDÝ LÍSTEK</strong> (sýr/sýýýr – jak nás vidí okolí vs. jaké je naše skryté jméno)</li>
+            <li>Vytvoření „portrétu týmu v systému“ – obrys postavy s parožím, kam se lepí lístky</li>
+        </ul>
+
+        <h4>Část 2: Přivolání bouře (40 min)</h4>
+        <ul>
+            <li>Skupinová práce <strong>'Alchymie blesku'</strong> – jak přeměnit vybraný „blesk“ na činnost s rezonancí (hrom) a obnovou (déšť)</li>
+            <li>Skupinová práce <strong>'Sundávání parohů'</strong> – návrh „rituálu transformace“ pro vybraný paroh podle skrytého „sýra“</li>
+        </ul>
+
+        <h4>Část 3: Nový růst (20 min)</h4>
+        <ul>
+            <li>Výběr jednoho nápadu na přeměnu a jednoho rituálu k zavedení</li>
+            <li>Tvorba <strong>„Manifestu autentické bouře“</strong> – společná úmluva o novém přístupu</li>
+        </ul>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== DIAGNOSTICKÁ MATICE ========== -->
+        <h2 id="matice">📊 Diagnostická matice</h2>
+
+        <div class="matrix-row" style="border-top:1px solid #aaa;">
+            <div class="matrix-cell"><strong>Dominantní úhel</strong></div>
+            <div class="matrix-cell"><strong>Diagnóza</strong></div>
+            <div class="matrix-cell"><strong>Intervence („Odstranění parohů“)</strong></div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Blesk bez bouřky</div>
+            <div class="matrix-cell">Tým je zahlcen aktivitami bez reálného dopadu.</div>
+            <div class="matrix-cell"><strong>„Týden bez blesků“:</strong> Zrušit všechny neesenciální reporty a meetingy. Místo nich zavést jeden krátký „hromový brief“.</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Těžká od světla, lehká od smyslu</div>
+            <div class="matrix-cell">Tým produkuje tuny výstupů, ale postrádá smysl.</div>
+            <div class="matrix-cell"><strong>„Hunt na smysl“:</strong> U hlavního úkolu každý napíše, jaký smysl v něm vidí. Společně najít společnou linii.</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Nosič cizích vzpomínek</div>
+            <div class="matrix-cell">Tým je zatížen dědictvím starých projektů a rozhodnutí.</div>
+            <div class="matrix-cell"><strong>„Ceremonie spálení parohů“:</strong> Seznam všech „dědictví“ a symbolické/skutečné zbavení se jich.</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Růst zvenčí</div>
+            <div class="matrix-cell">Identita týmu je definována externím hodnocením.</div>
+            <div class="matrix-cell"><strong>„Vnitřní růstový den“:</strong> Tým se hodnotí podle vlastních, interně stanovených kritérií.</div>
+        </div>
+        <div class="matrix-row" style="border-bottom:1px solid #aaa;">
+            <div class="matrix-cell">Paměť jako přítomnost</div>
+            <div class="matrix-cell">Tým žije v minulosti (staré úspěchy, postupy).</div>
+            <div class="matrix-cell"><strong>„Den amnézie“:</strong> Jeden den řešit problémy, jako by byly úplně nové, bez ohledu na „jak se to dělalo“.</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== PROČ JSOU PAROHY KLÍČOVÉ ========== -->
+        <h2 id="proc">💡 Proč jsou Parohy klíčové?</h2>
+        <p>Je to karta digitálního věku a performativní kultury. Dokonale navazuje na <strong>Krokodýla</strong> (komodifikace) a <strong>Hada</strong> (pokřivený jazyk), ale posouvá je do éry totální dokumentace a image. Zatímco Krokodýl prodává emoce a Had má roztržený jazyk, <strong>Parohy</strong> ukazují, jak se stáváme sami sobě archivem, živoucí prezentací.</p>
+        <p>Je to o týmech řízených daty z nástrojů na sledování produktivity, o kultuře „dělejme to pro LinkedIn“, o nemožnosti být neviditelný. Je to karta vyhoření z vlastní image. Parohy přidává klíčovou dimenzi času a paměti v digitální podobě: <strong>Jsme to, co je o nás zaznamenáno.</strong> A to je děsivě silná metafora.</p>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== PROPOJENÍ S DALŠÍMI KARTAMI ========== -->
+        <h2 id="propojeni">🔗 Propojení s dalšími kartami</h2>
+
+        <div class="connection-grid">
+            <div class="connection-item"><strong>Krokodýl</strong> Krokodýl prodává emoce jako zboží. Parohy ukazují, jak se tyto emoce archivují a stávají součástí identity.</div>
+            <div class="connection-item"><strong>Had</strong> Had má roztržený jazyk – nedokáže sdělit celou pravdu. Parohy tuto pravdu nahrazují obrazem, dokumentací.</div>
+            <div class="connection-item"><strong>Páv</strong> Páv je sebestředný a vytváří svou image. Parohy ukazují, co se stane, když tuto image začne definovat okolí.</div>
+            <div class="connection-item"><strong>Husy</strong> Husy křičí svá „já“. Parohy dokumentují jejich křik a mění ho na věčné paroží.</div>
+            <div class="connection-item"><strong>Myš</strong> Myš tiše zapisuje do mezer. Paroží je naopak hlasitě zaznamenáváno a vystavováno.</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== CHCETE CELOU KARTU? ========== -->
+        <div class="cta-box">
+            <h3 style="margin-top:0;">📦 Chcete celou kartu?</h3>
+            <p><strong>Plná verze (29 000 Kč) obsahuje:</strong></p>
+            <ul style="text-align:left; display:inline-block;">
+                <li>✅ <strong>Všech 12 úhlů</strong> s detailním vysvětlením a Q1–Q3 pro každý z nich</li>
+                <li>✅ <strong>Kompletní scénář workshopu</strong> (90 min, s časováním a poznámkami facilitátora)</li>
+                <li>✅ <strong>Šablony:</strong> Žlutý, modrý a šedý lístek, Portrét v systému, Manifest autentické bouře</li>
+                <li>✅ <strong>Diagnostickou matici</strong> se všemi intervencemi</li>
+                <li>✅ <strong>Návod na implementaci</strong> a propojení s dalšími kartami</li>
+                <li>✅ <strong>Firemní licenci</strong> (princip „Repo dům“ – váš systém, vaše data, navždy)</li>
+            </ul>
+            <p style="margin-top:1.5rem;">
+                📧 <strong>Kontakt:</strong> <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a><br>
+                📌 <strong>Ukázka zdarma:</strong> <a href="/doma/KOCOUR/">Karta Kocour</a> – vyzkoušejte si, jak systém funguje
+            </p>
+        </div>
+
+        <!-- LICENCE -->
+        <div class="footer">
+            © Michaela Nováková<br>
+            Licence ukázky: CC BY-NC-SA 4.0
+        </div>
+
+    </div>
+</body>
+</html>
