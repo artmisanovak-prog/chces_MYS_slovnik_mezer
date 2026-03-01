@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Páv · Ukázka karty</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 850px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: #222;
+            font-weight: 400;
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 0.3rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.8rem 0 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Běžný text */
+        p, li, .table-text {
+            color: #222;
+            font-size: 1.05rem;
+        }
+
+        /* Zvýrazněný blok */
+        .highlight-box {
+            background: #f8f8f8;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #333;
+        }
+
+        /* Bloky pro úhly */
+        .angle-block {
+            background: #f9f9f9;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .angle-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        .angle-problem {
+            margin: 0.5rem 0 0.3rem 0;
+            font-weight: 500;
+        }
+
+        .angle-example {
+            margin: 0.2rem 0 0.5rem 1.2rem;
+            color: #333;
+            background: #f2f2f2;
+            padding: 0.3rem 1rem;
+            border-left: 2px solid #aaa;
+        }
+
+        .angle-solution {
+            margin: 0.5rem 0 0 1.2rem;
+            color: #333;
+            background: #f2f2f2;
+            padding: 0.3rem 1rem;
+            border-left: 2px solid #aaa;
+        }
+
+        /* Seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA blok (nabídka) */
+        .cta-box {
+            background: #f2f2f2;
+            padding: 2rem;
+            margin: 3rem 0;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+
+        .cta-box a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+
+        .cta-box a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        /* Oddělovač */
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 3rem 0;
+            width: 30%;
+        }
+
+        /* Patička */
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        /* Speciální formát pro pohádku – zachování mezer */
+        .story p {
+            margin-bottom: 1.2rem;
+        }
+
+        .story .line-break {
+            white-space: pre-line;
+        }
+
+        /* Zpět na obsah */
+        .back-to-top {
+            text-align: right;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .back-to-top a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS -->
+        <h1>🦚 KARTA: PÁV – Ukázka</h1>
+
+        <!-- POPIS DYSFUNKCE -->
+        <div class="highlight-box">
+            <p style="font-size:1.2rem; margin-bottom:0;"><strong>Narcistická deformace vnímání reality</strong></p>
+            <p style="margin-top:0.8rem;">Tato karta diagnostikuje a řeší problém sebestředného myšlení, kdy tým nebo jednotlivec vše redukuje na své vlastní schéma, projektuje sebe na druhé a ztrácí schopnost vidět svět objektivně.</p>
+        </div>
+
+        <!-- ODKAZ NA POHÁDKU (KOTVA) -->
+        <h2>Pohádka</h2>
+        <p>Přečtěte si <a href="#pohadka-pav"><strong>pohádku o Pávovi - oko za okem a nikdo neví proč</strong></a>.</p>
+
+        <!-- 3 DIAGNOSTICKÉ OTÁZKY -->
+        <h2>3 diagnostické otázky (pro tento konkrétní problém)</h2>
+        <ol>
+            <li><strong>Q1 (Interpretace):</strong> "Proč páv viděl v každém zvířeti jen různou verzi sebe sama? Co to vypovídá o jeho vnímání reality?"</li>
+            <li><strong>Q2 (Identifikace):</strong> "Kde v našem týmu/procesech pozorujeme toto 'páví' zkreslení – tedy tendenci interpretovat vše skrz naše vlastní filtry a předsudky?"</li>
+            <li><strong>Q3 (Transformace):</strong> "Co by se muselo stát, aby náš tým začal vidět 'zvířata', ne jen 'pávy v různém stádiu rozpadu'?"</li>
+        </ol>
+
+        <!-- UKÁZKA 2 ÚHLŮ Z 12 -->
+        <h2>Ukázka 2 úhlů z 12</h2>
+
+        <div class="angle-block">
+            <div class="angle-title">1. 👁️ ÚHEL NARCISTICKÉ DEFORMACE</div>
+            <div class="angle-problem"><strong>Problém:</strong> Patologická projekce – neschopnost vidět druhé jako samostatné bytosti</div>
+            <div class="angle-example"><strong>Příklad v týmu:</strong> Když designéři předpokládají, že uživatelé myslí jako oni. Když management myslí, že "co funguje mně, funguje všem".</div>
+            <div class="angle-solution"><strong>Řešení:</strong> Zavést povinnou "rolovou výměnu" – každý měsíc strávit den v roli úplně jiného stakeholderu (zákazník, dodavatel, nováček).</div>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">2. 🔢 ÚHEL KVANTIFIKAČNÍ OBSESE</div>
+            <div class="angle-problem"><strong>Problém:</strong> Počítání jako obrana před chaosem</div>
+            <div class="angle-example"><strong>Příklad v týmu:</strong> Když vše měříme, ale zapomínáme se ptát, zda to, co měříme, má smysl. Metriky se stávají realitou.</div>
+            <div class="angle-solution"><strong>Řešení:</strong> Každý měsíc zrušit jednu metriku, která už neslouží, ale jen se "počítá". Nahradit ji kvalitativním popisem.</div>
+        </div>
+
+        <!-- WORKSHOPOVÁ STRUKTURA -->
+        <h2>Workshopová struktura (náhled)</h2>
+        <h3>Workshop: "De-pávování" (90 minut)</h3>
+        <ul>
+            <li><strong>Část 1: Diagnóza</strong> (30 min)
+                <ul>
+                    <li>Přečtení pohádky</li>
+                    <li>Identifikace "pávích ok" v našem týmu</li>
+                    <li>Mapování projekcí</li>
+                </ul>
+            </li>
+            <li><strong>Část 2: Odtrhávání per</strong> (40 min)
+                <ul>
+                    <li>Cvičení "Čím nejsme"</li>
+                    <li>Identifikace vlastních zkreslení</li>
+                    <li>Nácvik cizích perspektiv</li>
+                </ul>
+            </li>
+            <li><strong>Část 3: Nové vidění</strong> (20 min)
+                <ul>
+                    <li>Tvorba "antipávových" pravidel</li>
+                    <li>Závazek k diverzitě myšlení</li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- NABÍDKA PLNÉ VERZE -->
+        <div class="cta-box">
+            <h3 style="margin-top:0;">Chcete celou kartu?</h3>
+            <p><strong>Plná verze obsahuje:</strong></p>
+            <ul style="text-align:left; display:inline-block;">
+                <li>✅ <strong>Všech 12 úhlů</strong> (včetně: Epistemologická krize, Semiotický kolaps, Kontaktní schizofrenie, atd.)</li>
+                <li>✅ <strong>Kompletní workshop</strong> s podrobným scénářem</li>
+                <li>✅ <strong>Šablony:</strong> Mapa projekcí, Empatický test, Antipávový manifest</li>
+                <li>✅ <strong>Diagnostické nástroje</strong> pro tým</li>
+                <li>✅ <strong>Návod</strong> na implementaci</li>
+            </ul>
+            <p style="margin-top:1.5rem;"><strong>Cena: 29 000 Kč</strong></p>
+            <p>Kontakt: <a href="mailto:chcesmys@gmail.com"><strong>chcesmys@gmail.com</strong></a></p>
+        </div>
+
+        <!-- ODDĚLOVAČ PŘED POHÁDKOU -->
+        <hr id="pohadka-pav">
+
+        <!-- ========== POHÁDKA O PÁVOVI ========== -->
+        <h2>O PÁVOVI</h2>
+        <h3 style="border-bottom:none; font-style:italic;">Oko za okem, páv za pávem – a nikdo neví proč.</h3>
+
+        <div class="story">
+            <p>Byl jednou jeden páv, který měl tolik ok na ocase, že se mu začaly dívat zpátky.</p>
+            <p>Ne on na svět, ale svět na něj – skrz jeho vlastní pera.</p>
+            <p>A to byl problém.</p>
+
+            <p>Protože když se díváš na svět skrz sebe, všechno vypadá jako ty.</p>
+            <p>A páv si začal myslet, že celý svět je páv.</p>
+            <p>Že stromy jsou pávové, jen bez per.</p>
+            <p>Že mraky jsou pávové, co se rozplynuli.</p>
+            <p>A že myš je jen páv, co se zapomněl rozvinout.</p>
+
+            <p>A tak začal pávy počítat.</p>
+            <p>Ne podle počtu nohou, ale podle počtu ok.</p>
+            <p>Kdo měl víc než jedno oko, byl podezřelý.</p>
+            <p>Kdo měl méně než jedno, byl prorok.</p>
+
+            <p>Jednou potkal lemura, co se díval jen na stranu.</p>
+            <p>Páv se zarazil: „To je páv, co se otočil dovnitř.“</p>
+            <p>Pak potkal kocoura, co krkal tečky.</p>
+            <p>„To je páv, co spolkl interpunkci.“</p>
+
+            <p>A když potkal zaječici, co prošla ohněm, řekl:</p>
+            <p>„To je páv, co se přepálil.“</p>
+
+            <p>A tak vznikla nová teorie:</p>
+            <p>Každé zvíře je páv v jiném stádiu rozpadu.</p>
+            <p>A každé oko je jen zrcadlo, co se snaží zapomenout, co vidělo.</p>
+
+            <p>Páv si začal odtrhávat pera.</p>
+            <p>Ne proto, že by chtěl být méně krásný.</p>
+            <p>Ale proto, že chtěl být méně páv.</p>
+
+            <p>A když mu zbylo jen jedno oko, konečně uviděl:</p>
+            <p>Že není páv.</p>
+            <p>Že je pohádka.</p>
+            <p>A že pohádka se nedá rozvinout jako ocas.</p>
+
+            <p><strong>KONEC</strong></p>
+        </div>
+
+        <!-- PATIČKA -->
+        <div class="footer">
+            © Michaela Nováková · Licence ukázky: CC BY-NC-SA 4.0
+        </div>
+
+    </div>
+</body>
+</html>
