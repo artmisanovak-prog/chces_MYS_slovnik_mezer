@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryba · Ukázka karty</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+            font-weight: 400;
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 0.3rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Běžný text */
+        p, li, .table-text {
+            color: #222;
+            font-size: 1.05rem;
+        }
+
+        /* Rychlý pohled – tabulka */
+        .quick-look {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #ccc;
+        }
+
+        .quick-look table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .quick-look td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .quick-look td:first-child {
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .quick-look tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Obsah (toc) */
+        .toc {
+            background: #f5f5f5;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+        }
+
+        .toc a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+            font-size: 1rem;
+        }
+
+        .toc a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        /* Placeholder pro nedopsané sekce */
+        .placeholder {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #aaa;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Bloky pro ukázku úhlů (kdyby byly) */
+        .angle-block {
+            background: #f9f9f9;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .angle-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Zpět na obsah */
+        .back-to-top {
+            text-align: right;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .back-to-top a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 2.5rem 0;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS -->
+        <h1>🐟 RYBA – Ukázka karty</h1>
+
+        <!-- RYCHLÝ POHLED -->
+        <div class="quick-look">
+            <h3 style="margin-top:0; border-bottom:none;">RYCHLÝ POHLED</h3>
+            <table>
+                <tr><td><strong>Karta</strong></td><td>🐟 Ryba</td></tr>
+                <tr><td><strong>Jádrová dysfunkce</strong></td><td>Povrchní šum („ptačí křik“) nahrazuje autentickou, systémovou komunikaci („rybí rap“)</td></tr>
+                <tr><td><strong>Klíčová otázka</strong></td><td>„Posloucháme, nebo vnímáme?“</td></tr>
+            </table>
+        </div>
+
+        <!-- JÁDROVÁ DYSFUNKCE (podrobně) -->
+        <h2>Jádrová dysfunkce</h2>
+        <p><strong>Neschopnost rozlišit mezi autentickou, systémovou komunikací, která utváří a synchronizuje prostředí („rybí rap“), a povrchním, performativním šumem, který pouze naplňuje prostor („ptačí zpěv“).</strong></p>
+        <p>Tým/organizace zaměňuje hlasitost a viditelnost za vliv, zatímco přehlíží jemné, vibrační, neviditelné formy komunikace, které skutečně formují kulturu, procesy a vztahy. Dysfunkce spočívá v orientaci na „co je slyšet“ místo na „co rezonuje a mění prostředí“.</p>
+
+        <!-- OBSAH -->
+        <h2>OBSAH</h2>
+        <div class="toc">
+            <a href="#pohadka">📘 Pohádka</a>
+            <a href="#otazky">🎯 3 diagnostické otázky</a>
+            <a href="#uhly">🧠 Ukázka úhlů</a>
+            <a href="#workshop">🛠️ Workshop</a>
+            <a href="#matice">📊 Diagnostická matice</a>
+            <a href="#proc">💡 Proč je Ryba klíčová</a>
+            <a href="#propojeni">🔗 Propojení s kartami</a>
+        </div>
+
+        <!-- ========== POHÁDKA ========== -->
+        <h2 id="pohadka">📘 Pohádka</h2>
+        <h3>O RYBĚ která rapovala</h3>
+
+        <p>Říká se, že ryby mlčí.<br>
+        Že nemají hlas.<br>
+        Že jen plavou, koukají, a občas se nechají chytit.<br>
+        Ale to je omyl. Kec.<br>
+        Suchozemská lež.</p>
+
+        <p>Ryby totiž nemlčí.<br>
+        Ryby rapujou.</p>
+
+        <p>Ne tak, jak si to představuješ – žádné mikrofony, žádné beaty z repro beden.</p>
+
+        <p>„Rybí rap je jinej.<br>
+        Je to rytmus proudů.<br>
+        Je to nížka, výška vln a vlnek.<br>
+        Je to tempo vodních kruhů.<br>
+        Je to mezera mezi bublinama.</p>
+
+        <p>Pod vodou se zvuk jinak šíří.<br>
+        Hlubší. Širší. Pomalejší.<br>
+        A tak ryby neřvou.<br>
+        Ryby vibrujou.</p>
+
+        <p>Každej druh rybí má svůj styl hudební.</p>
+
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== 3 DIAGNOSTICKÉ OTÁZKY ========== -->
+        <h2 id="otazky">🎯 3 diagnostické otázky</h2>
+        <div class="placeholder">
+            <p><em>Tato část bude doplněna v plné verzi karty.</em></p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== UKÁZKA ÚHLŮ ========== -->
+        <h2 id="uhly">🧠 Ukázka úhlů</h2>
+        <div class="placeholder">
+            <p><em>Tato část bude doplněna v plné verzi karty.</em></p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== WORKSHOP ========== -->
+        <h2 id="workshop">🛠️ Workshop (struktura)</h2>
+        <div class="placeholder">
+            <p><em>Tato část bude doplněna v plné verzi karty.</em></p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== DIAGNOSTICKÁ MATICE ========== -->
+        <h2 id="matice">📊 Diagnostická matice</h2>
+        <div class="placeholder">
+            <p><em>Tato část bude doplněna v plné verzi karty.</em></p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== PROČ JE RYBA KLÍČOVÁ ========== -->
+        <h2 id="proc">💡 Proč je Ryba klíčová?</h2>
+        <div class="placeholder">
+            <p><em>Tato část bude doplněna v plné verzi karty.</em></p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== PROPOJENÍ S DALŠÍMI KARTAMI ========== -->
+        <h2 id="propojeni">🔗 Propojení s dalšími kartami</h2>
+        <div class="placeholder">
+            <p><em>Tato část bude doplněna v plné verzi karty.</em></p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- PATIČKA S LICENCÍ -->
+        <hr>
+        <div class="footer">
+            © Michaela Nováková · Licence ukázky: CC BY-NC-SA 4.0
+        </div>
+
+    </div>
+</body>
+</html>
