@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jak kombinovat karty · Myš</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 950px;
+            width: 100%;
+        }
+
+        /* Nadpisy – pouze stupně šedi */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+            font-style: italic;
+        }
+
+        /* Běžný text */
+        p, li, .note, .instruction {
+            color: #222;
+            font-size: 1.05rem;
+        }
+
+        /* Zvýrazněné bloky */
+        .highlight {
+            background: #f6f6f6;
+            padding: 1.5rem 2rem;
+            border-left: 4px solid #333;
+            margin: 2rem 0;
+        }
+
+        .example-block {
+            background: #f8f8f8;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border: 1px solid #ddd;
+        }
+
+        .example-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 3rem 0;
+            width: 30%;
+        }
+
+        /* Seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Kroky */
+        .step-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .step-list li::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .rule-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .rule-item {
+            background: #f5f5f5;
+            padding: 1.2rem 1.8rem;
+            border-left: 3px solid #333;
+        }
+
+        .rule-item strong {
+            font-weight: 600;
+        }
+
+        .combo-example {
+            background: #f2f2f2;
+            padding: 1rem 1.5rem;
+            margin: 0.8rem 0;
+            border-left: 2px solid #666;
+            font-size: 1rem;
+        }
+
+        .quote {
+            font-style: italic;
+            text-align: center;
+            max-width: 700px;
+            margin: 3rem auto 2rem;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        .badge {
+            background: #333;
+            color: #fff;
+            padding: 0.15rem 0.6rem;
+            font-size: 0.9rem;
+            margin-right: 0.6rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS -->
+        <h1>Jak kombinovat karty</h1>
+
+        <!-- ZÁKLADNÍ PRINCIP -->
+        <h2>Základní princip</h2>
+        <p>
+            Každá karta v systému "Chceš myš?" představuje jeden diagnostický rámec. Kombinací dvou nebo více karet vytváříte <strong>nové, komplexnější diagnostické nástroje</strong>, které odpovídají realitě týmových dysfunkcí – ty jsou zřídka izolované.
+        </p>
+
+        <!-- POSTUP KOMBINOVÁNÍ -->
+        <h2>Postup kombinování</h2>
+
+        <h3>Krok 1: Identifikace primárních problémů</h3>
+        <ol>
+            <li>Projděte si jednotlivé karty.</li>
+            <li>Identifikujte, které dysfunkce se vyskytují ve vašem týmu.</li>
+            <li>Vyberte 2–3 karty, které tyto dysfunkce nejlépe popisují.</li>
+        </ol>
+
+        <h3>Krok 2: Vytvoření kombinovaného rámce</h3>
+        <ol>
+            <li>Vezměte <strong>diagnostické otázky</strong> z obou karet.</li>
+            <li>Spojte je do <strong>nových, kombinovaných otázek</strong>.</li>
+            <li>Vyberte <strong>nejrelevantnější úhly</strong> z každé karty.</li>
+            <li>Vytvořte <strong>nové úhly</strong>, které vzniknou kombinací.</li>
+        </ol>
+
+        <h3>Krok 3: Návrh intervence</h3>
+        <ol>
+            <li>Zkombinujte <strong>workshopové aktivity</strong> z obou karet.</li>
+            <li>Upravte je pro řešení kombinovaného problému.</li>
+            <li>Vytvořte <strong>nové rituály nebo pravidla</strong>.</li>
+        </ol>
+
+        <!-- PRAVIDLA EFEKTIVNÍ KOMBINACE -->
+        <h2>Pravidla efektivní kombinace</h2>
+
+        <div class="rule-grid">
+            <div class="rule-item">
+                <strong>1. Maximálně 3 karty najednou</strong><br>
+                Více karet vytváří příliš komplexní rámec. Začněte s 2 kartami, přidávejte třetí pouze pokud je to nutné.
+            </div>
+            <div class="rule-item">
+                <strong>2. Hledejte synergii, ne jen součet</strong><br>
+                <span style="font-style:italic;">Dobrá kombinace:</span> Plameňák + Kocour = "Nadšené skákání do řeči"<br>
+                <span style="font-style:italic;">Slabá kombinace:</span> Plameňák + Páv = Dva různé problémy bez spojení
+            </div>
+            <div class="rule-item">
+                <strong>3. Zachovejte jednoduchost</strong><br>
+                I komplexní problémy lze řešit jednoduchými intervencemi. 1–2 kombinované úhly mohou být účinnější než všech 24.
+            </div>
+        </div>
+
+        <!-- PŘÍKLADY DOBRÝCH KOMBINACÍ -->
+        <h2>Příklady dobrých kombinací</h2>
+
+        <div class="example-block">
+            <div class="example-title">🔥 Plameňák + Kocour</div>
+            <p><strong>Problém:</strong> Rychlé, nadšené, ale neřízené rozhodování<br>
+            <strong>Výsledek:</strong> "Rychlý souhlas bez reflexe"</p>
+        </div>
+
+        <div class="example-block">
+            <div class="example-title">🦚 Páv + Tygr</div>
+            <p><strong>Problém:</strong> Sebestředné lpění na tradicích<br>
+            <strong>Výsledek:</strong> "Narcistický konzervatismus"</p>
+        </div>
+
+        <div class="example-block">
+            <div class="example-title">🐱 Kocour + Tygr</div>
+            <p><strong>Problém:</strong> Potlačování autenticity kvůli "efektivitě"<br>
+            <strong>Výsledek:</strong> "Efektivní tyranie"</p>
+        </div>
+
+        <!-- NÁSTROJE PRO KOMBINOVÁNÍ -->
+        <h2>Nástroje pro kombinování</h2>
+
+        <h3>1. Tabulka kombinací</h3>
+        <p>Vytvořte si tabulku s kartami na ose X a Y. Do každé buňky napište, jaká kombinace problémů vzniká.</p>
+
+        <h3>2. Kombinační workshop</h3>
+        <ul>
+            <li><strong>Doba:</strong> 60 minut</li>
+            <li><strong>Účastníci:</strong> 3–5 členů týmu</li>
+            <li><strong>Výstup:</strong> 1–2 kombinované rámce pro řešení aktuálních problémů</li>
+        </ul>
+
+        <h3>3. Šablona kombinované karty</h3>
+        <p>Můžete si vytvořit vlastní šablonu pro kombinované karty s těmito sekcemi:</p>
+        <ul>
+            <li>Název kombinace</li>
+            <li>Kombinovaný problém</li>
+            <li>3 kombinované otázky</li>
+            <li>3–5 kombinovaných úhlů</li>
+            <li>Návrh workshopu</li>
+        </ul>
+
+        <!-- POKROČILÉ TECHNIKY -->
+        <h2>Pokročilé techniky</h2>
+
+        <div class="highlight">
+            <h3 style="margin-top:0; font-style:normal;">1. Kaskádové kombinování</h3>
+            <p>Kombinujte již kombinované karty s dalšími kartami.</p>
+
+            <h3 style="font-style:normal;">2. Tematické kombinace</h3>
+            <p>Seskupujte karty podle témat (komunikace, rozhodování, kultura).</p>
+
+            <h3 style="font-style:normal;">3. Situační kombinace</h3>
+            <p>Vytvářejte kombinace pro konkrétní situace (krize, inovace, změna).</p>
+        </div>
+
+        <!-- ZÁVĚREČNÝ CITÁT -->
+        <hr>
+
+        <div class="quote">
+            <p>Kombinování karet je kreativní proces. Neexistují špatné kombinace, pouze více nebo méně užitečné.</p>
+        </div>
+
+        <!-- PATIČKA (VOLITELNĚ S MÍSTEM PRO OBRÁZEK) -->
+        <div class="footer">
+            &copy; 2026 • myš_DEMO • Jak kombinovat karty
+            <!-- Pokud chcete přidat obrázky, stačí vložit <img src="doma/mixX.jpg"> sem nebo pod nadpis -->
+        </div>
+
+    </div>
+</body>
+</html>
