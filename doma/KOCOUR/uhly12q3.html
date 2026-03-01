@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kocour · 12 úhlů</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1, h2, h3 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+            font-weight: 400;
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 0.3rem;
+        }
+
+        /* Obrázek */
+        .main-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 2rem auto;
+            border: 1px solid #444;
+            filter: grayscale(100%);
+            transition: filter 0.2s ease;
+            display: block;
+        }
+
+        .main-image:hover {
+            filter: grayscale(80%);
+        }
+
+        /* Blok pro každý úhel */
+        .angle-block {
+            background: #f9f9f9;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .angle-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .metafora {
+            font-style: italic;
+            color: #444;
+            margin: 0.8rem 0 1.2rem 0;
+            padding-left: 1rem;
+            border-left: 2px solid #aaa;
+        }
+
+        .question {
+            margin: 0.8rem 0 0.2rem 0;
+            font-weight: 500;
+        }
+
+        .answer {
+            margin-left: 1.5rem;
+            color: #333;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* TOC */
+        .toc {
+            background: #f5f5f5;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+        }
+
+        .toc a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+            font-size: 1rem;
+        }
+
+        .toc a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        .back-to-top {
+            text-align: right;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .back-to-top a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 2.5rem 0;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS -->
+        <h1>🐈‍⬛ KOCOUR<br>12 úhlů + metafora, Q1, Q2, Q3</h1>
+
+        <!-- OBRAZEK – cesta: doma/KOCOUR/kocour.jpg (lze upravit) -->
+        <img class="main-image" src="doma/KOCOUR/kocour.jpg" alt="Ilustrace kocoura – černobílá" onerror="this.style.opacity='0.3'; this.alt='Obrázek nenalezen (doma/KOCOUR/kocour.jpg)';">
+
+        <!-- RYCHLÝ OBSAH (odkazy na úhly) -->
+        <div class="toc">
+            <strong>Úhly:</strong>
+            <a href="#uhel1">1. Fyzický konec věty</a>
+            <a href="#uhel2">2. Kvaziefektivita</a>
+            <a href="#uhel3">3. Nespolyknutelný obsah</a>
+            <a href="#uhel4">4. Pozorovatelská myš</a>
+            <a href="#uhel5">5. Trvalá změna</a>
+            <a href="#uhel6">6. Tyranie metrik</a>
+            <a href="#uhel7">7. Násilný konsenzus</a>
+            <a href="#uhel8">8. Konkurence místo kolaborace</a>
+            <a href="#uhel9">9. Nedokončené jako dar</a>
+            <a href="#uhel10">10. Komunikační trauma</a>
+            <a href="#uhel11">11. Silná tečka</a>
+            <a href="#uhel12">12. Navrácené štěstí</a>
+        </div>
+
+        <!-- ========== 1. FYZICKÝ KONEC VĚTY ========== -->
+        <div class="angle-block" id="uhel1">
+            <div class="angle-title">1. 🔚 Fyzický konec věty</div>
+            <div class="metafora"><strong>Metafora:</strong> Čím rychleji se snaží větu uzavřít, tím více jejích významů zůstává nedořečených.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„Kocour se stal otrokem tečky. Věřil, že hodnota je v ukončení, není v obsahu.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„V našich meetinzích, když někdo řekne 'takže…' nebo 'možná bychom…' a hned je přerušen řešením. Nebo když management tlačí na rychlý 'action point', než by byl správně problém prozkoumán.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Zavést pravidlo 'tří teček' (…). Když někdo něco naznačí, musí mít prostor to rozvést. První, kdo řekne 'tečka', má za úkol pouze shrnout, co slyšel, NE dodat svůj závěr.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 2. KVAZIEFEKTIVITA ========== -->
+        <div class="angle-block" id="uhel2">
+            <div class="angle-title">2. ⏱️ Kvaziefektivita</div>
+            <div class="metafora"><strong>Metafora:</strong> Rychlé odškrtnutí bodů z agendy je jako uklízení nepořádku do skříně – jako hotovo, ale problém se vrátí.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">"Kocour si myslel, že práci urychluje. 'Půl hodiny a hotovo!' Ale ve skutečnosti jen nahrazen společný proces monologem.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když projektový manažer nebo dominantní osoba v týmu tlačí na rychlé 'odkliknutí' bodů z agendy, aniž by se dobrali podstaty. Schůze jsou krátké, ale problémy se vracejí jako nevykrknuté tečky.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Měřit úspěch není délkou, ale počtem otevřených otázek na konci. Pokud jsou všechny body 'uzavřeny', pravděpodobně jsme byli kocouři.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 3. NESPOLYKNUTELNÝ OBSAH ========== -->
+        <div class="angle-block" id="uhel3">
+            <div class="angle-title">3. 🐞 Nespolyknutelný obsah</div>
+            <div class="metafora"><strong>Metafora:</strong> Těžká témata, která se snažíme spolknout, nám nakonec vyjdou ven v té nejnevhodnější chvíli.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„Berušky nesou 'nespolknuté konce vět'. To jsou nepříjemné, nezpracované, složité aspekty problému. Kocour je spolkl, ale jeho tělo (tým) je odmítlo – vykrkl je zpět.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když potlačujeme 'elefanty v místnosti', citlivá témata, emocionální frustrace nebo fundamentální nesouhlas s přístupem. Řekneme 'OK, pojďme dál', ale to téma pak otráví atmosféru.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Vytvořit 'nástěnku nespolknutého'. Fyzické/virtuální místo, kde lze anonymně psát 'nespolknuté konce' z diskusí. Pravidelně je revidovat a zařazovat do agendy.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 4. POZOROVATELSKÁ MYŠ ========== -->
+        <div class="angle-block" id="uhel4">
+            <div class="angle-title">4. 🐀 Pozorovatelská myš</div>
+            <div class="metafora"><strong>Metafora:</strong> Tiché hlasy v místnosti jsou jako myš, která si zapisuje – slyší víc, než kdo mluví, ale nikdo ji neslyší.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„Myš je metaforou facilitátora nebo tichého člena. Nedokáže zabránit kocourovi, ale pozoruje a ukládá si odpověď. Vidí dysfunkci jasně, ale nemá moc ji zastavit.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když v týmu jsou introverti nebo lidé, kteří potřebují delší čas na formulaci myšlenky. Jejich hlasy jsou umlčeny 'kocouřím' stylem komunikace. Nakonec mlčí a frustrace roste.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">"Jmenovat pro každou další diskusi 'myš'. Její jedinou roli je pozorovat, kdo mluví, kdo je přerušován, a na konci sdílet pozorování bez hodnocení."</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 5. TRVALÁ ZMĚNA ========== -->
+        <div class="angle-block" id="uhel5">
+            <div class="angle-title">5. 🕳️ Trvalá změna</div>
+            <div class="metafora"><strong>Metafora:</strong> Důvěra je jako pavučina – jakmile se přetrhne, zůstane díra, i když se snažíme ji upravit.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„I když kocour přestal, 'něco nebylo stejné'. Jednorázové narušení komunikační kultury zachovává trvalou jizvu. Lidé se podvědomě bojí znovu otevřít ústa.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když po 'toxické' schůzi nebo období s dominantním šéfem tým i po změně chování zůstává pasivní, neiniciuje, čeká na pokyny. Důvěra v bezpečný prostor je pryč.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Úmyslně vytvářet 'nedokončené věty'. Vedoucí musí začít myšlenku a vyzvat ostatní, aby ji dokončili. Obnovit důvěru tím, že se vzdává kontroly nad tečkou.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 6. TYRANIE METRIK ========== -->
+        <div class="angle-block" id="uhel6">
+            <div class="angle-title">6. 🔢 Tyranie metrik</div>
+            <div class="metafora"><strong>Metafora:</strong> Počítáme tečky, ale nevidíme berušky – čísla bez příběhu jsou jako mapa bez krajiny.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„Příběh je posedlý přesnými čísly: 2 berušky, 14 teček, 30 minut. To je parodie na manažerské reportování, kde jde o čísla, ne o příběh za nimi ('proč berušky mají tečky?').“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když se na retrospektivě nebo review řeší pouze 'splněno/nesplněno', 'počet úkolů', ale ne 'jak se cítíme', 'co jsme se naučili', 'jaké příběhy za čísla jsou'.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Přidat ke každé kvantitativní metrice kvalitativní příběh. Ne 'dokončili jsme 14 úkolů', ale 'jakých 14 teček jsme vykrkli a co to pro nás znamenalo?'.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 7. NÁSILNÝ KONSENZUS ========== -->
+        <div class="angle-block" id="uhel7">
+            <div class="angle-title">7. 🦾 Násilný konsenzus</div>
+            <div class="metafora"><strong>Metafora:</strong> Ticho v diskuzi není souhlas, ale jen únava z boje o slovo.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„Kocour svým dokončováním vět vynucoval souhlas. Lidé přestali mluvit, protože jejich dokončení by bylo stejné jako jeho. Vytvořil iluzi konsensu.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když šéf v brainstormu řekne 'Takže všichni souhlasíme s X, že?' a pohledem obejde místnost. Ticho je interpretováno jako souhlas, ale ve skutečnosti je to rezignace.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Používat mechanismus 'souhlasu ticha'. Pokud po představení rozhodnutí je ticho, automaticky to znamená NESOUHLAS. Nutí to lidi aktivně říkat 'souhlasím'.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 8. KONKURENCE MÍSTO KOLABORACE ========== -->
+        <div class="angle-block" id="uhel8">
+            <div class="angle-title">8. 🏁 Konkurence místo kolaborace</div>
+            <div class="metafora"><strong>Metafora:</strong> Kdo dřív dokončí větu, ten vyhrává – ale prohrává celý tým.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„Kocour soutěžil: 'kdo dokončí větu dřív'. Komunikace se stala závodem o dominanci, není spolupráce o nalezení nejlepší myšlenky.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„V týmech, kde jsou lidé odměňováni za individuální výkon, objevuje se tento vzorec. Přerušování je projevem soutěže: 'Já vím lépe, poslouchej mě'.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Zavést 'kolo mluvčího' pro klíčové slovo. Používat fyzický předmět (talking stick). Mluví pouze ten, kdo ho drží. Ostatní jen aktivní naslouchají.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 9. NEDOKONČENÉ JAKO DAR ========== -->
+        <div class="angle-block" id="uhel9">
+            <div class="angle-title">9. 🎁 Nedokončené jako dar</div>
+            <div class="metafora"><strong>Metafora:</strong> Nedokončená věta je jako otevřené okno – nemůže dovnitř vletět cokoliv nového.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„Příběh říká: 'Nedokončené věty bývají všechny stejné.' To je klíč! Jakmile je věta dokončena, je fixována, mrtvá je nedokončená, plná potenciálu.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když tým okamžitě hledá řešení ('udělejme A') místo toho, aby déle trvalo v definici problému ('co když je to vlastně B?'). Fixujeme se na první 'dokončenou' myšlenku.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Cvičení 'úmyslně nedokončovat'. V brainstorming zadat: 'Náš problém je jako…' a zakázat dokončení přirovnání. Jen generovat začátky. Prozkoumat, která nedokončená metafora je nejsilnější.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 10. KOMUNIKAČNÍ TRAUMA ========== -->
+        <div class="angle-block" id="uhel10">
+            <div class="angle-title">10. 💔 Komunikační trauma</div>
+            <div class="metafora"><strong>Metafora:</strong> Spálená půda neroste – po teroristické schůzi se lidé bojí promluvit io počasí.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„Kocour 'skákal lidem do řeči' a 'sežral berušky' – to jsou slova násilí. Komunikace se stala traumatizujícím zážitkem. Tým se psychicky 'slehl'.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když jsou schůze zdrojem stresu, kde se lidé bojí promluvit, protože budou přerušeni, ztrapnění nebo jejich nápad bude 'sežrán' bez úcty.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Provést 'audit komunikační bezpečnosti'. Anonymní dotazník: Cítím se bezpečně vyjádřit nesouhlas? Jsem často přerušován? Berou moje nápady vážně? Podle výsledků nastavit pravidla.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 11. SILNÁ TEČKA ========== -->
+        <div class="angle-block" id="uhel11">
+            <div class="angle-title">11. ⚫ Silná tečka</div>
+            <div class="metafora"><strong>Metafora:</strong> Tečka na konci diskuze je někdy rána, která utne všechny další myšlenky.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„A že tečka je někdy silnější, než celá věta.' To je pointa! Někdy formální uzavření (tečka, rozhodnutí, schválení) má větší moc než celá dlouhá diskuse.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když se v dlouhých diskusích ztrácíme a pak někdo autoritativně řekne 'Tak rozhodnuto!' a udělá tečku Tým přijme tečku z únavy, ne z přesvědčení.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Při uzavírání rozhodnutí neptat se 'Je to jasné?', ale 'Kdo cítí, že jeho hlasy nebo obavy nebyly dostatečně slyšet před touto tečkou?'.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- ========== 12. NAVRÁCENÉ ŠTĚSTÍ ========== -->
+        <div class="angle-block" id="uhel12">
+            <div class="angle-title">12. 🍀 Navrácené štěstí</div>
+            <div class="metafora"><strong>Metafora:</strong> Uzdravená důvěra je jako beruška, která se vrátí na místo, kde ji málem sežrali – křehká, ale o to cennější.</div>
+            <div class="question">Q1:</div>
+            <div class="answer">„Příběh končí nadějí: 'Štěstí dvou berušek se vrátilo zpátky.' I po traumatu může dojít k nápravě Ale vyžaduje to mlčenlivé porozumění ('ani jeden neříkali nic') – tedy nepotřebujem grandiózní omluvu, ale změnu chování.“</div>
+            <div class="question">Q2:</div>
+            <div class="answer">„Když tým zažije dysfunkční období, ale pak se bez velkých slov změní dynamika. Lidé opatrně znovu nabývají důvěru. To je křehký proces.“</div>
+            <div class="question">Q3:</div>
+            <div class="answer">„Nastavit 'beruščí rituál'. Kdykoli někdo pocítí, že byl 'sežrán' (přerušován, umlčován), může tichým symbolem (např. položit berušku na stůl) signalizovat potřebu zpomalit a vyslechnout.“</div>
+            <div class="back-to-top"><a href="#top">↑ Zpět nahoru</a></div>
+        </div>
+
+        <!-- LICENCE / PATIČKA -->
+        <hr>
+        <div class="footer">
+            © Michaela Nováková · Karta Kocour – 12 úhlů
+        </div>
+
+    </div>
+</body>
+</html>
