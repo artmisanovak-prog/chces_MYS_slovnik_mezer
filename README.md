@@ -55,8 +55,8 @@ Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obvi
 2. **Modelové scénáře** 
 [Prohlédněte si](./doma/MYS/modelove_scenare.html)
 
-3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./doma/MYS/Mys_meta.html)
-Přečtěte si [Jak číst jako myš](./doma/MYS/Mys_demo.html)
+3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./doma/MYS/mys_meta.html)
+Přečtěte si [Jak číst jako myš](./doma/MYS/mys_demo.html)
 
 4. **Prohlédněte si ukázkovou kartu**
 [Kocour](./doma/KOCOUR/data/landing_page_kocour.html)
