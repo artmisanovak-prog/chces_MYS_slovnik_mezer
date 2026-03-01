@@ -6,13 +6,13 @@ Tato karta diagnostikuje a řeší problém týmů, které jsou poháněny energ
 
 ---
 
-[Přečíst pohádku](./pohadka.md) | [Diagnostikovat tým](./plamenak.jpg) | [Spustit workshop](./plamenak.jpg)
+[Přečíst pohádku](./pohadka_o_plamenakovi.html) | [Diagnostikovat tým](./plamenak.jpg) | [Spustit workshop](./plamenak.jpg)
 
 ---
 
 ## Pohádka
 
-Přečtěte si [pohádku o Plameňákovi](./pohadka.md).
+Přečtěte si [pohádku o Plameňákovi](./pohadka_o_plamenakovi.html).
 
 ---
 
