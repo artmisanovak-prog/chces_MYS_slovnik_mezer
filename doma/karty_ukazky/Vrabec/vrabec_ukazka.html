@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vrabec · Ukázka karty</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+            font-weight: 400;
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 0.3rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Běžný text */
+        p, li, .table-text {
+            color: #222;
+            font-size: 1.05rem;
+        }
+
+        /* Rychlý pohled – tabulka */
+        .quick-look {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #ccc;
+        }
+
+        .quick-look table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .quick-look td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .quick-look td:first-child {
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .quick-look tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Obsah (toc) */
+        .toc {
+            background: #f5f5f5;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+        }
+
+        .toc a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+            font-size: 1rem;
+        }
+
+        .toc a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        /* Bloky pro úhly */
+        .angle-block {
+            background: #f9f9f9;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .angle-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #000;
+        }
+
+        .angle-projev {
+            margin: 0.5rem 0 0.3rem 0;
+            font-weight: 500;
+        }
+
+        .angle-text {
+            margin-left: 1.2rem;
+            color: #333;
+            background: #f2f2f2;
+            padding: 0.5rem 1.2rem;
+            border-left: 2px solid #aaa;
+        }
+
+        /* Matice */
+        .matrix-row {
+            display: flex;
+            border-bottom: 1px dotted #aaa;
+            padding: 0.8rem 0;
+        }
+
+        .matrix-cell {
+            flex: 1;
+            padding: 0 0.5rem;
+        }
+
+        .matrix-cell:first-child {
+            font-weight: 600;
+            flex: 0.8;
+        }
+
+        /* Propojení s kartami – mřížka */
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .connection-item {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-left: 3px solid #333;
+        }
+
+        .connection-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* CTA / kontakt */
+        .cta-box {
+            background: #f2f2f2;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid #aaa;
+        }
+
+        .cta-box a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+
+        .cta-box a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        /* Zpět na obsah */
+        .back-to-top {
+            text-align: right;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .back-to-top a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 2.5rem 0;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS -->
+        <h1>🐦 VRABEC – Ukázka karty</h1>
+
+        <!-- OBSAH -->
+        <div class="toc" id="obsah">
+            <strong>OBSAH:</strong>
+            <a href="#pohadka">📘 Pohádka</a>
+            <a href="#otazky">🎯 3 diagnostické otázky</a>
+            <a href="#uhly">🧠 Ukázka úhlů</a>
+            <a href="#workshop">🛠️ Workshop</a>
+            <a href="#matice">📊 Diagnostická matice</a>
+            <a href="#proc">💡 Proč je Vrabec klíčový</a>
+            <a href="#propojeni">🔗 Propojení s kartami</a>
+        </div>
+
+        <!-- JÁDROVÁ DYSFUNKCE -->
+        <h2>Jádrová dysfunkce</h2>
+        <p><strong>Syndrom podřadného řešení, které se stalo trvalou zátěží.</strong> Tým se rozhodne pro „vrabce v hrsti“ – dostupné, ale neideální řešení (špatná technologie, nevhodný kandidát, kompromisní funkcionalita) s přesvědčením, že to je „lepší než nic“. Postupem času se tento vrabec vymkne kontrole („vyskočí na hlavu“), zabydlí se v systému („staví hnízdo“) a stane se definující vlastností týmu („vrabčí hnízdo“). Tým pak ztrácí schopnost vidět nebo dosáhnout původního, lepšího cíle („holuba na střeše“).</p>
+
+        <!-- RYCHLÝ POHLED -->
+        <div class="quick-look">
+            <h3 style="margin-top:0; border-bottom:none;">RYCHLÝ POHLED</h3>
+            <table>
+                <tr><td><strong>Karta</strong></td><td>🐦 Vrabec</td></tr>
+                <tr><td><strong>Jádrová dysfunkce</strong></td><td>Syndrom podřadného řešení, které se stalo trvalou zátěží</td></tr>
+                <tr><td><strong>Klíčová otázka</strong></td><td>„Kterého vrabce v hrsti dnes nosíme na hlavě?“</td></tr>
+            </table>
+        </div>
+
+        <!-- ========== POHÁDKA ========== -->
+        <h2 id="pohadka">📘 Pohádka</h2>
+        <h3>O VRABCOVI který se dostal z hrsti na hlavu</h3>
+
+        <p>Byla jednou jedna dáma, co si řekla:<br>
+        „Lepší vrabec v hrsti než holub na střeše.“<br>
+        A tak si jednoho dne chytila vrabce.<br>
+        Malého.<br>
+        Pípajícího.<br>
+        Trochu nervózního.<br>
+        Ale jejího.</p>
+
+        <p>Holub seděl dál na střeše.<br>
+        Velký.<br>
+        Důstojný.<br>
+        Nedosažitelný.<br>
+        Ale ona má přece vrabce.<br>
+        V hrsti.<br>
+        Jistotu.</p>
+
+        <p>Jenže vrabec se nechtěl držet.<br>
+        Začal se vrtět.<br>
+        Škrábat.<br>
+        Pípat.<br>
+        A nakonec – šup! – hop!<br>
+        Vyskočil z hrsti rovnou na hlavu.<br>
+        A tam zůstal.<br>
+        Ne jako trofej.<br>
+        Jako názor.<br>
+        Jako myšlenka, co se nedá setřást.</p>
+
+        <p>Seděl jí na temeni.<br>
+        Na čele.<br>
+        Na představách.<br>
+        A nejen to – začal si tam stavět hnízdo.<br>
+        Z peří.<br>
+        Z pochybností.<br>
+        Z ranních vlasů.</p>
+
+        <p>A ona chodila po světě s vrabcem na hlavě.<br>
+        Rozcuchaná.<br>
+        Rozladěná.<br>
+        Rozmyšlená.<br>
+        A všichni říkali:<br>
+        „To je vrabčí hnízdo.“</p>
+
+        <p>A holub?<br>
+        Ten pořád seděl na střeše.<br>
+        Tichý.<br>
+        Vznešený.<br>
+        Nedotěrný.</p>
+
+        <p>A tak si dáma jednoho dne sedla,<br>
+        podívala se nahoru<br>
+        a řekla:<br>
+        „Možná je lepší holub na střeše než vrabec na hlavě.“</p>
+
+        <p>A vrabec se jen zavrtěl.<br>
+        A přidal další větvičku.</p>
+
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== 3 DIAGNOSTICKÉ OTÁZKY ========== -->
+        <h2 id="otazky">🎯 3 diagnostické otázky</h2>
+        <ol>
+            <li><strong>Q1 (Volba):</strong> „Kdy a proč jsme si vybrali našeho ‚vrabce v hrsti‘? Co nás přesvědčilo, že je to ‚lepší než nic‘, i když jsme věděli, že to není ideální (‚holub na střeše‘)?“</li>
+            <li><strong>Q2 (Eskalace):</strong> „Kde a jak se náš ‚vrabec‘ dostal z ‚hrsti‘ (kontrolované implementace) na ‚hlavu‘ (stálou, všudypřítomnou zátěž, která mění naši identitu)? Co z toho ‚staví hnízdo‘?“</li>
+            <li><strong>Q3 (Revoluce nebo rezignace):</strong> „Stojíme před volbou: buď pasivně přijmeme další větvičku (‚Možná je lepší holub…‘), nebo aktivně vrabce setřeseme. Co by znamenalo ‚setřást vrabce‘ v našem kontextu? A jsme na to připraveni?“</li>
+        </ol>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== UKÁZKA ÚHLŮ (3 Z 12) ========== -->
+        <h2 id="uhly">🧠 Ukázka úhlů (3 z 12)</h2>
+
+        <div class="angle-block">
+            <div class="angle-title">1. ÚHEL FALEŠNÉ JISTOTY (Lepší vrabec než nic)</div>
+            <div class="angle-projev"><strong>Jak se projevuje v týmu:</strong></div>
+            <div class="angle-text">Tým zvolil vrabce kvůli iluzi kontroly a okamžité dostupnosti. Holub (ideál) byl „na střeše“ – vzdálený, abstraktní, vyžadující úsilí. Vrabec (kompromis) byl hmatatelný a okamžitý. Podcenili ale jeho dynamiku – to, co mělo být dočasné, se stalo základem dalších rozhodnutí.</div>
+            <div class="angle-projev" style="margin-top:1rem;"><strong>Co s tím (ukázka řešení):</strong></div>
+            <div class="angle-text">Přiznat si, že „jistota“ vrabce byla iluzorní. Provést <strong>„účetnictví bolesti“</strong> – sečíst čas a energii, které měsíčně věnujeme udržování vrabce (hasícím akcím, omluvám, workaroundům). Pak se zeptat: „Za tyto zdroje bychom mohli postavit co?“</div>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">2. ÚHEL ZTRACENÉ KONTROLY (Z hrsti na hlavu)</div>
+            <div class="angle-projev"><strong>Jak se projevuje v týmu:</strong></div>
+            <div class="angle-text">Hrst je metafora pro kontrolu. Tým si myslel, že vrabce udrží. Ale živé systémy (technologie, lidé, procesy) se vymykají. Jejich vlastní dynamika převládne nad počáteční kontrolou. To, co bylo nástrojem (vrabec v hrsti), se stalo subjektem (vrabec na hlavě). Teď on určuje náš vzhled, náladu a myšlení.</div>
+            <div class="angle-projev" style="margin-top:1rem;"><strong>Co s tím (ukázka řešení):</strong></div>
+            <div class="angle-text">Provést <strong>audit kontroly</strong>. U kterých „vrabců“ jsme ztratili iniciativu? Kde systém řídí nás, a ne my jeho? Získat zpět kontrolu znamená buď ho radikálně změnit, nebo se ho zbavit.</div>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">3. ÚHEL PASIVNÍ REZIGNACE („Možná je lepší holub…“)</div>
+            <div class="angle-projev"><strong>Jak se projevuje v týmu:</strong></div>
+            <div class="angle-text">Závěrečná věta pohádky není akcí, ale rezignovanou úvahou. Dáma jen konstatuje, možná lituje, ale nekoná. Vrabec přidává větvičku – problém roste, zatímco tým jen pasivně pozoruje. Tým upadá do letargie. Víme, že máme špatné řešení, ale jsme tak unavení jeho udržováním, že nám chybí energie na změnu.</div>
+            <div class="angle-projev" style="margin-top:1rem;"><strong>Co s tím (ukázka řešení):</strong></div>
+            <div class="angle-text">Přerušit cyklus rezignace malou, vítěznou akcí. Nesnažit se setřást celého vrabce naráz. Začít jedinou <strong>„větvičkou“</strong> – odstranit jeden konkrétní, malý, bolestivý aspekt problému. Získat momentum.</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== WORKSHOP ========== -->
+        <h2 id="workshop">🛠️ Workshop (struktura)</h2>
+        <h3>Workshop: „Z HRSTI NA HLAVU“ – 90 minut</h3>
+        <p><strong>Cíl:</strong> Identifikovat týmové „vrabce“, pochopit, jak se z „jistoty“ stala „zátěž“, a udělat první krok k jejich odstranění.</p>
+
+        <h4>Část 1: Inventura našich vrabců (30 min)</h4>
+        <ul>
+            <li>Úvod, čtení pohádky</li>
+            <li>Individuální psaní: <strong>MODRÝ LÍSTEK</strong> (náš konkrétní „vrabec“) a <strong>BÍLÝ LÍSTEK</strong> (náš „holub“ – ideální stav)</li>
+            <li>Vytvoření galerie „NAŠI VRABCI“ a „NAŠI HOLUBI“, tiché čtení</li>
+        </ul>
+
+        <h4>Část 2: Anatomie hnízda (40 min)</h4>
+        <ul>
+            <li>Skupinová práce <strong>„Mapa útěku“</strong> – časová osa: Bod A (chycení), Bod B (útěk na hlavu), Bod C (stavění hnízda)</li>
+            <li>Prezentace map a hledání společných vzorců</li>
+        </ul>
+
+        <h4>Část 3: Plán setřesení (20 min)</h4>
+        <ul>
+            <li>Výběr jednoho vrabce k řešení, analýza <strong>„5 PROČ“</strong> (proč ho stále tolerujeme?)</li>
+            <li>Definice prvního konkrétního kroku k setřesení (do konce příštího týdne)</li>
+        </ul>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== DIAGNOSTICKÁ MATICE ========== -->
+        <h2 id="matice">📊 Diagnostická matice</h2>
+
+        <div class="matrix-row" style="border-top:1px solid #aaa;">
+            <div class="matrix-cell"><strong>Dominantní úhel</strong></div>
+            <div class="matrix-cell"><strong>Diagnóza</strong></div>
+            <div class="matrix-cell"><strong>Intervence („Léčba vrabčáctví“)</strong></div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Falešná jistota</div>
+            <div class="matrix-cell">Tým se bojí nejistoty ideálu a lpí na škodlivém, ale známém řešení.</div>
+            <div class="matrix-cell"><strong>„Experiment s prázdnou hrstí“:</strong> Na týden se zavázat k nečinnosti ohledně udržování vrabce. Sledovat, co se stane.</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Kvalitativní degradace</div>
+            <div class="matrix-cell">Ambice klesly, tým si zvykl na podprůměr. Snížený standard je nová norma.</div>
+            <div class="matrix-cell"><strong>„Návštěva z budoucnosti“:</strong> Popsat den dokonalého týmu za 3 roky. Zpětně identifikovat první věc, kterou by zrušil (to je váš vrabec).</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Identifikační past</div>
+            <div class="matrix-cell">Tým je definován svým problémem. Stigma brání změně.</div>
+            <div class="matrix-cell"><strong>„Rename & Reclaim“:</strong> Přejmenovat problém na dočasný „projekt učební křivky“. Změnit jazyk z „máme problém“ na „procházíme fází“.</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Pasivní rezignace</div>
+            <div class="matrix-cell">Únava a bezmoc. Vědí, co je špatně, ale nemají sílu to měnit.</div>
+            <div class="matrix-cell"><strong>„Mikro-revoluce“:</strong> Definovat jednu malou věc k změně do pátku. Udělat ji. Oslavit jako první vítězství.</div>
+        </div>
+        <div class="matrix-row" style="border-bottom:1px solid #aaa;">
+            <div class="matrix-cell">Inovace proti sobě</div>
+            <div class="matrix-cell">Tým vylepšuje systém, který by měl být zničen. Ztrácí energii.</div>
+            <div class="matrix-cell"><strong>„Moratorium na větvičky“:</strong> Zastavit veškerý patching a vylepšování. Veškerou kapacitu přesměrovat na návrh nového řešení.</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== PROČ JE VRABEC KLÍČOVÝ ========== -->
+        <h2 id="proc">💡 Proč je Vrabec klíčový?</h2>
+        <p>Je to univerzální karta <strong>technologického dluhu, špatných náborů, toxických klientů a všech kompromisů, které se zvrhly v noční můru</strong>. Je o bolestivém poznání, že „rychlé a špinavé“ řešení má často nejdelší a nejšpinavější dopad.</p>
+        <p>Vrabec ukazuje cestu od „lepší než nic“ k „tohle nás definuje“. Je to varování před falešnou jistotou dočasných řešení a pozvánka k odvaze pustit se známého zla a vydat se za skutečným řešením – i když je nejisté a vzdálené.</p>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== PROPOJENÍ S DALŠÍMI KARTAMI ========== -->
+        <h2 id="propojeni">🔗 Propojení s dalšími kartami</h2>
+
+        <div class="connection-grid">
+            <div class="connection-item"><strong>Osel</strong> Osel se neumí rozhodnout mezi vrabcem a holubem. Vrabec si vybral a teď toho lituje.</div>
+            <div class="connection-item"><strong>Kocour</strong> Kocour předčasně uzavírá diskuse – stejně jako tým předčasně uzavřel volbu vrabcem.</div>
+            <div class="connection-item"><strong>Páv</strong> Páv by chtěl být holubem, ale nosí vrabčí hnízdo.</div>
+            <div class="connection-item"><strong>Myš</strong> Myš tiše pozorovala, jak vrabec utíká na hlavu, ale neřekla nic.</div>
+            <div class="connection-item"><strong>Moucha</strong> Moucha si udělala ráj ve vrabčím hnízdě.</div>
+            <div class="connection-item"><strong>Paroží</strong> Paroží rostou z každého blesku pozornosti. Vrabčí hnízdo roste z každého odloženého rozhodnutí.</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== NABÍDKA PLNÉ VERZE ========== -->
+        <div class="cta-box">
+            <h3 style="margin-top:0;">📦 Chcete celou kartu?</h3>
+            <p><strong>Plná verze (29 000 Kč) obsahuje:</strong></p>
+            <ul style="text-align:left; display:inline-block;">
+                <li>✅ <strong>Všech 12 úhlů</strong> s detailním vysvětlením a Q1–Q3 pro každý z nich</li>
+                <li>✅ <strong>Kompletní scénář workshopu</strong> (90 min, s časováním a poznámkami facilitátora)</li>
+                <li>✅ <strong>Šablony:</strong> Modrý a bílý lístek, Mapa útěku, 5 PROČ analýza</li>
+                <li>✅ <strong>Diagnostickou matici</strong> se všemi intervencemi</li>
+                <li>✅ <strong>Návod na implementaci</strong> a propojení s dalšími kartami</li>
+                <li>✅ <strong>Firemní licenci</strong> (princip „Repo dům“ – váš systém, vaše data, navždy)</li>
+            </ul>
+            <p style="margin-top:1.5rem;">
+                📧 <strong>Kontakt:</strong> <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a><br>
+                📌 <strong>Ukázka zdarma:</strong> <a href="https://artmisanovak-prog.github.io/chces_MYS_slovnik_mezer/doma/KOCOUR/data/landing_page_kocour.html">Karta Kocour</a> – vyzkoušejte si, jak systém funguje
+            </p>
+        </div>
+
+        <!-- LICENCE -->
+        <div class="footer">
+            © Michaela Nováková<br>
+            Licence ukázky: CC BY-NC-SA 4.0
+        </div>
+
+    </div>
+</body>
+</html>
