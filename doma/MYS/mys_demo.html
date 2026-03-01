@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myš_DEMO · Kocour</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Černobílá paleta – pouze odstíny šedi */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            color: #000;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            border-left: 4px solid #333;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            font-style: italic;
+            color: #222;
+        }
+
+        /* Obrázek – černobílý, jemný rám */
+        .main-image {
+            width: 100%;
+            margin: 2rem 0 2.5rem;
+            border: 1px solid #444;
+            filter: grayscale(100%);
+            transition: filter 0.2s ease;
+        }
+
+        .main-image:hover {
+            filter: grayscale(80%);
+        }
+
+        /* Typografie */
+        p, li, blockquote, .response, .note {
+            color: #222;
+            font-size: 1rem;
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #333;
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-left: 3px solid #888;
+            margin: 2rem 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 2.5rem 0;
+            width: 30%;
+        }
+
+        /* Tabulka pro odpovědi – čistá, minimalistická */
+        .qa-section {
+            margin: 2rem 0;
+        }
+
+        .question-block {
+            background: #fafafa;
+            padding: 1rem 1.5rem;
+            margin: 2rem 0 1rem;
+            border-left: 2px solid #333;
+        }
+
+        .question-text {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .answer-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+
+        .answer-item {
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 1.5rem;
+        }
+
+        .answer-label {
+            font-weight: 600;
+            color: #000;
+            margin-right: 0.5rem;
+        }
+
+        .answer-quote {
+            font-style: italic;
+            background: #f2f2f2;
+            padding: 0.8rem 1.2rem;
+            margin: 0.5rem 0;
+            border-radius: 0;
+            border-left: 2px solid #666;
+        }
+
+        .mouse-tag {
+            font-weight: 600;
+            color: #111;
+            background: #eaeaea;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            margin: 0.5rem 0 0.2rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .core {
+            color: #444;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Diagnostické bloky */
+        .diagnostic {
+            margin: 2.5rem 0;
+            padding: 1.5rem;
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+        }
+
+        .diagnostic h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .badge {
+            background: #333;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #888;
+        }
+
+        .rule-box {
+            margin: 2rem 0;
+            padding: 1.2rem;
+            background: #eeeeee;
+            border-left: 4px solid #333;
+        }
+
+        .rule-box p {
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-note {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        /* Citlivé mezery */
+        .small-meta {
+            color: #555;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS -->
+        <h1>jak MYŠ zapisuje KOCOURA</h1>
+
+        <!-- OBRAZEK (doma/mix2.jpg) – ujistěte se, že složka doma existuje a soubor v ní je -->
+        <img class="main-image" src="doma/mix2.jpg" alt="Minimalistický černobílý obrázek" onerror="this.style.opacity='0.3'; this.alt='Obrázek nenalezen (doma/mix2.jpg)';">
+
+        <!-- ÚVODNÍ BÁSEŇ / TEXT -->
+        <div class="lead">
+            Myš dostala pohádku o kocourovi,<br>
+            který sežral dvě berušky a půl hodiny krkal tečky.<br>
+            Přečetla ji.<br>
+            Odložila.<br>
+            A začala si zapisovat.
+        </div>
+
+        <!-- SEKCE: CO MYŠ VIDÍ -->
+        <h2>CO MYŠ VIDÍ, KDYŽ ČTE ODPOVĚDI TÝMU</h2>
+        <p>Tým dostal tři otázky. Odpověděl. Myš přiřadila.</p>
+
+        <!-- ========== OTÁZKA 1 ========== -->
+        <div class="qa-section">
+            <div class="question-block">
+                <span class="question-text">OTÁZKA 1 (Smysl):</span> <em>„Co je podle vás hlavní pointa nebo sdělení příběhu?“</em>
+            </div>
+            <div class="answer-grid">
+                <!-- A -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď A:</span>
+                    <div class="answer-quote">„Že kocour ničí komunikaci tím, že za každého dokončuje věty. Je to o tom, že rychlost není totéž co efektivita.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 3 – Ironický</span>
+                    <div class="core">(Jádro: vidí rozpor mezi záměrem – urychlit – a výsledkem – ochromit.)</div>
+                </div>
+                <!-- B -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď B:</span>
+                    <div class="answer-quote">„Nevím, ale ta věta ‚půl hodiny krkal tečky‘ je skvělá. Ten rytmus. Ta konkrétnost. Jako by se čas zastavil a zároveň plynul.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 2 – Jazykový</span>
+                    <div class="core">(Jádro: forma je obsah. Zaujala ho věta, ne pointa.)</div>
+                </div>
+                <!-- C -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď C:</span>
+                    <div class="answer-quote">„Že někdo musí být ten, kdo věci uzavírá, i když to bolí. Kocour je vlastně oběť systému.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 7 – Intro</span>
+                    <div class="core">(Jádro: projekce vlastní zkušenosti do role kocoura.)</div>
+                </div>
+                <!-- D -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď D:</span>
+                    <div class="answer-quote">„Je to o tom, že každá tečka je vlastně nedokončená. Když ji kocour vykrkl, nebyla už jeho. Patřila všem.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 11 – Metaforický</span>
+                    <div class="core">(Jádro: tečka není tečka, je to symbol sdíleného významu.)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== OTÁZKA 2 ========== -->
+        <div class="qa-section">
+            <div class="question-block">
+                <span class="question-text">OTÁZKA 2 (Zaujetí):</span> <em>„Která konkrétní věta, obraz nebo moment vás nejvíc zaujal/a a PROČ?“</em>
+            </div>
+            <div class="answer-grid">
+                <!-- A -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď A:</span>
+                    <div class="answer-quote">„Když myš říká, že berušky mají na sobě nedokončené konce vět. To je přesný obraz toho, co nosíme v týmu – věci, co nikdo nedokončil, ale všichni je cítí.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 4 – Filozofický</span>
+                    <div class="core">(Jádro: hledá univerzální pravdu o břemenu nedokončeného.)</div>
+                </div>
+                <!-- B -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď B:</span>
+                    <div class="answer-quote">„Ta pasáž, kde ‚každý věděl, že něco nebylo stejné, ale nikdo nevěděl co‘. Přesně takhle se cítím po každé retrospektivě.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 10 – Asociační</span>
+                    <div class="core">(Jádro: osobní spojení s vlastní zkušeností, rychlý přeskok do praxe.)</div>
+                </div>
+                <!-- C -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď C:</span>
+                    <div class="answer-quote">„Nejvíc mě dostalo, že se kocour tomu všemu smál a krkal dál. To není zlý, to je vtipálek, co neví, že ubližuje.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 6 – Naivní</span>
+                    <div class="core">(Jádro: jednoduché, neinterpretované čtení postavy. Kocour je prostě vtipálek.)</div>
+                </div>
+                <!-- D -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď D:</span>
+                    <div class="answer-quote">„Ten beruščí počet – přesně 14 teček. Jako by někdo chtěl dodat: vidíš, není to náhoda, je to systémová chyba, kterou lze kvantifikovat.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 1 – Absurdní</span>
+                    <div class="core">(Jádro: vidí paradox v tom, že trauma je přesně spočítané.)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== OTÁZKA 3 ========== -->
+        <div class="qa-section">
+            <div class="question-block">
+                <span class="question-text">OTÁZKA 3 (Aplikace):</span> <em>„Kdyby tento příběh byl návodem nebo radou, co by vám radil dělat (nebo nedělat) ve vašem pracovním/projektovém životě?“</em>
+            </div>
+            <div class="answer-grid">
+                <!-- A -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď A:</span>
+                    <div class="answer-quote">„Nedokončovat věty za druhé. Nechat lidi domluvit. I kdyby to trvalo půl hodiny.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 8 – Všeobecný</span>
+                    <div class="core">(Jádro: drží se faktů, přímá aplikace bez metafor.)</div>
+                </div>
+                <!-- B -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď B:</span>
+                    <div class="answer-quote">„Hledat v týmu ‚nespolknuté konce‘ – věci, které se neřekly, ale visí ve vzduchu. A pak je vykrknout.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 5 – Surrealistický</span>
+                    <div class="core">(Jádro: spojuje nespojitelné – abstraktní koncept komunikace s obrazem krkání.)</div>
+                </div>
+                <!-- C -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď C:</span>
+                    <div class="answer-quote">„Radil by nebrat se tak vážně. Někdo musí být kocour, i když to štve. Hlavně že se u toho smějeme.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 12 – Groteskní</span>
+                    <div class="core">(Jádro: vidí komiku i v patologii, smích jako obranný mechanismus.)</div>
+                </div>
+                <!-- D -->
+                <div class="answer-item">
+                    <span class="answer-label">Odpověď D:</span>
+                    <div class="answer-quote">„Připomíná mi to našeho šéfa. Kdysi nám skákal do řeči tak dlouho, až jsme přestali mluvit. A pak si stěžoval, že nemáme nápady.“</div>
+                    <span class="mouse-tag">→ MYŠ PŘIŘADILA: Úhel 9 – Analogický</span>
+                    <div class="core">(Jádro: hledá paralelu v konkrétní historce, archetypální situaci.)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== CO Z TOHO MYŠ VYČETLA ========== -->
+        <h2>CO Z TOHO MYŠ VYČETLA?</h2>
+        <p><strong>Tým má 12 lidí.</strong> Myš zpracovala 36 odpovědí. Výsledek?</p>
+
+        <!-- PŘETÍŽENÉ ÚHLY -->
+        <div class="diagnostic">
+            <h4><span class="badge">🔴</span> PŘETÍŽENÉ ÚHLY (vyskytly se více než 10×)</h4>
+            <ul>
+                <li><strong>• Ironický (3)</strong> – 11×</li>
+                <li><strong>• Intro (7)</strong> – 10×</li>
+            </ul>
+            <p class="core" style="margin-top:1rem;">→ Diagnóza: Tým je chytrý, sebereflektivní, ale trochu cynický. Všichni vědí, co se děje špatně, a rádi o tom mluví. Méně už o tom, co s tím dělat.</p>
+        </div>
+
+        <!-- DEFICIENTNÍ ÚHLY -->
+        <div class="diagnostic">
+            <h4><span class="badge">⚪</span> DEFICIENTNÍ ÚHLY (vyskytly se 0–1×)</h4>
+            <ul>
+                <li><strong>• Absurdní (1)</strong> – 1×</li>
+                <li><strong>• Naivní (6)</strong> – 0×</li>
+                <li><strong>• Groteskní (12)</strong> – 1×</li>
+            </ul>
+            <p class="core" style="margin-top:1rem;">→ Diagnóza: Tým neumí být jednoduchý. Bojí se být naivní, bojí se absurdity, bojí se smát věcem, které bolí. Všechno musí dávat smysl. A to je právě ten problém.</p>
+        </div>
+
+        <!-- VYVÁŽENÉ ÚHLY -->
+        <div class="diagnostic">
+            <h4><span class="badge">⚫</span> VYVÁŽENÉ ÚHLY (2–6×)</h4>
+            <ul>
+                <li><strong>• Jazykový (2)</strong> – 4×</li>
+                <li><strong>• Metaforický (11)</strong> – 5×</li>
+                <li><strong>• Asociační (10)</strong> – 3×</li>
+            </ul>
+            <p class="core" style="margin-top:1rem;">→ Diagnóza: Tým umí pracovat s obrazem a jazykem. To jsou mosty, po kterých se dá přejít.</p>
+        </div>
+
+        <!-- CO MYŠ NAVRHLA? -->
+        <h2>CO MYŠ NAVRHLA?</h2>
+
+        <div class="rule-box">
+            <h4 style="margin-bottom:0.5rem;">PRAVIDLO 1 – PRO PŘETÍŽENÉ</h4>
+            <p>Ironikové a Intrové dostanou úkol: Na příští poradě nesmí nikoho hodnotit, ironizovat, ani se ptát „co tím chtěl básník říct“. Místo toho mají za úkol <strong>převyprávět problém jako pohádku pro dítě</strong>.</p>
+            <p class="small-meta">(Úhel 6 – Naivní – trénink deficitu.)</p>
+        </div>
+
+        <div class="rule-box">
+            <h4 style="margin-bottom:0.5rem;">PRAVIDLO 2 – PRO DEFICITNÍ</h4>
+            <p>Celý tým bude jeden týden používat <strong>pravidlo absurdní hypotézy</strong>. Každý návrh musí nejprve zaznít v extrémně přehnané, téměř nesmyslné podobě. Teprve pak se hledá, co by na tom mohlo být užitečné.</p>
+            <p class="small-meta">(Úhel 1 a 12 – trénink deficitu.)</p>
+        </div>
+
+        <div class="rule-box">
+            <h4 style="margin-bottom:0.5rem;">PRAVIDLO 3 – MOSTY</h4>
+            <p>Lidé s vyváženými úhly (Jazyk, Metafora, Asociace) dostanou roli <strong>tlumočníků</strong>. Jejich úkolem je vzít jeden problém z ironického diskurzu a přeložit ho do jazyka, kterému rozumí absurdní a groteskní úhel.</p>
+        </div>
+
+        <!-- PROČ MYŠ UKÁZALA PRÁVĚ KOCOURA? -->
+        <h2>PROČ MYŠ UKÁZALA PRÁVĚ KOCOURA?</h2>
+        <p>Protože kocour je karta, která se zdá být <strong>jednoduchá</strong>. Týmy si myslí: „Aha, to je o skákání do řeči. To vyřešíme pravidlem ‚nepřerušovat‘.“</p>
+        <p>Myš ale vidí, že kocour není jen o komunikaci. Je o vztahu k času, o strachu z prázdna, o touze být užitečný, i když to bolí.</p>
+        <p>A když myš vidí, <strong>jak</strong> o tom tým mluví, vidí, co se v týmu skutečně děje.</p>
+
+        <hr>
+
+        <p style="font-size:1.2rem; font-style:italic; text-align:center;">Tohle je MYŠ_DEMO. Ukázka, jak systém funguje na jedné kartě.</p>
+        <p style="text-align:center;">Není to návod. Není to diagnóza. Je to <strong>ukázka myšího pohledu</strong>.</p>
+
+        <div style="text-align:center; margin: 3rem 0 2rem; font-size:1.5rem;">„Chceš myš?“</div>
+
+        <!-- PATIČKA -->
+        <div class="footer-note">
+            &copy; 2026 • černobílá myš • obrázek: doma/mix2.jpg
+        </div>
+    </div>
+</body>
+</html>
