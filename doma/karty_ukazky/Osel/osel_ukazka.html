@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osel · Ukázka karty</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+            font-weight: 400;
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 0.3rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Obrázek */
+        .main-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 2rem auto;
+            border: 1px solid #444;
+            filter: grayscale(100%);
+            transition: filter 0.2s ease;
+            display: block;
+        }
+
+        .main-image:hover {
+            filter: grayscale(80%);
+        }
+
+        /* Běžný text */
+        p, li, .table-text {
+            color: #222;
+            font-size: 1.05rem;
+        }
+
+        /* Rychlý pohled – tabulka */
+        .quick-look {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #ccc;
+        }
+
+        .quick-look table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .quick-look td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .quick-look td:first-child {
+            font-weight: 600;
+            width: 30%;
+        }
+
+        /* Bloky pro úhly */
+        .angle-block {
+            background: #f9f9f9;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .angle-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Matice */
+        .matrix-row {
+            display: flex;
+            border-bottom: 1px dotted #aaa;
+            padding: 0.8rem 0;
+        }
+
+        .matrix-cell {
+            flex: 1;
+            padding: 0 0.5rem;
+        }
+
+        .matrix-cell:first-child {
+            font-weight: 600;
+            flex: 0.8;
+        }
+
+        /* Seznamy */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Propojení s kartami – mřížka */
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .connection-item {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-left: 3px solid #333;
+        }
+
+        .connection-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* CTA / kontakt */
+        .cta-box {
+            background: #f2f2f2;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid #aaa;
+        }
+
+        .cta-box a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+
+        .cta-box a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        /* Obsah (toc) */
+        .toc {
+            background: #f5f5f5;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+        }
+
+        .toc a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+            margin-right: 1.2rem;
+            display: inline-block;
+        }
+
+        /* Zpět na obsah */
+        .back-to-top {
+            text-align: right;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .back-to-top a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS S EMOJI -->
+        <h1>🫏 OSEL – Ukázka karty</h1>
+
+        <!-- OBRAZEK – cesta: doma/osel.jpg (lze upravit) -->
+        <img class="main-image" src="doma/osel.jpg" alt="Ilustrace osla – černobílá" onerror="this.style.opacity='0.3'; this.alt='Obrázek nenalezen (doma/osel.jpg)';">
+
+        <!-- OBSAH -->
+        <div class="toc" id="obsah">
+            <strong>OBSAH:</strong>
+            <a href="#pohadka">📘 Pohádka</a>
+            <a href="#otazky">🎯 3 otázky</a>
+            <a href="#uhly">🧠 Ukázka úhlů</a>
+            <a href="#workshop">🛠️ Workshop</a>
+            <a href="#matice">📊 Matice</a>
+            <a href="#proc">💡 Proč je klíčový</a>
+            <a href="#propojeni">🔗 Propojení</a>
+        </div>
+
+        <!-- JÁDROVÁ DYSFUNKCE -->
+        <h2>Jádrová dysfunkce</h2>
+        <p><strong>Paralýza z nejednoznačnosti a falešná jistota.</strong> Tým je uvězněn mezi alternativami, které nedokáže rozlišit („seno vs. sláma“), protože mu chybí jasná kritéria, vlastní úsudek nebo odvaha volit. Místo toho přijímá prázdné symboly („cedulky“) a stává se „průvodcem“, který pouze vypadá, že ví, kam jde. Tím udržuje systém v iluzi směru, zatímco ve skutečnosti bloudí.</p>
+        <p>Jde o dysfunkci ztraceného kontaktu s realitou, neschopnosti rozlišit podstatné od nepodstatného a vytváření prázdných rituálů, které nahrazují skutečné rozhodování.</p>
+
+        <!-- RYCHLÝ POHLED -->
+        <div class="quick-look">
+            <h3 style="margin-top:0; border-bottom:none;">RYCHLÝ POHLED</h3>
+            <table>
+                <tr><td><strong>Karta</strong></td><td>🫏 Osel</td></tr>
+                <tr><td><strong>Jádrová dysfunkce</strong></td><td>Paralýza z nejednoznačnosti a falešná jistota</td></tr>
+                <tr><td><strong>Klíčová otázka</strong></td><td>„Rozlišujeme ještě seno od slámy, nebo už jen věříme cedulkám?“</td></tr>
+            </table>
+        </div>
+
+        <!-- ========== POHÁDKA ========== -->
+        <h2 id="pohadka">📘 Pohádka</h2>
+        <h3>O OSLOVI, který šel vlevo, ale myslel si, že jde vpravo</h3>
+
+        <p>Osel se narodil mezi dvěma hromadami.<br>
+        Jedna byla seno.<br>
+        Druhá sláma.<br>
+        A nikdo mu neřekl, která je která.</p>
+
+        <p>„Levá,“ řekl někdo.<br>
+        „Pravá,“ řekl jiný.<br>
+        „Seno,“ řekl hlas.<br>
+        „Sláma,“ řekl stín.</p>
+
+        <p>Osel se podíval.<br>
+        Obě hromady vypadaly stejně.<br>
+        Jedna trochu měkčí.<br>
+        Jedna trochu hlučnější.<br>
+        Ale jinak? Chaos.</p>
+
+        <p>„Pro jednoho psina,“ řekl hlas.<br>
+        „Pro druhého oslovina,“ dodal jiný.<br>
+        A osel se zamyslel:<br>
+        „Kdo jsem já? Psina, nebo oslovina?“</p>
+
+        <p>Šel vlevo.<br>
+        Pak se otočil.<br>
+        A šel vpravo.<br>
+        Ale vypadalo to stejně.<br>
+        Země byla země.<br>
+        Hromada byla hromada.<br>
+        A pravidla? Neviditelná.</p>
+
+        <p>Potkal myš.<br>
+        Ta si zapisovala, co se děje.<br>
+        „Kam jdeš?“ zeptala se.<br>
+        „Nevím,“ řekl osel.<br>
+        „Levá, pravá, seno, sláma. Všechno se mi míchá.“</p>
+
+        <p>Myš si poznamenala:<br>
+        Osel – zmatený, ale důsledný.</p>
+
+        <p>„A co hledáš?“<br>
+        „Správnost,“ řekl osel.<br>
+        „A co to je?“<br>
+        „To, co se neřekne nahlas, ale všichni to očekávají.“</p>
+
+        <p>Myš se zamyslela.<br>
+        A pak mu podala cedulku.<br>
+        Na jedné straně bylo napsáno „seno“.<br>
+        Na druhé „sláma“.<br>
+        Ale písmo bylo stejné.</p>
+
+        <p>Osel si ji pověsil na krk.<br>
+        A šel dál.<br>
+        Levá.<br>
+        Pravá.<br>
+        Seno.<br>
+        Sláma.</p>
+
+        <p>A když ho někdo zastavil a zeptal se:<br>
+        „Kam jdeš?“<br>
+        Řekl:<br>
+        „Podle cedulky.“<br>
+        „A co je na ní?“<br>
+        „To, co si myslíš, že tam je.“</p>
+
+        <p>A tak se stal průvodcem.<br>
+        Ne tím, co ví.<br>
+        Ale tím, co jde.<br>
+        A když se někdo ztratil,<br>
+        šel za oslem.<br>
+        Protože i když neví,<br>
+        vypadá, že ví.</p>
+
+        <p>A když se někdo ptal, co je to „oslovina“,<br>
+        myš řekla:<br>
+        „To je, když jdeš dál, i když nevíš, kam.“</p>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== 3 DIAGNOSTICKÉ OTÁZKY ========== -->
+        <h2 id="otazky">🎯 3 diagnostické otázky</h2>
+        <ol>
+            <li><strong>Q1 (Analýza paralýzy):</strong> „Proč osel nedokázal rozlišit seno od slámy, přestože rozdíl je zásadní? Co mu bránilo použít vlastní smysly (ochutnat, osahat) a spoléhat se na vlastní zkušenost?“</li>
+            <li><strong>Q2 (Identifikace iluze):</strong> „Kde v našem týmu/procesu vytváříme ‚cedulky‘ – prázdné štítky, rituály, reporty nebo buzzwordy, které mají zakrýt, že ve skutečnosti nevíme, kudy kam?“</li>
+            <li><strong>Q3 (Transformace):</strong> „Co by se muselo stát, aby se náš tým stal skutečným průvodcem – tedy aby věděl, kam jde, a ne jen ‚vypadal, že ví‘? Jak proměnit ‚oslovinu‘ (jít dál bez vědění) v ‚myšinu‘ (jít s vědomím cíle)?“</li>
+        </ol>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== UKÁZKA ÚHLŮ (3 Z 12) ========== -->
+        <h2 id="uhly">🧠 Ukázka úhlů (3 z 12)</h2>
+
+        <div class="angle-block">
+            <div class="angle-title">1. ÚHEL ZTRACENÉ SENORIKY (Neschopnost ochutnat)</div>
+            <p><strong>Jak se projevuje v týmu:</strong> Tým neshání vlastní data, neptá se uživatelů, netestuje hypotézy, ale spoléhá na reporty, průzkumy a názory expertů. Ztrácí přímý kontakt s „chutí“ problému. Osel zapomněl, že má jazyk a čich – nespoléhá na vlastní zkušenost, jen na cizí popisy („hlas“, „stín“).</p>
+            <p><strong>Co s tím (ukázka řešení):</strong> Zavést pravidlo <strong>„ochutnávky“</strong>: Před každým velkým rozhodnutím musí alespoň jeden člen týmu získat přímou, nefiltrovanou zkušenost – mluvit se zákazníkem, zkusit použít vlastní produkt, strávit den v terénu.</p>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">2. ÚHEL PROTICHŮDNÝCH POKYNŮ (Hlas vs. stín)</div>
+            <p><strong>Jak se projevuje v týmu:</strong> Tým dostává smíšené signály od vedení, různé oddělení mají protichůdné priority, strategie mění směr podle toho, kdo zrovna mluví na poradě. Osel je bombardován radami od anonymních autorit – „levá/pravá“, „seno/sláma“ – a je paralyzován.</p>
+            <p><strong>Co s tím (ukázka řešení):</strong> Ustavit <strong>„jednotné velení“</strong> pro každý projekt. Pokud jsou pokyny protichůdné, vyžadovat jejich konfrontaci a vyjasnění na společném fóru. Zapisovat konečná rozhodnutí a důvody.</p>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">3. ÚHEL PRÁZDNÉ CEDULKY (Symbol místo substance)</div>
+            <p><strong>Jak se projevuje v týmu:</strong> Tým vytváří prázdné štítky, buzzwordy, složité diagramy nebo rituály (jako agilní ceremoniály bez obsahu), které zakrývají absenci skutečného porozumění. Myš dala oslovi cedulku se slovy „seno“ a „sláma“, ale písmo bylo stejné – cedulka je prázdný symbol, který má vytvořit iluzi rozlišení.</p>
+            <p><strong>Co s tím (ukázka řešení):</strong> Testovat <strong>„cedulky“</strong> jednoduchou otázkou: „Co konkrétně znamená toto slovo/proces v praxi pro náš dnešní úkol?“ Pokud nelze odpovědět konkrétně a jednoduše, je to prázdná cedulka. Přepsat ji do jazyka činů.</p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== WORKSHOP ========== -->
+        <h2 id="workshop">🛠️ Workshop (struktura)</h2>
+        <h3>Workshop: „MEZI DVĚMA HROMADAMI“ – 90 minut</h3>
+        <p><strong>Cíl:</strong> Identifikovat oblasti nejednoznačnosti a paralýzy v týmu, nahradit prázdné „cedulky“ konkrétními kritérii a obnovit schopnost rozlišovat podstatné.</p>
+
+        <h4>Část 1: Diagnóza našeho bloudění (30 min)</h4>
+        <ul>
+            <li>Úvod, čtení pohádky</li>
+            <li>Individuální reflexe: <strong>SENO</strong> (činnost s jasnou hodnotou), <strong>SLÁMA</strong> (činnost s iluzorní hodnotou), <strong>CEDULKA</strong> (prázdné slovo/fráze)</li>
+            <li>Vytvoření nástěnek „SENO“, „SLÁMA“, „CEDULKY“, tiché čtení</li>
+        </ul>
+
+        <h4>Část 2: Ochutnávka a přeznačení (40 min)</h4>
+        <ul>
+            <li>Skupinová práce <strong>„Test palce“</strong> – přepsání vybraných „cedulek“ do konkrétních akcí</li>
+            <li>Skupinová práce <strong>„Rozlišovač“</strong> – návrh jednoduchého testu, který odhalí, zda je činnost ze „slámy“ skutečně k ničemu</li>
+        </ul>
+
+        <h4>Část 3: Závazek a nová pravidla (20 min)</h4>
+        <ul>
+            <li>Výběr jedné cedulky k přepsání a jedné činnosti k otestování</li>
+            <li>Formulace <strong>„Protokolu rozlišování“</strong> – jednoduché pravidlo pro testování nových úkolů</li>
+        </ul>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== DIAGNOSTICKÁ MATICE ========== -->
+        <h2 id="matice">📊 Diagnostická matice</h2>
+
+        <div class="matrix-row" style="border-top:1px solid #aaa;">
+            <div class="matrix-cell"><strong>Dominantní úhel</strong></div>
+            <div class="matrix-cell"><strong>Diagnóza</strong></div>
+            <div class="matrix-cell"><strong>Intervence („Léčba oslovství“)</strong></div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Ztracená senzorika</div>
+            <div class="matrix-cell">Tým žije z druhé ruky. Ztratil přímý kontakt s realitou.</div>
+            <div class="matrix-cell"><strong>„Den přímé zkušenosti“:</strong> Každý člen musí strávit 2 hodiny v přímém kontaktu s realitou (zákazník, výroba, support).</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Protichůdné pokyny</div>
+            <div class="matrix-cell">Tým je paralyzován mnohohlavým vedením.</div>
+            <div class="matrix-cell"><strong>„Mapa rozhodovacích pravomocí“:</strong> Explicitně nakreslit, kdo má za co zodpovědnost.</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Existenciální krize</div>
+            <div class="matrix-cell">Tým neví, kdo je a kam patří. Ztráta sebedůvěry.</div>
+            <div class="matrix-cell"><strong>„Workshop identity“:</strong> Odpovědět na otázky: Čím jsme jedineční? Co nikdy nebudeme dělat?</div>
+        </div>
+        <div class="matrix-row">
+            <div class="matrix-cell">Prázdné cedulky</div>
+            <div class="matrix-cell">Komunikace je plná žargonu a prázdných frází.</div>
+            <div class="matrix-cell"><strong>„Škrtací pátek“:</strong> Vybrat 3 buzzwordy a celý pátek je nepoužívat.</div>
+        </div>
+        <div class="matrix-row" style="border-bottom:1px solid #aaa;">
+            <div class="matrix-cell">Průvodce z impostor syndromu</div>
+            <div class="matrix-cell">Vedení budí dojem vševědoucnosti, ale tým cítí, že je veden slepě.</div>
+            <div class="matrix-cell"><strong>„Schůze ‚Nevím‘“:</strong> Leader na začátku setkání přizná jednu věc, kterou neví, a požádá tým o pomoc.</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== PROČ JE OSEL KLÍČOVÝ ========== -->
+        <h2 id="proc">💡 Proč je Osel klíčový?</h2>
+        <p>Dokonale doplňuje systém. Zatímco <strong>Kocour</strong> předčasně uzavírá a <strong>Motýl</strong> estetizuje hlad, <strong>Osel</strong> nedokáže vůbec začít jíst. Je to karta <strong>paralýzy analýzou, byrokracie a ztráty zdravého selského rozumu</strong>. Je o týmech, které se točí v kruhu porad, vytvářejí stohy dokumentů, ale nejsou schopny jednoduchého, odvážného rozhodnutí. Je to protilék na iluzi pokroku.</p>
+        <p>Osel nás učí, že pohyb bez směru není pokrok. Že prázdné symboly a cedulky nenahradí vlastní zkušenost a odvahu rozlišovat. A že skutečným průvodcem se nestáváme tím, že vypadáme, že víme, ale tím, že ochutnáváme, ptáme se a přiznáváme, když nevíme.</p>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== PROPOJENÍ S DALŠÍMI KARTAMI ========== -->
+        <h2 id="propojeni">🔗 Propojení s dalšími kartami</h2>
+
+        <div class="connection-grid">
+            <div class="connection-item"><strong>Myš</strong> Myš si zapisuje a pozoruje. Osel je ten, koho pozoruje. Myš by mu mohla pomoci vidět, co nevidí.</div>
+            <div class="connection-item"><strong>Kocour</strong> Kocour předčasně uzavírá, Osel není schopen uzavřít vůbec. Dva póly rozhodovací paralýzy.</div>
+            <div class="connection-item"><strong>Motýl</strong> Motýl je prázdná krása, Oselova cedulka je prázdný symbol. Oba nahrazují substanci.</div>
+            <div class="connection-item"><strong>Vrabec</strong> Vrabec je špatné rozhodnutí, které se vymklo kontrole. Osel není schopen rozhodnout se vůbec.</div>
+            <div class="connection-item"><strong>Páv</strong> Páv je sebestředný a ví, kdo je. Osel svou identitu hledá mezi „psinou“ a „oslovinou“.</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== CHCETE CELOU KARTU? ========== -->
+        <div class="cta-box">
+            <h3 style="margin-top:0;">📦 Chcete celou kartu?</h3>
+            <p><strong>Plná verze (29 000 Kč) obsahuje:</strong></p>
+            <ul style="text-align:left; display:inline-block;">
+                <li>✅ <strong>Všech 12 úhlů</strong> s detailním vysvětlením a Q1–Q3 pro každý z nich</li>
+                <li>✅ <strong>Kompletní scénář workshopu</strong> (90 min, s časováním a poznámkami facilitátora)</li>
+                <li>✅ <strong>Šablony:</strong> Listy SENO, SLÁMA, CEDULKA, Protokol rozlišování</li>
+                <li>✅ <strong>Diagnostickou matici</strong> se všemi intervencemi</li>
+                <li>✅ <strong>Návod na implementaci</strong> a propojení s dalšími kartami</li>
+                <li>✅ <strong>Firemní licenci</strong> (princip „Repo dům“ – váš systém, vaše data, navždy)</li>
+            </ul>
+            <p style="margin-top:1.5rem;">
+                📧 <strong>Kontakt:</strong> <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a><br>
+                📌 <strong>Ukázka zdarma:</strong> <a href="/doma/KOCOUR/">Karta Kocour</a> – vyzkoušejte si, jak systém funguje
+            </p>
+        </div>
+
+        <!-- LICENCE -->
+        <div class="footer">
+            © Michaela Nováková<br>
+            Licence ukázky: CC BY-NC-SA 4.0
+        </div>
+
+    </div>
+</body>
+</html>
