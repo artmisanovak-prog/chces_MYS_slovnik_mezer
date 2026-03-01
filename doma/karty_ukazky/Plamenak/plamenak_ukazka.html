@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plameňák · Ukázka karty a pohádka</title>
+    <style>
+        /* ===== ČISTÝ ČERNOBÍLÝ MINIMALISMUS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            padding: 2.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Nadpisy */
+        h1, h2, h3, h4 {
+            font-weight: 300;
+            color: #000;
+            letter-spacing: 0.2px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #222;
+            font-weight: 400;
+            border-bottom: 1px dotted #aaa;
+            padding-bottom: 0.3rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Obrázek */
+        .main-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            margin: 2rem auto;
+            border: 1px solid #444;
+            filter: grayscale(100%);
+            transition: filter 0.2s ease;
+            display: block;
+        }
+
+        .main-image:hover {
+            filter: grayscale(80%);
+        }
+
+        /* Rychlý pohled – tabulka */
+        .quick-look {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #ccc;
+        }
+
+        .quick-look table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .quick-look td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        .quick-look td:first-child {
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .quick-look tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Obsah (toc) */
+        .toc {
+            background: #f5f5f5;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+        }
+
+        .toc a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+            font-size: 1rem;
+        }
+
+        .toc a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        /* Bloky pro úhly */
+        .angle-block {
+            background: #f9f9f9;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .angle-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #000;
+        }
+
+        .angle-problem {
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .angle-text {
+            margin-left: 1.2rem;
+            color: #333;
+            background: #f2f2f2;
+            padding: 0.5rem 1.2rem;
+            border-left: 2px solid #aaa;
+        }
+
+        /* CTA / kontakt */
+        .cta-box {
+            background: #f2f2f2;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid #aaa;
+        }
+
+        .cta-box a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #555;
+        }
+
+        .cta-box a:hover {
+            border-bottom: 1px solid #000;
+        }
+
+        /* Patička */
+        .footer {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 1.5rem;
+        }
+
+        /* Zpět na obsah */
+        .back-to-top {
+            text-align: right;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .back-to-top a {
+            color: #555;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 2.5rem 0;
+            width: 30%;
+        }
+
+        /* Speciální pro pohádku – zachování mezer */
+        .story p {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HLAVNÍ NADPIS -->
+        <h1>🦩 KARTA: PLAMEŇÁK – Ukázka</h1>
+
+        <!-- OBRAZEK – cesta: doma/plamenak.jpg (lze upravit) -->
+        <img class="main-image" src="doma/karty_ukazky/Plamenak/plamenak.jpg" alt="Ilustrace plameňáka – černobílá" onerror="this.style.opacity='0.3'; this.alt='Obrázek nenalezen (doma/plamenak.jpg)';">
+
+        <!-- POPIS DYSFUNKCE -->
+        <div style="background:#f8f8f8; padding:1.5rem 2rem; margin:2rem 0; border-left:4px solid #333;">
+            <p style="font-size:1.2rem; margin-bottom:0;"><strong>Iracionální nadšení nahrazující směr a reálné plánování.</strong></p>
+            <p style="margin-top:0.8rem;">Tato karta diagnostikuje a řeší problém týmů, které jsou poháněny energií a optimismem, ale postrádají smysluplný směr, strategii a reálné plánování.</p>
+        </div>
+
+        <!-- RYCHLÝ POHLED -->
+        <div class="quick-look">
+            <h3 style="margin-top:0; border-bottom:none;">RYCHLÝ POHLED</h3>
+            <table>
+                <tr><td><strong>Karta</strong></td><td>🦩 Plameňák</td></tr>
+                <tr><td><strong>Jádrová dysfunkce</strong></td><td>Iracionální nadšení nahrazující směr a reálné plánování</td></tr>
+                <tr><td><strong>Klíčová otázka</strong></td><td>„Lalalá, ale kam?“</td></tr>
+            </table>
+        </div>
+
+        <!-- OBSAH (odkazy) -->
+        <div class="toc" id="obsah">
+            <strong>OBSAH:</strong>
+            <a href="#otazky">🎯 3 diagnostické otázky</a>
+            <a href="#uhly">🧠 Ukázka úhlů</a>
+            <a href="#workshop">🛠️ Workshop</a>
+            <a href="#nabidka">📦 Plná verze</a>
+            <a href="#pohadka">📘 Pohádka</a>
+        </div>
+
+        <!-- ========== 3 DIAGNOSTICKÉ OTÁZKY ========== -->
+        <h2 id="otazky">🎯 3 diagnostické otázky</h2>
+        <ol>
+            <li><strong>Q1 (Interpretace):</strong> "Proč plameňák raději zpívá 'Lalalá' a deklaruje 'Hlavně že to má směr!', než aby přiznal, že padá?"</li>
+            <li><strong>Q2 (Identifikace):</strong> "Kde ve vašem týmu/projektu pozorujete 'zpívání během pádu' – tedy oslavu energie, aktivity a pokroku, která zakrývá absenci skutečného cíle?"</li>
+            <li><strong>Q3 (Transformace):</strong> "Co by se muselo stát, aby váš tým získal 'myší perspektivu' – tedy schopnost klidně pozorovat realitu a ptát se na jednoduché, podstatné otázky?"</li>
+        </ol>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== UKÁZKA 2 ÚHLŮ Z 12 ========== -->
+        <h2 id="uhly">🧠 Ukázka 2 úhlů z 12</h2>
+
+        <div class="angle-block">
+            <div class="angle-title">1. 🎭 ÚHEL TOXICKÉHO OPTIMISMU</div>
+            <div class="angle-problem"><strong>Problém:</strong> Nadšení jako obrana proti realitě</div>
+            <div class="angle-text"><strong>Příklad v týmu:</strong> Když tým odpovídá na každé varování nebo špatnou zprávu ještě větším nadšením a pozitivní rétorikou.</div>
+            <div class="angle-text" style="margin-top:0.8rem;"><strong>Řešení:</strong> Vytvořit bezpečný prostor pro "neprůstřelnou realitu". Zavést rituál, kde musí být první slovo v každém brainstormingu kritické/realistické ('myší pohled'), až poté může přijít energie ('plameňáčí zpěv').</div>
+        </div>
+
+        <div class="angle-block">
+            <div class="angle-title">2. 🏃 ÚHEL PERFORMATIVNÍ ENERGIE</div>
+            <div class="angle-problem"><strong>Problém:</strong> Akce jako cíl sama o sobě</div>
+            <div class="angle-text"><strong>Příklad v týmu:</strong> Když tým měří úspěch podle aktivity (počet meetingů, hodiny práce) místo podle výsledků a dopadu.</div>
+            <div class="angle-text" style="margin-top:0.8rem;"><strong>Řešení:</strong> Přehodnotit metriky: Oslavovat pouze výsledky, které mají dopad, ne aktivitu samotnou. Ptát se: "Kdybychom tento pohyb/aktivitu zrušili, ztratili bychom něco hodnotného?"</div>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== WORKSHOP ========== -->
+        <h2 id="workshop">🛠️ Workshop (struktura)</h2>
+        <h3>Workshop: "Let nebo pád?" (90 minut)</h3>
+        <ul>
+            <li><strong>Část 1: Diagnóza</strong> (30 min)
+                <ul>
+                    <li>Přečtení pohádky</li>
+                    <li>Individuální odpovědi na 3 otázky</li>
+                    <li>Sdílení ve skupinách</li>
+                </ul>
+            </li>
+            <li><strong>Část 2: Hluboká práce</strong> (40 min)
+                <ul>
+                    <li>Cvičení 'Mapa letu a dna'</li>
+                    <li>Cvičení 'Myší protokol'</li>
+                </ul>
+            </li>
+            <li><strong>Část 3: Akční plán</strong> (20 min)
+                <ul>
+                    <li>Definování změn</li>
+                    <li>Návrh systému</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- ========== NABÍDKA PLNÉ VERZE ========== -->
+        <div class="cta-box" id="nabidka">
+            <h3 style="margin-top:0;">📦 Chcete celou kartu?</h3>
+            <p><strong>Plná verze (29 000 Kč) obsahuje:</strong></p>
+            <ul style="text-align:left; display:inline-block;">
+                <li>✅ <strong>Všech 12 úhlů</strong> s detailním vysvětlením</li>
+                <li>✅ <strong>Kompletní workshop</strong> s časováním a poznámkami facilitátora</li>
+                <li>✅ <strong>Šablony:</strong> Mapa letu a dna, Diagnostický dotazník, Workshopová agenda</li>
+                <li>✅ <strong>Diagnostické nástroje</strong> pro tým</li>
+                <li>✅ <strong>Návod</strong> na implementaci</li>
+            </ul>
+            <p style="margin-top:1.5rem;"><strong>Cena: 29 000 Kč</strong></p>
+            <p>Kontakt: <a href="mailto:chcesmys@gmail.com"><strong>chcesmys@gmail.com</strong></a></p>
+        </div>
+
+        <!-- ODDĚLOVAČ PŘED POHÁDKOU -->
+        <hr id="pohadka">
+
+        <!-- ========== POHÁDKA O PLAMEŇÁKOVI ========== -->
+        <h2>📘 O PLAMEŇÁKOVI</h2>
+        <h3 style="border-bottom:none; font-style:italic;">který byl na hlavu</h3>
+        <div style="border-top:1px dashed #ccc; margin:1.5rem 0; width:100px;"></div>
+
+        <div class="story">
+            <p>Plameňák zpíval.<br>
+            Lalalá.<br>
+            Vysoko,<br>
+            výš než měl.<br>
+            Výš než bylo bezpečné.<br>
+            Výš než bylo rozumné.</p>
+
+            <p>„Poletíme spolu!“ křičel.<br>
+            „Zřídíme se dolů!<br>
+            Až na dno vesmíru!“<br>
+            A nikdo mu neřekl,<br>
+            že vesmír žádné dno nemá.<br>
+            Protože plameňák měl růžové peří<br>
+            a hlas, co se nedal přerušit.</p>
+
+            <p>„Lalalá!“ zpíval.<br>
+            „Budeme na hlavu!“<br>
+            A opravdu — letěl hlavou dolů.<br>
+            Nohy mu trčely k nebi.<br>
+            Křídla mu vlála jako šály.<br>
+            A oči měl dokořán.</p>
+
+            <p>„Tohle není let,“ řeklo mu klíště.<br>
+            „To je pád.“<br>
+            „To je jedno!“ křičel plameňák.<br>
+            „Hlavně že to má směr!“<br>
+            A padal dál.</p>
+
+            <p>Kolem něj se míhaly hvězdy, mlhoviny i sny a vedle něj se zavlnila prádelní šňůra s jednou ponožkou - tou, co ráno nenašel.</p>
+
+            <p>„Kam letíš?“ ptal se komár, co se také držel jeho peří.<br>
+            „Nevím!“ smál se plameňák.<br>
+            „Ale letí se mi krásně!“</p>
+
+            <p>A pak — ticho.</p>
+
+            <p>Ticho tak hluboké,<br>
+            že i vesmír zadržel dech.<br>
+            Plameňák dopadl.<br>
+            Ne na zem.<br>
+            Na dno.<br>
+            Na dno vesmíru.</p>
+
+            <p>Kde nikdo nebyl.<br>
+            Kromě něj,<br>
+            komára<br>
+            a klíštěte co měl.<br>
+            A jedné myši,<br>
+            která si zapisovala,<br>
+            co se stalo.</p>
+
+            <p>„Jsi v pořádku?“ zeptala se.<br>
+            „Jsem na hlavu,“ řekl plameňák.<br>
+            „Ale jinak výborně.“</p>
+
+            <p>Myš si poznamenala:<br>
+            “Plameňák – padá s grácií.<br>
+            I když neví kam.<br>
+            Hlavně že zpívá.”</p>
+
+            <p>A plameňák se usmál.<br>
+            Z peří mu vypadl omámený komár.<br>
+            A z kapsy mu vypadla mapa,<br>
+            co ukazovala jen dolů.</p>
+
+            <p>„Příště poletím ještě níž,“ řekl.<br>
+            „A co když už níž nejde?“<br>
+            „Tak si vymyslím nové dno.“</p>
+
+            <p>A znovu se vznesl.<br>
+            Hlavou dolů.<br>
+            Srdcem vzhůru.<br>
+            A zpíval:<br>
+            „Lalaláááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááá“</p>
+
+            <p><strong>KONEC</strong></p>
+        </div>
+        <div class="back-to-top"><a href="#obsah">↑ Zpět na obsah</a></div>
+
+        <!-- PATIČKA -->
+        <div class="footer">
+            © Michaela Nováková · Licence ukázky: CC BY-NC-SA 4.0
+        </div>
+
+    </div>
+</body>
+</html>
