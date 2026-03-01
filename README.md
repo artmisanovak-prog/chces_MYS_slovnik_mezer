@@ -133,14 +133,13 @@ Proč?
 | Karta | Problém | Ukázka | Cena |
 |-------|---------|--------|------|
 | <img src="doma/KOCOUR/data/kocour.jpg" width="80"><br>**Kocour** | Skáčeme si do řeči — myšlenky umírají dřív, než dostanou šanci | [Ukázka](./doma/KOCOUR/data/landing_page_kocour.html) | zdarma |
-| <img src="doma/karty_ukazky/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Nadšení bez plánu — energie, která nikam nevede | [Ukázka](./doma/karty_ukazky/Plamenak/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Pav/pav.jpg" width="80"><br>**Páv** | Vidíme projekt skrz sebe — a přestáváme vidět realitu | [Ukázka](./doma/karty_ukazky/Pav/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Nadšení bez plánu — energie, která nikam nevede | [Ukázka](./doma/karty_ukazky/Plamenak/plamenak_ukazka.html) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Pav/pav.jpg" width="80"><br>**Páv** | Vidíme projekt skrz sebe — a přestáváme vidět realitu | [Ukázka](./doma/karty_ukazky/Pav/pav_ukazka.html) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Moucha/moucha.jpg" width="80"><br>**Moucha** | Chaos se stal normou — a nikdo si ho už nevšimne | [Ukázka](./doma/karty_ukazky/Moucha/moucha_ukazka.html) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Ryba/ryba.jpg" width="80"><br>**Ryba** | Mluvíme hodně, ale nic se nemění | [Ukázka](./doma/karty_ukazky/Ryba/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Ryba/ryba.jpg" width="80"><br>**Ryba** | Mluvíme hodně, ale nic se nemění | [Ukázka](./doma/karty_ukazky/Ryba/ryba_ukazka.html) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Husy/husy.jpg" width="80"><br>**Husy** | Každý křičí „my" — ale každý myslí jen na sebe | [Ukázka](./doma/karty_ukazky/Husy/husy_ukazka.html) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Parohy/parohy.jpg" width="80"><br>**Parohy** | Definujeme se tím, co jsme dělali — ne tím, kdo jsme | [Ukázka](./doma/karty_ukazky/Parohy/parohy_ukazka
-html) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Dočasné řešení, které tu bude navždy | [Ukázka](./doma/karty_ukazky/Vrabec/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Parohy/parohy.jpg" width="80"><br>**Parohy** | Definujeme se tím, co jsme dělali — ne tím, kdo jsme | [Ukázka](/doma/karty_ukazky/Parohy/parohy_ukazka.html) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Dočasné řešení, které tu bude navždy | [Ukázka](./doma/karty_ukazky/Vrabec/vrabec_ukazka.html) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Osel/osel.jpg" width="80"><br>**Osel** | Tolik možností — že nevybereme žádnou | [Ukázka](./doma/karty_ukazky/Osel/osel_ukazka.html) | 29 000 Kč |
 
 ---
@@ -276,7 +275,7 @@ Contact: **chcesmys@gmail.com**
 
 - [Ukázka kombinace karet](./doma/MYS/plamenak_a_kocour.html)
 - [Jak kombinovat karty](./doma/MYS/jak_kombinovat.html)
-- [Jak kombinovat kartu uvnitr - **funkční nástroj**](./doma/MYS/jak_kombinovat.html)
+- [Jak kombinovat kartu uvnitr - **funkční nástroj**](https://artmisanovak-prog.github.io/chces_MYS_slovnik_mezer/doma/KOCOUR/data/generativni.html)
 ---
 
 ## 🔜 další karty:
