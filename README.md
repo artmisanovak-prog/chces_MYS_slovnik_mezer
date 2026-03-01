@@ -50,16 +50,16 @@ Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obvi
 ## 🚀 Rychlý start
 
 1. **jak používat system**
-[Jak používat systém](./doma/MYS/jak_pouzivat.md)
+[Jak používat systém](./doma/MYS/jak_pouzivat.html)
 
 2. **Modelové scénáře** 
 [Prohlédněte si](./doma/MYS/modelove_scenare.html)
 
-3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./doma/MYS/Mys_meta.md)
-Přečtěte si [Jak číst jako myš](./doma/MYS/Mys_demo.md)
+3. **Naučte se diagnostikovat** – Přečtěte si [Klíč k úhlům](./doma/MYS/Mys_meta.html)
+Přečtěte si [Jak číst jako myš](./doma/MYS/Mys_demo.html)
 
 4. **Prohlédněte si ukázkovou kartu**
-[Kocour](./doma/KOCOUR/)
+[Kocour](./doma/KOCOUR/data/landing_page_kocour.html)
 skákání do řeči, předčasné ukončování
 
 ---
@@ -132,15 +132,16 @@ Proč?
 
 | Karta | Problém | Ukázka | Cena |
 |-------|---------|--------|------|
-| <img src="doma/KOCOUR/data/kocour.jpg" width="80"><br>**Kocour** | Skáčeme si do řeči — myšlenky umírají dřív, než dostanou šanci | [Ukázka](./doma/KOCOUR/) | zdarma |
+| <img src="doma/KOCOUR/data/kocour.jpg" width="80"><br>**Kocour** | Skáčeme si do řeči — myšlenky umírají dřív, než dostanou šanci | [Ukázka](./doma/KOCOUR/data/landing_page_kocour.html) | zdarma |
 | <img src="doma/karty_ukazky/Plamenak/plamenak.jpg" width="80"><br>**Plameňák** | Nadšení bez plánu — energie, která nikam nevede | [Ukázka](./doma/karty_ukazky/Plamenak/) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Pav/pav.jpg" width="80"><br>**Páv** | Vidíme projekt skrz sebe — a přestáváme vidět realitu | [Ukázka](./doma/karty_ukazky/Pav/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Moucha/moucha.jpg" width="80"><br>**Moucha** | Chaos se stal normou — a nikdo si ho už nevšimne | [Ukázka](./doma/karty_ukazky/Moucha/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Moucha/moucha.jpg" width="80"><br>**Moucha** | Chaos se stal normou — a nikdo si ho už nevšimne | [Ukázka](./doma/karty_ukazky/Moucha/moucha_ukazka.html) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Ryba/ryba.jpg" width="80"><br>**Ryba** | Mluvíme hodně, ale nic se nemění | [Ukázka](./doma/karty_ukazky/Ryba/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Husy/husy.jpg" width="80"><br>**Husy** | Každý křičí „my" — ale každý myslí jen na sebe | [Ukázka](./doma/karty_ukazky/Husy/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Parohy/parohy.jpg" width="80"><br>**Parohy** | Definujeme se tím, co jsme dělali — ne tím, kdo jsme | [Ukázka](./doma/karty_ukazky/Parohy/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Husy/husy.jpg" width="80"><br>**Husy** | Každý křičí „my" — ale každý myslí jen na sebe | [Ukázka](./doma/karty_ukazky/Husy/husy_ukazka.html) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Parohy/parohy.jpg" width="80"><br>**Parohy** | Definujeme se tím, co jsme dělali — ne tím, kdo jsme | [Ukázka](./doma/karty_ukazky/Parohy/parohy_ukazka
+html) | 29 000 Kč |
 | <img src="doma/karty_ukazky/Vrabec/vrabec.jpg" width="80"><br>**Vrabec** | Dočasné řešení, které tu bude navždy | [Ukázka](./doma/karty_ukazky/Vrabec/) | 29 000 Kč |
-| <img src="doma/karty_ukazky/Osel/osel.jpg" width="80"><br>**Osel** | Tolik možností — že nevybereme žádnou | [Ukázka](./doma/karty_ukazky/Osel/) | 29 000 Kč |
+| <img src="doma/karty_ukazky/Osel/osel.jpg" width="80"><br>**Osel** | Tolik možností — že nevybereme žádnou | [Ukázka](./doma/karty_ukazky/Osel/osel_ukazka.html) | 29 000 Kč |
 
 ---
 
@@ -172,14 +173,14 @@ Proč?
 
 > **Musím umět GitHub?**
 > Ne. GitHub slouží jen ke stažení souboru – jako každý jiný zip na internetu.
-> Co s ním dál dělat je popsáno v přiloženém návodu. [návod](doma/MYS/jak_zacit.md)
+> Co s ním dál dělat je popsáno v přiloženém návodu. [návod](doma/MYS/jak_zacit.html)
 
 > **Lze kartu použít víckrát?**
 > Ano – a je na to přímo navržená. Generativní mód ti z jedné karty vytvoří desítky různých workshopů kombinací úhlů. Nikdy nebudeš dělat stejný workshop dvakrát.
 
 > **Lze karty kombinovat?**
 > Ano. Každá karta řeší jednu poruchu, ale poruchy se v týmech vrství.
-> Jak karty kombinovat popisuje [samostatný návod](doma/MYS/jak_kombinovat.md) a [uvnitř karty](doma/MYS/uvnitr_kocoura.md) nebo [karty mezi sebou](doma/MYS/plamenak_a_kocour.md)
+> Jak karty kombinovat popisuje [samostatný návod](doma/MYS/jak_kombinovat.html) a [uvnitř karty](doma/MYS/uvnitr_kocoura.md) nebo [karty mezi sebou](doma/MYS/plamenak_a_kocour.md)
 
 ---
 
@@ -274,7 +275,7 @@ Contact: **chcesmys@gmail.com**
 ## ✨ Kombinace:
 
 - [Ukázka kombinace karet](./doma/MYS/plamenak_a_kocour.md)
-- [Jak kombinovat karty](./doma/MYS/jak_kombinovat.md)
+- [Jak kombinovat karty](./doma/MYS/jak_kombinovat.html)
 
 ---
 
@@ -292,7 +293,9 @@ Contact: **chcesmys@gmail.com**
 
 ---
 
-[LANDING PAGE](index.html)
+[LANDING PAGE1](index01.html)
+[LANDING PAGE2](index1.html)
+[LANDING PAGE3](index.html)
 
 [KOCOUR landing page](doma/KOCOUR/data/landing_page_kocour.html)
 
