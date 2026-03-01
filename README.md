@@ -50,7 +50,7 @@ Díky příběhům se lidé dokáží domluvit rychleji, přesněji a **bez obvi
 ## 🚀 Rychlý start
 
 1. **jak používat system**
-[Jak používat systém](./doma/MYS/jak_pouzivat.html)
+[Jak používat systém](./doma/MYS/jak_pouzit.html)
 
 2. **Modelové scénáře** 
 [Prohlédněte si](./doma/MYS/modelove_scenare.html)
