@@ -291,10 +291,12 @@ Contact: **chcesmys@gmail.com**
 | <img src="doma/karty_ukazky/zelva.jpg" width="60"><br>**Želva** | Dva přístupy si odporují, ale bez sebe nefungují | [Mám zájem](mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Želva) |
 
 ---
-
+[LANDING PAGE1](index.html)
 [LANDING PAGE1](index01.html)
 [LANDING PAGE2](index1.html)
-[LANDING PAGE3](index.html)
+[LANDING PAGE3](index3.html)
+[LANDING PAGE4](index4.html)
+[LANDING PAGE5](index5.html)
 
 [KOCOUR landing page](doma/KOCOUR/data/landing_page_kocour.html)
 
