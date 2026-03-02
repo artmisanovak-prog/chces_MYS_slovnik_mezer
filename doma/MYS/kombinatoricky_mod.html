@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧩 Kombinační mód · Karty poruch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffffff;
+            color: #111111;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 300;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin: 2.5rem 0 1.5rem;
+            border-left: 4px solid #333;
+            padding-left: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .selector-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+            justify-content: center;
+        }
+
+        .card-selector {
+            flex: 1 1 400px;
+            background: #f8f8f8;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+        }
+
+        .card-selector label {
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #111;
+            background: white;
+            font-family: inherit;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .card-preview {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border: 1px solid #ddd;
+        }
+
+        .card-preview img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border: 1px solid #111;
+            background: #f0f0f0;
+        }
+
+        .card-preview .card-info {
+            flex: 1;
+        }
+
+        .card-preview .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-preview .card-desc {
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .angle-selector {
+            margin-top: 1.5rem;
+        }
+
+        .angle-selector label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        select.angle-select {
+            margin-bottom: 0;
+        }
+
+        .info-panel {
+            background: #f0f0f0;
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid #333;
+        }
+
+        .combo-result {
+            background: #f5f5f5;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #333;
+        }
+
+        .combo-title {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.5rem;
+        }
+
+        .combo-section {
+            margin: 2rem 0;
+        }
+
+        .combo-section h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .exercise {
+            background: white;
+            padding: 1.5rem;
+            border-left: 3px solid #333;
+            margin-top: 1rem;
+        }
+
+        .exercise p {
+            margin: 0.5rem 0;
+        }
+
+        .exercise ol, .exercise ul {
+            margin: 1rem 0 1rem 1.8rem;
+        }
+
+        button {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 2rem 0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            border-top: 1px solid #ccc;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .relationship-badge {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 0.3rem 1rem;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .debug-info {
+            background: #f0f0f0;
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            border: 1px dashed #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <h1>🧩 Kombinační mód · Karty poruch</h1>
+
+        <div class="info-panel">
+            <p><strong>Jak to funguje:</strong> Vyber dvě karty (podle názvu a popisu poruchy), u každé vyber jeden úhel pohledu. Nástroj spojí jejich Q3 (konkrétní cvičení) do jednoho kombinačního cvičení. Výsledek respektuje logiku: <em>„Lidé s úhlem A dostanou úkol pracovat způsobem úhlu B.“</em></p>
+        </div>
+
+        <!-- Výběr dvou karet -->
+        <div class="selector-grid">
+            <div class="card-selector">
+                <label>⬅️ První karta (A)</label>
+                <select id="cardA"></select>
+                <div id="previewA" class="card-preview"></div>
+                <div class="angle-selector" id="angleSelectorA"></div>
+            </div>
+            <div class="card-selector">
+                <label>➡️ Druhá karta (B)</label>
+                <select id="cardB"></select>
+                <div id="previewB" class="card-preview"></div>
+                <div class="angle-selector" id="angleSelectorB"></div>
+            </div>
+        </div>
+
+        <!-- Tlačítko -->
+        <div style="text-align: center;">
+            <button id="generateBtn">🔮 Vygenerovat kombinaci</button>
+        </div>
+
+        <!-- Výsledek -->
+        <div id="resultArea" class="combo-result" style="display: none;">
+            <div class="combo-title" id="comboTitle"></div>
+
+            <div class="combo-section">
+                <h4>🔍 Kombinovaný problém</h4>
+                <p id="comboProblem"></p>
+            </div>
+
+            <div class="combo-section">
+                <h4>🎯 Cíl cvičení</h4>
+                <p id="comboGoal"></p>
+            </div>
+
+            <div class="combo-section">
+                <h4>🧘 Cvičení / intervence</h4>
+                <div class="exercise" id="comboExercise"></div>
+            </div>
+
+            <div class="combo-section">
+                <h4>📐 Použité úhly</h4>
+                <p id="angleInfo"></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2026 · Kombinační mód · založeno na systému „Chceš myš?“
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // DATABÁZE KARET (RYBA, MOTÝL, PLAMEŇÁK, HUSY + ukázkové další)
+        // ============================================================
+        const cardsDB = [
+            {
+                id: "ryba",
+                name: "🐟 Ryba",
+                title: "Ryba – tichá komunikace",
+                desc: "Povrchní křik nahrazuje autentickou komunikaci. Tým mluví hodně, ale nic se nemění.",
+                image: "dona/karty_ukazky/Ryba/ryba.jpg",
+                angles: [
+                    { id: 1, name: "Vibrační komunikace", q3: "Zavést 'čtení vibrací': Před zahájením řešení agendy věnovat 2 minuty popisu 'jak se tu dnes cítí vzduch/voda'. Co je nevyřčené, ale přítomné? Trénovat vnímavost k prostředí." },
+                    { id: 2, name: "Systemický dopad", q3: "Měřit úspěch komunikace ne podle délky nebo počtu bodů, ale podle odpovědi na otázku: 'Jak se změnilo naše společné 'prostředí' (důvěra, jasnost, energie) po této výměně?'" },
+                    { id: 3, name: "Přesnost před hlasitostí", q3: "Zavést pravidlo 'váhy slova': Každý má na meetingu limitovaný počet 'zlatých slov'. Když je použije, musí mlčet. Nutí to k úspornosti a přesnosti." },
+                    { id: 4, name: "Různorodé žánry", q3: "Mapovat 'hudební mapu týmu': Kdo je žralok-gospelista (hluboký vizionář)? Kdo medúza-trianglistka (dodává jemné detaily)? Oceňovat tyto rozdíly." },
+                    { id: 5, name: "Ptačí křikot", q3: "Provést 'audit ptačího křiku': Identifikovat 3 nejčastější, nejprázdnější fráze nebo rituály v naší komunikaci. Domluvit se na jejich eliminaci." },
+                    { id: 6, name: "Mlčení jako dovednost", q3: "Zavést 'rybí pauzy': Po klíčových otázkách nebo před rozhodnutím povinná 1-2 minuty naprostého ticha na reflexi." },
+                    { id: 7, name: "Komunikace s prostředím", q3: "Před každou významnější komunikací se zeptat: 'Mluvím teď ke týmu, nebo pro náš společný systém?' A upravit jazyk." },
+                    { id: 8, name: "Ticho, které nese obsah", q3: "Vytvořit mechanismy pro 'zviditelnění ticha': Pravidelné psané reflexe místo ústních reportů, brainwriting." },
+                    { id: 9, name: "Beaty prostředí", q3: "Integrovat komunikaci do 'proudů práce': Místo formálních meetingů častěji komunikovat v kontextu práce." },
+                    { id: 10, name: "Vnímání místo poslouchání", q3: "Po důležitých setkáních se ptát: 'Co jsi pocítil? Co jsi zaznamenal v místnosti, co nebylo řečeno?'" },
+                    { id: 11, name: "Autentické vyjádření", q3: "Pomoci každému členovi týmu identifikovat jeho 'komunikační žánr'. Respektovat tyto žánry a hledat, jak je integrovat do společného orchestru." },
+                    { id: 12, name: "Neviditelné vítězství", q3: "Zavést 'hitparádu pod hladinou': Pravidelně oceňovat a reflektovat neviditelné úspěchy." }
+                ]
+            },
+            {
+                id: "motyl",
+                name: "🦋 Motýl",
+                title: "Motýl – problém jako past",
+                desc: "Problém vypadá dobře, krásně, ale nikdo ho neřeší. Estetizace místo akce.",
+                image: "dona/karty_ukazky/Motyl/motyl.jpg",
+                angles: [
+                    { id: 1, name: "Symbolické nasycení", q3: "Kdykoli někdo předloží vizi (motýl), musí zároveň navrhnout první tři kroky – konkrétní, malé, hmatatelné akce do 14 dnů." },
+                    { id: 2, name: "Komunikační minimalismus", q3: "Zavést komunikační pravidlo: Představení jakéhokoli nápadu musí obsahovat větu: 'A teď to řeknu bez metafory: Jde o to, že…'" },
+                    { id: 3, name: "Proměnlivá identita", q3: "Pro každý klíčový projekt/proces určit jeho 'křestní jméno' (podstatu) a hlídat, zda se nepřevléká za něco, čím není." },
+                    { id: 4, name: "Nefunkční krása", q3: "Při hodnocení nástroje/nápadu se ptát na 'test palců': Jaké jsou tři nejjednodušší, nejpraktičtější akce, které s tím dokáže udělat ten, kdo to bude používat?" },
+                    { id: 5, name: "Lehkost jako prokletí", q3: "Zavést pravidlo 'těžkého žaludku': Pokud rozhodnutí/akce neobsahuje aspoň jeden nepříjemný kompromis, jeden obtížný úkol nebo jedno riziko, je to motýl." },
+                    { id: 6, name: "Ztracená chuť", q3: "Hledat vždy 'chleba s motýlem' – tedy základní řešení doplněné o jeden prvek smyslu/krásy/hry, který mu dává chuť." },
+                    { id: 7, name: "Self-estetizace", q3: "Pravidlo 'ošklivého prvního slova': První věta při popisu problému musí obsahovat nejpřímější, nejošklivější výraz." },
+                    { id: 8, name: "Básničky v žaludku", q3: "Místo hodnocení spokojenosti se ptát na 'zpěv žaludku': Na čem jsi pracoval/a, že jsi u toho cítil/a, jak ti žaludek zpívá?" },
+                    { id: 9, name: "Emocionální chleba", q3: "Když delegujeme úkol, ptát se i na emocionální rovinu: 'Co na tom bude nejtěžší/nejnepříjemnější? Jak ti v tom můžeme pomoci?'" },
+                    { id: 10, name: "Víry v myšlenkách", q3: "Vytvořit 'motýlí rezervaci' – board na odkládání nápadů/obav. Jednou týdně se otevře a vybere se jeden k proměně v projekt." },
+                    { id: 11, name: "Nedělní chuť", q3: "Pravidelně zařazovat do práce prvek 'pátku' – něco neočekávaného, experimentálního, mírně rizikového." },
+                    { id: 12, name: "Konečný dotaz", q3: "Institucionalizovat otázku 'A máš k tomu i přílohu?' jako povinnou součást schvalování nových iniciativ." }
+                ]
+            },
+            {
+                id: "plamenak",
+                name: "🦩 Plameňák",
+                title: "Plameňák – nadšení bez směru",
+                desc: "Energie, která nikam nevede. Tým je nadšený, ale chybí mu plán a realita.",
+                image: "dona/karty_ukazky/Plamenak/plamenak.jpg",
+                angles: [
+                    { id: 1, name: "Toxický optimismus", q3: "Vytvořit bezpečný prostor pro 'neprůstřelnou realitu'. Zavést rituál, kde první slovo v brainstormingu je kritické/realistické." },
+                    { id: 2, name: "Performativní energie", q3: "Přehodnotit metriky: Oslavovat jen výsledky s dopadem, ne aktivitu samotnou. Ptát se: 'Kdybychom tento pohyb zrušili, ztratili bychom něco?'" },
+                    { id: 3, name: "Neexistující dno", q3: "Definovat společně 'dna' předem: Jaké metriky znamenají, že musíme projekt zastavit? Kdo má mandát říci dost?" },
+                    { id: 4, name: "Ilogická vytrvalost", q3: "Zavést pravidlo inteligentní vytrvalosti: Po neúspěchu povinná analýza před pokračováním." },
+                    { id: 5, name: "Estetizace selhání", q3: "Oddělit oslavu od analýzy: Dva meetinky – díky za energii, pak chladná pitva bez estetizace." },
+                    { id: 6, name: "Infekční nadšení", q3: "Vyvážit týmy: Ke každému plameňákovi přiřadit myš (realistu). Myš má právo veta na aktivaci." },
+                    { id: 7, name: "Ztráta orientace", q3: "Pravidelný kalibrační bod: Zastavit a zkontrolovat orientaci podle vnějších měřítek." },
+                    { id: 8, name: "Solistický přístup", q3: "Propojit odměňování s dopadem na celek, ne na individuální výkon." },
+                    { id: 9, name: "Popírání reality", q3: "Zavést test axiomů: Před projektem zapsat klíčové předpoklady a testovat je." },
+                    { id: 10, name: "Ob sesivní směřování dolů", q3: "Vynutit období nudné stability – čas na konsolidaci, ocenit prevenci." },
+                    { id: 11, name: "Zapomnění spolucestujících", q3: "Pravidelná mapa ekosystému: Kdo je náš komár? Kdo naše prádelní šňůra?" },
+                    { id: 12, name: "Permanentní znovuzrození", q3: "Z každé retrospektivy vynést jeden konkrétní, měřitelný závazek změny a kontrolovat ho." }
+                ]
+            },
+            {
+                id: "husy",
+                name: "🦆 Husy",
+                title: "Husy – kolektivní singulár",
+                desc: "Každý křičí 'já', ale nikdo netvoří 'my'. Tým je soubor izolovaných eg.",
+                image: "dona/karty_ukazky/Husy/husy.jpg",
+                angles: [
+                    { id: 1, name: "Kolektivní singulár", q3: "Zavést rituál 'my-check': Každý musí začít větu 'My jsme…' a popsat společný cíl." },
+                    { id: 2, name: "Nosiči slov", q3: "Ke každému důležitému slovu přiřadit jednoho nositele odpovědnosti za konkrétní akci." },
+                    { id: 3, name: "Gramatická krize", q3: "Provést jazykovou hygienu – vyčistit slovník od buzzwordů, nahradit je konkrétními popisy." },
+                    { id: 4, name: "Nejisté já", q3: "Zavést anonymní hlasování před diskusí, aby názory nebyly ovlivněny ozvěnou." },
+                    { id: 5, name: "Kruhový let", q3: "Na konci schůze 3 výstupy: rozhodnutí, vlastník, termín." },
+                    { id: 6, name: "Hlasitý sebeklam", q3: "Nahradit hlasitá prohlášení tichým dotazováním: 'Co by nám pomohlo být lepšími?'" },
+                    { id: 7, name: "Houser se zájmem", q3: "Pravidelně zvát externího pozorovatele k nepohodlným otázkám." },
+                    { id: 8, name: "Manifest v rozkladu", q3: "Budovat tichou ústavu – pár žitých, jednoduchých pravidel místo hlasitých manifestů." },
+                    { id: 9, name: "Potřeba být slyšen", q3: "Zavést kruh slyšení – mluví jen ten, kdo drží předmět, a musí shrnout předchozího." },
+                    { id: 10, name: "Ztráta společného cíle", q3: "Před každým úkolem se ptát: Jak to přispívá k letu v klínu?" },
+                    { id: 11, name: "Vnímání okolí", q3: "Pravidelně žádat zpětnou vazbu zvenčí: 'Co to vypadá, že děláme?'" },
+                    { id: 12, name: "Hledání bílých hus", q3: "Vytvářet prostor pro tiché husy – hluboké rozhovory 1:1, skutečné naslouchání." }
+                ]
+            }
+        ];
+
+        // ============================================================
+        // FUNKCE PRO RENDER
+        // ============================================================
+        function renderCardSelectors() {
+            const selA = document.getElementById('cardA');
+            const selB = document.getElementById('cardB');
+            selA.innerHTML = '';
+            selB.innerHTML = '';
+
+            cardsDB.forEach(card => {
+                const optA = document.createElement('option');
+                optA.value = card.id;
+                optA.textContent = `${card.name} – ${card.title}`;
+                selA.appendChild(optA);
+
+                const optB = document.createElement('option');
+                optB.value = card.id;
+                optB.textContent = `${card.name} – ${card.title}`;
+                selB.appendChild(optB);
+            });
+
+            // Přednastavit první dvě karty
+            selA.value = cardsDB[0].id;
+            selB.value = cardsDB[1]?.id || cardsDB[0].id;
+            updatePreviews();
+        }
+
+        function getCardById(id) {
+            return cardsDB.find(c => c.id === id);
+        }
+
+        function updatePreviews() {
+            const cardA = getCardById(document.getElementById('cardA').value);
+            const cardB = getCardById(document.getElementById('cardB').value);
+
+            // Náhled pro A
+            renderCardPreview('previewA', cardA);
+            renderAngleSelector('angleSelectorA', cardA, 'A');
+
+            // Náhled pro B
+            renderCardPreview('previewB', cardB);
+            renderAngleSelector('angleSelectorB', cardB, 'B');
+        }
+
+        function renderCardPreview(containerId, card) {
+            const container = document.getElementById(containerId);
+            if (!card) {
+                container.innerHTML = '<div class="card-preview">Vyber kartu</div>';
+                return;
+            }
+
+            container.innerHTML = `
+                <img src="${card.image}" alt="${card.name}" onerror="this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2280%22%20height%3D%2280%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23f0f0f0%22%2F%3E%3Ctext%20x%3D%2210%22%20y%3D%2255%22%20font-family%3D%22Arial%22%20font-size%3D%2212%22%3E${card.name}%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                <div class="card-info">
+                    <div class="card-title">${card.title}</div>
+                    <div class="card-desc">${card.desc}</div>
+                </div>
+            `;
+        }
+
+        function renderAngleSelector(containerId, card, letter) {
+            const container = document.getElementById(containerId);
+            if (!card) {
+                container.innerHTML = '';
+                return;
+            }
+
+            let options = '';
+            card.angles.forEach(angle => {
+                options += `<option value="${angle.id}">${angle.id}. ${angle.name}</option>`;
+            });
+
+            container.innerHTML = `
+                <label for="angle-${letter}">Vyber úhel pohledu (karta ${card.name})</label>
+                <select id="angle-${letter}" class="angle-select">${options}</select>
+            `;
+        }
+
+        function getSelectedAngle(cardId, selectorId) {
+            const card = getCardById(cardId);
+            if (!card) return null;
+            const select = document.getElementById(selectorId);
+            if (!select) return null;
+            const angleId = parseInt(select.value);
+            return card.angles.find(a => a.id === angleId);
+        }
+
+        function generateCombo() {
+            const cardAId = document.getElementById('cardA').value;
+            const cardBId = document.getElementById('cardB').value;
+            const angleA = getSelectedAngle(cardAId, 'angle-A');
+            const angleB = getSelectedAngle(cardBId, 'angle-B');
+
+            if (!angleA || !angleB) {
+                alert('Vyber úhly pro obě karty.');
+                return;
+            }
+
+            const cardA = getCardById(cardAId);
+            const cardB = getCardById(cardBId);
+
+            // Název kombinace
+            const comboName = `${cardA.name} × ${cardB.name} – kombinace úhlů`;
+
+            // Kombinovaný problém
+            const problem = `Spojení pohledu „${angleA.name}“ (${cardA.title}) a „${angleB.name}“ (${cardB.title}) vytváří nový typ napětí: jedna perspektiva chce „${angleA.q3.split('.')[0]}“, druhá „${angleB.q3.split('.')[0]}“.`;
+
+            // Cíl – odvozený z obou Q3
+            const goal = `Propojit tyto dva přístupy tak, aby vzniklo cvičení, kde lidé s prvním úhlem pracují způsobem druhého úhlu, a naopak.`;
+
+            // Kombinované cvičení – logicky spojí obě Q3
+            const exercise = `
+                <p><strong>⏱️ Délka:</strong> 30–40 minut</p>
+                <p><strong>👥 Počet:</strong> 3–6 lidí</p>
+                <p><strong>Postup:</strong></p>
+                <ol>
+                    <li><strong>Část 1 – mapování (10 minut):</strong> Každý účastník si vybere jeden problém z týmu. Popíše ho nejprve z pohledu „${angleA.name}“: ${angleA.q3.split('.')[0]}. Poté z pohledu „${angleB.name}“: ${angleB.q3.split('.')[0]}.</li>
+                    <li><strong>Část 2 – kombinace (15 minut):</strong> Skupina vybere jeden problém. Navrhněte společně intervenci, která kombinuje oba přístupy. Využijte tyto instrukce:
+                        <ul>
+                            <li><em>Z úhlu A:</em> ${angleA.q3}</li>
+                            <li><em>Z úhlu B:</em> ${angleB.q3}</li>
+                        </ul>
+                    </li>
+                    <li><strong>Část 3 – akce (10 minut):</strong> Navrhněte jedno konkrétní opatření pro váš tým, které vzniklo právě kombinací těchto dvou pohledů.</li>
+                </ol>
+                <p><strong>Tip:</strong> Hledejte, kde se úhly doplňují. Někdy je nejsilnější kombinace tam, kde jeden úhel dělá to, co druhý potřebuje.</p>
+            `;
+
+            // Info o úhlech
+            const angleInfo = `Úhel A: ${cardA.name} – ${angleA.name}\nÚhel B: ${cardB.name} – ${angleB.name}`;
+
+            // Zobrazit výsledek
+            document.getElementById('comboTitle').textContent = comboName;
+            document.getElementById('comboProblem').textContent = problem;
+            document.getElementById('comboGoal').textContent = goal;
+            document.getElementById('comboExercise').innerHTML = exercise;
+            document.getElementById('angleInfo').textContent = angleInfo;
+            document.getElementById('resultArea').style.display = 'block';
+        }
+
+        // ============================================================
+        // INICIALIZACE
+        // ============================================================
+        window.addEventListener('DOMContentLoaded', () => {
+            renderCardSelectors();
+
+            document.getElementById('cardA').addEventListener('change', updatePreviews);
+            document.getElementById('cardB').addEventListener('change', updatePreviews);
+            document.getElementById('generateBtn').addEventListener('click', generateCombo);
+
+            // První načtení
+            updatePreviews();
+        });
+
+    </script>
+</body>
+</html>
