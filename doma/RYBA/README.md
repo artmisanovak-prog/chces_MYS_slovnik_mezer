@@ -8,13 +8,14 @@ Tato karta diagnostikuje a řeší problém týmů, kde se komunikace stala povr
 
 ---
 
-[Pohádka o rybě](./data/RYBA/pohadka.md) | 
-[Diagnostický mód](./data/RYBA/diagnostika-ryba.html) | 
-[Kreativní mód](./data/RYBA/generator.html) | 
-[Generativní mód](./data/RYBA/generativni.html) | 
-[Workshop](./data/RYBA/workshop_90_minut.html) |
-[Zpětná vazba](./data/RYBA/zpetna_vazba.html/) | 
-[Licence](./data/RYBA/licence_ryba.txt) |
+[Pohádka o rybě](./data/RYBA/data/pohadka_o_rybe.md) | 
+[Diagnostický mód](./data/RYBA/data/diagnostika-ryba.html) | 
+[Kreativní mód](./doma/RYBA/data/generator.html) | 
+[Generativní mód](./doma/RYBA/data/generativni.html) | 
+[Kombinatorický mód](./doma/kombinatoricky.html) |
+[Workshop](./data/RYBA//data/workshop_90_minut.html) |
+[Zpětná vazba](./doma/RYBA/data/zpetna_vazba.html/) | 
+[Licence](./doma/RYBA/data/licence_ryba.txt) |
 
 ---
 
