@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔮 Ryba – generativní mód</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, serif;
+    background: #fff;
+    color: #111;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+    line-height: 1.6;
+  }
+  h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+  h2 { font-size: 1.1rem; margin: 2rem 0 0.7rem; border-bottom: 1px solid #111; padding-bottom: 0.3rem; }
+  h3 { font-size: 1rem; margin: 0 0 0.3rem; }
+  .nav { font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .nav a { color: #111; }
+  .uvod {
+    border-left: 3px solid #111;
+    padding: 0.7rem 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  .kombinace {
+    border: 1px solid #111;
+    margin-bottom: 1.5rem;
+  }
+  .kombinace-hlavicka {
+    background: #111;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+  .kombinace-hlavicka span {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    display: block;
+    margin-top: 0.1rem;
+  }
+  .kombinace-telo { padding: 1rem; }
+  .kombinace-nazev { font-weight: bold; font-size: 1rem; margin-bottom: 0.3rem; }
+  .kombinace-cil { font-size: 0.85rem; color: #555; font-style: italic; margin-bottom: 0.8rem; }
+  .kombinace-cviceni { font-size: 0.88rem; }
+  .kombinace-cviceni p { margin-bottom: 0.4rem; }
+  .kombinace-cviceni ol { margin-left: 1.2rem; }
+  .kombinace-cviceni li { margin-bottom: 0.4rem; }
+  .vlastni-box {
+    border: 1px solid #111;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .vlastni-box p { font-size: 0.88rem; color: #444; margin-bottom: 1rem; }
+  .vybery { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .vyber-skupina { flex: 1; min-width: 200px; }
+  .vyber-skupina label { display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 0.3rem; }
+  .vyber-skupina select {
+    width: 100%;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid #111;
+    font-family: Georgia, serif;
+    font-size: 0.85rem;
+    background: #fff;
+  }
+  .btn {
+    padding: 0.5rem 1.2rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: Georgia, serif;
+  }
+  .btn:hover { background: #333; }
+  .vysledek-kombinace {
+    display: none;
+    margin-top: 1.2rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+  }
+  .vysledek-kombinace h3 { margin-bottom: 0.8rem; }
+  .uhel-panel {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .uhel-panel strong { display: block; margin-bottom: 0.3rem; }
+  .uhel-panel .meta { font-size: 0.8rem; color: #555; font-style: italic; margin-bottom: 0.5rem; }
+  .uhel-panel .q3-text { font-size: 0.88rem; border-left: 2px solid #111; padding-left: 0.7rem; }
+  .hint {
+    background: #f5f5f5;
+    padding: 0.7rem;
+    font-size: 0.82rem;
+    color: #444;
+    margin-top: 0.8rem;
+    font-style: italic;
+  }
+  @media print {
+    .nav, .btn, select { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="../">← Ryba</a> &nbsp;|&nbsp;
+  <a href="../../../README.md">Chceš myš?</a>
+</div>
+
+<h1>🔮 Ryba – generativní mód</h1>
+<p style="font-size:0.85rem; color:#555; margin-bottom:1rem;">Ryba sama se sebou</p>
+
+<div class="uvod">
+  Věděli jste, že tahle karta umí generovat nové workshopy, aniž byste potřebovali jinou kartu?<br>
+  Stačí spojit dva různé úhly. Tady máte 4 hotové kombinace — rovnou k použití.
+</div>
+
+<h2>🧩 Hotové kombinace</h2>
+
+<!-- Kombinace 1 + 6: Ticho, které vibruje -->
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 1 + 6
+    <span>Úhel 1 (Vibrační komunikace) × Úhel 6 (Mlčení jako mocná dovednost)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Ticho, které vibruje</div>
+    <div class="kombinace-cil">Cíl: Naučit se vnímat, co se děje v týmu, když nikdo nemluví.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Cvičení (25 minut):</strong></p>
+      <ol>
+        <li><strong>5 minut:</strong> Tým dostane téma: "Co bychom měli přestat dělat?" Ale nikdo nesmí mluvit. Všichni píší své odpovědi na papírky.</li>
+        <li><strong>5 minut:</strong> Papírky se zamíchají a každý si jeden vylosuje a přečte nahlas. Po přečtení 30 sekund ticha – vnímáte, co to s vámi dělá.</li>
+        <li><strong>10 minut:</strong> Diskuze: "Co jsme v tom tichu slyšeli? Jaké vibrace v nás zůstaly?"</li>
+        <li><strong>5 minut:</strong> Společně pojmenujte jednu věc, kterou "řeklo ticho" a měli bychom ji řešit.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Kombinace 3 + 5: Váha slova -->
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 3 + 5
+    <span>Úhel 3 (Přesnost před hlasitostí) × Úhel 5 (Ptačí křikot)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Váha slova</div>
+    <div class="kombinace-cil">Cíl: Redukovat komunikační šum a trénovat přesnost vyjadřování.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Cvičení (20 minut):</strong></p>
+      <ol>
+        <li>Rozdělte se do dvojic. Každý dostane 2 minuty na to, aby partnerovi vysvětlil nějaký pracovní problém.</li>
+        <li><strong>5 minut:</strong> Teď to samé, ale smíte použít jen 50 slov (počítejte!). Po skončení partner parafrázuje, co pochopil.</li>
+        <li><strong>5 minut:</strong> Role se vymění.</li>
+        <li><strong>5 minut:</strong> Společná reflexe: "Která verze byla účinnější? Co jsme museli vynechat? Bylo to k užitku, nebo ke škodě?"</li>
+        <li><strong>5 minut:</strong> Každý napíše na lísteček jedno "ptáčí slovo" (frázi, kterou nadužíváme a nic neříká). Lístky se symbolicky roztrhají a vyhodí.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Kombinace 2 + 9: Beat systému -->
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 2 + 9
+    <span>Úhel 2 (Systemický dopad) × Úhel 9 (Beaty, které tvoří prostředí)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Beat systému</div>
+    <div class="kombinace-cil">Cíl: Synchronizovat komunikaci s přirozeným rytmem práce a zvýšit její dopad.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Cvičení (30 minut):</strong></p>
+      <ol>
+        <li><strong>10 minut:</strong> Nakreslete společnou "rytmus mapu" typického týdne. Kdy přichází nejvíc informací? Kdy je naopak klid? Kde vzniká nejvíc šumu?</li>
+        <li><strong>10 minut:</strong> Označte místa, kde by šlo komunikaci "naladit" na přirozený beat – např. posunout meeting, zrušit report, nahradit hromadný email tichou aktualizací v nástroji.</li>
+        <li><strong>10 minut:</strong> Vyberte jeden konkrétní zásah, který zkusíte příští týden. Zapisujte, jak změna "beat" ovlivnila náladu a produktivitu.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Kombinace 8 + 12: Hitparáda pod hladinou -->
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 8 + 12
+    <span>Úhel 8 (Ticho, které nese obsah) × Úhel 12 (Neviditelné vítězství)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Hitparáda pod hladinou</div>
+    <div class="kombinace-cil">Cíl: Zviditelnit a ocenit tiché přínosy, které obvykle zůstávají skryté.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Cvičení (25 minut):</strong></p>
+      <ol>
+        <li><strong>5 minut:</strong> Každý individuálně sepíše 2-3 "neviditelné úspěchy" za poslední měsíc – věci, které udělal, pomohly týmu, ale nikdo je nevidí (např. uklidnil kolegu, našel chybu v datech, přidal se k úkolu bez povšimnutí).</li>
+        <li><strong>10 minut:</strong> Sdílení ve skupině. Po každém sdílení 20 sekund ticha – nechat doznít.</li>
+        <li><strong>10 minut:</strong> Vytvořte "nástěnku neviditelných vítězství" – flipchart, kde se budou tyto úspěchy sbírat (anonymně nebo jmenovitě). Domluvte se, jak budete nástěnku pravidelně aktualizovat a slavit.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<h2>🔭 Vlastní kombinace</h2>
+
+<div class="vlastni-box">
+  <p>Vyber dva různé úhly a spojí se jejich Q3 — úkoly, které z nich vyplývají. Zbytek je na tobě: jak cvičení pojmeneš, jak ho časově nastavíš, co z toho uděláš.</p>
+  <div class="vybery">
+    <div class="vyber-skupina">
+      <label>Úhel A (přetížený / dominantní):</label>
+      <select id="uhel-a"><option value="">— vyber úhel —</option></select>
+    </div>
+    <div class="vyber-skupina">
+      <label>Úhel B (deficitní / chybějící):</label>
+      <select id="uhel-b"><option value="">— vyber úhel —</option></select>
+    </div>
+  </div>
+  <button class="btn" onclick="generuj()">🔮 Spojit úhly</button>
+  <div class="vysledek-kombinace" id="vysledek">
+    <h3>Tvoje kombinace</h3>
+    <div id="panel-a" class="uhel-panel"></div>
+    <div id="panel-b" class="uhel-panel"></div>
+    <div class="hint">
+      Toto jsou dva úkoly (Q3) z vybraných úhlů. Spoj je do jednoho cvičení — pojmenuj ho, odhadni čas, popiš postup. Princip: lidé s úhlem A dostanou za úkol pracovat způsobem úhlu B.
+    </div>
+  </div>
+</div>
+
+<script>
+// █████████████████████████████████████████████████████████
+// DATA PRO KARTU RYBA – 12 úhlů (stejné jako v diagnostice)
+// █████████████████████████████████████████████████████████
+const uhly = [
+  {
+    "id": 1,
+    "emoji": "🌊",
+    "nazev": "Vibrační komunikace",
+    "metafora": "Ryby 'vibrujou'. Jejich komunikace je tělesná, prostřednictvím prostředí. Nepřenáší jen data, ale mění kontext.",
+    "q3": "Zavést 'čtení vibrací': Před zahájením řešení agendy věnovat 2 minuty popisu 'jak se tu dnes cítí vzduch/voda'. Co je nevyřčené, ale přítomné? Trénovat vnímavost k prostředí."
+  },
+  {
+    "id": 2,
+    "emoji": "🌍",
+    "nazev": "Systemický dopad",
+    "metafora": "Rybí rap 'ovlivňuje různé vodní vlastnosti'. Skutečná komunikace není o předání informace, ale o změně systému.",
+    "q3": "Měřit úspěch komunikace ne podle délky nebo počtu bodů, ale podle odpovědi na otázku: 'Jak se změnilo naše společné 'prostředí' (důvěra, jasnost, energie) po této výměně?'"
+  },
+  {
+    "id": 3,
+    "emoji": "🎯",
+    "nazev": "Přesnost před hlasitostí",
+    "metafora": "Flow je king a king je ryba. Přesnost je hodnota, ne kvantita slov.",
+    "q3": "Zavést pravidlo 'váhy slova': Každý má na meetingu limitovaný počet 'zlatých slov'. Když je použije, musí mlčet. Nutí to k úspornosti a přesnosti. Oceňovat kvalitu, ne kvantitu promluv."
+  },
+  {
+    "id": 4,
+    "emoji": "🎼",
+    "nazev": "Různorodé žánry",
+    "metafora": "Každý druh ryb má svůj styl: kosatky-chansony, žraloci-gospel. Systém oceňuje diverzitu projevu.",
+    "q3": "Mapovat 'hudební mapu týmu': Kdo je naším žralokem-gospelistou (hluboký vizionář)? Kdo medúzou-trianglistkou (dodává jemné detaily)? Oceňovat tyto rozdíly a vytvořit prostor pro každý styl."
+  },
+  {
+    "id": 5,
+    "emoji": "🐦",
+    "nazev": "Ptačí křikot",
+    "metafora": "Ptačí zpěv? Křikot je to. Řev, ryk, krákot, jekot. Opakování prázdných frází.",
+    "q3": "Provést 'audit ptačího křiku': Identifikovat 3 nejčastější, nejprázdnější fráze nebo rituály v naší komunikaci. Domluvit se na jejich eliminaci nebo radikální transformaci."
+  },
+  {
+    "id": 6,
+    "emoji": "🤫",
+    "nazev": "Mlčení jako mocná dovednost",
+    "metafora": "Ryby vyhrály ne proto, že zpívaj. Ale proto, že ví, kdy mlčet.",
+    "q3": "Zavést 'rybí pauzy': Po klíčových otázkách nebo před rozhodnutím povinná 1-2 minuty naprostého ticha na reflexi. Zakázáno cokoli říkat. Ticho je součástí práce."
+  },
+  {
+    "id": 7,
+    "emoji": "💧",
+    "nazev": "Komunikace s prostředím",
+    "metafora": "Ryba rapovala pro vodu. A voda odpověděla. Nejvyšší forma komunikace není s publikem, ale s vlastním ekosystémem.",
+    "q3": "Před každou významnější komunikací se zeptat: 'Mluvím teď ke týmu, nebo pro náš společný systém?' A upravit jazyk a záměr tak, aby sloužil systému, ne jen předání informace."
+  },
+  {
+    "id": 8,
+    "emoji": "🪷",
+    "nazev": "Ticho, které nese obsah",
+    "metafora": "Ticho v této pohádce není absence, ale nositel obsahu. Rybí hudba byla slyšet – ne uchem, ale okem, tělem.",
+    "q3": "Vytvořit mechanismy pro 'zviditelnění ticha': Pravidelné psané reflexe místo ústních reportů, 'tiché brainstormingy' (brainwriting), ocenění pro ty, kdo 'mluví' svou prací a přítomností, ne slovy."
+  },
+  {
+    "id": 9,
+    "emoji": "🌊",
+    "nazev": "Beaty, které tvoří prostředí",
+    "metafora": "Beat jí dělá sea i jezera. Rybí rap je neoddělitelný od prostředí, je jím tvořen a zároveň ho tvoří.",
+    "q3": "Integrovat komunikaci do 'proudů práce': Místo formálních meetingů častěji komunikovat v kontextu práce (pair work, async updates v taskovacích nástrojích). Nechat 'beat' práce tvarovat komunikaci."
+  },
+  {
+    "id": 10,
+    "emoji": "👁️",
+    "nazev": "Vnímání místo poslouchání",
+    "metafora": "Rybí hudbu nelze slyšet uchem, ale 'okem, tělem'. Jde o posun od auditivní recepce k celostní percepci.",
+    "q3": "Po důležitých setkáních neptat se jen 'Co si z toho odnášíš?', ale také 'Co jsi pocítil? Co jsi zaznamenal v místnosti, co nebylo řečeno?' Rozvíjet slovníkovou zásobu pro vjemy."
+  },
+  {
+    "id": 11,
+    "emoji": "🎭",
+    "nazev": "Autentické vyjádření",
+    "metafora": "Úhoř nemá hudební ambice. Autenticita spočívá v tom, že každý vyjadřuje svou vlastní podstatu, ne to, co se od něj očekává.",
+    "q3": "Pomoci každému členovi týmu identifikovat jeho 'komunikační žánr' (např. 'Jsem spíš storyteller, ne datový analytik'). Respektovat tyto žánry a hledat způsoby, jak je integrovat do společného 'orchestru'."
+  },
+  {
+    "id": 12,
+    "emoji": "🏆",
+    "nazev": "Neviditelné vítězství",
+    "metafora": "První místo v hitparádě vyhrály ryby – ale neviditelně, pod hladinou. Skutečný vliv a úspěch často zůstávají skryty.",
+    "q3": "Zavedení 'hitparády pod hladinou': Pravidelně oceňovat a reflektovat 'neviditelné úspěchy' – ty, které změnily kvalitu našeho prostředí, i když o nich nikdo neřve na střeše."
+  }
+];
+
+// █████████████████████████████████████████████████████████
+// LOGIKA GENEROVÁNÍ (stejná jako u Kocoura)
+// █████████████████████████████████████████████████████████
+
+// Naplnění selectů při načtení
+document.addEventListener('DOMContentLoaded', () => {
+  const options = uhly.map(u => `<option value="${u.id}">${u.id}. ${u.emoji} ${u.nazev}</option>`).join('');
+  document.getElementById('uhel-a').innerHTML = '<option value="">— vyber úhel —</option>' + options;
+  document.getElementById('uhel-b').innerHTML = '<option value="">— vyber úhel —</option>' + options;
+});
+
+function generuj() {
+  const idA = parseInt(document.getElementById('uhel-a').value);
+  const idB = parseInt(document.getElementById('uhel-b').value);
+  if (!idA || !idB) { alert('Vyber oba úhly.'); return; }
+  if (idA === idB) { alert('Vyber dva různé úhly.'); return; }
+  const a = uhly.find(u => u.id === idA);
+  const b = uhly.find(u => u.id === idB);
+  document.getElementById('panel-a').innerHTML = `
+    <strong>${a.id}. ${a.emoji} ${a.nazev}</strong>
+    <div class="meta">${a.metafora}</div>
+    <div class="q3-text">${a.q3}</div>
+  `;
+  document.getElementById('panel-b').innerHTML = `
+    <strong>${b.id}. ${b.emoji} ${b.nazev}</strong>
+    <div class="meta">${b.metafora}</div>
+    <div class="q3-text">${b.q3}</div>
+  `;
+  const el = document.getElementById('vysledek');
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
