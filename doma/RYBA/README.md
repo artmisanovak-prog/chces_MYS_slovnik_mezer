@@ -10,7 +10,7 @@ Tato karta diagnostikuje a řeší problém týmů, kde se komunikace stala povr
 ---
 
 [Pohádka o rybě](data/pohadka_o_rybe.md) | 
-[Diagnostický mód](data/diagnostika-ryba.html) | 
+[Diagnostický mód](data/rybadiagnostika.html) | 
 [Kreativní mód](data/generator.html) | 
 [Generativní mód](data/generativni.html) | 
 [Kombinatorický mód](doma/kombinatoricky.html) |
