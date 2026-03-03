@@ -15,11 +15,12 @@ Text: rybí rap
 - Kec.
 - Suchozemská lež.
 
-Ryby totiž nemlčí.
-Ryby rapujou.
-Ne tak, jak si to představuješ – žádné mikrofony, 
-žádné beaty z repro beden.
-„Rybí rap je jinej.
+- Ryby totiž nemlčí.
+- Ryby rapujou.
+- Ne tak, jak si to představuješ – žádné mikrofony, 
+- žádné beaty z repro beden.
+- „Rybí rap je jinej.
+
 Je to rytmus proudů.
 Je to nížka, výška vln a vlnek.
 Je to tempo vodních kruhů.
