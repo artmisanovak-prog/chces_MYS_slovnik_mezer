@@ -1,5 +1,5 @@
-# 🐟 Ryba - PORUCHA: 
-**Rybí rap vs. ptačí křikot**
+# 🐟 RYBA 
+## - PORUCHA: **Rybí rap vs. ptačí křikot**
 
 ---
 
