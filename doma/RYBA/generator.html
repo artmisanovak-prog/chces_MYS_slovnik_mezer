@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Náhodný výrok – Ryba</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 700px;
+            margin: 3rem auto;
+            padding: 0 20px;
+            background: #fafaf8;
+            color: #1e1e1e;
+            text-align: center;
+        }
+        h1 {
+            font-weight: 400;
+            border-bottom: 2px dashed #aaa;
+            padding-bottom: 0.5rem;
+        }
+        .nav {
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .nav a {
+            color: #111;
+        }
+        .statement-box {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            font-size: 1.3rem;
+            line-height: 1.6;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            background: #2c3e50;
+            border: none;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: 1px solid #1a2632;
+            transition: 0.1s;
+        }
+        button:hover {
+            background: #1f2d3a;
+        }
+        .footer {
+            margin-top: 2rem;
+            color: #6f6f6f;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="../">← Ryba</a> &nbsp;|&nbsp;
+        <a href="../../../README.md">Chceš myš?</a>
+    </div>
+
+    <h1 id="card-title">🐟 Ryba – náhodný výrok</h1>
+    <div class="statement-box" id="statement">
+        Načítám...
+    </div>
+    <button id="generate-btn">Další výrok</button>
+    <div class="footer">
+        Jedna z 36 vět. Žádná teorie, jen inspirace.
+    </div>
+
+    <script>
+        // Data pro kartu RYBA – 36 výroků
+        const cardData = {
+            "card": "Ryba",
+            "statements": [
+                "Ryby neřvou. Ryby vibrujou. A mění tím celou vodu kolem.",
+                "Ptačí zpěv? Křikot je to. Řev, ryk, krákot, jekot.",
+                "Flow je king a king je ryba.",
+                "Rybí rap není pro slávu. Je pro přesnost.",
+                "Každý druh rybí má svůj styl – kosatky chansony, žraloci gospel.",
+                "Ptáci neumí dávat. Ptáci umí jen sprostě nadávat.",
+                "Píp rýmuje s píp, jinak bez ideje.",
+                "Ryba rapovala pro vodu. A voda odpověděla.",
+                "Rybí hudba byla slyšet – ne uchem, ale okem, tělem.",
+                "První místo v hitparádě vyhrály ryby – ne proto, že zpívaj, ale proto, že ví, kdy mlčet.",
+                "Možná je čas přestat poslouchat a začít vnímat.",
+                "Ticho potřebuje konečně dostat slovo nad hladinu.",
+                "Kvalitní meeting není o zápisu, ale o změně vlnění.",
+                "Kdo mluví nejvíc, není nejdůležitější. Důležitý je, kdo je nejpřesnější.",
+                "V naší firmě máme žraloky-gospelisty a medúzy-trianglistky. A oba jsou potřeba.",
+                "Třetina našich meetingů je jen 'proteplování vzduchu'. Ptačí křikot.",
+                "Zkusili jsme rybí pauzy – minutu ticha před rozhodnutím. Funguje to.",
+                "Nejlepší názor dnes přišel od kolegy, který celou dobu mlčel. Tichý rap.",
+                "Mluvíme pořád k šéfům a klientům. Kdy naposledy jsme mluvili k sobě navzájem, k naší vodě?",
+                "Máme svůj žargon. Je to náš ptačí křik?",
+                "Zavedli jsme 'váhu slova' – každý má jen pět zlatých vět na poradu. Rázem je víc času.",
+                "Když se řekne 'musíme to stihnout', je to ptačí křik. Když se řekne 'proč to děláme', je to rybí rap.",
+                "Po meetingu se neptáme 'co jste si odnesli', ale 'jak se změnila naše voda'.",
+                "Nejvíc se toho naučíš, když přestaneš poslouchat slova a začneš vnímat vibrace.",
+                "Každý má svůj žánr. Nenutíme všechny zpívat stejně?",
+                "Ten nejdůležitější úspěch zůstal neoslavenej – protože byl pod hladinou.",
+                "Máme hitparádu viditelných vítězství. Kde je hitparáda neviditelných?",
+                "Mlčení není absence. Mlčení je nositel obsahu.",
+                "Rybí rap není o tom být slyšet. Je o tom být přesný.",
+                "Co když naše největší překážka není konkurence, ale vlastní křik?",
+                "Zkusili jsme 'rybí den' – žádné meetingy, jen psaná komunikace. Bylo to nejproduktivnější pondělí za rok.",
+                "Náš tým má svou hudbu. Zní spíš jako gospel, nebo jako rap?",
+                "Voda se vždycky ptá: Měníš mě, nebo jen děláš kruhy na hladině?",
+                "Největší dar, který můžeš týmu dát, je tvoje ticho ve správnou chvíli.",
+                "Rybí rap není o tom, co říkáš. Je o tom, co tím děláš s prostředím.",
+                "Až příště někdo řekne 'potřebuju s tebou mluvit', zeptej se: 'Bude to rybí rap, nebo ptačí křik?'"
+            ]
+        };
+
+        // Načtení dat
+        document.getElementById('card-title').innerHTML = `🐟 ${cardData.card} – náhodný výrok`;
+        const statements = cardData.statements;
+        const statementEl = document.getElementById('statement');
+        const btn = document.getElementById('generate-btn');
+
+        function generateRandom() {
+            if (statements.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * statements.length);
+            statementEl.innerText = statements[randomIndex];
+        }
+
+        // První výrok při načtení
+        generateRandom();
+
+        // Tlačítko
+        btn.addEventListener('click', generateRandom);
+    </script>
+</body>
+</html>
