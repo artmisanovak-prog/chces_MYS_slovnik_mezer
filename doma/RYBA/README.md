@@ -1,4 +1,5 @@
-# 🐟 Ryba - PORUCHA: **Rybí rap vs. ptačí křikot**
+# 🐟 Ryba - PORUCHA: 
+**Rybí rap vs. ptačí křikot**
 
 ---
 
@@ -9,13 +10,13 @@ Tato karta diagnostikuje a řeší problém týmů, kde se komunikace stala povr
 ---
 
 [Pohádka o rybě](data/pohadka_o_rybe.md) | 
-[Diagnostický mód](doma/RYBA/data/diagnostika-ryba.html) | 
-[Kreativní mód](doma/RYBA/data/generator.html) | 
-[Generativní mód](doma/RYBA/data/generativni.html) | 
+[Diagnostický mód](data/diagnostika-ryba.html) | 
+[Kreativní mód](data/generator.html) | 
+[Generativní mód](data/generativni.html) | 
 [Kombinatorický mód](doma/kombinatoricky.html) |
-[Workshop](data/RYBA//data/workshop_90_minut.html) |
-[Zpětná vazba](doma/RYBA/data/zpetna_vazba.html/) | 
-[Licence](doma/RYBA/data/licence_ryba.txt) |
+[Workshop](data/workshop_90_minut.html) |
+[Zpětná vazba](data/zpetna_vazba.html/) | 
+[Licence](data/licence_ryba.txt) |
 
 ---
 
