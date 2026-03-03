@@ -1,5 +1,5 @@
 # 🐟 RYBA 
-## - PORUCHA: **Rybí rap vs ptačí křik**
+## porucha: **Rybí rap vs ptačí křik**
 
 ---
 
