@@ -8,7 +8,7 @@ Tato karta diagnostikuje a řeší problém týmů, kde se komunikace stala povr
 
 ---
 
-[Pohádka o rybě](doma/RYBA/data/pohadka_o_rybe.md) | 
+[Pohádka o rybě](pohadka_o_rybe.md) | 
 [Diagnostický mód](doma/RYBA/data/diagnostika-ryba.html) | 
 [Kreativní mód](doma/RYBA/data/generator.html) | 
 [Generativní mód](doma/RYBA/data/generativni.html) | 
