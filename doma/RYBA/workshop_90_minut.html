@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐟 Workshop: "Od ptačího křiku k rybímu rapu"</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #fafafa;
+            color: #222;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #222;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: #222;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f9f9f9;
+            border-left: 4px solid #222;
+        }
+        
+        .section h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .section h3 {
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+            color: #444;
+        }
+        
+        .step {
+            margin: 30px 0;
+            padding: 25px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .step-title {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+        
+        .step-time {
+            background: #222;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .timer {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+        
+        .timer-display {
+            font-size: 3em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        
+        .timer-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 12px 24px;
+            font-size: 1em;
+            border: 2px solid #222;
+            background: white;
+            color: #222;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        button:hover {
+            background: #222;
+            color: white;
+        }
+        
+        button.primary {
+            background: #222;
+            color: white;
+        }
+        
+        button.primary:hover {
+            background: #444;
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .checkbox-item:hover {
+            background: #f5f5f5;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        .checkbox-item.completed {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+        
+        .tip {
+            background: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tip::before {
+            content: "💡 ";
+            font-size: 1.2em;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1em;
+            resize: vertical;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #222;
+        }
+        
+        .template-box {
+            background: white;
+            border: 2px solid #222;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .template-box h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .table th,
+        .table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .table th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+        
+        .save-note {
+            color: #666;
+            font-size: 0.85em;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        @media print {
+            .timer-buttons,
+            button {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .timer-display {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>🐟 Workshop: "Od ptačího křiku k rybímu rapu"</h1>
+            <p class="subtitle">90 minut · Facilitátorský průvodce · KARTA RYBA</p>
+        </div>
+        
+        <!-- Progress -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text">
+            <span id="progressText">0 / 9 kroků dokončeno</span>
+        </div>
+        
+        <!-- Příprava -->
+        <div class="section">
+            <h2>📋 Příprava před workshopem</h2>
+            
+            <div class="checkbox-item" onclick="toggleCheck(this)">
+                <input type="checkbox" id="prep1">
+                <label>Stopky / timer (nebo tento nástroj)</label>
+            </div>
+            
+            <div class="checkbox-item" onclick="toggleCheck(this)">
+                <input type="checkbox" id="prep2">
+                <label>Flipchart nebo whiteboard + fixy</label>
+            </div>
+            
+            <div class="checkbox-item" onclick="toggleCheck(this)">
+                <input type="checkbox" id="prep3">
+                <label>Papír pro každého účastníka</label>
+            </div>
+            
+            <div class="checkbox-item" onclick="toggleCheck(this)">
+                <input type="checkbox" id="prep4">
+                <label>Volitelně: fyzický předmět pro "Kolo ticha" (kámen, pero)</label>
+            </div>
+            
+            <div class="tip">
+                Workshop mapuje komunikační vzorce týmu: "ptačí křikot" (hluk bez obsahu) vs. "rybí rap" (přesnost s dopadem).
+            </div>
+        </div>
+        
+        <!-- Část 1: Diagnóza -->
+        <div class="section">
+            <h2>Část 1 — Diagnóza ptačího křiku · 25 minut</h2>
+            
+            <!-- Krok 1 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-title">Krok 1: Čtení pohádky</div>
+                    <div class="step-time">5 min</div>
+                </div>
+                
+                <p>Facilitátor přečte pohádku o Rybě <strong>nahlas</strong>. Účastníci pouze poslouchají — žádné poznámky, žádné telefony.</p>
+                
+                <div class="tip">
+                    Čtěte pomalu. Pauzy jsou záměrné. Nechte tým vnímat příběh nejen ušima, ale i "rybím uchem" — co se děje POD slovy.
+                </div>
+                
+                <div class="timer">
+                    <div class="timer-display" id="timer1">5:00</div>
+                    <div class="timer-buttons">
+                        <button class="primary" onclick="startTimer('timer1', 300)">▶ Start</button>
+                        <button onclick="resetTimer('timer1', 300)">↺ Reset</button>
+                    </div>
+                </div>
+                
+                <div class="checkbox-item" onclick="toggleCheck(this); updateProgress()">
+                    <input type="checkbox" id="step1">
+                    <label>✓ Hotovo</label>
+                </div>
+            </div>
+            
+            <!-- Krok 2 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-title">Krok 2: Individuální reflexe</div>
+                    <div class="step-time">10 min</div>
+                </div>
+                
+                <p>Každý účastník píše <strong>samostatně</strong> odpovědi na dvě otázky:</p>
+                
+                <div class="template-box">
+                    <h4>Otázka 1: Náš "ptačí křikot"</h4>
+                    <p>Kde ve vašem týmu je nejvíc "ptačího křiku" — komunikace, která je hlasitá, opakovaná, plná žargonu, ale málo obsahová?</p>
+                    <textarea id="question1" placeholder="Zapište svou odpověď..."></textarea>
+                    <div class="save-note">💾 Automaticky se ukládá</div>
+                </div>
+                
+                <div class="template-box">
+                    <h4>Otázka 2: Ztracený "rybí rap"</h4>
+                    <p>Kdy jste naposledy viděli "rybí rap" — přesnou, promyšlenou komunikaci s dopadem — která byla přehlušena "křikotem"?</p>
+                    <textarea id="question2" placeholder="Zapište svou odpověď..."></textarea>
+                    <div class="save-note">💾 Automaticky se ukládá</div>
+                </div>
+                
+                <div class="tip">
+                    Připomeňte účastníkům: píší pro sebe — budou se sdílet jen v malých skupinách, ne před všemi.
+                </div>
+                
+                <div class="timer">
+                    <div class="timer-display" id="timer2">10:00</div>
+                    <div class="timer-buttons">
+                        <button class="primary" onclick="startTimer('timer2', 600)">▶ Start</button>
+                        <button onclick="resetTimer('timer2', 600)">↺ Reset</button>
+                    </div>
+                </div>
+                
+                <div class="checkbox-item" onclick="toggleCheck(this); updateProgress()">
+                    <input type="checkbox" id="step2">
+                    <label>✓ Hotovo</label>
+                </div>
+            </div>
+            
+            <!-- Krok 3 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-title">Krok 3: Sdílení v malých skupinách</div>
+                    <div class="step-time">10 min</div>
+                </div>
+                
+                <p>Rozdělte se do skupin po <strong>3–4 lidech</strong>. Sdílejte své situace podle pravidla:</p>
+                
+                <div class="template-box">
+                    <h4>Pravidlo pro toto kolo:</h4>
+                    <p><strong>Popis bez soudu.</strong> Řekněte "stalo se…", "všiml jsem si…"</p>
+                    <p><strong>Žádné "ale".</strong> Žádné rady. Žádné řešení. Jen sdílení.</p>
+                </div>
+                
+                <div class="tip">
+                    Facilitátor chodí mezi skupinami a sleduje, že lidé sdílejí, ne řeší. Pokud někdo začne radit, jemně připomeňte pravidlo.
+                </div>
+                
+                <div class="timer">
+                    <div class="timer-display" id="timer3">10:00</div>
+                    <div class="timer-buttons">
+                        <button class="primary" onclick="startTimer('timer3', 600)">▶ Start</button>
+                        <button onclick="resetTimer('timer3', 600)">↺ Reset</button>
+                    </div>
+                </div>
+                
+                <div class="checkbox-item" onclick="toggleCheck(this); updateProgress()">
+                    <input type="checkbox" id="step3">
+                    <label>✓ Hotovo</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Část 2: Experiment -->
+        <div class="section">
+            <h2>Část 2 — Experiment: Kolo ticha a vibrační audit · 45 minut</h2>
+            
+            <!-- Krok 4 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-title">Krok 4: Představení experimentu "Kolo ticha"</div>
+                    <div class="step-time">5 min</div>
+                </div>
+                
+                <p>Facilitátor představí experiment, který otestuje "rybí rap" vs. "ptačí křikot" v praxi.</p>
+                
+                <div class="template-box">
+                    <h4>Pravidla "Kola ticha":</h4>
+                    <ol style="line-height: 1.8; margin-left: 20px;">
+                        <li>Mluví pouze ten, kdo drží předmět (kámen, pero)</li>
+                        <li>Po dokončení myšlenky předmět položí doprostřed stolu</li>
+                        <li>Následuje <strong>30 sekund absolutního ticha</strong></li>
+                        <li>Teprve pak může někdo jiný předmět vzít a mluvit</li>
+                    </ol>
+                </div>
+                
+                <p style="margin-top: 20px;">Téma diskuse připravte PŘEDEM (např. konkrétní týmový problém, rozhodnutí, nebo brainstorming).</p>
+                
+                <div class="timer">
+                    <div class="timer-display" id="timer4">5:00</div>
+                    <div class="timer-buttons">
+                        <button class="primary" onclick="startTimer('timer4', 300)">▶ Start</button>
+                        <button onclick="resetTimer('timer4', 300)">↺ Reset</button>
+                    </div>
+                </div>
+                
+                <div class="checkbox-item" onclick="toggleCheck(this); updateProgress()">
+                    <input type="checkbox" id="step4">
+                    <label>✓ Hotovo</label>
+                </div>
+            </div>
+            
+            <!-- Krok 5 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-title">Krok 5: Experiment — "Kolo ticha" v akci</div>
+                    <div class="step-time">20 min</div>
+                </div>
+                
+                <p>Tým diskutuje připravené téma s <strong>pravidly Kola ticha</strong>.</p>
+                
+                <div class="tip">
+                    Facilitátor <strong>striktně</strong> vynucuje pravidla: 30 sekund ticha po každém příspěvku. Pokud někdo mluví bez předmětu, jemně přerušte. První minuty budou nepohodlné — to je OK, je to součást experimentu.
+                </div>
+                
+                <div class="template-box">
+                    <h4>Poznámky facilitátora — Co pozorovat:</h4>
+                    <textarea id="observ1" placeholder="Kdo mluvil nejvíc? Kdo nemluvil vůbec? Jak tým reagoval na ticho? Jaké nápady se objevily v tichu vs. v křiku?"></textarea>
+                    <div class="save-note">💾 Automaticky se ukládá</div>
+                </div>
+                
+                <div class="timer">
+                    <div class="timer-display" id="timer5">20:00</div>
+                    <div class="timer-buttons">
+                        <button class="primary" onclick="startTimer('timer5', 1200)">▶ Start</button>
+                        <button onclick="resetTimer('timer5', 1200)">↺ Reset</button>
+                    </div>
+                </div>
+                
+                <div class="checkbox-item" onclick="toggleCheck(this); updateProgress()">
+                    <input type="checkbox" id="step5">
+                    <label>✓ Hotovo</label>
+                </div>
+            </div>
+            
+            <!-- Krok 6 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-title">Krok 6: Reflexe experimentu</div>
+                    <div class="step-time">10 min</div>
+                </div>
+                
+                <p>Celý tým společně. Facilitátor pokládá otázky — zapisuje odpovědi na whiteboard:</p>
+                
+                <div class="template-box">
+                    <h4>Reflexní otázky:</h4>
+                    <ol style="line-height: 2; margin-left: 20px;">
+                        <li><strong>Co bylo jiné</strong> než na normálním meetingu?</li>
+                        <li><strong>Co bylo těžké?</strong> Co vás překvapilo?</li>
+                        <li><strong>Které nápady vznikly</strong>, které by v "ptačím křiku" zanikly?</li>
+                        <li><strong>Kdo mluvil méně</strong> než obvykle? Kdo víc?</li>
+                    </ol>
+                </div>
+                
+                <div class="tip">
+                    Nespěchejte. Ticho je taky odpověď — vydržte ho alespoň 10 sekund.
+                </div>
+                
+                <div class="template-box">
+                    <h4>Poznámky z reflexe:</h4>
+                    <textarea id="reflection1" placeholder="Zaznamenejte klíčové postřehy týmu..."></textarea>
+                    <div class="save-note">💾 Automaticky se ukládá</div>
+                </div>
+                
+                <div class="timer">
+                    <div class="timer-display" id="timer6">10:00</div>
+                    <div class="timer-buttons">
+                        <button class="primary" onclick="startTimer('timer6', 600)">▶ Start</button>
+                        <button onclick="resetTimer('timer6', 600)">↺ Reset</button>
+                    </div>
+                </div>
+                
+                <div class="checkbox-item" onclick="toggleCheck(this); updateProgress()">
+                    <input type="checkbox" id="step6">
+                    <label>✓ Hotovo</label>
+                </div>
+            </div>
+            
+            <!-- Krok 7 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-title">Krok 7: Vibrační audit</div>
+                    <div class="step-time">10 min</div>
+                </div>
+                
+                <p>Každý <strong>anonymně</strong> vyplní "Vibrační audit" — co viděli a cítili POD slovy.</p>
+                
+                <div class="template-box">
+                    <h4>Šablona vibračního auditu:</h4>
+                    <table class="table">
+                        <tr>
+                            <th>Oko</th>
+                            <td>Co jsem viděl, co nebylo řečeno?<br>(např. "Kolega A odcházel z místnosti")</td>
+                        </tr>
+                        <tr>
+                            <th>Tělo</th>
+                            <td>Co jsem cítil v místnosti?<br>(např. "Napětí po 15. minutě")</td>
+                        </tr>
+                        <tr>
+                            <th>Překlad</th>
+                            <td>Co by to mohlo znamenat pro náš tým?<br>(např. "Možná jsme vynechali důležitý pohled")</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <p style="margin-top: 20px;">Poznámky sesbírejte <strong>anonymně</strong> a přečtěte nahlas (nebo nechte lidi přečíst sami).</p>
+                
+                <div class="template-box">
+                    <h4>Váš vibrační audit:</h4>
+                    <p><strong>Oko:</strong></p>
+                    <textarea id="audit1" placeholder="Co jste viděli..."></textarea>
+                    <p style="margin-top: 15px;"><strong>Tělo:</strong></p>
+                    <textarea id="audit2" placeholder="Co jste cítili..."></textarea>
+                    <p style="margin-top: 15px;"><strong>Překlad:</strong></p>
+                    <textarea id="audit3" placeholder="Co to znamená..."></textarea>
+                    <div class="save-note">💾 Automaticky se ukládá</div>
+                </div>
+                
+                <div class="timer">
+                    <div class="timer-display" id="timer7">10:00</div>
+                    <div class="timer-buttons">
+                        <button class="primary" onclick="startTimer('timer7', 600)">▶ Start</button>
+                        <button onclick="resetTimer('timer7', 600)">↺ Reset</button>
+                    </div>
+                </div>
+                
+                <div class="checkbox-item" onclick="toggleCheck(this); updateProgress()">
+                    <input type="checkbox" id="step7">
+                    <label>✓ Hotovo</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Část 3: Akce -->
+        <div class="section">
+            <h2>Část 3 — Od křiku k rapu: Akční plán · 20 minut</h2>
+            
+            <!-- Krok 8 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-title">Krok 8: Tvorba "Rybího manifestu"</div>
+                    <div class="step-time">10 min</div>
+                </div>
+                
+                <p>Společně formulujte <strong>3 konkrétní pravidla</strong> pro komunikaci v týmu. Napište je nejdřív na whiteboard, pak sem:</p>
+                
+                <div class="template-box">
+                    <h4>🐟 Náš Rybí manifest</h4>
+                    <p>3 pravidla komunikace v našem týmu:</p>
+                    <ol style="line-height: 2.5; margin: 20px 0 20px 20px;">
+                        <li><textarea id="rule1" placeholder="Pravidlo 1..." style="min-height: 60px;"></textarea></li>
+                        <li><textarea id="rule2" placeholder="Pravidlo 2..." style="min-height: 60px;"></textarea></li>
+                        <li><textarea id="rule3" placeholder="Pravidlo 3..." style="min-height: 60px;"></textarea></li>
+                    </ol>
+                    <button onclick="printManifest()" style="margin-top: 20px;">🖨 Vytisknout manifest</button>
+                    <div class="save-note">💾 Automaticky se ukládá</div>
+                </div>
+                
+                <div class="tip">
+                    Příklady pravidel: "Každý má právo na 30 sekund ticha před odpovědí" / "Ptačí křikot = červená karta" / "Jednou týdně asynchronní debrief místo meetingu"
+                </div>
+                
+                <div class="timer">
+                    <div class="timer-display" id="timer8">10:00</div>
+                    <div class="timer-buttons">
+                        <button class="primary" onclick="startTimer('timer8', 600)">▶ Start</button>
+                        <button onclick="resetTimer('timer8', 600)">↺ Reset</button>
+                    </div>
+                </div>
+                
+                <div class="checkbox-item" onclick="toggleCheck(this); updateProgress()">
+                    <input type="checkbox" id="step8">
+                    <label>✓ Hotovo</label>
+                </div>
+            </div>
+            
+            <!-- Krok 9 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-title">Krok 9: Závěr a závazek</div>
+                    <div class="step-time">10 min</div>
+                </div>
+                
+                <p>Celé kolo. Každý člověk <strong>dokončí tuto větu</strong> nahlas — vlastními slovy, bez přerušení:</p>
+                
+                <div class="template-box">
+                    <h4>Závěrečná věta:</h4>
+                    <p style="font-size: 1.2em; font-style: italic; text-align: center; margin: 20px 0;">
+                        "Abych přestal být ptačí křik a stal se rybí rap, příště zkusím…"
+                    </p>
+                </div>
+                
+                <div class="tip">
+                    Facilitátor jde POSLEDNÍ. Nikdo nekomentuje odpovědi ostatních. Pokud někdo neví, přeskočte ho a vraťte se na konci. Ticho je v pořádku.
+                </div>
+                
+                <div class="template-box">
+                    <h4>Můj závazek:</h4>
+                    <textarea id="commitment" placeholder="Zapište si svůj vlastní závazek..."></textarea>
+                    <div class="save-note">💾 Automaticky se ukládá</div>
+                </div>
+                
+                <div class="timer">
+                    <div class="timer-display" id="timer9">10:00</div>
+                    <div class="timer-buttons">
+                        <button class="primary" onclick="startTimer('timer9', 600)">▶ Start</button>
+                        <button onclick="resetTimer('timer9', 600)">↺ Reset</button>
+                    </div>
+                </div>
+                
+                <div class="checkbox-item" onclick="toggleCheck(this); updateProgress()">
+                    <input type="checkbox" id="step9">
+                    <label>✓ Hotovo</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Závěr -->
+        <div class="section">
+            <h2>🐟 Workshop dokončen</h2>
+            <p>Tým má manifest, má zkušenost s "rybím rapem", a má povědomí o vlastních "vibracích".</p>
+            <p style="margin-top: 15px;">Doporučené follow-up: Za 30 dní zkontrolovat, jak tým dodržuje manifest.</p>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <button onclick="window.print()" style="font-size: 1.1em; padding: 15px 30px;">
+                    🖨 Vytisknout celý workshop
+                </button>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        // Timer functionality
+        let timers = {};
+        
+        function startTimer(id, seconds) {
+            if (timers[id]) {
+                clearInterval(timers[id].interval);
+            }
+            
+            let remaining = seconds;
+            const display = document.getElementById(id);
+            
+            timers[id] = {
+                interval: setInterval(() => {
+                    remaining--;
+                    
+                    const mins = Math.floor(remaining / 60);
+                    const secs = remaining % 60;
+                    display.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+                    
+                    if (remaining <= 0) {
+                        clearInterval(timers[id].interval);
+                        display.textContent = "⏰ Čas vypršel!";
+                        playSound();
+                    }
+                }, 1000)
+            };
+        }
+        
+        function resetTimer(id, seconds) {
+            if (timers[id]) {
+                clearInterval(timers[id].interval);
+            }
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            document.getElementById(id).textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        function playSound() {
+            // Simple beep using Web Audio API
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                oscillator.connect(audioContext.destination);
+                oscillator.frequency.value = 800;
+                oscillator.start();
+                oscillator.stop(audioContext.currentTime + 0.2);
+            } catch (e) {
+                // Fallback if audio not supported
+                console.log('Timer finished!');
+            }
+        }
+        
+        // Checkbox functionality
+        function toggleCheck(item) {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            if (checkbox.checked) {
+                item.classList.add('completed');
+            } else {
+                item.classList.remove('completed');
+            }
+            saveState();
+        }
+        
+        // Progress tracking
+        function updateProgress() {
+            const totalSteps = 9;
+            const completedSteps = document.querySelectorAll('.step input[type="checkbox"]:checked').length;
+            const percentage = (completedSteps / totalSteps) * 100;
+            
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = `${completedSteps} / ${totalSteps} kroků dokončeno`;
+            
+            saveState();
+        }
+        
+        // Auto-save textareas
+        document.querySelectorAll('textarea').forEach(textarea => {
+            textarea.addEventListener('input', saveState);
+        });
+        
+        // Save state to localStorage
+        function saveState() {
+            const state = {
+                checkboxes: {},
+                textareas: {}
+            };
+            
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                if (cb.id) state.checkboxes[cb.id] = cb.checked;
+            });
+            
+            document.querySelectorAll('textarea').forEach(ta => {
+                if (ta.id) state.textareas[ta.id] = ta.value;
+            });
+            
+            localStorage.setItem('ryba_workshop_state', JSON.stringify(state));
+        }
+        
+        // Load state from localStorage
+        function loadState() {
+            const saved = localStorage.getItem('ryba_workshop_state');
+            if (!saved) return;
+            
+            try {
+                const state = JSON.parse(saved);
+                
+                Object.keys(state.checkboxes).forEach(id => {
+                    const cb = document.getElementById(id);
+                    if (cb) {
+                        cb.checked = state.checkboxes[id];
+                        if (cb.checked) {
+                            cb.closest('.checkbox-item')?.classList.add('completed');
+                        }
+                    }
+                });
+                
+                Object.keys(state.textareas).forEach(id => {
+                    const ta = document.getElementById(id);
+                    if (ta) ta.value = state.textareas[id];
+                });
+                
+                updateProgress();
+            } catch (e) {
+                console.error('Error loading state:', e);
+            }
+        }
+        
+        // Print manifest
+        function printManifest() {
+            const rule1 = document.getElementById('rule1').value || '[Prázdné]';
+            const rule2 = document.getElementById('rule2').value || '[Prázdné]';
+            const rule3 = document.getElementById('rule3').value || '[Prázdné]';
+            
+            const manifestWindow = window.open('', '_blank');
+            manifestWindow.document.write(`
+                <html>
+                <head>
+                    <title>Rybí manifest</title>
+                    <style>
+                        body {
+                            font-family: Georgia, serif;
+                            padding: 40px;
+                            max-width: 800px;
+                            margin: 0 auto;
+                        }
+                        h1 {
+                            text-align: center;
+                            border-bottom: 3px solid #222;
+                            padding-bottom: 20px;
+                        }
+                        ol {
+                            font-size: 1.2em;
+                            line-height: 2;
+                        }
+                        li {
+                            margin: 20px 0;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>🐟 Náš Rybí manifest</h1>
+                    <p>3 pravidla komunikace v našem týmu:</p>
+                    <ol>
+                        <li>${rule1}</li>
+                        <li>${rule2}</li>
+                        <li>${rule3}</li>
+                    </ol>
+                    <p style="margin-top: 50px; text-align: center; color: #666;">
+                        Vytvořeno: ${new Date().toLocaleDateString('cs-CZ')}
+                    </p>
+                </body>
+                </html>
+            `);
+            manifestWindow.document.close();
+            manifestWindow.print();
+        }
+        
+        // Load state on page load
+        window.addEventListener('load', loadState);
+    </script>
+</body>
+</html>
