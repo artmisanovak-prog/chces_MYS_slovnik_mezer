@@ -34,7 +34,7 @@
       padding: 0 24px;
     }
 
-    /* ── NAVIGACE ── */
+    /* ── NAVIGACE (čistá, bez zbytečných položek) ── */
     nav {
       border-bottom: 1px solid var(--border);
       padding: 18px 0;
@@ -250,7 +250,7 @@
     .steps a { color: var(--fg); }
     .steps a:hover { color: var(--muted); }
 
-    /* ── CO KARTA OBSAHUJE (tlačítka, ne jen bloky) ── */
+    /* ── CO KARTA OBSAHUJE (tlačítka) ── */
     .contents-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -355,7 +355,7 @@
     }
     .free-pill { border-color: var(--fg); font-weight: 700; }
 
-    /* ── CAROUSEL (galerie) ── */
+    /* ── CAROUSEL (galerie s popisem) ── */
     .carousel-container {
       position: relative;
       max-width: 800px;
@@ -373,28 +373,29 @@
     .carousel-slide {
       flex: 0 0 100%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       padding: 20px;
     }
     .carousel-slide img {
-      max-height: 400px;
+      max-height: 350px;
       max-width: 100%;
       object-fit: contain;
       filter: grayscale(100%);
       cursor: pointer;
       border: 1px solid var(--border);
+      margin-bottom: 16px;
     }
-    .carousel-caption {
-      text-align: center;
-      margin-top: 16px;
-      font-size: 0.9rem;
+    .carousel-slide .card-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+    .carousel-slide .card-desc {
       color: var(--muted);
-    }
-    .carousel-caption strong {
-      color: var(--fg);
-      display: block;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      text-align: center;
+      max-width: 500px;
     }
     .carousel-btn {
       position: absolute;
@@ -481,45 +482,7 @@
     }
     .highlight-box p { margin: 0; font-size: 1rem; line-height: 1.7; }
 
-    /* ── REPO DŮM – sekce s kartičkami (jako u kocoura) ── */
-    .repo-cards {
-      display: flex;
-      gap: 24px;
-      margin: 32px 0;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .repo-card {
-      flex: 1 1 250px;
-      border: 1px solid var(--border);
-      padding: 24px;
-      background: var(--bg);
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-    .repo-card:hover {
-      border-color: var(--fg);
-      transform: translateY(-4px);
-    }
-    .repo-card .card-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .repo-card h3 {
-      margin-bottom: 12px;
-    }
-    .repo-card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-    .repo-card .card-meta {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--fg);
-    }
+    /* ── REPO DŮM – tři kartičky (jsou teď v sekci Obsah karty) ── */
 
     /* ── JAK KARTU ZÍSKAT ── */
     .how-steps {
@@ -591,7 +554,7 @@
 </head>
 <body>
 
-<!-- ===== NAVIGACE ===== -->
+<!-- ===== NAVIGACE (čistá, bez přehlcení) ===== -->
 <nav>
   <div class="container">
     <a href="#" class="nav-logo">Chceš myš?</a>
@@ -601,10 +564,6 @@
       <li><a href="#cena">Cena</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
-      <!-- Nové záložky -->
-      <li><a href="doma/data/repo_dum.html">Repo dům</a></li>
-      <li><a href="doma/data/o_systemu.html">O systému</a></li>
-      <li><a href="doma/data/dalsi_vyuziti.html">Další využití</a></li>
       <li><a href="doma/KOCOUR/data/landing_page_kocour.html" class="btn btn-fill" style="padding:8px 18px;font-size:11px;">Ukázka zdarma</a></li>
     </ul>
   </div>
@@ -675,7 +634,7 @@
   </div>
 </section>
 
-<!-- ===== RYCHLÝ START ===== -->
+<!-- ===== RYCHLÝ START (bez nadbytečných odkazů na Kocoura) ===== -->
 <section id="start">
   <div class="container">
     <p class="section-label">Rychlý start</p>
@@ -714,34 +673,18 @@
           <a href="doma/KOCOUR/data/landing_page_kocour.html">Prohlédnout Kocoura →</a>
         </div>
       </li>
-      <li>
-        <span class="step-num"></span>
-        <div>
-          <h3>Ukázková karta — Ryba</h3>
-          <p>Vnímání versus poslouchání.</p>
-          <a href="doma/karty_ukazky/Ryba/ryba_ukazka.html">Prohlédnout Rybu →</a>
-        </div>
-      </li>
-      <li>
-        <span class="step-num"></span>
-        <div>
-          <h3>Ukázková karta — Motýl</h3>
-          <p>Krása versus praktičnost.</p>
-          <a href="doma/MOTYL/README.md">Prohlédnout Motýla →</a>
-        </div>
-      </li>
     </ol>
     <a href="doma/MYS/kombinator.html" class="btn" style="margin-top:24px;">vyzkoušejte KOMBINOVÁNÍ karet</a>
   </div>
 </section>
 
-<!-- ===== CO KARTA OBSAHUJE (tlačítka) ===== -->
+<!-- ===== CO KARTA OBSAHUJE (všechny bloky jako tlačítka, včetně Repo domu) ===== -->
 <section id="obsah">
   <div class="container">
     <p class="section-label">Obsah karty</p>
     <h2>Jeden nástroj.<br>Kompletní výbava.</h2>
     <div class="contents-grid">
-      <a href="doma/MYS/jak_vest_workshop.html" class="content-btn">
+      <a href="doma/MYS/index.html" class="content-btn">
         <span class="icon">🕺</span>
         <h3>Workshop na 90 minut</h3>
         <p>Samostatný, připravený — stačí otevřít a vést.</p>
@@ -751,22 +694,22 @@
         <h3>Křivá pohádka</h3>
         <p>Příběh, který otevře téma bez obviňování.</p>
       </a>
-      <a href="doma/MYS/12_uhlu.html" class="content-btn">
+      <a href="doma/MYS/index.html" class="content-btn">
         <span class="icon">🧠</span>
         <h3>12 úhlů pohledu</h3>
         <p>Diagnostický klíč, který odhalí, kudy se tým dívá.</p>
       </a>
-      <a href="doma/MYS/12_protiopatreni.html" class="content-btn">
+      <a href="doma/MYS/index.html" class="content-btn">
         <span class="icon">🛠️</span>
         <h3>12 protiopatření</h3>
         <p>Každý úhel má svůj konkrétní „protilék".</p>
       </a>
-      <a href="doma/MYS/scenar.html" class="content-btn">
-        <span class="icon">📋</span>
-        <h3>Scénář na minuty</h3>
-        <p>Kdo, kdy, co říká. Na minuty. Bez přípravy.</p>
+      <a href="doma/data/repo_dum.html" class="content-btn">
+        <span class="icon">🏠</span>
+        <h3>Repo dům</h3>
+        <p>Váš systém, vaše data, váš klid – offline, transparentní, upravitelný.</p>
       </a>
-      <a href="doma/MYS/diagnosticky_nastroj.html" class="content-btn">
+      <a href="doma/MYS/index.html" class="content-btn">
         <span class="icon">🧪</span>
         <h3>Diagnostický nástroj</h3>
         <p>3 otázky, které zmapují kognitivní profil týmu.</p>
@@ -776,7 +719,7 @@
         <h3>Generativní mód</h3>
         <p>Jak kartu použít znovu a jinak — desítky variací.</p>
       </a>
-      <a href="doma/MYS/sablony.html" class="content-btn">
+      <a href="doma/MYS/index.html" class="content-btn">
         <span class="icon">📎</span>
         <h3>Šablony</h3>
         <p>Flipcharty, emaily, pracovní listy k okamžitému použití.</p>
@@ -926,14 +869,6 @@
         </div>
       </div>
       <div class="coming-item">
-        <img src="doma/data/ilustrace/beran.jpg" alt="Beran" />
-        <div class="coming-item-body">
-          <strong>Beran</strong>
-          <p>Děláme to, co ostatní — i když to nedává smysl.</p>
-          <a href="mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Beran">Mám zájem →</a>
-        </div>
-      </div>
-      <div class="coming-item">
         <img src="doma/data/ilustrace/drak.jpg" alt="Drak" />
         <div class="coming-item-body">
           <strong>Drak</strong>
@@ -953,7 +888,7 @@
         <img src="doma/data/ilustrace/motyl.jpg" alt="Motýl" />
         <div class="coming-item-body">
           <strong>Motýl</strong>
-          <p>Problém vypadá dobře, takže ho nikdo neřeší</p>
+          <p>Problém vypadá dobře, takže ho nikdo neřeší.</p>
           <a href="mailto:chcesmys@gmail.com?subject=Zájem%20o%20kartu%3A%20Motýl">Mám zájem →</a>
         </div>
       </div>
@@ -977,35 +912,7 @@
   </div>
 </section>
 
-<!-- ===== REPO DŮM (sekce s kartičkami) ===== -->
-<section id="repo-dum">
-  <div class="container">
-    <p class="section-label">Princip Repo dům</p>
-    <h2>Váš systém.<br>Vaše data. Váš klid.</h2>
-    <div class="repo-cards">
-      <div class="repo-card" onclick="location.href='doma/data/repo_dum.html#bezpecnost';">
-        <span class="card-icon">🔐</span>
-        <h3>Bezpečnost</h3>
-        <p>Vaše data zůstávají vaše. Nikam se neodesílají, nikdo k nim nemá přístup.</p>
-        <span class="card-meta">klíč 1/3</span>
-      </div>
-      <div class="repo-card" onclick="location.href='doma/data/repo_dum.html#vlastnictvi';">
-        <span class="card-icon">🏠</span>
-        <h3>Vlastnictví</h3>
-        <p>Máte to u sebe. Celý systém je fyzicky na vašem disku, upravitelný.</p>
-        <span class="card-meta">klíč 2/3</span>
-      </div>
-      <div class="repo-card" onclick="location.href='doma/data/repo_dum.html#offline';">
-        <span class="card-icon">🧩</span>
-        <h3>Offline provoz</h3>
-        <p>Funguje bez internetu. Skvělé pro firmy s přísnými pravidly.</p>
-        <span class="card-meta">klíč 3/3</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== VIZUÁLNÍ STYL – CAROUSEL ===== -->
+<!-- ===== VIZUÁLNÍ STYL – CAROUSEL S POPISEM KARET ===== -->
 <section id="ukazky">
   <div class="container">
     <p class="section-label">Vizuální styl</p>
@@ -1019,7 +926,6 @@
       <button class="carousel-btn carousel-prev" id="carouselPrev">‹</button>
       <button class="carousel-btn carousel-next" id="carouselNext">›</button>
     </div>
-    <div class="carousel-caption" id="carouselCaption"></div>
   </div>
 </section>
 
@@ -1173,24 +1079,23 @@
   document.addEventListener('DOMContentLoaded', function() {
     // Seznam obrázků pro carousel (cesty a popisky)
     const images = [
-      { src: 'doma/data/ilustrace/mys.jpg', title: 'Myš', desc: 'Tichý pozorovatel, zapisovatel' },
+      { src: 'doma/data/ilustrace/mys.jpg', title: 'Myš', desc: 'Tichý pozorovatel, zapisovatel mezer' },
       { src: 'doma/data/ilustrace/kocour.jpg', title: 'Kocour', desc: 'Skákání do řeči, polykání teček' },
-      { src: 'doma/data/ilustrace/ryba.jpg', title: 'Ryba', desc: 'Tichá vibrace, ne křik' },
-      { src: 'doma/data/ilustrace/drak.jpg', title: 'Drak', desc: 'Pravidla bez smyslu' },
-      { src: 'doma/data/ilustrace/parohy.jpg', title: 'Parohy', desc: 'Definice minulostí' },
-      { src: 'doma/data/ilustrace/motyl.jpg', title: 'Motýl', desc: 'Estetika versus realita' },
-      { src: 'doma/data/ilustrace/beran.jpg', title: 'Beran', desc: 'Stádová setrvačnost' },
+      { src: 'doma/data/ilustrace/ryba.jpg', title: 'Ryba', desc: 'Tichá vibrace místo povrchního křiku' },
+      { src: 'doma/data/ilustrace/drak.jpg', title: 'Drak', desc: 'Dodržování pravidel, která ztratila smysl' },
+      { src: 'doma/data/ilustrace/parohy.jpg', title: 'Parohy', desc: 'Definice sebe sama minulostí' },
+      { src: 'doma/data/ilustrace/motyl.jpg', title: 'Motýl', desc: 'Problém, který vypadá dobře, ale neřeší se' },
+      { src: 'doma/data/ilustrace/beran.jpg', title: 'Beran', desc: 'Stádová setrvačnost, nemožnost změny' },
       { src: 'doma/data/ilustrace/osel.jpg', title: 'Osel', desc: 'Nerozhodnost z přemíry možností' },
       { src: 'doma/data/ilustrace/zizala.jpg', title: 'Žížala', desc: 'Rozkládání starých struktur' },
-      { src: 'doma/data/ilustrace/pav.jpg', title: 'Páv', desc: 'Vidět sebe ve všem' },
-      { src: 'doma/data/ilustrace/plamenak.jpg', title: 'Plameňák', desc: 'Nadšení bez plánu' },
+      { src: 'doma/data/ilustrace/pav.jpg', title: 'Páv', desc: 'Vidět sebe ve všem, narcistní deformace' },
+      { src: 'doma/data/ilustrace/plamenak.jpg', title: 'Plameňák', desc: 'Nadšení bez plánu, pád s grácií' },
       { src: 'doma/data/ilustrace/jednorozec.jpg', title: 'Jednorožec', desc: 'Popírání vlastní existence' },
-      { src: 'doma/data/ilustrace/husy.jpg', title: 'Husy', desc: 'Kolektivní singulár' },
+      { src: 'doma/data/ilustrace/husy.jpg', title: 'Husy', desc: 'Kolektivní singulár, každý křičí JÁ' },
       { src: 'doma/data/ilustrace/hyeny.jpg', title: 'Hyeny', desc: 'Toxická soutěživost' }
     ];
 
     const slidesContainer = document.getElementById('carouselSlides');
-    const captionDiv = document.getElementById('carouselCaption');
     const prevBtn = document.getElementById('carouselPrev');
     const nextBtn = document.getElementById('carouselNext');
     const lightbox = document.getElementById('lightbox');
@@ -1198,10 +1103,11 @@
 
     let currentIndex = 0;
 
-    // Vytvoření slide elementů
+    // Vytvoření slide elementů s názvem a popisem
     images.forEach((img, index) => {
       const slide = document.createElement('div');
       slide.className = 'carousel-slide';
+      
       const imgEl = document.createElement('img');
       imgEl.src = img.src;
       imgEl.alt = img.title;
@@ -1212,14 +1118,19 @@
         lightbox.classList.add('active');
       });
       slide.appendChild(imgEl);
+      
+      const titleEl = document.createElement('div');
+      titleEl.className = 'card-title';
+      titleEl.textContent = img.title;
+      slide.appendChild(titleEl);
+      
+      const descEl = document.createElement('div');
+      descEl.className = 'card-desc';
+      descEl.textContent = img.desc;
+      slide.appendChild(descEl);
+      
       slidesContainer.appendChild(slide);
     });
-
-    // Aktualizace caption
-    function updateCaption() {
-      const img = images[currentIndex];
-      captionDiv.innerHTML = `<strong>${img.title}</strong><br>${img.desc}`;
-    }
 
     // Posun na index
     function goToSlide(index) {
@@ -1227,7 +1138,6 @@
       if (index >= images.length) index = 0;
       currentIndex = index;
       slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-      updateCaption();
     }
 
     // Event listeners
