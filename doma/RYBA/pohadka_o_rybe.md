@@ -7,12 +7,12 @@ Text: rybí rap
 ## která rapovala
 
 
-Říká se, že ryby mlčí.
-Že nemají hlas.
-Že jen plavou, koukají, 
-a občas se nechají chytit.
-Ale to je omyl. Kec.
-Suchozemská lež.
+-Říká se, že ryby mlčí.
+-Že nemají hlas.
+-Že jen plavou, koukají, 
+-a občas se nechají chytit.
+-Ale to je omyl. Kec.
+-Suchozemská lež.
 
 Ryby totiž nemlčí.
 Ryby rapujou.
