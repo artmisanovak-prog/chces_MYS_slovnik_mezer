@@ -13,6 +13,10 @@ Přečtěte si
 
 ---
 
+[diagnostické klíče](doma/karty_ukazky/Pav/pav_diagnostika_klice.md)
+
+---
+
 ## 3 diagnostické otázky (pro tento konkrétní problém)
 
 1. **Q1 (Interpretace):** "Proč páv viděl v každém zvířeti jen různou verzi sebe sama? Co to vypovídá o jeho vnímání reality?"
