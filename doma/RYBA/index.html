@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryba — plná karta | Chceš myš?</title>
+  <style>
+    /* ── RESET & BASE (přesně z hlavní stránky) ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #ffffff;
+      --fg:      #111111;
+      --muted:   #555555;
+      --border:  #d0d0d0;
+      --serif:   Georgia, 'Times New Roman', serif;
+      --sans:    'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── NAVIGACE ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-logo {
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--fg); }
+
+    /* ── HERO (zjednodušený pro kartu) ── */
+    .hero {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--fg);
+      color: var(--fg);
+      background: transparent;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .btn:hover { background: var(--fg); color: var(--bg); }
+    .btn-fill { background: var(--fg); color: var(--bg); }
+    .btn-fill:hover { background: var(--muted); border-color: var(--muted); }
+
+    /* ── SEKCE ── */
+    section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 32px;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin-bottom: 8px;
+    }
+    p { margin-bottom: 16px; color: var(--fg); }
+
+    /* ── DETAILS (ROZBALOVACÍ OKNA) ── */
+    details {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: .97rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before {
+      content: '▶';
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-right: 12px;
+      transition: transform .2s;
+    }
+    details[open] summary::before { content: '▼'; }
+    .detail-content {
+      margin-top: 16px;
+      padding-left: 24px;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+    .detail-content ul, .detail-content ol { margin-left: 1.5rem; }
+    .detail-content li { margin-bottom: 0.5rem; }
+
+    /* ── GRID PRO DLAŽDICE (odkazy na nástroje) ── */
+    .contents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .content-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      transition: background .2s;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .content-btn:hover {
+      background: #f5f5f5;
+    }
+    .content-btn .icon {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .content-btn h3 {
+      margin-bottom: 8px;
+    }
+    .content-btn p {
+      font-size: .9rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── BLOK PRO OBRAZEK KARTY (jako v Myš sekci) ── */
+    .card-image-block {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    .card-image-block img {
+      width: 200px;
+      filter: grayscale(100%);
+      border: 1px solid var(--border);
+    }
+    .card-image-block p {
+      flex: 1;
+      font-style: italic;
+      color: var(--muted);
+    }
+    @media (max-width: 580px) {
+      .card-image-block { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── ANGLES (seznam úhlů) ── */
+    .angle {
+      margin-bottom: 1.8rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dotted var(--border);
+    }
+    .angle:last-child { border-bottom: none; }
+    .angle h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .angle p { margin-left: 0.5rem; font-size: 0.95rem; }
+    .angle strong { font-weight: 600; }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      border: 1px solid var(--fg);
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+    .highlight-box p { margin: 0; font-size: 1rem; line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-left p { font-size: .88rem; color: var(--muted); line-height: 1.8; }
+    .footer-left a { color: var(--fg); }
+    .footer-right { text-align: right; }
+    .footer-right p { font-size: .88rem; color: var(--muted); }
+
+    a { color: var(--fg); }
+    a:hover { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGACE (stejná jako na hlavní stránce) ===== -->
+<nav>
+  <div class="container">
+    <a href="../index.html" class="nav-logo">Chceš myš?</a>
+    <ul class="nav-links">
+      <li><a href="#obsah">Karta</a></li>
+      <li><a href="#angles">12 úhlů</a></li>
+      <li><a href="#workshop">Workshop</a></li>
+      <li><a href="#plna">Plná verze</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="../KOCOUR/data/landing_page_kocour.html" class="btn btn-fill" style="padding:8px 18px;font-size:11px;">Ukázka zdarma</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Karta č. 5</p>
+    <h1>🐟 RYBA</h1>
+    <p class="hero-sub"><strong>porucha: Rybí rap vs ptačí křik</strong> — Komunikační patolog: týmová komunikace se stala povrchním šumem místo autentického projevu, který mění prostředí.</p>
+  </div>
+</header>
+
+<!-- ===== OBRAZEK KARTY ===== -->
+<section>
+  <div class="container">
+    <div class="card-image-block">
+      <img src="doma/RYBA/data/ryba.jpg" alt="Ryba">
+      <p>„Ryby nemlčí. Ryby rapujou. Každý druh má svůj styl – kosatky chansony, žraloci gospel, velryby operu, delfín folklor. Ptačí zpěv je oproti tomu jen křikot bez ideje.“</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OBSAH KARTY – DLAŽDICE (všechny mody a nástroje) ===== -->
+<section id="obsah">
+  <div class="container">
+    <p class="section-label">Nástroje karty</p>
+    <h2>Všechny mody<br>na jednom místě.</h2>
+    <div class="contents-grid">
+      <a href="doma/RYBA/data/ryba-diagnostika.html" class="content-btn">
+        <span class="icon">🔬</span>
+        <h3>Diagnostický mód</h3>
+        <p>3 otázky, přiřazování úhlů, kognitivní mapa týmu.</p>
+      </a>
+      <a href="doma/RYBA/data/generativni.html" class="content-btn">
+        <span class="icon">🎲</span>
+        <h3>Generativní mód</h3>
+        <p>Desítky variací workshopu z jedné karty.</p>
+      </a>
+      <a href="doma/RYBA/data/generator.html" class="content-btn">
+        <span class="icon">🎨</span>
+        <h3>Kreativní mód</h3>
+        <p>Inspirace, nápady, neotřelé perspektivy.</p>
+      </a>
+      <a href="doma/MYS/kombinator.html" class="content-btn">
+        <span class="icon">🔗</span>
+        <h3>Kombinační mód</h3>
+        <p>Propojování karet, vznik nových diagnóz.</p>
+      </a>
+      <a href="doma/RYBA/data/workshop_90_minut.html" class="content-btn">
+        <span class="icon">🛠️</span>
+        <h3>Workshop 90 min</h3>
+        <p>Připravený scénář na minuty.</p>
+      </a>
+      <a href="doma/RYBA/data/zpetna_vazba.html" class="content-btn">
+        <span class="icon">💬</span>
+        <h3>Zpětná vazba</h3>
+        <p>Reflexe a vyhodnocení workshopu.</p>
+      </a>
+      <a href="doma/RYBA/data/licence.txt" class="content-btn">
+        <span class="icon">📄</span>
+        <h3>Licence</h3>
+        <p>Podmínky užití karty.</p>
+      </a>
+      <a href="doma/data/kriva_pohadka.html" class="content-btn">
+        <span class="icon">📘</span>
+        <h3>Křivá pohádka</h3>
+        <p>Úvod do světa mezer.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3 DIAGNOSTICKÉ OTÁZKY ===== -->
+<section>
+  <div class="container">
+    <p class="section-label">Diagnostika</p>
+    <h2>Tři otázky<br>pro tým.</h2>
+    <details>
+      <summary>Zobrazit otázky Q1–Q3</summary>
+      <div class="detail-content">
+        <ol>
+          <li><strong>Q1 (Interpretace):</strong> Ryba neřve, ale „vibruje“. Její rap není pro show, ale pro přesnost. Proč lidé/týmy dávají přednost „ptačímu křikotu“ – hlasitému, ale prázdnému projevu – před „rybím rapem“, který je tichý, ale transformuje prostředí?</li>
+          <li><strong>Q2 (Identifikace):</strong> Kde ve vašem týmu pozorujete „ptačí zpěv“ – tedy hlasitou, repetitivní, ale málo obsažnou komunikaci (schůze, prezentace, reporty), která jen zaplňuje prostor místo aby tvořila smysl? A kde naopak probíhá „rybí rap“ – tichá práce, která skutečně posouvá věci vpřed, ale zůstává neviděná pod hladinou?</li>
+          <li><strong>Q3 (Transformace):</strong> Co by se muselo stát, aby váš tým začal „vnímat, ne jen poslouchat“? Jak bychom mohli kultivovat prostředí, kde „ticho konečně dostane slovo nad hladinu“ a kde budeme oceňovat přesnost a vliv na systém více než hlasitost projevu?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===== 12 ÚHLŮ POHLEDU (všechny, ne jen ukázka) ===== -->
+<section id="angles">
+  <div class="container">
+    <p class="section-label">Perspektivy</p>
+    <h2>12 úhlů pohledu.</h2>
+    <details>
+      <summary>Rozbalit všech 12 úhlů</summary>
+      <div class="detail-content">
+        <div class="angle">
+          <h4>1. 🌊 ÚHEL VIBRAČNÍ KOMUNIKACE</h4>
+          <p><strong>Jádro:</strong> Komunikace není jen o slovech, ale o tělesné, vibrační interakci, která mění prostředí.</p>
+          <p><strong>Q1:</strong> Ryba „vibruje“, nelže, nehraje divadlo. Kdy jsme naposledy cítili, že komunikace v týmu něčím rezonovala?</p>
+          <p><strong>Q2:</strong> Kde v našem týmu komunikujeme jen slovy, ale ignorujeme „vibrace“ – napětí, energii, neverbální signály?</p>
+          <p><strong>Q3:</strong> Zavést „čtení vibrací“: 2 minuty před jednáním věnovat popisu „jak se tu dnes cítí voda/vzduch“. Co je nevyřčené, ale přítomné?</p>
+        </div>
+        <div class="angle">
+          <h4>2. 🐦 ÚHEL PTAČÍ KŘIKOT</h4>
+          <p><strong>Jádro:</strong> Komunikace je hlasitá, repetitivní, ale prázdná – plná frází bez obsahu.</p>
+          <p><strong>Q1:</strong> Ptačí zpěv je jen projev, ne sdělení. Kde v naší komunikaci jen „vyplňujeme prostor“?</p>
+          <p><strong>Q2:</strong> Které fráze, rituály nebo reporty jsou u nás nejprázdnější? Kde se „protepluje vzduch“?</p>
+          <p><strong>Q3:</strong> Provést „audit ptačího křiku“ – identifikovat 3 nejčastější prázdné fráze a domluvit se na jejich eliminaci.</p>
+        </div>
+        <div class="angle">
+          <h4>3. 🎶 ÚHEL RŮZNORODÝCH ŽÁNRŮ</h4>
+          <p><strong>Jádro:</strong> Každý v týmu má svůj „hudební styl“ – a je potřeba je respektovat, ne sjednocovat.</p>
+          <p><strong>Q1:</strong> Kosatky zpívají chansony, žraloci gospel. Jaké „žánry“ máme v týmu my?</p>
+          <p><strong>Q2:</strong> Kdy se snažíme všechny natlačit do jednoho žánru a proč to nefunguje?</p>
+          <p><strong>Q3:</strong> Vytvořit „playlist týmu“ – každý člen navrhne svůj žánr a vysvětlí, co mu dává.</p>
+        </div>
+        <div class="angle">
+          <h4>4. 🧘 ÚHEL MLČENÍ JAKO MOCNÁ DOVEDNOST</h4>
+          <p><strong>Jádro:</strong> Ryby vědí, kdy mlčet. Ticho nese obsah.</p>
+          <p><strong>Q1:</strong> Kdy v týmu naposledy pomohlo ticho víc než slova?</p>
+          <p><strong>Q2:</strong> Kde se bojíme ticha a vyplňujeme ho zbytečným křikem?</p>
+          <p><strong>Q3:</strong> Cvičení „Rybí pauzy“ – minuta ticha před každým důležitým rozhodnutím.</p>
+        </div>
+        <div class="angle">
+          <h4>5. 🌍 ÚHEL SYSTÉMOVÉHO DOPADU</h4>
+          <p><strong>Jádro:</strong> Rybí rap není pro show, ale pro vodu. Mění proud.</p>
+          <p><strong>Q1:</strong> Která naše komunikace skutečně něco změnila v prostředí?</p>
+          <p><strong>Q2:</strong> Co děláme jen proto, abychom „byli slyšet“, ne aby se něco posunulo?</p>
+          <p><strong>Q3:</strong> Každý návrh musí obsahovat odpověď: „Jak to změní prostředí?“</p>
+        </div>
+        <div class="angle">
+          <h4>6. 💧 ÚHEL VNÍMÁNÍ MÍSTO POSLOUCHÁNÍ</h4>
+          <p><strong>Jádro:</strong> Ryby vnímají celým tělem. Lidé často jen pasivně poslouchají.</p>
+          <p><strong>Q1:</strong> Kdy naposledy někdo v týmu skutečně vnímal, nejen poslouchal?</p>
+          <p><strong>Q2:</strong> Jaké signály přehlížíme, protože jen „posloucháme slova“?</p>
+          <p><strong>Q3:</strong> Trénink vnímavosti – před poradou 2 minuty ticha, každý si zapíše, co vnímá.</p>
+        </div>
+        <div class="angle">
+          <h4>7. 🎤 ÚHEL AUTENTICKÉHO VYJÁDŘENÍ</h4>
+          <p><strong>Jádro:</strong> Ryba nelže. Její rap je přesný.</p>
+          <p><strong>Q1:</strong> Kde v týmu hrajeme divadlo místo autentického projevu?</p>
+          <p><strong>Q2:</strong> Co by se stalo, kdybychom na den zakázali fráze a mluvili jen to, co skutečně cítíme?</p>
+          <p><strong>Q3:</strong> Zavést rituál „Upřímná středa“ – každý řekne jednu věc, kterou si normálně nechává pro sebe.</p>
+        </div>
+        <div class="angle">
+          <h4>8. 🏆 ÚHEL NEVIDITELNÉHO VÍTĚZSTVÍ</h4>
+          <p><strong>Jádro:</strong> Rybí rap zůstává pod hladinou, ale je klíčový.</p>
+          <p><strong>Q1:</strong> Kdo v týmu dělá klíčovou, ale neviditelnou práci?</p>
+          <p><strong>Q2:</strong> Jak můžeme tyto „ryby“ podpořit a ocenit?</p>
+          <p><strong>Q3:</strong> Vytvořit „Hitparádu pod hladinou“ – systém oceňování neviditelných úspěchů.</p>
+        </div>
+        <div class="angle">
+          <h4>9. 🌊 ÚHEL KOMUNIKACE S PROSTŘEDÍM</h4>
+          <p><strong>Jádro:</strong> Ryby komunikují s vodou, nejen mezi sebou.</p>
+          <p><strong>Q1:</strong> S kým/krom týmu bychom měli komunikovat, ale neděláme to?</p>
+          <p><strong>Q2:</strong> Jak naše komunikace ovlivňuje okolí (dodavatele, zákazníky, vedení)?</p>
+          <p><strong>Q3:</strong> Mapovat jednou měsíčně dopad naší komunikace na okolí.</p>
+        </div>
+        <div class="angle">
+          <h4>10. 🥁 ÚHEL BEATŮ, KTERÉ TVOŘÍ PROSTŘEDÍ</h4>
+          <p><strong>Jádro:</strong> Rytmus naší komunikace vytváří kulturu.</p>
+          <p><strong>Q1:</strong> Jaký rytmus má naše komunikace – hektický, pomalý, pravidelný?</p>
+          <p><strong>Q2:</strong> Kde bychom měli zrychlit/zpomalit, aby se zlepšila kvalita?</p>
+          <p><strong>Q3:</strong> Navrhnout „beatový plán“ – kdy a jak často komunikovat o čem.</p>
+        </div>
+        <div class="angle">
+          <h4>11. 🧩 ÚHEL TICHA, KTERÉ NESE OBSAH</h4>
+          <p><strong>Jádro:</strong> Mezi slovy je prostor, který dává význam.</p>
+          <p><strong>Q1:</strong> Kde v naší komunikaci chybí prostor pro ticho?</p>
+          <p><strong>Q2:</strong> Co se v těch mezerách ztrácí?</p>
+          <p><strong>Q3:</strong> Cvičení „Mezery“ – při příští poradě nechat po každém příspěvku 10 vteřin ticha.</p>
+        </div>
+        <div class="angle">
+          <h4>12. 🎼 ÚHEL PRESNOSTI</h4>
+          <p><strong>Jádro:</strong> Rybí rap není pro slávu, ale pro přesnost.</p>
+          <p><strong>Q1:</strong> Kdy naposledy bylo slovo v týmu použito naprosto přesně?</p>
+          <p><strong>Q2:</strong> Kde plýtváme slovy, protože nejsme dost přesní?</p>
+          <p><strong>Q3:</strong> Trénink „Váha slova“ – omezit počet slov na poradě na polovinu.</p>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===== WORKSHOP ===== -->
+<section id="workshop">
+  <div class="container">
+    <p class="section-label">Intervence</p>
+    <h2>Workshop „Od ptačího křiku k rybímu rapu“</h2>
+    <details>
+      <summary>Rozbalit strukturu (90 minut)</summary>
+      <div class="detail-content">
+        <p><strong>Část 1: Diagnóza</strong> (30 min)</p>
+        <ul>
+          <li>Přečtení pohádky</li>
+          <li>Individuální psaní: Co je u nás „ptačí křikot“? Kde se skrývá „rybí rap“?</li>
+          <li>Sdílení a tvorba „Mapy komunikace“</li>
+        </ul>
+        <p><strong>Část 2: Experiment</strong> (40 min)</p>
+        <ul>
+          <li>Cvičení „Rybí pauzy“ – minuta ticha před rozhodnutím</li>
+          <li>Cvičení „Váha slova“ – omezení počtu slov, trénink přesnosti</li>
+          <li>Reflexe a sdílení</li>
+        </ul>
+        <p><strong>Část 3: Akce</strong> (20 min)</p>
+        <ul>
+          <li>Tvorba „Hitparády pod hladinou“ – systém oceňování neviditelných úspěchů</li>
+          <li>Formulace „Rybího manifestu“ – 3 pravidla pro autentickou komunikaci</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===== PLNÁ VERZE ===== -->
+<section id="plna">
+  <div class="container">
+    <p class="section-label">Komerční licence</p>
+    <h2>Plná verze karty</h2>
+    <details>
+      <summary>Co obsahuje a cena</summary>
+      <div class="detail-content">
+        <ul>
+          <li>✅ <strong>Všech 12 úhlů</strong> s detailním vysvětlením a Q1–Q3 pro každý (již vidíte výše)</li>
+          <li>✅ <strong>Kompletní workshop</strong> s podrobným scénářem na minuty</li>
+          <li>✅ <strong>Šablony:</strong> Mapa komunikace, Hitparáda pod hladinou, Audit ptačího křiku</li>
+          <li>✅ <strong>Diagnostické nástroje</strong> pro tým</li>
+          <li>✅ <strong>Návod</strong> na implementaci a kombinaci s dalšími kartami</li>
+        </ul>
+        <p style="margin-top:1rem;"><strong>Cena: 29 000 Kč</strong> (jednorázově, celoživotní licence pro celou organizaci)</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===== KONTAKT ===== -->
+<section id="kontakt">
+  <div class="container">
+    <p class="section-label">Kontakt</p>
+    <h2>Máte zájem?<br>Napište nám.</h2>
+    <div class="highlight-box">
+      <p>Vyberte si kartu, napište na <a href="mailto:chcesmys@gmail.com"><strong>chcesmys@gmail.com</strong></a> a do 24 hodin máte plnou verzi u sebe.</p>
+    </div>
+    <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="../KOCOUR/data/landing_page_kocour.html" class="btn btn-fill">Vyzkoušet zdarma — Kocour</a>
+      <a href="mailto:chcesmys@gmail.com" class="btn">Napsat email</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p style="font-weight:700;color:var(--fg);margin-bottom:8px;">Chceš myš? — slovník mezer</p>
+        <p><a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a></p>
+        <p style="margin-top:16px;">Obsah licencován pod <strong>CC BY-NC-SA 4.0</strong>. Plné verze karet pod komerční licencí.</p>
+      </div>
+      <div class="footer-right">
+        <p>© 2026 Michaela Nováková</p>
+        <p>Metoda „Repo dům"</p>
+        <p><a href="../KOCOUR/data/landing_page_kocour.html" style="font-size:.85rem;">Kocour landing page →</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
