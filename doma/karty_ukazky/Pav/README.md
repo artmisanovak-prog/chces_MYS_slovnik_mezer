@@ -13,8 +13,15 @@ Přečtěte si
 
 ---
 
-[diagnostické klíče](pav_diagnostika_klice.md)
-
+- [ilustrace](pav.jpg)
+- [diagnostické klíče](pav_diagnostika_klice.md)
+- [kreativni](pav_kreativni.md)
+- [12x perspektiv](pav_uhly12.md)
+- [dysfunkce a otazky](pav_dysfunkce_a_otazky.md)
+- [workshop](pav_workshop_90_minut.md)
+- [zpětná vazba](pav_zpetna_wazba.html)
+- [licence](pav_licence.txt)
+  
 ---
 
 ## 3 diagnostické otázky (pro tento konkrétní problém)
