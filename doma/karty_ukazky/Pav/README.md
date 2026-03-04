@@ -13,7 +13,7 @@ Přečtěte si
 
 ---
 
-[diagnostické klíče](Pav/pav_diagnostika_klice.md)
+[diagnostické klíče](pav_diagnostika_klice.md)
 
 ---
 
