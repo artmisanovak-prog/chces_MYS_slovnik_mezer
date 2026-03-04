@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Křivá pohádka | Chceš myš?</title>
+  <style>
+    /* ── RESET & BASE (stejný styl jako hlavní stránka) ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #ffffff;
+      --fg:      #111111;
+      --muted:   #555555;
+      --border:  #d0d0d0;
+      --serif:   Georgia, 'Times New Roman', serif;
+      --sans:    'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── NAVIGACE ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-logo {
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--fg); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    /* ── PŘÍBĚHOVÝ BLOK ── */
+    .story-block {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 40px;
+      align-items: start;
+      margin: 60px 0;
+    }
+    .story-img {
+      width: 140px;
+      filter: grayscale(100%);
+      display: block;
+      border: 1px solid var(--border);
+    }
+    .story-text h2 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .story-text h3 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    /* Zachování přesných řádků a odstavců */
+    .story-text .verse {
+      white-space: pre-wrap;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .story-text .separator {
+      text-align: center;
+      margin: 1.5rem 0;
+      color: var(--muted);
+    }
+    @media (max-width: 580px) {
+      .story-block { grid-template-columns: 1fr; }
+      .story-img { width: 110px; }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    .footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+    a { color: var(--fg); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="../index.html" class="nav-logo">Chceš myš?</a>
+    <ul class="nav-links">
+      <li><a href="#mys">Myš</a></li>
+      <li><a href="#jednorozec">Jednorožec</a></li>
+      <li><a href="#kocour">Kocour</a></li>
+      <li><a href="#hvezdice">Hvězdice</a></li>
+      <li><a href="#motyl">Motýl</a></li>
+      <li><a href="#moucha">Moucha</a></li>
+      <li><a href="#osel">Osel</a></li>
+      <li><a href="#parohy">Parohy</a></li>
+      <li><a href="#pav">Páv</a></li>
+      <li><a href="#plamenak">Plameňák</a></li>
+      <li><a href="#ryba">Ryba</a></li>
+      <li><a href="#vrabec">Vrabec</a></li>
+      <li><a href="#zelva">Želva</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <h1>Křivá pohádka</h1>
+    <p>Zapsáno rukou, která nechtěla nic vysvětlit. Tyto pohádky nevyprávějí příběhy tak, jak by měly. Místo kouzel tu vládne nedorozumění. Místo dobra a zla – podivný klid mezi nimi. Zvířata tu mluví, ale ne proto, aby nás bavila. Říkají to, co lidé nemohou vyslovit. Příběhy, co se spíš staly, než vymyslely – a možná se pořád dějí. Jen je nelze vidět z běžného úhlu.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ===== O MYŠI ===== -->
+  <div id="mys" class="story-block">
+    <img src="doma/MYS/mys.jpg" alt="Myš" class="story-img">
+    <div class="story-text">
+      <h2>🐁 O MYŠI</h2>
+      <h3>a o tom, co se stane, když si jí NEvšimneš</h3>
+      <div class="verse">
+Kdysi – zároveň ne tak docela dávno.
+A ne úplně blízko, ale zase ani ne nijak moc daleko.
+
+Žila jedna myš.
+Byla malá, tak jak to u myší 
+normálně bývá.
+A měla dvě veliké uši, 
+což také není u myši žádná vzácnost.
+
+Nebyla nijak zvlášť rychlá, 
+ale ani úplně pomalá.
+Nebyla hloupá, 
+ale ani kdovíjak chytrá.
+
+Na první pohled
+obyčejná, běžná myš.
+
+Ale ne - normální 
+
+Všímala si věcí, které ostatní přehlíželi.
+
+Například toho, že se ve vzduchu občas zadrhne věta.
+Nebo že páv,
+když se nikdo nedívá, 
+přepočítává svá oka.
+Nebo že čáp,
+někdy jen tak
+přistane na komíně
+a zapomene, 
+koho měl donést.
+
+A tahle myš 
+si začala věci zapisovat.
+Ne na papír.
+Ale tak nějak.
+Do ticha.
+Do koutů.
+Do skulin mezi slovama,
+kde to obvykle nikdo nečte.
+
+A pak si jednoho dne všimla,
+že se kolem ní začínají 
+hromadit zvířata.
+
+Ne v řadě.
+Ne v kruhu.
+Prostě…
+tak nějak.
+
+A každé si neslo něco, 
+co nevysvětlovalo.
+
+Zajíc měl popálené uši 
+a voněl po kouři.
+Kocour se dusil smíchem, 
+protože spolkl tečku.
+Slon si v chobotu nesl třešně,
+co nikdy nedozrají.
+A lemur se nedíval na nic, 
+jen na stranu, 
+kde nic nebylo.
+
+Myš neříkala nic.
+Ale všechno si poznamenala.
+A pak se jednoho dne 
+zeptala první větu.
+
+Ne velkou.
+Ne důležitou.
+Jenom tu jednu:
+
+„Chceš myš?“
+
+A to nebyla otázka, 
+co se ptá
+na ni samotnou.
+To byla otázka, 
+co se ptá
+na všechno.
+
+Na smysl.
+Na jazyk.
+Na strach.
+Na to, 
+co si z nás kdo udělá.
+
+A taky na to,
+jestli si tuhle pohádku 
+necháš vyprávět
+do konce.
+Nebo zapištíš a utečeš.
+Nebo si ji složíš jinak.
+
+Protože od té chvíle,
+už to nebyla jen myš.
+
+Byl to klíč.
+A pádlo.
+A past.
+
+A konec úvodu.
+Ale začátek něčeho dalšího.
+
+..možná..
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O JEDNOROŽCOVI ===== -->
+  <div id="jednorozec" class="story-block">
+    <img src="doma/data/ilustrace/jednorozec.jpg" alt="Jednorožec" class="story-img">
+    <div class="story-text">
+      <h2>🦄 O JEDNOROŽCOVI</h2>
+      <h3>který nevěřil na delfíny ani na lední medvědy</h3>
+      <div class="verse">
+Jednorožec byl.
+To je první lež.
+Ale když se řekne „jednorožec“, každý ví, co si představit.
+Bílý. Roh. Lesk.
+Neskutečný, ale přesto definovaný neskutečně přesně.
+
+Jednorožec žil v krajině, kde se věřilo na všechno.
+Na víly, na mluvící stromy, na svítící houby.
+Na delfíny, zpívající podvodní songy, které nikdo neslyší.
+Na lední medvědy, tancující kankán, který naopak slyší každej, i ti delfíni v těch svých hlubinách.
+
+Ale akorát ten ne, jednorožec nevěřil.
+Ne v delfíny.
+Ne v lední medvědy.
+„Jsou jen vymyšlení,“ říkal. „Jako Polednice, dědek Potíž nebo třeba hadi.“
+
+A přitom je jmenoval.
+A přitom o nich věděl.
+A přitom měl v očích jejich stopy.
+
+Protože kdysi – ne tak docela dávno, ale rozhodně ne dnes –
+se utrhla kra.
+Velká.
+Ledová.
+A na ní lední medvěd.
+Led a voda. Silný vítr a vlny moře. 
+A delfíni.
+
+A jeden z nich byl zvědavý.
+A medvěd byl sám.
+A kra byla dost velká.
+A příroda nemá moc rozumu.
+
+A tak se stalo, co se stát nemělo.
+Spojili se.
+Ne z lásky.
+Z logiky, která se tvářila jako nehoda.
+
+Ledová kra se houpala, jak ji moře nadnášelo na vlnách.
+Medvědovy tlapy klouzali po ledu, delfín se nadechoval v bublinách. 
+
+Vzduch byl plný soli a páry, zvuk zpěvu se mísil s praskáním ledu.
+
+Dva světy, které se nikdy neměly potkat, se navzájem poznaly.
+A mráz, místo aby je oddělil, spojil.
+A když si toho příroda všimla, bylo pozdě.
+Rozum to odmítl, jenže hmota už to věděla.
+
+Medvěd se stal v té chvíli rybou a delfin šelmou. Dva životy stvořené z protikladů. Z původní nesmyslnosti střetu, nemohlo vzejít nic kříženého.
+
+A tak – vznikl tvor zcela vymyšlený.
+
+A z toho se stal jednorožec.
+Ne hned.
+Ne přímo.
+Ale postupně.
+Z ploutve a tlapy. Z bělosti a lesku. Ze šupin a z kožichu. Z úsměvu a zubů a z dechu, co se mění v mlhu.
+
+A když se jednorožec narodil, byl krásný.
+Ale nejistý.
+Jenže když zjistil:
+z čeho je vyrobený,
+z čeho je vysněný, z čeho je – zpanikařil.
+
+Protože pokud je z reálných věcí,
+může být reálný.
+A pokud je reálný,
+přestává být jednorožec.
+
+Takže se rozhodl:
+Zapřít. 
+Zrušit. 
+Zneplatnit. 
+Zpochybnit.
+Znejistit. 
+Zamluvit.
+
+„Delfíni neexistují,“ řekl.
+„Lední medvěd – pff, jenom mýtus.“
+„Nikdy nebyli. Žádná realita. Jsou jen neskutečnost. To, co není možné. Tak jako já.“
+
+Ale jednou, když se díval do vody,
+uviděl odraz a ten měl stín.
+A ten stín měl ploutev.
+Ta ploutev měla srst.
+A roh.
+
+A jednorožec zavřel oči.
+A řekl:
+„To není já.
+To není pravda. To není možné. Tak jako já.“
+
+A voda se zavlnila,
+když vítr zavál.
+A medvěd někde na severu se usmál na vločku sněhu.
+A delfín někde v hlubinách poslal polibek po vodním kruhu.
+
+Takže zůstaň v klidu, když ti někdo řekne, že něco není možné: Nejspíš právě zachraňuje jednorožce.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O KOCOUROVI ===== -->
+  <div id="kocour" class="story-block">
+    <img src="doma/KOCOUR/data/kocour.jpg" alt="Kocour" class="story-img">
+    <div class="story-text">
+      <h2>🐈‍⬛ O KOCOUROVI</h2>
+      <h3>Jak kocour sežral dvě berušky a půl hodiny krkal tečky</h3>
+      <div class="verse">
+Sežral dvě – ne tři, ne jednu – dvě – přesně –14 teček a trvalo to půl hodiny – 30 minut – přesně. 
+
+Jak to přišlo tak to přestalo.
+Ráz na ráz.
+
+Chňap a hlt a chlamst – nebo něco takového a nakonec – mlask, mlask – dvakrát – přesně.
+
+Žily byly dvě berušky, každá sedm teček měla, když uviděl je jeden kocour byla to mela.
+Aspoň pro ně.
+
+Po 14ti tečkách
+v jednom mžiku 
+zem se slehla.
+Rozhodně aspoň kocour se svými útrobami.
+
+Ale ta myš, vždycky zvědavá byla.
+Odmalička chodívala 
+a kde mohla se vyptávala, 
+kde se tečky na beruškách vzaly?
+K čemu je maji? 
+Proč si radši nevytvoří pravý maskování?
+
+A ta přesná matika..
+Kdo vlastně z těch, co s nimi přijdou do styku, takhle přesně počítá?
+
+No a toho dne – náhle – se to stalo
+a myš svou odpověď měla.
+
+Kocour mlaskl a pak znovu 
+a hned na to začalo to.
+Půl hodiny a bylo to zaznamenáno – přesně.
+
+Kocour krkal tečky a dokončoval věty!
+Někdy celé souvětí!!
+
+Jenomže tím zároveň skákal lidem do řeči,
+tím že za ně dokončoval, co nedokončili.
+
+Skočil všem do řeči koncem věty
+
+ale vždycky o něco málo
+
+někdy i o docela dost
+
+dřív, než měla věta původně skončit
+
+nebo – než původně věta skončit měla.
+
+A celou půlhodinu nemohl tenkrát nikdo nic 
+
+ne – dokončit.
+Nešlo to.
+
+Každému dřív,
+než se k tomu dostal,
+všem kocour větu ukončil.
+Hned.
+
+Kocour se tomu smál, 
+ale krkal dál.
+A krkal, dokud neskončil.
+Představte si to:
+Skončil větu a pak skončil krkat.
+
+A lidé zase začali moct své věty ukončovat sami.
+Hned.
+
+Jenže, jak se to tak občas stává, 
+přestože nikdo nevěděl co, 
+každý věděl, 
+že něco nebylo stejné.
+
+A to, co jednou není stejné dnes, 
+to není jednou stejné nikdy.
+
+Jen nedokončené věty bývají všechny stejné. Jednou, dnes i zítra.
+
+Berušky mají na sobě nedokončené konce vět. Věci, které jsou nespolknuté.
+
+Kocour to nevěděl – a dvě spolknul.
+Spolknuté konce ale vykrkal zpátky 
+a lide se naučili, 
+že všechno se spolknout nedá. 
+A že tečka je někdy silnější, než celá věta.
+
+Kocour se nažral a myš i věty zůstali celé.
+Díky bohu za to.
+Štěstí dvou berušek se vrátilo zpátky.
+
+Ale všimly si toho jen kocour a malá myš.
+A ani jeden neříkali nic.
+
+KONEC
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O MOŘSKÉ HVĚZDICI ===== -->
+  <div id="hvezdice" class="story-block">
+    <img src="doma/karty_ukazky/morska_hvezdice.jpg" alt="Mořská hvězdice" class="story-img">
+    <div class="story-text">
+      <h2>⭐ O MOŘSKÉ HVĚZDICI</h2>
+      <h3>Kruhy na vodě jsou jizvy po kamenech</h3>
+      <div class="verse">
+Mořská hvězdice ležela na dně. 
+Tichá. 
+Plochá. 
+Nerozhodná.
+
+Nad ní se voda vlnila. 
+Kruhy se šířily. 
+Jeden za druhým. 
+Dokonalé. 
+Pomíjivé. 
+Krásné.
+
+„To je poezie,“ řekla ryba, co rapuje proudem. 
+„To je geometrie,“ řekla chobotnice, co improvizuje jazz. 
+„To je náhoda,“ řekla medúza, co hraje na triangl.
+
+Ale hvězdice mlčela. 
+A pak řekla: 
+„Ne. To jsou jizvy.“
+
+„Jizvy?“ 
+„Po kamenech.“ 
+„Po věcech, co dopadly.“ 
+„Po rozhodnutích, co se nedaly vzít zpět.“
+
+Každý kruh začínal nárazem. 
+Kámen. 
+Kapka. 
+Pád. 
+A pak se šířil. 
+Do dálky. 
+Do šířky. 
+Do jiných životů.
+
+„Ale vždyť se voda zase uklidní,“ řekla sova, co přiletěla omylem. 
+„Ano,“ řekla hvězdice. 
+„Ale to neznamená, že se nic nestalo.“
+
+Mořská hvězdice znala dno. 
+Znala ticho po dopadu. 
+Znala chvíli, kdy se kámen dotkne písku 
+a už není jen kámen — 
+je vzpomínka.
+
+„A co s tím?“ ptala se myš, co zapisuje do skulin. 
+„Nic,“ řekla hvězdice. 
+„Jen to vidět. 
+Jen to vědět. 
+Jen to neplést s krásou.“
+
+A tak se začalo říkat, 
+že někde na dně žije hvězdice, 
+která ví, že kruhy na vodě nejsou jen obraz. 
+Jsou to jizvy. 
+Po kamenech. 
+Po slovech. 
+Po činech.
+
+A že když vidíš kruh, 
+můžeš se ptát: 
+„Co dopadlo?“ 
+„Co se změnilo?“ 
+„Co už nejde vzít zpět?“
+
+A možná zjistíš, 
+že i ticho má paměť. 
+A že voda si pamatuje všechno. 
+I když to neřekne.
+KONEC
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O MOTÝLECH ===== -->
+  <div id="motyl" class="story-block">
+    <img src="doma/data/ilustrace/motyl.jpg" alt="Motýl" class="story-img">
+    <div class="story-text">
+      <h2>🦋 O MOTÝLECH</h2>
+      <h3>kterých se nenajíš</h3>
+      <div class="verse">
+„Já mám hlad,“ řekla.  
+„Tak tady máš,“ řekl.  
+A podal jí motýly.  
+Tři.  
+Jeden modrý, jeden žlutý, jeden trochu rozmazaný.  
+Ten třetí se jmenoval Horac, ale to se dozvěděli až později.
+
+„To se nedá sníst,“ řekla.  
+„Ale dá se na to koukat,“ řekl.  
+„Já nechci koukat. Já chci jíst.“  
+„Motýli jsou lehcí. Nezatíží ti žaludek.“  
+„Ale já chci, aby mi žaludek zpíval, ne aby si šeptal básničky.“
+
+Motýli se zatím rozhlíželi.  
+Jeden si lehl do polívky.  
+Druhý se schoval pod rohlík.  
+Třetí Horac se snažil otevřít ledničku, ale neměl palce.
+
+„Já mám hlad,“ řekla znovu.  
+„A ty mi dáváš křídla.“  
+„Křídla jsou taky něco,“ řekl.  
+„Ale nejsou chleba,“ řekla.  
+„To je pravda,“ řekl.  
+„Ale chleba neumí lítat.“
+
+„A ještě je chleba nejvíc emo,“ řekl polohlasem.
+„Jakto?“ řekla.
+„Řeže se a má dvě patky,“ řekl.
+„Aha,“ uzavřela.
+
+Chvíli bylo ticho.  
+Motýli se tvářili, že rozumí.  
+Ale nerozuměli.  
+Jeden se pokusil být salát.  
+Druhý se schoulil do tvaru knedlíku.  
+Horác se převlékl za banán.
+A začal si říkat Florián.
+
+„Tohle je divný,“ řekla.  
+„To je umění,“ řekl.  
+„To je hlad,“ řekla.  
+„To je interpretace,“ řekl.  
+„To je nesmysl,“ řekla.  
+„To je možné,“ řekl.
+
+Nakonec si sedla na zem.  
+Motýli jí kroužili kolem hlavy.  
+Dělal vítr a víry v myšlenkách.  
+A jeden jí přistál na nose.  
+„Já tě nesním,“ řekla mu.  
+„To je dobře,“ řekl Florián.  
+„Já bych stejně chutnal jako neděle.“
+
+A tak si vzala rohlík.  
+Bez motýlů.  
+Bez klišé.  
+Bez chutí.
+
+Ale v hlavě jí drnčela věta:  
+„Motýlů v břiše se nenajíš.“ 
+
+A pokaždé, když jí někdo
+ chtěl nakrmit láskou,  
+zeptala se:  
+„A máš k tomu i přílohu?“
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O MOUŠE ===== -->
+  <div id="moucha" class="story-block">
+    <img src="doma/karty_ukazky/Moucha/moucha.jpg" alt="Moucha" class="story-img">
+    <div class="story-text">
+      <h2>🪰 O MORUŠI A MOUŠE</h2>
+      <h3>aneb jak se průser stal rájem</h3>
+      <div class="verse">
+Kdysi — ale klidně i dnes odpoledne —
+stála na dvorku stará moruše.
+
+Nebyla krásná.
+Nebyla vznešená.
+Nebyla praktická.
+
+Padala z ní sladká, temná plíseň léta,
+která barvila chodník, boty i svědomí.
+
+Pod moruší žili bordeláři.
+Ne ti dramaticky rozházení.
+Ti by měli styl.
+Tihle bordeláři byli tiší.
+Nechávali věci tam, kde zůstaly.
+
+Hrnek, který „ještě použiju“.
+Papíry, které „se budou hodit“.
+Skvrny, které „zaschnou a zmizí“.
+
+Nezmizely.
+
+Slunce peklo.
+Moruše kapala.
+Zbytky hnily.
+A svět pod stromem pomalu měnil skupenství.
+
+Pak přiletěla moucha.
+
+Nebyla výjimečná.
+Nebyla hrdinská.
+Byla dokonale mouchovitá
+
+Přiletěla z průseru.
+Cizího.
+Jejího ne.
+
+Kroužila nad dvorkem.
+Zachytila vůni.
+Země.
+Sladkosti.
+Rozkladu.
+Možnosti.
+A přistála.
+
+Pro bordeláře: katastrofa.
+Pro mouchu: švédský stůl existence.
+
+Sedla si na flek pod moruší,
+který vznikl pomalu,
+po kapkách,
+bez zlého úmyslu,
+bez plánu,
+bez svědků.
+
+Zabzučela.
+Ne hlasitě.
+Jen dost, aby to v tichu bylo slyšet.
+
+Bordeláři zvedli hlavy.
+
+„Fuj.“
+
+A v tu chvíli si všimli:
+skvrn,
+lepkavosti,
+vůně, která není vůně,
+života, který se dal do pohybu.
+
+Mávali rukama.
+Nadávali.
+Hledali hadr.
+Hledali viníka.
+
+Moucha si slastně zabzukala.
+Ten zvuk nebyl hlasitý.
+Jen nešel ignorovat.
+
+Jeden z chlapů mávl rukou.
+Druhý zaklel.
+Třetí zvedl botu ze země — a zůstala přilepená k podlaze.
+Čtvrtý si poprvé všiml, že skvrna není skvrna.
+Je to geologie.
+
+Moucha přeběhla o pár centimetrů dál.
+
+A náhle to viděli.
+Ne mouchu.
+Sebe.
+
+Lepkavá metafyzika reality se přilepila na jejich pozornost.
+
+Šlápnutí zanechávalo otisky.
+Otisky vytvářely vrstvy.
+Vrstvy vytvářely historii.
+Historie vytvářela past.
+
+„Tohle nejde uklidit,“ řekl jeden.
+„Tohle jsme my,“ řekl druhý.
+
+Nikdo neodpověděl.
+
+Moucha se najedla.
+Pro ni to byl ráj.
+Pro ně to byl konečně viditelný problém.
+Ne proto, že by byl nový.
+Ale protože začal bzučet.
+
+A v tom bzučení bylo slyšet:
+odkládání,
+únava,
+zítřek,
+který nikdy nepřišel.
+
+Jeden zvedl krabici.
+Pod ní byl jiný svět.
+
+Druhý otevřel okno.
+Vzduch nevěděl, že smí dovnitř.
+
+Třetí vynesl pytel.
+Byl těžší, než čekal.
+
+Čtvrtý se poprvé nerozhodl sednout.
+
+Nikdo nic nesliboval.
+Nikdo se nepřevtělil v lepšího člověka.
+Jen poprvé uviděli tvar problému.
+
+Moucha seděla.
+Nebyl to pro průser její, ale byl pro ní.
+Průser byl domov.
+Tam, kde ostatní viděli zkázu,
+ona viděla hojnost.
+Tam, kde oni cítili hanbu,
+ona cítila teplo světa.
+Tam, kde oni začali uklízet,
+ona začala hodovat.
+
+A bordeláři? 
+Uklízeli.
+A čím víc uklízeli,
+tím víc zjišťovali,
+že bordel nevznikl dnes.
+Vznikal po kapkách.
+Rozhodnutí po rozhodnutí.
+Odložením po odložení.
+
+A moucha?
+Ta bzučela.
+Ne jako výčitka.
+Jako komentář.
+
+Najedla se.
+Ohřála se.
+Pak odletěla.
+
+Protože ráj není místo,
+kde zůstaneš.
+Je to místo,
+které tě už nepotřebuje.
+
+Pod moruší zůstal dvorek.
+Čistší.
+Pomalejší.
+Trochu stydlivý.
+
+Bordeláři stáli v tichu,
+které nebylo prázdné.
+
+A někde vysoko nad nimi
+kroužila moucha,
+hledající další cizí průser,
+který by se dal proměnit
+v dokonalý svět.
+
+Protože pro mouchu není hovno problém.
+Je to příležitost.
+A svět je plný příležitostí.
+
+Konec.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O OSLOVI ===== -->
+  <div id="osel" class="story-block">
+    <img src="doma/karty_ukazky/Osel/osel.jpg" alt="Osel" class="story-img">
+    <div class="story-text">
+      <h2>🫏 O OSLOVI</h2>
+      <h3>který šel vlevo, ale myslel si, že jde vpravo</h3>
+      <div class="verse">
+Osel se narodil mezi dvěma hromadami.  
+Jedna byla seno.  
+Druhá sláma.  
+A nikdo mu neřekl, která je která.
+
+„Levá,“ řekl někdo.  
+„Pravá,“ řekl jiný.  
+„Seno,“ řekl hlas.  
+„Sláma,“ řekl stín.
+
+Osel se podíval.  
+Obě hromady vypadaly stejně.  
+Jedna trochu měkčí.  
+Jedna trochu hlučnější.  
+Ale jinak? Chaos.
+
+„Pro jednoho psina,“ řekl hlas.  
+„Pro druhého oslovina,“ dodal jiný.  
+A osel se zamyslel:  
+„Kdo jsem já? Psina, nebo oslovina?“
+
+Šel vlevo.  
+Pak se otočil.  
+A šel vpravo.  
+Ale vypadalo to stejně.  
+Země byla země.  
+Hromada byla hromada.  
+A pravidla? Neviditelná.
+
+Potkal myš.  
+Ta si zapisovala, co se děje.  
+„Kam jdeš?“ zeptala se.  
+„Nevím,“ řekl osel.  
+„Levá, pravá, seno, sláma. Všechno se mi míchá.“
+
+Myš si poznamenala:  
+Osel – zmatený, ale důsledný.
+
+„A co hledáš?“  
+„Správnost,“ řekl osel.  
+„A co to je?“  
+„To, co se neřekne nahlas, ale všichni to očekávají.“
+
+Myš se zamyslela.  
+A pak mu podala cedulku.  
+Na jedné straně bylo napsáno „seno“.  
+Na druhé „sláma“.  
+Ale písmo bylo stejné.
+
+Osel si ji pověsil na krk.  
+A šel dál.  
+Levá.  
+Pravá.  
+Seno.  
+Sláma.
+
+A když ho někdo zastavil a zeptal se:  
+„Kam jdeš?“  
+Řekl:  
+„Podle cedulky.“  
+„A co je na ní?“  
+„To, co si myslíš, že tam je.“
+
+A tak se stal průvodcem.  
+Ne tím, co ví.  
+Ale tím, co jde.  
+A když se někdo ztratil,  
+šel za oslem.  
+Protože i když neví,  
+vypadá, že ví.
+
+A když se někdo ptal, co je to „oslovina“,  
+myš řekla:  
+„To je, když jdeš dál, i když nevíš, kam.“
+
+KONEC
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O PAROZÍCH ===== -->
+  <div id="parohy" class="story-block">
+    <img src="doma/karty_ukazky/Parohy/parohy.jpg" alt="Parohy" class="story-img">
+    <div class="story-text">
+      <h2>🫎 O PAROZÍCH</h2>
+      <h3>které sbíraly blesky</h3>
+      <div class="verse">
+Byl jednou jeden člověk. Nebo jelen. Nebo něco mezi. 
+Měla parohy. Ale ne obyčejné. 
+Byly to bleskosběrné parohy. 
+Ne pro počasí. 
+Pro paměť.
+
+Každý den do ní uhodil blesk. 
+Ne z nebe. 
+Z foťáku. 
+Z cvaknutí. 
+Z „sýýýr!“
+
+Tisíckrát. 
+Blesk. 
+Ale nikdy hrom. 
+Žádný déšť. 
+Jen světlo. 
+A úsměv. 
+A paměť, co se nikdy neptá, jestli je pravdivá.
+
+Říkali jí Sýýýr. 
+Jako „sýr“, ale s ozvěnou. 
+Protože když se usmívala, bylo to jako když se slovo snaží být obrazem. 
+A když se neusmívala, stejně se to vyfotilo.
+
+Parohy jí rostly pokaždé, když ji někdo vyfotil. 
+Jedna větev za každou vzpomínku. 
+Jedna zákruta za každé „sýýýr“. 
+A tak se stala živým albem. 
+Chodila po světě a nosila na hlavě všechny momenty, které nikdo už nechtěl pamatovat.
+
+Tak chodila tam a šla dál 
+s parohy jako s anténami. 
+Těžká od světla. 
+Lehká od smyslu. 
+A když ji někdo potkal, řekl: 
+„To je ta, co má parohy z paměti. Ta, co nikdy nezmokne. Ta, co se usmívá, i když neví proč.“
+
+Od té doby se říká, že když tě někdo vyfotí a ty se usměješ, 
+možná se ti právě začíná klubat nový paroh.
+
+A že „sýýýr“ není jen zvuk. 
+Je to stopa řeči v obraze. 
+Je to blesk bez bouřky. 
+Je to paměť, co se tváří jako přítomnost.
+
+KONEC
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O PÁVOVI ===== -->
+  <div id="pav" class="story-block">
+    <img src="doma/data/ilustrace/pav.jpg" alt="Páv" class="story-img">
+    <div class="story-text">
+      <h2>🦚 O PÁVOVI</h2>
+      <h3>Oko za okem, páv za pávem – a nikdo neví proč.</h3>
+      <div class="verse">
+Byl jednou jeden páv, který měl tolik ok na ocase, že se mu začaly dívat zpátky. 
+Ne on na svět, ale svět na něj – skrz jeho vlastní pera. 
+A to byl problém.
+
+Protože když se díváš na svět skrz sebe, všechno vypadá jako ty. 
+A páv si začal myslet, že celý svět je páv. 
+Že stromy jsou pávové, jen bez per. 
+Že mraky jsou pávové, co se rozplynuli. 
+A že myš je jen páv, co se zapomněl rozvinout.
+
+A tak začal pávy počítat. 
+Ne podle počtu nohou, ale podle počtu ok. 
+Kdo měl víc než jedno oko, byl podezřelý. 
+Kdo měl méně než jedno, byl prorok.
+
+Jednou potkal lemura, co se díval jen na stranu. 
+Páv se zarazil: „To je páv, co se otočil dovnitř.“ 
+Pak potkal kocoura, co krkal tečky. 
+„To je páv, co spolkl interpunkci.“
+
+A když potkal zaječici, co prošla ohněm, řekl: 
+„To je páv, co se přepálil.“
+
+A tak vznikla nová teorie: 
+Každé zvíře je páv v jiném stádiu rozpadu. 
+A každé oko je jen zrcadlo, co se snaží zapomenout, co vidělo.
+
+Páv si začal odtrhávat pera. 
+Ne proto, že by chtěl být méně krásný. 
+Ale proto, že chtěl být méně páv.
+
+A když mu zbylo jen jedno oko, konečně uviděl: 
+Že není páv. 
+Že je pohádka.
+
+A že
+ pohádka se nedá rozvinout jako ocas. 
+
+KONEC
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O PLAMEŇÁKOVI ===== -->
+  <div id="plamenak" class="story-block">
+    <img src="doma/data/ilustrace/plamenak.jpg" alt="Plameňák" class="story-img">
+    <div class="story-text">
+      <h2>🦩 O PLAMEŇÁKOVI</h2>
+      <h3>který byl na hlavu</h3>
+      <div class="verse">
+Plameňák zpíval. 
+Lalalá. 
+Vysoko, výš než měl. 
+Výš než bylo bezpečné. 
+Výš než bylo rozumné.
+
+„Poletíme spolu!“ křičel. 
+„Zřídíme se dolů! Až na dno vesmíru!“ 
+A nikdo mu neřekl, že vesmír žádné dno nemá. 
+Protože plameňák měl růžové peří a hlas, co se nedal přerušit.
+
+„Lalalá!“ zpíval. 
+„Budeme na hlavu!“ 
+A opravdu — letěl hlavou dolů. 
+Nohy mu trčely k nebi. 
+Křídla mu vlála jako šály. 
+A oči měl dokořán.
+
+„Tohle není let,“ řeklo mu klíště. 
+„To je pád.“ 
+„To je jedno!“ křičel plameňák. 
+„Hlavně že to má směr!“
+
+A padal dál. 
+Kolem něj se míhaly hvězdy, 
+mlhoviny i sny a vedle něj se zavlnila prádelní šňůra s jednou ponožkou - tou, co ráno nenašel.
+
+„Kam letíš?“ ptal se komár, co se také držel jeho peří. 
+„Nevím!“ smál se plameňák. 
+„Ale letí se mi krásně!“
+
+A pak — ticho. 
+
+Ticho tak hluboké, že i vesmír zadržel dech. 
+Plameňák dopadl. 
+Ne na zem. 
+Na dno. 
+Na dno vesmíru. 
+Kde nikdo nebyl. 
+Kromě něj, komára a klíštěte co měl.
+A jedné myši, co si zapisovala, co se stalo.
+
+„Jsi v pořádku?“ zeptala se. 
+„Jsem na hlavu,“ řekl plameňák. 
+„Ale jinak výborně.“
+
+Myš si poznamenala: 
+“Plameňák – padá s grácií. I když neví kam. Hlavně že zpívá.”
+
+A plameňák se usmál. 
+Z peří mu vypadl omámený komár. 
+A z kapsy mu vypadla mapa, co ukazovala jen dolů.
+
+„Příště poletím ještě níž,“ řekl. 
+„A co když už níž nejde?“ 
+„Tak si vymyslím nové dno.“
+
+A znovu se vznesl. 
+Hlavou dolů. 
+Srdcem vzhůru. 
+A zpíval: 
+„Lalaláááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááááá“
+
+KONEC
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O RYBĚ ===== -->
+  <div id="ryba" class="story-block">
+    <img src="doma/RYBA/data/ryba.jpg" alt="Ryba" class="story-img">
+    <div class="story-text">
+      <h2>🐟 O RYBĚ</h2>
+      <h3>která rapovala</h3>
+      <div class="verse">
+Říká se, že ryby mlčí.
+ Že nemají hlas.
+ Že jen plavou, koukají, a občas se nechají chytit.
+Ale to je omyl. Kec.
+Suchozemská lež.
+
+ Ryby totiž nemlčí.
+ Ryby rapujou.
+
+ Ne tak, jak si to představuješ – žádné mikrofony, žádné beaty z repro beden.
+
+ „Rybí rap je jinej.
+ Je to rytmus proudů.
+ Je to nížka, výška vln a vlnek.
+ Je to tempo vodních kruhů.
+ Je to mezera mezi bublinama.
+
+ Pod vodou se zvuk jinak šíří.
+ Hlubší. Širší. Pomalejší.
+ A tak ryby neřvou.
+ Ryby vibrujou.
+
+Každej druh rybí má svůj styl hudební.
+Kosatky zpívají chansony – dlouhé, nostalgické, ovlivňují směry proudů.
+Žraloci zpívaj gospel – hluboký a s ozvěnou. Míchají barevné odstíny hladin s tóny hlubin.
+Velryba si troufne na operu 
+a medúzy jí dělaj vokály nebo se daj na triangly, rolničky, zvonce.
+Delfin je folklor. 
+Chobotnice střihne jazzové improvizace. 
+Ryba co se nafukuje zvládá dechovky, ale nemá je ráda.
+Piraňi balady.
+A kapr zkouší hrdelní zpěvy. 
+Mušle a lastury pějí lovestory.
+Ska umí létací ryby.
+Tučňák se vidí v klasice.
+Na pop je odbornice bělice.
+A úhoř nemá hudební ambice.
+
+Je toho více.
+Ale tohle všechno není hudba pro uši,
+ Tohle ovlivňuje různé vodní vlastnosti.
+
+ A ryba?
+ Ryba má rap.
+ Ne kvůli slávě.
+ Kvůli přesnosti.
+
+ Flow je king a king je ryba.
+ Beat jí dělá sea i jezera.
+ Riff kape, flow teče.
+ Přesná slova proudí jak voda.
+ Její punchline je fontána.
+
+ Každý verš má váhu.
+ A tohle ryby umí.
+ Líp než ptáci.
+
+ Ptačí zpěv?
+ Křikot je to.
+ Řev, ryk, krákot, jekot.
+ Tempo? Melodie? Text?
+ Ptáci neumí dávat.
+ Ptáci umí jen sprostě nadávat.
+ Píp rýmuje s píp, jinak bez ideje.
+ Cokoli řeknou hned se cenzuruje.
+
+ Zato ryby fakt dávaj.
+ Dávaj rytmus vodě.
+ Dávaj smysl tichu.
+ Dávají beaty proudům.
+
+ A stalo se jednoho dne, že ryba začala rapovat i na hladině.
+Ne pro ostatní.
+Pro vodu.
+
+ A voda odpověděla.
+ Jinak se zavlnila.
+ Do rytmu se natřásala.
+ Tvořila verše jako vodní kruhy, v kterých byly další kruhy.
+Mlha, spadlá do polí, opsala jejich flow.
+A vytvořila kruhy v obilí.
+Rybí hudba byla slyšet – ne uchem, ale okem, tělem.
+
+ A tak se po kapkách roznáší všude kolem,
+ že první místo v  hitparádě,
+ vyhrály ryby - nepochybně.
+
+ Ne proto, že zpívaj.
+ Ale proto, že ví…
+
+ ..kdy mlčet.
+
+Možná je čas,
+aby se svět dozvěděl o rybím rapu.
+
+Možná je čas,
+aby se přestalo poslouchat a začalo se vnímat.
+
+Možná je čas,
+aby se ticho konečně dostalo nad hladinu.
+
+KONEC
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O VRABCOVI ===== -->
+  <div id="vrabec" class="story-block">
+    <img src="doma/karty_ukazky/Vrabec/vrabec.jpg" alt="Vrabec" class="story-img">
+    <div class="story-text">
+      <h2>🐦 O VRABCOVI</h2>
+      <h3>který se dostal z hrsti na hlavu</h3>
+      <div class="verse">
+Byla jednou jedna dáma, co si řekla: 
+„Lepší vrabec v hrsti než holub na střeše.“ 
+A tak si jednoho dne chytila vrabce. 
+Malého. 
+Pípajícího. 
+Trochu nervózního. 
+Ale byl její.
+
+Holub seděl dál na střeše. 
+Velký. 
+Důstojný. 
+Nedosažitelný. 
+Ale ona má přece vrabce. 
+V hrsti. 
+Jistotu.
+
+Jenže vrabec se nechtěl držet. 
+Začal se vrtět. 
+Škrábat. 
+Pípat. 
+A nakonec – šup! – vyskočil z hrsti rovnou na hlavu.
+A tam zůstal. 
+Ne jako trofej. 
+Jako názor. 
+Jako myšlenka, co se nedá setřást.
+
+Seděl jí na temeni. 
+Na čele. 
+Na představách. 
+A nejen to – začal si tam stavět hnízdo. 
+Z peří. 
+Z pochybností. 
+Z ranních vlasů.
+
+A ona chodila po světě s vrabcem na hlavě. 
+Rozcuchaná. 
+Rozladěná. 
+Rozmyšlená. 
+A všichni říkali: 
+„To je vrabčí hnízdo.“
+
+A holub? 
+Ten pořád seděl na střeše. 
+Tichý. 
+Vznešený. 
+Nedotěrný.
+
+A tak si dáma jednoho dne sedla, 
+podívala se nahoru 
+a řekla: 
+„Možná je lepší holub na střeše než vrabec na hlavě.“
+
+A vrabec se jen zavrtěl. 
+A přidal další větvičku.
+
+KONEC
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== O ŽELVĚ ===== -->
+  <div id="zelva" class="story-block">
+    <img src="doma/karty_ukazky/zelva.jpg" alt="Želva" class="story-img">
+    <div class="story-text">
+      <h2>🐢 O ŽELVĚ</h2>
+      <h3>která běží závod, a zajíci, který posílá pohlednice</h3>
+      <div class="verse">
+Želva běží závod. 
+Celé roky. 
+Ne pomalu. 
+Jen důkladně. 
+Každý krok je jako otisk. 
+Každý otisk stopy jako razítko. 
+Každý den jako další stránka v kalendáři, co nikdo neotáčí.
+
+Zajíc už dávno doběhl. 
+Pak se vrátil. 
+Pak zase odběhl. 
+Pak si sedl. 
+Pak si lehl. 
+A pak začal psát.
+
+Poslal pohlednici ze Sicílie. 
+„Tady je slunce, co se tváří jako výmluva.“ 
+Poslal pohlednici z Madridu. 
+„Tady se běhá akorát v myšlenkách.“ 
+Poslal pohlednici z Grónska. 
+„Tady je ticho, co se nedá doběhnout.“ 
+A nakonec z Nemanic. 
+„Tady není nic. Ale to nevadí.“
+
+Želva běží. 
+Dlouho.
+Nečte hned. 
+Času má dost.
+Ale každá pohled jí přistane na krunýři. 
+A ona je nese. 
+Jako důkazy. 
+Jako sny.
+Jako možnosti.
+Jako mapy míst, kde nikdy nebyla, ale možná jednou bude.
+
+Ale někdy po cestě,
+když se zastaví,
+na chvíli 
+třeba kvůli křoví, co se tváří
+jako večeře — vytáhne jednu. 
+
+Sicílie. 
+Slunce, co se tváří jako výmluva. 
+A želva si řekne: „Tam bych mohla jednou dojít.“ 
+A běží dál.
+
+Madrid. 
+Město, kde se běhá jenom v myšlenkách. 
+To ji zaujme. 
+Protože ona běží tělem.. 
+Ale možná by mohla i v myšlenkách?
+A tak si to poznamená. 
+Do krunýře.
+Do vzoru.
+
+Grónsko. 
+Ticho, který se nedá předběhnout. 
+To ji dojme. 
+Protože to ona zná. 
+Ale nikdy to nepředběhla.
+Jen jí to něco přesně připomíná.
+
+Nemanice. 
+Nic. 
+Ale to nevadí. 
+To je její oblíbená. 
+Protože nic je místo, kde se může stát všechno.
+
+A tak želva běží. 
+A čte. 
+A každá pohled má jako směr. 
+Ne cíl. 
+Ale důvod.
+
+Zajíc mezitím píše dál. 
+Ne proto, že by musel. 
+Ale protože želva běží. 
+A dokud běží, má komu psát.
+
+Jednou napíše: 
+„Tady jsem si uvědomil, že možná nejde o to, kdo doběhne. 
+Ale o to, kdo má kam psát.“
+
+A želva si to přečte. 
+A usměje se. 
+Ne proto, že by to bylo vtipné. 
+Ale protože to je pravda.
+
+A tak běží dál. 
+A pohlednice jí šustí na zádech. 
+Slova se splétají jako mašle.
+A vítr je čte s ní. 
+A slunce je bledne. 
+A déšť je rozmazává. 
+
+A zajíc píše dál. 
+Z míst, která možná 
+ani neexistují. 
+Ale pokud je želva 
+jednou přečte, 
+možná začnou.
+
+A každý z nich běží závod.
+Jiný cíl, stejný důvod.
+Zajíc běží, aby mohl psát.
+A želva běží, aby mohla číst.
+A želva čte, aby zajíc mohl psát.
+A zajíc píše, aby želva měla co číst.
+
+A že závod není o čase. 
+Je o tom, kdo si pamatuje, proč vůbec závodí. 
+KONEC
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>© Michaela Nováková · myš_DEMO · všechny pohádky</p>
+    <p><a href="../index.html">← Zpět na hlavní stránku</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
