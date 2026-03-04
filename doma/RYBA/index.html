@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryba – plná karta</title>
+  <style>
+    /* Přesně ten samý styl jako v Kocourovi */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, serif;
+      background: #fff;
+      color: #111;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+      line-height: 1.6;
+    }
+    h1 { font-size: 1.6rem; margin-bottom: 0.2rem; }
+    h2 { font-size: 1.2rem; margin: 0 0 1rem 0; font-weight: normal; color: #333; border-bottom: 1px dotted #aaa; padding-bottom: 0.3rem; }
+    .nav {
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .nav a { color: #111; }
+
+    /* Obrázek */
+    .karta-img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      border: 1px solid #111;
+      margin: 1.5rem 0;
+      background: #f5f5f5;
+    }
+
+    /* Malá rozbalovací okna – přesně jako v Kocourovi */
+    details {
+      border: 1px solid #111;
+      margin-bottom: 1rem;
+    }
+    details summary {
+      cursor: pointer;
+      padding: 0.7rem 1rem;
+      font-weight: bold;
+      list-style: none;
+      user-select: none;
+    }
+    details summary::before { content: "▶ "; }
+    details[open] summary::before { content: "▼ "; }
+
+    /* Obsah rozbalených oken */
+    .detail-content {
+      padding: 1rem;
+      border-top: 1px solid #111;
+      font-size: 0.95rem;
+      white-space: pre-line;
+    }
+
+    /* Pro úhly */
+    .angle {
+      margin: 1.2rem 0;
+      padding-bottom: 1rem;
+      border-bottom: 1px dotted #ccc;
+    }
+    .angle:last-child { border-bottom: none; }
+    .angle strong { display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+    .angle p { margin: 0.3rem 0 0.3rem 0.5rem; font-size: 0.9rem; }
+
+    /* Rychlé odkazy nahoře */
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin: 1rem 0 1.5rem;
+      padding: 0.8rem 0;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      font-size: 0.85rem;
+    }
+    .quick-links a { color: #111; }
+
+    /* Katalog poruch – malé odkazy */
+    .catalog {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.85rem;
+    }
+    .catalog a { color: #111; }
+
+    /* Patička */
+    .footer {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+      text-align: center;
+    }
+    .footer a { color: #111; }
+  </style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="../index.html">← Chceš myš?</a> &nbsp;|&nbsp;
+  <a href="../kocour/kocour-diagnostika.html">Kocour</a> &nbsp;|&nbsp;
+  <a href="../mys/pohadky.html">Pohádky</a> &nbsp;|&nbsp;
+  <a href="../klic-k-uhlum.html">Klíč k úhlům</a>
+</div>
+
+<h1>🐟 RYBA</h1>
+<h2>porucha: Rybí rap vs ptačí křik</h2>
+
+<p style="margin-bottom:1.5rem;"><strong>Komunikační patolog</strong> – Tato karta diagnostikuje a řeší problém týmů, kde se komunikace stala povrchním šumem ("ptačí křikot") místo autentického, systémového projevu, který skutečně mění prostředí ("rybí rap").</p>
+
+<!-- OBRÁZEK -->
+<img class="karta-img" src="doma/RYBA/data/ryba.jpg" alt="Ryba" onerror="this.style.opacity='0.5'">
+
+<!-- RYCHLÉ ODKAZY (jako v ukázce) -->
+<div class="quick-links">
+  <a href="data/pohadka_o_rybe.md">📘 Pohádka</a>
+  <a href="data/ryba-diagnostika.html">🔬 Diagnostický mód</a>
+  <a href="data/generator.html">🎨 Kreativní mód</a>
+  <a href="data/generativni.html">🎲 Generativní mód</a>
+  <a href="/doma/MYS/kombinator.html">🔗 Kombinativní mód</a>
+  <a href="data/workshop_90_minut.html">🛠️ Workshop</a>
+  <a href="data/zpetna_vazba.html/">💬 Zpětná vazba</a>
+  <a href="data/licence_ryba.txt">📄 Licence</a>
+</div>
+
+<!-- ===== PRAVIDLA SYSTÉMU ===== -->
+<details>
+  <summary>📏 Pravidla systému</summary>
+  <div class="detail-content">
+    <ol style="margin-left:1.5rem;">
+      <li><strong>Žádné správné</strong> odpovědi – pouze mapování</li>
+      <li>Úhly <strong>nejsou charakterové</strong> rysy – jsou to momentální stavy</li>
+      <li>Graf <strong>není hodnocení</strong> – je to mapa aktuálního myšlení</li>
+      <li>Pohádka není návod – je to zrcadlo</li>
+      <li>Protikladný úhel není lepší – je jen jiný</li>
+      <li><strong>Cílem není shoda – cílem je vidět více možností</strong></li>
+    </ol>
+  </div>
+</details>
+
+<!-- ===== DIAGNOSTICKÉ MODY (odkazy) ===== -->
+<details>
+  <summary>🧰 Diagnostické a pracovní mody</summary>
+  <div class="detail-content">
+    <ul style="margin-left:1.5rem;">
+      <li><a href="doma/RYBA/diagnostika-ryba.html">🔬 diagnostický mód</a></li>
+      <li><a href="doma/RYBA/generativni.html">🎲 generativní mód</a></li>
+      <li><a href="doma/RYBA/generator.html">🎨 kreativní mód</a></li>
+      <li><a href="doma/RYBA/workshop_90_minut.html">🛠️ workshop</a></li>
+      <li><a href="data/RYBA/zpetna_vazba.html">💬 zpětná vazba</a></li>
+    </ul>
+  </div>
+</details>
+
+<!-- ===== POHÁDKA ===== -->
+<details>
+  <summary>📘 Pohádka o rybě která rapovala</summary>
+  <div class="detail-content">
+    <p><a href="/data/RYBA/pohadka.md">→ Otevřít pohádku v samostatném okně</a></p>
+    <p style="margin-top:0.5rem; font-style:italic;">Stručný úryvek: Ryby nemlčí – ryby rapujou. Každý druh má svůj styl: kosatky chansony, žraloci gospel, velryby operu, delfín folklor. Ptačí zpěv je oproti tomu jen křikot bez ideje. Rybí rap není pro slávu, ale pro přesnost a pro vodu samotnou.</p>
+  </div>
+</details>
+
+<!-- ===== 3 DIAGNOSTICKÉ OTÁZKY ===== -->
+<details>
+  <summary>🎯 3 diagnostické otázky</summary>
+  <div class="detail-content">
+    <ol style="margin-left:1.5rem;">
+      <li><strong>Q1 (Interpretace):</strong> Ryba neřve, ale „vibruje“. Její rap není pro show, ale pro přesnost. Proč lidé/týmy dávají přednost „ptačímu křikotu“ – hlasitému, ale prázdnému projevu – před „rybím rapem“, který je tichý, ale transformuje prostředí?</li>
+      <li style="margin-top:0.8rem;"><strong>Q2 (Identifikace):</strong> Kde ve vašem týmu pozorujete „ptačí zpěv“ – tedy hlasitou, repetitivní, ale málo obsažnou komunikaci (schůze, prezentace, reporty), která jen zaplňuje prostor místo aby tvořila smysl? A kde naopak probíhá „rybí rap“ – tichá práce, která skutečně posouvá věci vpřed, ale zůstává neviděná pod hladinou?</li>
+      <li style="margin-top:0.8rem;"><strong>Q3 (Transformace):</strong> Co by se muselo stát, aby váš tým začal „vnímat, ne jen poslouchat“? Jak bychom mohli kultivovat prostředí, kde „ticho konečně dostane slovo nad hladinu“ a kde budeme oceňovat přesnost a vliv na systém více než hlasitost projevu?</li>
+    </ol>
+  </div>
+</details>
+
+<!-- ===== UKÁZKA 2 ÚHLŮ Z 12 ===== -->
+<details>
+  <summary>🧠 Ukázka 2 úhlů z 12</summary>
+  <div class="detail-content">
+    <div class="angle">
+      <strong>1. 🌊 ÚHEL VIBRAČNÍ KOMUNIKACE</strong>
+      <p><em>Problém:</em> Komunikace je vnímána jen na úrovni slov, nikoli jako tělesná, vibrační interakce, která mění samotné prostředí.</p>
+      <p><em>Příklad v týmu:</em> Když tým komunikuje pouze na úrovni slov a slidů v meeting rooms, ale ignoruje „vibrace“ – neverbální komunikaci, napětí v místnosti, energii mezi lidmi. Řeší se, co je „řečeno“, ne co je „cítěno“.</p>
+      <p><em>Řešení:</em> Zavést „čtení vibrací“: Před zahájením řešení agendy věnovat 2 minuty popisu „jak se tu dnes cítí vzduch/voda“. Co je nevyřčené, ale přítomné? Trénovat vnímavost k prostředí.</p>
+    </div>
+    <div class="angle">
+      <strong>2. 🐦 ÚHEL PTAČÍ KŘIKOT</strong>
+      <p><em>Problém:</em> Komunikace je hlasitá, repetitivní, ale prázdná – plná frází bez obsahu.</p>
+      <p><em>Příklad v týmu:</em> Když se komunikace redukuje na opakování frází ze strategických dokumentů, bezduché reportingy a meetingy, kde se „protepluje vzduch“. Je to hlasité, ale prázdné.</p>
+      <p><em>Řešení:</em> Provést „audit ptačího křiku“: Identifikovat 3 nejčastější, nejprázdnější fráze nebo rituály v naší komunikaci. Domluvit se na jejich eliminaci nebo radikální transformaci.</p>
+    </div>
+  </div>
+</details>
+
+<!-- ===== WORKSHOP ===== -->
+<details>
+  <summary>🛠️ Workshop: „Od ptačího křiku k rybímu rapu“</summary>
+  <div class="detail-content">
+    <p><strong>90 minut</strong></p>
+    <p><strong>Část 1: Diagnóza</strong> (30 min)</p>
+    <ul style="margin-left:2rem;">
+      <li>Přečtení pohádky</li>
+      <li>Individuální psaní: Co je u nás „ptačí křikot“? Kde se skrývá „rybí rap“?</li>
+      <li>Sdílení a tvorba „Mapy komunikace“</li>
+    </ul>
+    <p><strong>Část 2: Experiment</strong> (40 min)</p>
+    <ul style="margin-left:2rem;">
+      <li>Cvičení „Rybí pauzy“ – minuta ticha před rozhodnutím</li>
+      <li>Cvičení „Váha slova“ – omezení počtu slov, trénink přesnosti</li>
+      <li>Reflexe a sdílení</li>
+    </ul>
+    <p><strong>Část 3: Akce</strong> (20 min)</p>
+    <ul style="margin-left:2rem;">
+      <li>Tvorba „Hitparády pod hladinou“ – systém oceňování neviditelných úspěchů</li>
+      <li>Formulace „Rybího manifestu“ – 3 pravidla pro autentickou komunikaci</li>
+    </ul>
+  </div>
+</details>
+
+<!-- ===== PLNÁ VERZE ===== -->
+<details>
+  <summary>📦 Chcete celou kartu?</summary>
+  <div class="detail-content">
+    <p><strong>Plná verze obsahuje:</strong></p>
+    <ul style="margin-left:2rem;">
+      <li>✅ <strong>Všech 12 úhlů</strong> (včetně: Systemický dopad, Různorodé žánry, Mlčení jako mocná dovednost, Komunikace s prostředím, Ticho které nese obsah, Beaty které tvoří prostředí, Vnímání místo poslouchání, Autentické vyjádření, Neviditelné vítězství)</li>
+      <li>✅ <strong>Kompletní workshop</strong> s podrobným scénářem</li>
+      <li>✅ <strong>Šablony:</strong> Mapa komunikace, Hitparáda pod hladinou, Audit ptačího křiku</li>
+      <li>✅ <strong>Diagnostické nástroje</strong> pro tým</li>
+      <li>✅ <strong>Návod</strong> na implementaci a kombinaci s dalšími kartami</li>
+    </ul>
+    <p style="margin-top:1rem;">Cena: <strong>29 000 Kč</strong></p>
+  </div>
+</details>
+
+<!-- ===== KATALOG PORUCH ===== -->
+<details>
+  <summary>📋 Katalog poruch</summary>
+  <div class="detail-content">
+    <div class="catalog">
+      <a href="data/karty_ukazky/Beran/">Beran</a> |
+      <a href="data/karty_ukazky/Drak/">Drak</a> |
+      <a href="doma/karty_ukazky/Hvezdice/">Hvězdice</a> |
+      <a href="data/karty_ukazky/Tygr/">Tygr</a> |
+      <a href="data/karty_ukazky/Motyl/">Motýl</a> |
+      <a href="data/karty_ukazky/Had/">Had</a> |
+      <a href="doma/karty_ukazky/Gepard/">Gepard</a> |
+      <a href="doma/karty_ukazky/Zelva/">Želva</a> |
+      <a href="doma/karty_ukazky/Zizala/">Žížala</a> |
+      <a href="doma/karty_ukazky/Pavouk/">Pavouk</a> |
+      <a href="doma/karty_ukazky/Liska/">Liška</a> |
+      <a href="doma/karty_ukazky/Morsky_konik/">Mořský koník</a> |
+      <a href="doma/karty_ukazky/Netopýr/">Netopýr</a> |
+      <a href="doma/karty_ukazky/Lemur/">Lemur</a> |
+      <a href="doma/karty_ukazky/Lev/">Lev</a> |
+      <a href="doma/karty_ukazky/Cap/">Čáp</a> |
+      <a href="doma/karty_ukazky/Hyeny/">Hyeny</a> |
+      <a href="doma/karty_ukazky/Kliste_Lan/">Klíště</a>
+    </div>
+  </div>
+</details>
+
+<!-- ===== KONTAKT ===== -->
+<details>
+  <summary>📧 Kontakt</summary>
+  <div class="detail-content">
+    <p><strong>chcesmys@gmail.com</strong></p>
+    <p><a href="mailto:chcesmys@gmail.com">Napsat email →</a></p>
+  </div>
+</details>
+
+<!-- ===== PATIČKA ===== -->
+<div class="footer">
+  © Michaela Nováková · myš_DEMO · karta RYBA<br>
+  <a href="data/licence_ryba.txt">Licence CC BY-NC-SA 4.0</a> (ukázka) · plná verze pod komerční licencí
+</div>
+
+</body>
+</html>
