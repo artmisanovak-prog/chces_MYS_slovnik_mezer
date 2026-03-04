@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repo dům | Chceš myš?</title>
+  <style>
+    /* ── RESET & BASE (stejný styl jako hlavní stránka) ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #ffffff;
+      --fg:      #111111;
+      --muted:   #555555;
+      --border:  #d0d0d0;
+      --serif:   Georgia, 'Times New Roman', serif;
+      --sans:    'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── NAVIGACE ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-logo {
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--fg); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -.01em;
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 40px;
+      line-height: 1.65;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--fg);
+      color: var(--fg);
+      background: transparent;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .btn:hover { background: var(--fg); color: var(--bg); }
+    .btn-fill { background: var(--fg); color: var(--bg); }
+    .btn-fill:hover { background: var(--muted); border-color: var(--muted); }
+
+    /* ── SEKCE ── */
+    section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 32px;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin-bottom: 8px;
+    }
+    p { margin-bottom: 16px; color: var(--fg); }
+
+    /* ── DETAILS (ROZBALOVACÍ OKNA) ── */
+    details {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: .97rem;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before {
+      content: '▶';
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-right: 12px;
+      transition: transform .2s;
+    }
+    details[open] summary::before { content: '▼'; }
+    .detail-content {
+      margin-top: 16px;
+      padding-left: 24px;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+
+    /* ── GRID PRO VLASTNOSTI ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .feature-item {
+      border: 1px solid var(--border);
+      padding: 28px;
+      background: var(--bg);
+    }
+    .feature-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .feature-item h3 {
+      margin-bottom: 12px;
+    }
+    .feature-item p {
+      font-size: .95rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── JAK TO FUNGUJE (kroky) ── */
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid var(--border);
+      background: var(--border);
+      margin-top: 24px;
+    }
+    @media (max-width: 580px) { .how-steps { grid-template-columns: 1fr; } }
+    .how-step {
+      background: var(--bg);
+      padding: 28px;
+    }
+    .how-step .num {
+      font-size: 2rem;
+      font-family: var(--serif);
+      color: var(--border);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .how-step strong { display: block; margin-bottom: 6px; }
+    .how-step p { font-size: .9rem; color: var(--muted); }
+
+    /* ── CITÁT / ZVÝRAZNĚNÝ BLOK ── */
+    .highlight-box {
+      border: 1px solid var(--fg);
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+    .highlight-box p { margin: 0; font-size: 1rem; line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-left p { font-size: .88rem; color: var(--muted); line-height: 1.8; }
+    .footer-left a { color: var(--fg); }
+    .footer-right { text-align: right; }
+    .footer-right p { font-size: .88rem; color: var(--muted); }
+
+    a { color: var(--fg); }
+    a:hover { color: var(--muted); }
+    hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGACE ===== -->
+<nav>
+  <div class="container">
+    <a href="index.html" class="nav-logo">Chceš myš?</a>
+    <ul class="nav-links">
+      <li><a href="index.html#proc">Proč</a></li>
+      <li><a href="index.html#karty">Karty</a></li>
+      <li><a href="index.html#cena">Cena</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="doma/KOCOUR/data/landing_page_kocour.html" class="btn btn-fill" style="padding:8px 18px;font-size:11px;">Ukázka zdarma</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Princip</p>
+    <h1>Repo dům</h1>
+    <p class="hero-sub">
+      Váš systém, vaše data, váš klid. Žádný web, žádné přihlašování, žádné předplatné.
+      Platíte jednou a celý nástroj si odnášíte k sobě – navždy, offline, bez cizích očí.
+    </p>
+    <a href="#jak-to-funguje" class="btn">Jak to funguje →</a>
+  </div>
+</header>
+
+<!-- ===== CO TO JE ===== -->
+<section>
+  <div class="container">
+    <p class="section-label">Filozofie</p>
+    <h2>Ne web. Repozitář.</h2>
+    <p style="max-width: 700px; margin-bottom: 24px;">
+      Tohle není webová aplikace, ke které máte jen dočasný přístup. 
+      Je to <strong>repozitář</strong> – složka s HTML soubory, texty a obrázky, kterou si stáhnete, otevřete v prohlížeči a spravujete sami u sebe.
+    </p>
+    <p style="max-width: 700px;">
+      Celý systém "Chceš myš?" je postavený na principu <strong>„Repo dům“</strong> – 
+      berete si ho k sobě domů a děláte si s ním, co chcete. Žádná závislost na dodavateli, 
+      žádné riziko, že vám někdo vypne server nebo změní cenu.
+    </p>
+  </div>
+</section>
+
+<!-- ===== HLAVNÍ VLASTNOSTI ===== -->
+<section>
+  <div class="container">
+    <p class="section-label">Proč Repo dům</p>
+    <h2>Co to pro vás znamená?</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <span class="feature-icon">🔐</span>
+        <h3>Vaše data zůstávají vaše</h3>
+        <p>Nikam se neodesílají, neukládají se na naše servery. Vy máte plnou kontrolu – nikdo jiný k nim nemá přístup.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🏠</span>
+        <h3>Máte to u sebe</h3>
+        <p>Celý systém (HTML nástroje, texty, obrázky) je fyzicky u vás – na vašem disku, na vašem serveru, ve vašem GitHub repozitáři.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🛠️</span>
+        <h3>Můžete si to přizpůsobit</h3>
+        <p>Každý soubor si můžete otevřít, upravit, přepsat, přidat vlastní nápady. Systém se stává vaším, ne naším.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🧩</span>
+        <h3>Funguje offline</h3>
+        <p>Jakmile si to stáhnete, můžete vše používat bez internetu. Skvělé pro interní workshopy nebo firmy s přísnými bezpečnostními pravidly.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">💎</span>
+        <h3>Je to transparentní</h3>
+        <p>Vidíte přesně, jak je který nástroj postavený, jaká data používá, jak funguje. Žádná černá skříňka.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">⏳</span>
+        <h3>Platíte jednou, vlastníte navždy</h3>
+        <p>Žádné předplatné, žádné opakované platby. Karta je vaše, nikdo vám ji nevypne ani nezdraží.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JAK TO FUNGUJE (KROKY) ===== -->
+<section id="jak-to-funguje">
+  <div class="container">
+    <p class="section-label">Jak na to</p>
+    <h2>Tři kroky k vašemu<br>Repo domu</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="num">01</span>
+        <strong>Vyberte kartu</strong>
+        <p>Projděte katalog a vyberte kartu, která řeší váš problém.</p>
+        <a href="index.html#karty" style="font-size:.85rem;">→ Katalog karet</a>
+      </div>
+      <div class="how-step">
+        <span class="num">02</span>
+        <strong>Napište nám</strong>
+        <p>Pošlete email na <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a> – do předmětu napište název karty.</p>
+        <a href="mailto:chcesmys@gmail.com" style="font-size:.85rem;">→ napsat email</a>
+      </div>
+      <div class="how-step">
+        <span class="num">03</span>
+        <strong>Stáhněte a používejte</strong>
+        <p>Dostanete fakturu a odkaz na stažení (GitHub zip). Rozbalíte, otevřete index.html a jedete. Offline, navždy, vaše.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROČ JE TO DNESKA DŮLEŽITÉ ===== -->
+<section>
+  <div class="container">
+    <p class="section-label">Kontext</p>
+    <h2>Proč to dělám takhle?</h2>
+    <div class="detail-content" style="padding-left: 0;">
+      <p>Firmy už nechtějí posílat svá interní data do cizích cloudů, nechtějí být závislé na dodavateli, který jim může ze dne na den změnit cenu nebo vypnout přístup. Chtějí <strong>vlastnictví, kontrolu a bezpečí</strong>.</p>
+      <p>Tento princip (říkám mu <strong>„repo dům“</strong>) dává tyto jistoty. Platíte si jednou za chytrý nástroj, který vám zůstane navždy, ne za přístup na rok.</p>
+      <p class="highlight-box" style="margin-top: 24px;">
+        <strong>„Je to nová cesta, jak stavět digitální nástroje – bez webu, bez závislostí, s plnou mocí ve vašich rukou.“</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KDO ZA TÍM STOJÍ ===== -->
+<section>
+  <div class="container">
+    <p class="section-label">Autorka</p>
+    <h2>Michaela Nováková</h2>
+    <div style="display: flex; gap: 40px; align-items: center; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 200px;">
+        <p><strong>Tvůrce, ne vývojářka.</strong> Kreslím, píšu, tvořím metajazyk. „Chceš myš?“ je první projekt postavený metodou Repo dům.</p>
+        <p>Vymyslela jsem způsob, jak dělat věci <strong>po svém</strong> – bez kompromisů, bez dovolení, bez závislostí.</p>
+        <p style="margin-top: 16px;"><a href="mailto:chcesmys@gmail.com" class="btn">Napsat autorce</a></p>
+      </div>
+      <div style="flex: 0 0 180px;">
+        <div style="border: 1px solid var(--border); padding: 20px; text-align: center;">
+          <span style="font-size: 4rem;">🐁</span>
+          <p style="margin-top: 8px;">„Chceš myš?“</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KONTAKT / DISKUZE ===== -->
+<section id="kontakt">
+  <div class="container">
+    <p class="section-label">Máte otázky?</p>
+    <h2>Pojďme se bavit<br>o Repo domech.</h2>
+    <div class="highlight-box">
+      <p>Zajímá tě filozofie, chceš se poradit, nebo jen pokecat? Napiš na <a href="mailto:chcesmys@gmail.com"><strong>chcesmys@gmail.com</strong></a> a do předmětu dej <strong>REPO DŮM</strong>.</p>
+    </div>
+    <div style="margin-top: 32px;">
+      <a href="index.html" class="btn">← Zpět na hlavní stránku</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p style="font-weight:700;color:var(--fg);margin-bottom:8px;">Chceš myš? — slovník mezer</p>
+        <p><a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a></p>
+        <p style="margin-top:16px;">Metoda <strong>„Repo dům“</strong> – váš systém, vaše data, váš klid.</p>
+      </div>
+      <div class="footer-right">
+        <p>© 2026 Michaela Nováková</p>
+        <p><a href="index.html">Hlavní stránka</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
