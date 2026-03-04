@@ -13,7 +13,7 @@ Přečtěte si
 
 ---
 
-[diagnostické klíče](doma/karty_ukazky/Pav/pav_diagnostika_klice.md)
+[diagnostické klíče](Pav/pav_diagnostika_klice.md)
 
 ---
 
