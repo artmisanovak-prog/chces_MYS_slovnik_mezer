@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐈‍⬛ Kocour – 12 úhlů pohledu</title>
+  <style>
+    html { filter: grayscale(1); }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #fff;
+      color: #000;
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    h1, h2, h3 {
+      font-weight: normal;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3em;
+    }
+
+    /* ── POHÁDKA ── */
+    .pohadka-container {
+      max-height: 380px;
+      overflow-y: auto;
+      border: 1px solid #000;
+      padding: 0 1.5em;
+      margin: 2em 0;
+      background: #f9f9f9;
+      font-style: italic;
+    }
+    .pohadka p { padding: 0.4em 0; }
+
+    /* ── ÚHLOMĚR ── */
+    .uhlomer-wrap {
+      margin: 2em 0 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .uhlomer-hint {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 1em;
+      font-style: italic;
+    }
+
+    #uhlomer {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      cursor: pointer;
+      overflow: visible;
+    }
+
+    /* SVG interaktivita */
+    .angle-label {
+      font-family: 'Georgia', serif;
+      font-size: 13px;
+      fill: #555;
+      cursor: pointer;
+      transition: fill 0.1s;
+      user-select: none;
+    }
+    .angle-label:hover { fill: #000; }
+    .angle-label.active { fill: #000; font-weight: bold; }
+
+    .angle-tick { stroke: #aaa; stroke-width: 1; }
+    .angle-tick.active { stroke: #000; stroke-width: 2; }
+
+    .needle {
+      stroke: #000;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+      transform-origin: 300px 300px;
+    }
+    .needle-dot { fill: #000; }
+
+    /* ── VÝSTUP ── */
+    .output {
+      border: 1px solid #000;
+      padding: 2em;
+      margin-top: 1.5em;
+      background: #fff;
+      min-height: 200px;
+    }
+    .output-empty {
+      color: #aaa;
+      font-style: italic;
+      font-size: 1rem;
+    }
+    .angle-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 0.5em;
+    }
+    .angle-name {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .angle-degrees {
+      font-size: 0.9rem;
+      color: #888;
+    }
+    .angle-kategorie {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      border: 1px solid #ccc;
+      padding: 2px 8px;
+      margin-left: auto;
+    }
+    .angle-desc {
+      font-size: 1rem;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 1.2em;
+    }
+    .angle-q { margin-bottom: 0.4em; }
+    .angle-q strong { font-size: 0.78rem; letter-spacing: .1em; text-transform: uppercase; color: #888; display: block; margin-bottom: 4px; }
+    .angle-q p { font-size: 1rem; margin: 0; }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 3em;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
+      padding-top: 1.5em;
+      color: #666;
+    }
+    .footer a { color: #000; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<h1>🐈‍⬛ 12 úhlů pohledu</h1>
+<p><em>„O kocourovi — a o tom, co se stane, když tě někdo pořád doplňuje."</em></p>
+
+<!-- ── POHÁDKA ── -->
+<h2>KŘIVÁ POHÁDKA</h2>
+<div class="pohadka-container">
+  <div class="pohadka">
+    <p><strong>Jak kocour sežral dvě berušky a půl hodiny krkal tečky</strong></p>
+
+    <p>Sežral dvě — ne tři, ne jednu — dvě — přesně — 14 teček<br>
+    a trvalo to půl hodiny — 30 minut — přesně.<br>
+    Jak to přišlo, tak to přestalo.<br>
+    Ráz na ráz.</p>
+
+    <p>Chňap a hlt a chlamst — nebo něco takového<br>
+    a nakonec — mlask, mlask — dvakrát — přesně.</p>
+
+    <p>Žily byly dvě berušky, každá sedm teček měla,<br>
+    když uviděl je jeden kocour, byla to mela.<br>
+    Aspoň pro ně.<br>
+    Po 14 tečkách v jednom mžiku zem se slehla.<br>
+    Rozhodně aspoň kocour se svými útrobami.</p>
+
+    <p>Ale ta myš, vždycky zvědavá byla.<br>
+    Odmalička chodívala<br>
+    a kde mohla se vyptávala:<br>
+    kde se tečky na beruškách vzaly?<br>
+    K čemu je mají?<br>
+    Proč si radši nevytvoří pravé maskování?</p>
+
+    <p>A ta přesná matika..<br>
+    Kdo vlastně z těch, co s nimi přijdou do styku,<br>
+    takhle přesně počítá?</p>
+
+    <p>No a toho dne — náhle — se to stalo<br>
+    a myš svou odpověď měla.</p>
+
+    <p>Kocour mlaskl a pak znovu<br>
+    a hned na to začalo to.<br>
+    Půl hodiny a bylo to zaznamenáno — přesně.</p>
+
+    <p>Kocour krkal tečky a dokončoval věty!<br>
+    Někdy celé souvětí!!<br>
+    Jenomže tím zároveň skákal lidem do řeči,<br>
+    tím že za ně dokončoval, co nedokončili.</p>
+
+    <p>Skočil všem do řeči koncem věty<br><br>
+    ale vždycky o něco málo<br><br>
+    někdy i o docela dost<br><br>
+    dřív, než měla věta původně skončit<br><br>
+    nebo — než původně věta skončit měla.</p>
+
+    <p>A celou půlhodinu nemohl tenkrát nikdo nic<br>
+    ne — dokončit.<br>
+    Nešlo to.<br><br>
+    Každému dřív.<br><br>
+    Než se k tomu dostal.<br><br>
+    Všem kocour větu ukončil.<br><br>
+    Hned.</p>
+
+    <p>Kocour se tomu smál,<br>
+    ale krkal dál.<br>
+    A krkal, dokud neskončil.</p>
+
+    <p>Představte si to:<br>
+    Skončil větu a pak skončil krkat.<br>
+    A lidé zase začali moct své věty ukončovat sami.<br>
+    Hned.</p>
+
+    <p>Jenomže, jak se to tak občas stává,<br>
+    přestože nikdo nevěděl co,<br>
+    každý věděl,<br>
+    že něco nebylo stejné.</p>
+
+    <p>A to, co jednou není stejné dnes,<br>
+    to není jednou stejné nikdy.</p>
+
+    <p>Jen nedokončené věty bývají všechny stejné.<br>
+    Jednou, dnes i zítra.</p>
+
+    <p>Berušky mají na sobě nedokončené konce vět.<br>
+    Věci, které jsou nespolknuté.</p>
+
+    <p>Kocour to nevěděl — a dvě spolknul.<br>
+    Spolknuté konce ale vykrkal zpátky<br>
+    a lidé se naučili,<br>
+    že všechno se spolknout nedá.<br>
+    A že tečka je někdy silnější, než celá věta.</p>
+
+    <p>Kocour se nažral a myš i věty zůstaly celé.<br>
+    Díky bohu za to.<br>
+    Štěstí dvou berušek se vrátilo zpátky.</p>
+
+    <p>Ale všimly si toho jen kocour a malá myš.<br>
+    A ani jeden neříkali nic.</p>
+
+    <p><strong>KONEC</strong></p>
+  </div>
+</div>
+
+<!-- ── ÚHLOMĚR ── -->
+<h2>Vyber úhel pohledu</h2>
+<div class="uhlomer-wrap">
+  <p class="uhlomer-hint">Klikni na název úhlu — jehla se otočí, výklad se zobrazí níže</p>
+
+  <svg id="uhlomer" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Vnější kroužky -->
+    <circle cx="300" cy="300" r="220" fill="none" stroke="#e0e0e0" stroke-width="1"/>
+    <circle cx="300" cy="300" r="180" fill="none" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3,5"/>
+    <circle cx="300" cy="300" r="6" fill="#000"/>
+
+    <!-- Stupňová čísla na vnitřní straně (diskrétní) -->
+    <text x="302" y="94" text-anchor="middle" font-size="9" fill="#bbb" font-family="Georgia">270°</text>
+    <text x="302" y="514" text-anchor="middle" font-size="9" fill="#bbb" font-family="Georgia">90°</text>
+    <text x="76" y="304" text-anchor="middle" font-size="9" fill="#bbb" font-family="Georgia">180°</text>
+    <text x="525" y="304" text-anchor="middle" font-size="9" fill="#bbb" font-family="Georgia">0°</text>
+
+    <!-- Křížové osy -->
+    <line x1="300" y1="80" x2="300" y2="520" stroke="#e8e8e8" stroke-width="0.8"/>
+    <line x1="80" y1="300" x2="520" y2="300" stroke="#e8e8e8" stroke-width="0.8"/>
+
+    <!-- ── 12 TEČEK A ČÁREK NA KRUŽNICI ── -->
+    <!-- Generováno pro každý z 12 úhlů: 0,30,60,90,120,150,180,210,240,270,300,330 -->
+    <!-- Tick čáry z r=220 dovnitř -->
+    <g id="ticks"></g>
+
+    <!-- ── JEHLA ── -->
+    <line id="needle" class="needle" x1="300" y1="300" x2="520" y2="300"/>
+    <circle class="needle-dot" cx="300" cy="300" r="4"/>
+
+    <!-- ── POPISKY ÚHLŮ ── -->
+    <!-- Umístěny na r≈255 od středu, s ohledem na čitelnost -->
+
+    <!-- 0° → vpravo → ANALOGICKÝ -->
+    <text class="angle-label" data-angle="0" data-index="8"
+          x="548" y="304" text-anchor="start">Analogický</text>
+
+    <!-- 30° → vpravo-dolů → INTROSPEKTIVNÍ -->
+    <text class="angle-label" data-angle="30" data-index="6"
+          x="519" y="430" text-anchor="start">Introspektivní</text>
+
+    <!-- 60° → dolů-vpravo → FILOZOFICKÝ -->
+    <text class="angle-label" data-angle="60" data-index="3"
+          x="414" y="525" text-anchor="middle">Filozofický</text>
+
+    <!-- 90° → dolů → NAIVNÍ -->
+    <text class="angle-label" data-angle="90" data-index="5"
+          x="300" y="560" text-anchor="middle">Naivní</text>
+
+    <!-- 120° → dolů-vlevo → JAZYKOVÝ -->
+    <text class="angle-label" data-angle="120" data-index="1"
+          x="183" y="525" text-anchor="middle">Jazykový</text>
+
+    <!-- 150° → vlevo-dolů → METAFORICKÝ -->
+    <text class="angle-label" data-angle="150" data-index="10"
+          x="60" y="430" text-anchor="end">Metaforický</text>
+
+    <!-- 180° → vlevo → ASOCIAČNÍ -->
+    <text class="angle-label" data-angle="180" data-index="9"
+          x="46" y="304" text-anchor="end">Asociační</text>
+
+    <!-- 210° → vlevo-nahoru → KULTURNÍ -->
+    <text class="angle-label" data-angle="210" data-index="7"
+          x="60" y="183" text-anchor="end">Kulturní</text>
+
+    <!-- 240° → nahoru-vlevo → IRONICKÝ -->
+    <text class="angle-label" data-angle="240" data-index="2"
+          x="183" y="88" text-anchor="middle">Ironický</text>
+
+    <!-- 270° → nahoru → GROTESKNÍ -->
+    <text class="angle-label" data-angle="270" data-index="11"
+          x="300" y="52" text-anchor="middle">Groteskní</text>
+
+    <!-- 300° → nahoru-vpravo → ABSURDNÍ -->
+    <text class="angle-label" data-angle="300" data-index="0"
+          x="419" y="88" text-anchor="middle">Absurdní</text>
+
+    <!-- 330° → vpravo-nahoru → SURREALISTICKÝ -->
+    <text class="angle-label" data-angle="330" data-index="4"
+          x="519" y="183" text-anchor="start">Surrealistický</text>
+
+  </svg>
+</div>
+
+<!-- ── VÝSTUP ── -->
+<div class="output" id="output">
+  <div class="output-empty" id="emptyState">← Klikni na název úhlu v úhloměru</div>
+  <div id="angleContent" style="display:none;">
+    <div class="angle-header">
+      <span class="angle-name" id="angleName"></span>
+      <span class="angle-degrees" id="angleDeg"></span>
+      <span class="angle-kategorie" id="angleKat"></span>
+    </div>
+    <div class="angle-desc" id="angleDesc"></div>
+    <div class="angle-q" id="q1block">
+      <strong>Q1 — Smysl</strong>
+      <p id="q1"></p>
+    </div>
+    <div class="angle-q" style="margin-top:1em;" id="q2block">
+      <strong>Q2 — Zaujetí</strong>
+      <p id="q2"></p>
+    </div>
+    <div class="angle-q" style="margin-top:1em;" id="q3block">
+      <strong>Q3 — Aplikace</strong>
+      <p id="q3"></p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Autorka: Art Misa Novak — metoda REPO DOMY<br>
+  <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a> ·
+  <a href="landing_page_kocour.html">← zpět na Kocoura</a>
+</div>
+
+<script>
+// ── DATA: 12 úhlů pro Kocoura ──
+// Pořadí odpovídá indexům 0–11 v SVG data-index
+const data = [
+  {
+    name: "Absurdní",
+    deg: 300,
+    kat: "Porucha",
+    desc: "Hledá nesmysl, paradox, přehnanou logiku.",
+    q1: "Kocour sežral berušky — a pak půl hodiny krkal jejich tečky. Co je absurdnějšího než to, že porucha komunikace se projeví jako fyzická nemoc? Pohádka je absurdní přesně tak, jak je absurdní přerušování — zdá se normální, dokud to nevypadá takhle.",
+    q2: "Chňap a hlt a chlamst — mlask, mlask — dvakrát, přesně. Ten zvukový nonsens není náhoda. Je to rytmus přerušování: vždy přesný, vždy nečekaný.",
+    q3: "Kde ve vašem týmu se dějí věci, které by zvenčí vypadaly absurdně — ale zevnitř je bere každý jako normální? Co by musel kocour sežrat, aby se to konečně ukázalo?"
+  },
+  {
+    name: "Jazykový",
+    deg: 120,
+    kat: "Jazyk",
+    desc: "Sleduje slova, rytmus, mezery v řeči.",
+    q1: "Celá pohádka je o tečkách — konci vět. Kocour nesežral myšlenky, sežral interpunkci. A bez tečky věta nikdy neskončí. Jazyk bez tečky je řeka bez břehů — teče, ale nikam.",
+    q2: "Věta 'než měla věta původně skončit nebo — než původně věta skončit měla' — tahle inverze není chyba. Je to ukázka toho, jak vypadá věta, která se sama pokouší dokončit za sebe.",
+    q3: "Zkuste si na příštím meetingu všimnout: kdo v týmu klade tečky za cizí věty? Kdo nikdy počká na přirozenou pauzu? Jak by vypadalo mluvit bez kocoura v místnosti?"
+  },
+  {
+    name: "Ironický",
+    deg: 240,
+    kat: "Akce",
+    desc: "Vidí rozpor mezi záměrem a výsledkem.",
+    q1: "Kocour se smál, ale krkal dál. Záměr? Žádný zlý. Výsledek? Nikdo nemohl dokončit větu. Ironie přerušování je právě tohle: pachatel si myslí, že pomáhá — dokončuje za ostatní, šetří čas. Ve skutečnosti bere prostor.",
+    q2: "'Kocour se nažral a myš i věty zůstaly celé.' — Kocour dosáhl přesně opaku toho, co mohl chtít. Nasytil se a přitom vrátil vše zpátky. Ironie v čisté podobě.",
+    q3: "Kde ve vašem týmu se záměrně pomáhá — a přitom se bere prostor? Kdo dokončuje za ostatní 'aby to bylo rychlejší'? A co tím ve skutečnosti říká?"
+  },
+  {
+    name: "Filozofický",
+    deg: 60,
+    kat: "Jev",
+    desc: "Ptá se po smyslu, podstatě, existenci.",
+    q1: "Čí je věta, kterou dokončil někdo jiný? Je to stále vaše myšlenka — nebo se stala jeho? Kocour nevěděl, co dělá. Ale změnil povahu řeči. Tečka je akt svobody: říkám, že jsem hotov.",
+    q2: "'A to, co jednou není stejné dnes, to není jednou stejné nikdy.' Tato věta je filozofické jádro pohádky. Okamžik, kdy přestane být věta vaše, je nevratný.",
+    q3: "Zamyslete se: co ve vašem týmu definuje 'dokončenou' myšlenku? Kdo rozhoduje, kdy věta skončila? Je to ten, kdo mluví — nebo ten, kdo poslouchá?"
+  },
+  {
+    name: "Surrealistický",
+    deg: 330,
+    kat: "Entita",
+    desc: "Propojuje nesouvisející obrazy, sny, vrstvy.",
+    q1: "Kocour, který krká tečky. Berušky jako zásobníci interpunkce. Myš jako kronikář přesné doby. Tohle není realismus — je to mapa komunikační patologie nakreslená jazykem snu.",
+    q2: "'Berušky mají na sobě nedokončené konce vět.' — Beruška jako metafora nedořčeného. Nosíme na sobě tečky, které jsme nikdy nevyslovili.",
+    q3: "Jaké zvíře je váš tým? Co by se stalo, kdyby se každá komunikační dysfunkce stala postavou ve vašem příběhu? Co by kocour sežral ve vaší poslední poradě?"
+  },
+  {
+    name: "Naivní",
+    deg: 90,
+    kat: "Zákon",
+    desc: "Čte bez předsudků, vidí věci jednoduše.",
+    q1: "Kocour sežral berušky a přestal moct ovládat svůj jazyk — doslova. Pak mu to přešlo. Věci se vrátily na své místo. Jednoduché: když přestaneš přerušovat, věty se opraví samy.",
+    q2: "'A ani jeden neříkali nic.' — Jednoduchý závěr. Někdy stačí, aby se věc stala. Nemusí se o ní mluvit. Tečka mluví sama za sebe.",
+    q3: "Co by se stalo, kdybyste na příštím meetingu jednoduše čekali? Jen počkali, dokud druhý opravdu nedokončí. Bez dovysvětlování, bez doplňování. Jen tečka."
+  },
+  {
+    name: "Introspektivní",
+    deg: 30,
+    kat: "Stav",
+    desc: "Promítá příběh do vlastní zkušenosti.",
+    q1: "Byl jsi někdy tím kocourem? Dobře míněně jsi dokončil větu za kolegu — a on se najednou odmlčel? Nebo jsi byl tím, komu větu sebrali — a pak jsi radši přestal mluvit?",
+    q2: "'Přestože nikdo nevěděl co, každý věděl, že něco nebylo stejné.' — Tohle tiché vědění. Znáš to z porad? Víš, že se něco pokazilo, ale nevíš jak to říct?",
+    q3: "Vzpomeňte si na situaci, kdy vám někdo 'pomohl' dokončit větu. Jak jste se cítili? Co jste původně chtěli říct — a co z toho zbylo?"
+  },
+  {
+    name: "Kulturní",
+    deg: 210,
+    kat: "Symbol",
+    desc: "Hledá archetypy, normy, kulturní paralely.",
+    q1: "V japonské komunikační kultuře se dodokončení věty za druhého považuje za hrubost. V některých firemních kulturách je to naopak znak zapojení. Kocour je kulturně ambivalentní — je hrdina nebo pachatel podle kontextu.",
+    q2: "'Kocour krkal tečky' — v kulturní tradici je tečka za cizí větou aktem moci. Kdo smí větu ukončit? Ve feudálním systému jen nadřízený. Ve zdravém týmu kdokoli — ale jen svoji.",
+    q3: "Jaká je kultura dokončování vět ve vašem týmu? Je to přijatelné? Oceňované? Nebo tiché tabu, o kterém se nemluví — jako kocour, co krkal a nikdo nic neřekl?"
+  },
+  {
+    name: "Analogický",
+    deg: 0,
+    kat: "Předpřepis",
+    desc: "Hledá paralely, analogie, vzory.",
+    q1: "Kocour je jako autocomplete — dokončuje za vás, rychleji, efektivněji. Jenže autocomplete taky někdy napíše úplně jiné slovo. A vy pak posíláte email, který jste nechtěli.",
+    q2: "'Každému dřív, než se k tomu dostal, všem kocour větu ukončil.' — Analogie se systémem, který optimalizuje bez porozumění. Kocour optimalizoval délku věty. Ztratil obsah.",
+    q3: "Kde ve vašem systému funguje 'kocour'? Jaké procesy, nástroje nebo role automaticky dokončují za ostatní — a co tím ztrácejí? Co by váš tým potřeboval místo autocompletování?"
+  },
+  {
+    name: "Asociační",
+    deg: 180,
+    kat: "Čas",
+    desc: "Vyvolává vzpomínky, osobní obrazy.",
+    q1: "Pohádka mi připomněla porady, kde jedna osoba vždy zopakuje, co druhý právě řekl — jen jinými slovy. Věta se zdvojí, ale nezíská nic. Kocour v obleku.",
+    q2: "'Štěstí dvou berušek se vrátilo zpátky.' — Berušky jako ti, kteří se po tichu porad vrátí zpátky k mluvení. Kdo jsou v týmu vaše berušky?",
+    q3: "S kým ve vašem týmu vás tato pohádka asociovala? Ne jako obviňování — jako rozpoznání vzoru. Kdo je kocour? Kdo myš? Kdo jsou berušky, které se přestaly ozývat?"
+  },
+  {
+    name: "Metaforický",
+    deg: 150,
+    kat: "Téma",
+    desc: "Vidí za obrazem symbol, hlubší vrstvu.",
+    q1: "Kocour není kocour. Je to vzorec. Každý tým ho má — čas od času, nebo trvale. Sežere berušky (ty, kdo mají co říct), krká tečky (dokončuje za ostatní) a pak se diví, proč junioři mlčí.",
+    q2: "'Tečka je někdy silnější než celá věta.' — Tečka jako metafora ticha, které má víc váhy než slova. Co ve vašem týmu nikdy nedostane tečku?",
+    q3: "Pojmenujte váš kocour. Ne jako člověka — jako vzorec. 'Náš kocour nastupuje, když...' Co ho spouští? Co ho zastavuje? Jak vypadá tým bez kocoura?"
+  },
+  {
+    name: "Groteskní",
+    deg: 270,
+    kat: "Role",
+    desc: "Vidí přehnanou, temnou komiku v situaci.",
+    q1: "Kocour sežral berušky a půl hodiny krkal tečky. Celý tým stál a čekal, až dozní. Nikdo se nezeptal proč. Nikdo nic neřekl. Je to groteskní? Nebo je to přesný popis každého týmového meetingu?",
+    q2: "'Kocour se tomu smál, ale krkal dál.' — Groteskní humor: uvědomuje si absurditu vlastního jednání, ale nemůže přestat. Smích a porucha najednou.",
+    q3: "Kdybyste natočili vaši poslední poradu a přehráli ji kocourovi — co by ho rozesmálo? Která situace by jako groteskní obraz přerušování vypadala nejlépe? A co byste s tím udělali?"
+  }
+];
+
+// ── VYKRESLENÍ ČÁREK (ticků) NA KRUŽNICI ──
+const ticks = document.getElementById('ticks');
+const cx = 300, cy = 300, r = 220, tickLen = 12;
+data.forEach(d => {
+  const rad = d.deg * Math.PI / 180;
+  const x1 = cx + r * Math.cos(rad);
+  const y1 = cy + r * Math.sin(rad);
+  const x2 = cx + (r - tickLen) * Math.cos(rad);
+  const y2 = cy + (r - tickLen) * Math.sin(rad);
+  const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+  line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+  line.setAttribute('class', 'angle-tick');
+  line.setAttribute('id', 'tick-' + d.deg);
+  ticks.appendChild(line);
+  // Tečka na kružnici
+  const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  dot.setAttribute('cx', x1); dot.setAttribute('cy', y1);
+  dot.setAttribute('r', 3); dot.setAttribute('fill', '#bbb');
+  dot.setAttribute('id', 'dot-' + d.deg);
+  ticks.appendChild(dot);
+});
+
+// ── INTERAKTIVITA ──
+const needle = document.getElementById('needle');
+const emptyState = document.getElementById('emptyState');
+const angleContent = document.getElementById('angleContent');
+
+function selectAngle(index) {
+  const d = data[index];
+
+  // Jehla — otočení (v SVG stupně od osy X vpravo)
+  const rad = d.deg * Math.PI / 180;
+  const nx = 300 + 210 * Math.cos(rad);
+  const ny = 300 + 210 * Math.sin(rad);
+  needle.setAttribute('x2', nx);
+  needle.setAttribute('y2', ny);
+
+  // Reset všech labelů a tiků
+  document.querySelectorAll('.angle-label').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.angle-tick').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('[id^="dot-"]').forEach(el => { el.setAttribute('fill', '#bbb'); el.setAttribute('r', 3); });
+
+  // Aktivní label
+  const activeLabel = document.querySelector(`.angle-label[data-index="${index}"]`);
+  if (activeLabel) activeLabel.classList.add('active');
+  const activeTick = document.getElementById('tick-' + d.deg);
+  if (activeTick) activeTick.classList.add('active');
+  const activeDot = document.getElementById('dot-' + d.deg);
+  if (activeDot) { activeDot.setAttribute('fill', '#000'); activeDot.setAttribute('r', 5); }
+
+  // Výstup
+  emptyState.style.display = 'none';
+  angleContent.style.display = 'block';
+  document.getElementById('angleName').textContent = d.name;
+  document.getElementById('angleDeg').textContent = d.deg + '°';
+  document.getElementById('angleKat').textContent = d.kat;
+  document.getElementById('angleDesc').textContent = d.desc;
+  document.getElementById('q1').textContent = d.q1;
+  document.getElementById('q2').textContent = d.q2;
+  document.getElementById('q3').textContent = d.q3;
+
+  // Scroll k výstupu na mobilu
+  document.getElementById('output').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Přiřazení kliků na SVG labely
+document.querySelectorAll('.angle-label').forEach(el => {
+  el.addEventListener('click', () => {
+    const index = parseInt(el.getAttribute('data-index'));
+    selectAngle(index);
+  });
+});
+</script>
+
+</body>
+</html>
