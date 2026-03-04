@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myš – klíč k úhlům</title>
+  <style>
+    /* Přesně ten samý styl jako v Kocourovi */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, serif;
+      background: #fff;
+      color: #111;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+      line-height: 1.6;
+    }
+    h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+    h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; border-bottom: 1px solid #111; padding-bottom: 0.3rem; }
+    .nav { font-size: 0.85rem; margin-bottom: 1.5rem; }
+    .nav a { color: #111; }
+
+    /* Malá rozbalovací okna – přesně jako v Kocourovi */
+    details {
+      border: 1px solid #111;
+      margin-bottom: 1rem;
+    }
+    details summary {
+      cursor: pointer;
+      padding: 0.7rem 1rem;
+      font-weight: bold;
+      list-style: none;
+      user-select: none;
+    }
+    details summary::before { content: "▶ "; }
+    details[open] summary::before { content: "▼ "; }
+
+    /* Obsah rozbalených oken */
+    .detail-content {
+      padding: 1rem;
+      border-top: 1px solid #111;
+      font-size: 0.95rem;
+    }
+
+    /* Pro poetický text (zachování mezer) */
+    .verse {
+      white-space: pre-line;
+      margin: 0.5rem 0;
+    }
+
+    /* Pro diagnostickou tabulku – přehledné členění */
+    .angle {
+      margin: 1.2rem 0;
+      padding-bottom: 1rem;
+      border-bottom: 1px dotted #ccc;
+    }
+    .angle:last-child { border-bottom: none; }
+    .angle strong { display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+    .angle p { margin: 0.3rem 0 0.3rem 0.5rem; font-size: 0.9rem; }
+    .angle em { color: #555; font-size: 0.88rem; display: block; margin-left: 1rem; }
+
+    /* Instrukce, odrážky */
+    .instruction-box {
+      margin-top: 1.5rem;
+    }
+    .instruction-box p { margin-bottom: 0.5rem; }
+    .instruction-box ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    .instruction-box li { margin-bottom: 0.3rem; }
+
+    /* Patička */
+    .footer {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html">← Chceš myš?</a> &nbsp;|&nbsp;
+  <a href="kocour-diagnostika.html">Kocour</a>
+</div>
+
+<h1>🐁 Myš – klíč k úhlům</h1>
+<p style="font-size:0.9rem; color:#555; margin-bottom:1.5rem;">Dvě verze stejného klíče – poetická a diagnostická.</p>
+
+<!-- ===== PRVNÍ KLÍČ – POETICKÝ ===== -->
+<details>
+  <summary>📖 Klíč k úhlům aneb Jak myš čte pohádky</summary>
+  <div class="detail-content">
+    <div class="verse">
+Myš si zapisuje do ticha.
+Do mezer a skulin mezi slovama.
+
+Nepíše, co se stalo. Píše, <strong>jak</strong> se na to díváme.
+
+Protože myš dávno zjistila, že jedna pohádka není jeden příběh.
+Je to dvanáct příběhů najednou.
+A každý z nich odhaluje jinou pravdu o tom, kdo čte.
+    </div>
+
+    <p style="margin:1rem 0;">—</p>
+
+    <p><strong>Tohle není diagnostická tabulka.</strong><br>
+    Tohle je <strong>návod, jak číst myší</strong>.</p>
+
+    <p style="margin:1rem 0;">—</p>
+
+    <h3 style="font-size:1rem; margin:1rem 0 0.5rem;">CO MYŠ VIDÍ, KDYŽ ČTE ODPOVĚDI</h3>
+    <p>Myš neměří správnost. Neměří hloubku. Myš přiřazuje.</p>
+    <p>V každé odpovědi na tři jednoduché otázky (Smysl, Zaujetí, Aplikace) hledá <strong>jádro</strong> – způsob, jakým se mluvčí napojil na příběh.</p>
+
+    <p style="margin:1rem 0;">—</p>
+
+    <!-- 12 úhlů – poetická verze -->
+    <div class="angle">
+      <strong>1. ABSURDNÍ ÚHEL — Logika naruby</strong>
+      <p><em>Jádro:</em> Hledá rozpor, paradox, místo, kde svět přestal dávat smysl.</p>
+      <p><em>Myš poznamená:</em> „Zde se někdo nespokojil s vysvětlením. Zde někdo potřeboval, aby svět byl důsledně nedůsledný.“</p>
+      <p><em>Stopa v odpovědi:</em> Důraz na nesmysl, na zhroucení pravidel, na absurditu systému.</p>
+    </div>
+
+    <div class="angle">
+      <strong>2. JAZYKOVÝ ÚHEL — Hra se slovy</strong>
+      <p><em>Jádro:</em> Slyší slovo, větu, rytmus. Forma je obsah.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo nerozlišuje mezi tím, co se říká, a jak se to říká. Pro něj je způsob vyjádření tím nejvyšším sdělením.“</p>
+      <p><em>Stopa v odpovědi:</em> Citace konkrétní formulace, analýza rytmu, hříčka, zvukomalba.</p>
+    </div>
+
+    <div class="angle">
+      <strong>3. IRONICKÝ ÚHEL — Převrácení v směšné</strong>
+      <p><em>Jádro:</em> Vidí propast mezi záměrem a výsledkem, mezi pózou a skutečností.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo ví, že věci nejsou tím, čím se zdají. A dělá mu dobře, že to ví dřív než ostatní.“</p>
+      <p><em>Stopa v odpovědi:</em> Odhalení pokrytectví, trapnosti, sebeklamu. Lehký sarkasmus, hořký úsměv.</p>
+    </div>
+
+    <div class="angle">
+      <strong>4. FILOZOFICKÝ ÚHEL — Existenciální otázky</strong>
+      <p><em>Jádro:</em> Hledá univerzální pravdu, podstatu bytí, smysl za smyslem.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo neodpovídá na otázku. Odpovídá na otázku, která je za otázkou. A možná ani to ne.“</p>
+      <p><em>Stopa v odpovědi:</em> Obecná pravda, metafyzický tón, důraz na podstatu, ne na děj.</p>
+    </div>
+
+    <div class="angle">
+      <strong>5. SURREALISTICKÝ ÚHEL — Volné asociace</strong>
+      <p><em>Jádro:</em> Spojuje nespojitelné. Myslí v obrazech, ne v argumentech.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo neinterpretuje. Zde někdo nechá příběh, aby se v něm rozléval. A pak zapíše, co vyplavalo.“</p>
+      <p><em>Stopa v odpovědi:</em> Bizarní spojení, snová logika, obraz bez vysvětlení. Krása, která se nehodí.</p>
+    </div>
+
+    <div class="angle">
+      <strong>6. NAIVNÍ ÚHEL — Dětská logika</strong>
+      <p><em>Jádro:</em> Ptá se jednoduše. Odpovídá přímo. Nepřidává.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo nepotřebuje být chytrý. Potřebuje být pravdivý. A to je mnohem těžší.“</p>
+      <p><em>Stopa v odpovědi:</em> Přímočará morálka, jednoduchá emoce, čistý dojem bez racionalizace.</p>
+    </div>
+
+    <div class="angle">
+      <strong>7. INTRO (INTROSPEKTIVNÍ) ÚHEL — Vnitřní monolog</strong>
+      <p><em>Jádro:</em> Projekce vlastního prožitku. Příběh je záminka k sebepoznání.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo nereflektuje pohádku. Reflektuje sebe skrze pohádku. A je ochoten to přiznat.“</p>
+      <p><em>Stopa v odpovědi:</em> Osobní zkušenost, emoce, vzpomínka. „Cítím…“, „Dotklo se mě…“, „Připomnělo mi to…“</p>
+    </div>
+
+    <div class="angle">
+      <strong>8. VŠEOBECNÝ (KONKRÉTNÍ) ÚHEL — Co vidíš, to je</strong>
+      <p><em>Jádro:</em> Drží se faktů. Děj je děj. Není třeba hledat skryté významy.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo důvěřuje tomu, co je napsáno. Ne proto, že by byl naivní. Protože ví, že pod povrchem často nic není.“</p>
+      <p><em>Stopa v odpovědi:</em> Převyprávění děje, konstatování faktů, odpor k interpretaci.</p>
+    </div>
+
+    <div class="angle">
+      <strong>9. ANALOGICKÝ (KULTURNÍ) ÚHEL — Vztahy, archetypy</strong>
+      <p><em>Jádro:</em> Hledá vzorce. Přirovnává k něčemu, co už zná.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo věří, že nic není nové pod sluncem. Každý příběh už byl vyprávěn – jen v jiném převleku.“</p>
+      <p><em>Stopa v odpovědi:</em> Odkaz na jiný příběh, mýtus, archetyp, historickou paralelu.</p>
+    </div>
+
+    <div class="angle">
+      <strong>10. ASOCIAČNÍ ÚHEL — Rychlé spojení</strong>
+      <p><em>Jádro:</em> Myšlení skrz osobní asociace, nečekané souvislosti.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo nemyslí lineárně. Myslí síťově. Každé slovo je uzel, každá věta spouští deset dalších.“</p>
+      <p><em>Stopa v odpovědi:</em> Řetěz asociací, odbočky, osobní příhody, skokové myšlení.</p>
+    </div>
+
+    <div class="angle">
+      <strong>11. METAFORICKÝ (SYMBOLICKÝ) ÚHEL — Obraz → význam</strong>
+      <p><em>Jádro:</em> Vše je symbolem něčeho většího. Nic není jen to, co je.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo čte pohádku jako šifru. Každé zvíře, každý předmět, každý pohyb je klíčem k něčemu, co není vysloveno.“</p>
+      <p><em>Stopa v odpovědi:</em> Dekódování symbolů, hledání skrytého významu, převod obrazu do abstrakce.</p>
+    </div>
+
+    <div class="angle">
+      <strong>12. GROTESKNÍ ÚHEL — Komické do extrému</strong>
+      <p><em>Jádro:</em> Vidí přehnané, karikující, temně komické. Smích, který škrábe.</p>
+      <p><em>Myš poznamená:</em> „Zde někdo ví, že tragédie a komedie jsou sestry. A že nejlepší způsob, jak mluvit o bolesti, je udělat z ní cirkus.“</p>
+      <p><em>Stopa v odpovědi:</em> Důraz na přehnanost, trapnost, černý humor, karikaturu.</p>
+    </div>
+
+    <p style="margin:1rem 0;">—</p>
+
+    <h3 style="font-size:1rem; margin:1rem 0 0.5rem;">CO S TÍM MYŠ DĚLÁ?</h3>
+    <p>Myš nesoudí. Myš neříká, který úhel je lepší. Myš <strong>počítá</strong>.</p>
+
+    <p style="margin:1rem 0;">—</p>
+
+    <p><strong>1. SEPÍŠE VŠECHNY ODPOVĚDI.</strong><br>Tři otázky. Každý člen týmu. Anonymně.</p>
+    <p><strong>2. KE KAŽDÉ ODPOVĚDI PŘIŘADÍ JEDEN ÚHEL.</strong><br>Nejvýstižnější. Ne jediný – nejvýraznější.</p>
+    <p><strong>3. SPOČÍTÁ, KOLIKRÁT SE KTERÝ ÚHEL OBJEVIL.</strong><br>A najednou není pohádka o zvířatech. Je o týmu.</p>
+
+    <p><strong>4. IDENTIFIKUJE VZORY.</strong><br>
+    <em>PŘETÍŽENÉ ÚHLY</em> — Tým se dívá pořád stejně. Má klapky na očích. Co vidí, vidí dobře. Co nevidí, neexistuje.<br>
+    <em>DEFICIENTNÍ ÚHLY</em> — Slepá místa. Perspektivy, které tým nepoužívá, i když by je nutně potřeboval.<br>
+    <em>VYVÁŽENÉ ÚHLY</em> — Zdravé jádro. Odtud se dá stavět most.</p>
+
+    <p><strong>5. NAVRHNE AKCI.</strong><br>
+    <em>Přetíženým</em> dá úkol myslet jinak. (Ironik ať jeden den hledá jen poezii.)<br>
+    <em>Deficitní</em> pošle na povinný výlet. (Celý týden mluvit v metaforách.)<br>
+    <em>Vy vážené</em> použije jako tlumočníky. (Ať přeloží problém z přetíženého jazyka do deficitního.)</p>
+
+    <p style="margin:1rem 0;">—</p>
+
+    <h3 style="font-size:1rem; margin:1rem 0 0.5rem;">PROČ TO MYŠ DĚLÁ?</h3>
+    <p>Myš nechce být chytrá. Myš nechce být užitečná. Myš jen zapisuje.</p>
+    <p>Ale když zapisuje dost dlouho a dost pozorně, začne v zápiscích vidět věci, které nikdo jiný nevidí.</p>
+    <p>Ne proto, že by měla lepší oči. Protože se dívá <strong>jinam</strong>.</p>
+
+    <p style="margin:1rem 0;">—</p>
+
+    <p><strong>Toto je klíč k úhlům.</strong><br>
+    Není to tabulka. Není to návod.<br>
+    Je to myš, která se dívá.</p>
+
+    <p style="margin:1rem 0;">—</p>
+
+    <p style="font-size:1.2rem; text-align:center;"><strong>„Chceš myš?“</strong></p>
+  </div>
+</details>
+
+<!-- ===== DRUHÝ KLÍČ – DIAGNOSTICKÁ TABULKA ===== -->
+<details>
+  <summary>📊 KLÍČ K ÚHLŮM: Diagnostická tabulka</summary>
+  <div class="detail-content">
+    <p><strong>Tato tabulka slouží k analýze přirozených kognitivních preferencí na základě odpovědí na 3 univerzální otázky po přečtení/zaslechnutí pohádky.</strong></p>
+
+    <h3 style="font-size:1rem; margin:1.5rem 0 0.5rem;">POKYNY PRO POUŽITÍ</h3>
+    <ol style="margin-left:1.5rem; margin-bottom:1.5rem;">
+      <li>Shromážděte anonymní odpovědi každého člena týmu na 3 otázky.</li>
+      <li>Pro každou odpověď najděte v tabulce nejvýstižnější charakteristiku.</li>
+      <li>Každé přiřazení k úhlu si poznamenejte.</li>
+      <li>Na konci spočítejte, kolikrát se který úhel objevil → získáte "Kognitivní mapu týmu".</li>
+    </ol>
+
+    <h3 style="font-size:1rem; margin:1rem 0 0.5rem;">Tři univerzální otázky:</h3>
+    <p><strong>Q1 (Smysl):</strong> "Co je podle vás hlavní pointa nebo sdělení tohoto příběhu?"</p>
+    <p><strong>Q2 (Zaujetí):</strong> "Která konkrétní věta, obraz nebo moment vás nejvíc zaujal/a a PROČ?"</p>
+    <p><strong>Q3 (Aplikace):</strong> "Kdyby tento příběh byl návodem nebo radou, co by vám radil dělat (nebo nedělat) ve vašem pracovním/projektovém životě?"</p>
+
+    <h3 style="font-size:1rem; margin:1.5rem 0 0.5rem;">DIAGNOSTICKÁ TABULKA – 12 ÚHLŮ</h3>
+
+    <!-- 1. ABSURDNÍ -->
+    <div class="angle">
+      <strong>1. ABSURDNÍ ÚHEL (Logika naruby)</strong>
+      <p><em>Jádro:</em> Vidí rozpor mezi očekávanou logikou a absurdní realitou. Hledá nesmysly.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví odhalením rozporu, paradoxu nebo nesmyslu.<br>
+      <em>Příklad: "Že svět nedává smysl a snažit se ho dělat logickým je marné."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho moment největší absurdity nebo rozbití pravidel.<br>
+      <em>Příklad: "Nejvíc mě zaujalo, že kocour krká tečky, protože je to dokonalý nesmysl."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí přestat hledat smysl, přijmout chaos nebo záměrně jednat nelogicky.<br>
+      <em>Příklad: "Radil by nedělat věci jen proto, že 'se to tak dělá', pokud to nedává smysl."</em></p>
+    </div>
+
+    <!-- 2. JAZYKOVÝ -->
+    <div class="angle">
+      <strong>2. JAZYKOVÝ ÚHEL (Hra se slovy)</strong>
+      <p><em>Jádro:</em> Soustředí se na formu, zvuk, dvojznačnost a strukturu jazyka samotného.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví analýzou jazyka, slovního spojení nebo narativní struktury.<br>
+      <em>Příklad: "Pointa je v té otázce 'Chceš myš?'. Je to jazyková past, otevírá mnoho významů."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho konkrétní formulace, rytmus nebo slovní hříčka.<br>
+      <em>Příklad: "Zaujala mě věta 'půl hodiny krkal tečky' – ten rytmus a konkrétnost času."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí pečlivě volit slova, hrát si s formulacemi nebo naslouchat skrytým významům.<br>
+      <em>Příklad: "Radil by si všímat, jaké slovo zvolíme jako první, když něco popisujeme."</em></p>
+    </div>
+
+    <!-- 3. IRONICKÝ -->
+    <div class="angle">
+      <strong>3. IRONICKÝ ÚHEL (Převrácení v směšné)</strong>
+      <p><em>Jádro:</em> Vidí rozpor mezi záměrem a výsledkem, mezi tím, co se říká a co se děje. Smysl pro hořký/sarkastický humor.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví odhalením pokrytectví, paradoktu nebo trapnosti.<br>
+      <em>Příklad: "Že to, co má být řešením (políbit žábu), vytvoří úplně jiný problém (tygra)."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho moment největší ironie nebo trapné situace.<br>
+      <em>Příklad: "Nejvíc mě pobavilo, že páv přepočítává oka, když se na něj nikdo nedívá – to je dokonalá sebeklam."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí nebrat se příliš vážně, ptát se 'co kdyby opak byl pravdou' nebo zkoumat skryté motivy.<br>
+      <em>Příklad: "Radil by se při každém rozhodnutí zeptat: 'A co když to dopadne přesně naopak, než chceme?'"</em></p>
+    </div>
+
+    <!-- 4. FILOZOFICKÝ -->
+    <div class="angle">
+      <strong>4. FILOZOFICKÝ ÚHEL (Existenciální otázky)</strong>
+      <p><em>Jádro:</em> Hledá univerzální pravdy, klade otázky po smyslu, hodnotě, podstatě bytí.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví obecnou, univerzální pravdou nebo hlubokou otázkou.<br>
+      <em>Příklad: "Ptá se, co to znamená 'být' a jak se naše přání stávají realitou."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho moment, který otevírá metafyzickou nebo etickou otázku.<br>
+      <em>Příklad: "Zaujala mě myš, co se ptá 'Chceš myš?', protože to je čistá existenciální otázka volby."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí klást základní otázky, zastavit se a reflektovat 'proč to vlastně děláme'.<br>
+      <em>Příklad: "Radil by se vždy nejdřív zeptat: 'Jaký je smysl toho, co děláme? Je to opravdu důležité?'"</em></p>
+    </div>
+
+    <!-- 5. SURREALISTICKÝ -->
+    <div class="angle">
+      <strong>5. SURREALISTICKÝ ÚHEL (Volné asociace)</strong>
+      <p><em>Jádro:</em> Propojuje zdánlivě nesouvisející koncepty, myslí v obrazech, snech, metaforách.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví podivným, obrazným nebo snovým spojením.<br>
+      <em>Příklad: "Že realita je jako sen, kde zvířata nesou naše nepřiznané myšlenky."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho nejbizarnější, nejvíce snový nebo obrazný moment.<br>
+      <em>Příklad: "Nejvíc mě zaujalo, že slon nese v chobotu třešně, co nikdy nedozrají – to je krásný, smutný obraz."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí spojovat nespojitelné, kreslit myšlenkové mapy nebo pracovat s metafou.<br>
+      <em>Příklad: "Radil by při brainstormu zakázat logiku a nechat pracovat pouze asociace a sny."</em></p>
+    </div>
+
+    <!-- 6. NAIVNÍ -->
+    <div class="angle">
+      <strong>6. NAIVNÍ ÚHEL (Dětská logika)</strong>
+      <p><em>Jádro:</em> Vidí věci přímočaře, jednoduše, bez předsudků. Klade zdánlivě naivní, ale provokativní otázky.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví jednoduchou, přímočarou morálkou nebo poučením.<br>
+      <em>Příklad: "Že máme poslouchat a všímat si maličkostí, které ostatní přehlížejí."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho jednoduchý, lidský nebo emocionálně čistý moment.<br>
+      <em>Příklad: "Nejvíc mě dojal okamžik, kdy vlk věnuje pandě svůj zrzavý chlup. To je tak čisté."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí ptát se na jednoduché otázky ('proč?', 'jak?'), nedělat zbytečné komplikace.<br>
+      <em>Příklad: "Radil by se vždy zeptat: 'Jak by to udělalo dítě?'"</em></p>
+    </div>
+
+    <!-- 7. INTRO -->
+    <div class="angle">
+      <strong>7. INTRO (INTROSPEKTIVNÍ) ÚHEL (Vnitřní monolog)</strong>
+      <p><em>Jádro:</em> Projekce vlastních pocitů a zkušeností. Vidí příběh skrz vlastní emoce a vnitřní stavy.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví popisem vnitřního stavu, emocí nebo osobní zkušenosti, kterou příběh vyvolal.<br>
+      <em>Příklad: "Cítím z toho smutek z osamění a touhu po pochopení."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho moment, který rezonuje s jeho vlastním vnitřním pocitem nebo vzpomínkou.<br>
+      <em>Příklad: "Nejvíc se mě dotklo, když pavouk říká 'když to visí, ještě to může být'. Tak se často cítím."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí zpomalit, naslouchat vlastnímu vnitřnímu hlasu, reflektovat pocity před akcí.<br>
+      <em>Příklad: "Radil by si před každým rozhodnutím dát minutu ticha a zeptat se sám sebe, co k tomu skutečně cítím."</em></p>
+    </div>
+
+    <!-- 8. VŠEOBECNÝ -->
+    <div class="angle">
+      <strong>8. VŠEOBECNÝ (KONKRÉTNÍ) ÚHEL (Co vidíš, to je)</strong>
+      <p><em>Jádro:</em> Literální, faktické čtení. Soustředí se na děj, fakta, popis toho, "co se stalo".</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví převyprávěním děje nebo konstatováním faktů.<br>
+      <em>Příklad: "Pohádka vypráví o myši, která si všímá podivných věcí a pak se zeptá 'Chceš myš?'."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho klíčová dějová pointa nebo jasně popsaná situace.<br>
+      <em>Příklad: "Nejvíc mě zaujalo, že kocour sežral berušky a krkal tečky. To je jasný a vtipný děj."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí držet se faktů, popsat situaci jasně a bez interpretace, jednat podle toho, 'co je'.<br>
+      <em>Příklad: "Radil by nejdřív sepsat všechny známé fakta o problému, než začneme spekulovat."</em></p>
+    </div>
+
+    <!-- 9. ANALOGICKÝ -->
+    <div class="angle">
+      <strong>9. ANALOGICKÝ (KULTURNÍ) ÚHEL (Vztahy, archetypy)</strong>
+      <p><em>Jádro:</em> Hledá vzory, paralely, archetypy a vztahy k širším kulturním nebo historickým kontextům.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví přirovnáním k jinému příběhu, archetypu nebo kulturnímu jevu.<br>
+      <em>Příklad: "To je jako mýtus o Sisyfovi – neustále dokola, bez naděje na změnu."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho moment, který připomíná univerzální archetyp nebo kulturní symbol.<br>
+      <em>Příklad: "Zaujal mě pavouk jako archetyp tvůrce/strůjce sítí a pastí, to je starý symbol."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí hledat podobné případy v historii, používat analogie nebo se ptát 'jak to řešili jinde/jindy'.<br>
+      <em>Příklad: "Radil by se podívat, jestli podobný problém neměli v jiném oddělení nebo firmě, a poučit se z toho."</em></p>
+    </div>
+
+    <!-- 10. ASOCIAČNÍ -->
+    <div class="angle">
+      <strong>10. ASOCIAČNÍ ÚHEL (Rychlé spojení)</strong>
+      <p><em>Jádro:</em> Myšlení skrz rychlé, nečekané asociace a osobní spojení. Spojuje prvky příběhu s vlastními myšlenkami.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví řetězem asociací nebo osobních připomínek.<br>
+      <em>Příklad: "Mě to připomíná, jak jsem jednou... a tak si myslím, že jde o to, že..."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho detail, který v něm vyvolal silnou osobní asociaci.<br>
+      <em>Příklad: "Nejvíc mě zaujal ten lemur, co se díval, kde nic nebylo. Připomnělo mi to našeho kolegu, když..."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí brainstormovat bez cenzury, psát myšlenkové mapy nebo se nechat vést prvními nápady.<br>
+      <em>Příklad: "Radil by při hledání řešení napsat prvních 10 slov, co vás napadnou, a teprve pak je analyzovat."</em></p>
+    </div>
+
+    <!-- 11. METAFORICKÝ -->
+    <div class="angle">
+      <strong>11. METAFORICKÝ (SYMBOLICKÝ) ÚHEL (Obraz → význam)</strong>
+      <p><em>Jádro:</em> Chápe prvky příběhu jako symboly pro něco jiného, většího. Hledá skryté vrstvy významu.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví dešifrováním symboliky a metafor.<br>
+      <em>Příklad: "Myš není myš. Je to metafora pro pozornost nebo pro skrytou příležitost."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho nejvýraznější symbol nebo metafora.<br>
+      <em>Příklad: "Nejvíc mě zaujalo vejce s nápisem 'Zákaz kouření'. To je skvělá metafora pro zrození něčeho zakázaného."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí překládat problémy do symbolické řeči, kreslit je jako diagramy nebo hledat, 'co to zastupuje'.<br>
+      <em>Příklad: "Radil by si problém nakreslit jako symbol nebo znak a pak se ptát, co ten znak znamená."</em></p>
+    </div>
+
+    <!-- 12. GROTESKNÍ -->
+    <div class="angle">
+      <strong>12. GROTESKNÍ ÚHEL (Komické do extrému)</strong>
+      <p><em>Jádro:</em> Vidí přehnanou, karikující, až děsivou komiku. Směs směšného a znepokojivého.</p>
+      <p><strong>Q1 (Smysl):</strong> Odpoví zdůrazněním přehnaného, karikujícího nebo temně komického prvku.<br>
+      <em>Příklad: "Že svět je jeden velký, trapný vtip, kde se pořád dokola dělají stejné hloupé chyby."</em></p>
+      <p><strong>Q2 (Zaujetí):</strong> Zaujme ho nejvíce přehnaný, trapný nebo temně komický moment.<br>
+      <em>Příklad: "Nejvíc mě pobavilo, že panda řve 'Jsem barevnější než dalmatin!' – to je tak přehnané a trapné, že je to skvělé."</em></p>
+      <p><strong>Q3 (Aplikace):</strong> Poradí přehánět problémy do absurdna, aby se ukázala jejich podstata, nebo se na ně dívat jako na špatnou komedii.<br>
+      <em>Příklad: "Radil by si představit, že náš problém je scénář pro špatný komiks, a napsat k němu tři nejtrapnější pointy."</em></p>
+    </div>
+
+    <h3 style="font-size:1rem; margin:2rem 0 0.5rem;">INTERPRETAČNÍ KROKY – CO S DATY?</h3>
+    <ol style="margin-left:1.5rem;">
+      <li><strong>Vytvořte mapu:</strong> Po analýze všech odpovědí sečtěte výskyty každého úhlu.</li>
+      <li><strong>Identifikujte vzory:</strong><br>
+        <em>PŘETÍŽENÉ ÚHLY (>30% odpovědí):</em> Tým jich používá příliš mnoho → hrozí kognitivní zkreslení.<br>
+        <em>DEFICIENTNÍ ÚHLY (0-1 výskyt):</em> Tým je opomíjí → jsou to slepé úhly týmu.<br>
+        <em>VYVÁŽENÉ ÚHLY (2-20%):</em> Zdravě zastoupené perspektivy.
+      </li>
+      <li><strong>Diagnóza a akce:</strong><br>
+        <strong>Pravidlo 1 (Pro přetížené úhly):</strong> Lidé, kteří je přirozeně používají, dostanou úkoly z protikladných nebo opomíjených úhlů.<br>
+        <strong>Pravidlo 2 (Pro deficitní úhly):</strong> Celý tým dostane povinný experiment s tímto úhlem na 1 týden.<br>
+        <strong>Pravidlo 3 (Pro vyvážené úhly):</strong> Použijte je jako mosty – úkoly, které propojují přetížené a deficitní úhly.
+      </li>
+    </ol>
+
+    <p style="margin-top:1.5rem;"><strong>Tato tabulka je tvůj diagnostický stroj.</strong> S ní může kdokoli analyzovat tým a předepsat cílenou "kognitivní fyzioterapii". Není potřeba rozumět psychologii – stačí postupovat podle tohoto klíče.</p>
+  </div>
+</details>
+
+<!-- ===== NÁVOD PRO MYŠ (PŘESNĚ JAKO V KOCOUROVI) ===== -->
+<div class="instruction-box">
+  <p><strong>Ty jsi myš.</strong> Sedíš, posloucháš, zapisuješ. Nehodnotíš, kdo má pravdu — mapuješ, jak tým myslí.</p>
+
+  <p><strong>Důležité před začátkem:</strong></p>
+  <ul>
+    <li>Kocour není člověk. Je to porucha — způsob, jakým se tým chová v určitém momentu.</li>
+    <li>Zvířátka jsou poruchy. Dívka na kartě je řeč. Zvíře je porucha. Text mezi nimi je mezera pro interpretaci.</li>
+    <li>Úhly nejsou osobnostní typy. Stejný člověk se v jiný den dívá jiným úhlem. Nejde o škatulkování lidí.</li>
+    <li>Neexistuje správný nebo špatný úhel. Jde o to mít jich co nejvíc — rozšiřovat pohled.</li>
+    <li>Přiřazuješ ty — podle toho, co slyšíš. Úhel vybíráš intuitivně, podle jádra odpovědi.</li>
+    <li>Zápisník se ukládá průběžně — přežije zavření prohlížeče i refresh stránky.</li>
+  </ul>
+
+  <p><strong>Klíč k úhlům máš vždy k dispozici — rozbal ho níže kdykoli potřebuješ.</strong></p>
+</div>
+
+<!-- ===== PATIČKA ===== -->
+<div class="footer">
+  © Michaela Nováková · myš_DEMO · klíč k úhlům
+</div>
+
+</body>
+</html>
