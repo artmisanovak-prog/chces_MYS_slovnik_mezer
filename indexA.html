@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slovník mezer — pracovní karty pro týmové dysfunkce</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #ffffff;
+      --fg:     #111111;
+      --muted:  #555555;
+      --light:  #f5f5f5;
+      --border: #e0e0e0;
+      --serif:  Georgia, 'Times New Roman', serif;
+      --sans:   'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── NAV ── */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      position: sticky; top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    nav .container {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .nav-logo {
+      font-size: 12px; letter-spacing: .15em;
+      text-transform: uppercase; font-weight: 700;
+      text-decoration: none; color: var(--fg);
+    }
+    .nav-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+    .nav-links a {
+      font-size: 11px; letter-spacing: .1em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--muted); transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--fg); }
+    .nav-cta {
+      font-size: 11px; letter-spacing: .1em;
+      text-transform: uppercase; text-decoration: none;
+      border: 1px solid var(--fg); color: var(--fg);
+      padding: 7px 16px; transition: background .2s, color .2s;
+    }
+    .nav-cta:hover { background: var(--fg); color: var(--bg); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block; padding: 13px 28px;
+      font-size: 12px; letter-spacing: .1em;
+      text-transform: uppercase; text-decoration: none;
+      border: 1px solid var(--fg); color: var(--fg);
+      background: transparent; cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .btn:hover { background: var(--fg); color: var(--bg); }
+    .btn-fill { background: var(--fg); color: var(--bg); }
+    .btn-fill:hover { background: #333; border-color: #333; }
+    .btn-sm { padding: 9px 20px; font-size: 11px; }
+
+    /* ── SECTIONS ── */
+    section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-size: 10px; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-weight: 400; line-height: 1.2; margin-bottom: 32px;
+    }
+    h3 { font-size: 1rem; font-weight: 700; letter-spacing: .03em; margin-bottom: 8px; }
+    p { margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--fg); }
+
+    /* ── HERO ── */
+    .hero { padding: 88px 0 72px; border-bottom: 1px solid var(--border); }
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 400; line-height: 1.1;
+      letter-spacing: -.01em; margin-bottom: 28px;
+    }
+    .hero h1 em { font-style: italic; }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--muted);
+      max-width: 600px; margin-bottom: 16px; line-height: 1.7;
+    }
+    .hero-proof {
+      font-size: .85rem; color: var(--muted);
+      margin-bottom: 40px; border-left: 2px solid var(--border);
+      padding-left: 16px; max-width: 500px;
+    }
+    .hero-cta-group { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .hero-free-note { font-size: .8rem; color: var(--muted); margin-top: 14px; }
+
+    /* ── SOCIAL PROOF BAR ── */
+    .proof-bar {
+      background: var(--light);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .proof-bar .container {
+      display: flex; gap: 40px; flex-wrap: wrap; align-items: center;
+    }
+    .proof-item { font-size: .85rem; color: var(--muted); }
+    .proof-item strong { color: var(--fg); display: block; font-size: 1.1rem; }
+
+    /* ── PROBLÉM ── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .problem-col { padding: 32px; }
+    .problem-col:first-child { border-right: 1px solid var(--border); }
+    .problem-col h3 {
+      font-size: .85rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 20px; font-weight: 400;
+    }
+    .problem-col ul { list-style: none; }
+    .problem-col li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .95rem;
+    }
+    .problem-col li:last-child { border-bottom: none; }
+    .problem-col li.bad::before { content: '✗  '; color: #999; }
+    .problem-col li.good::before { content: '✓  '; color: var(--fg); font-weight: 700; }
+    @media (max-width: 580px) {
+      .problem-grid { grid-template-columns: 1fr; }
+      .problem-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+
+    /* ── JAK TO FUNGUJE ── */
+    .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .how-step { }
+    .how-step .num {
+      font-family: var(--serif);
+      font-size: 3rem; font-weight: 400;
+      color: var(--border); line-height: 1;
+      margin-bottom: 16px; display: block;
+    }
+    .how-step strong { display: block; margin-bottom: 8px; }
+    .how-step p { font-size: .9rem; color: var(--muted); }
+    @media (max-width: 680px) { .how-steps { grid-template-columns: 1fr; gap: 28px; } }
+
+    /* ── MODELOVÉ SCÉNÁŘE ── */
+    .scenarios { display: flex; flex-direction: column; gap: 0; }
+    .scenario {
+      border: 1px solid var(--border);
+      margin-bottom: -1px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+    }
+    .scenario-tag {
+      background: var(--light);
+      padding: 28px 24px;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .scenario-tag .tag-label {
+      font-size: 10px; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .scenario-tag .tag-icon { font-size: 2rem; margin-bottom: 6px; }
+    .scenario-tag strong { font-size: .95rem; }
+    .scenario-body { padding: 28px 32px; }
+    .scenario-body .situation {
+      font-size: .82rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .scenario-body h3 { font-size: 1.05rem; margin-bottom: 12px; }
+    .scenario-body p { font-size: .92rem; color: var(--muted); margin-bottom: 16px; }
+    .scenario-result {
+      background: var(--light);
+      border-left: 3px solid var(--fg);
+      padding: 12px 16px;
+      font-size: .88rem;
+      margin-top: 12px;
+    }
+    .scenario-result strong { display: block; margin-bottom: 4px; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+    @media (max-width: 640px) {
+      .scenario { grid-template-columns: 1fr; }
+      .scenario-tag { border-right: none; border-bottom: 1px solid var(--border); padding: 20px; flex-direction: row; align-items: center; gap: 12px; }
+    }
+
+    /* ── KARTY ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .card-item {
+      background: var(--bg);
+      padding: 0;
+      text-decoration: none;
+      color: var(--fg);
+      transition: background .15s;
+      display: block;
+    }
+    .card-item:hover { background: var(--light); }
+    .card-item img {
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; display: block;
+      filter: grayscale(100%);
+      transition: filter .3s;
+    }
+    .card-item:hover img { filter: grayscale(60%); }
+    .card-item-body { padding: 16px; }
+    .card-item-body strong { display: block; margin-bottom: 4px; font-size: .95rem; }
+    .card-item-body p { font-size: .8rem; color: var(--muted); margin-bottom: 10px; }
+    .card-price { font-size: .75rem; color: var(--muted); }
+    .card-free { font-size: .75rem; font-weight: 700; color: var(--fg); text-transform: uppercase; letter-spacing: .08em; }
+
+    /* Karty — free highlight */
+    .card-item.is-free .card-item-body { border-top: 2px solid var(--fg); }
+
+    /* ── CENA ── */
+    .price-block {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      align-items: start;
+    }
+    .price-left { }
+    .price-number {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      font-weight: 400; margin-bottom: 8px;
+    }
+    .price-note { font-size: .85rem; color: var(--muted); margin-bottom: 24px; }
+    .price-includes { list-style: none; margin-bottom: 28px; }
+    .price-includes li {
+      padding: 9px 0; border-bottom: 1px solid var(--border);
+      font-size: .9rem; display: flex; align-items: baseline; gap: 10px;
+    }
+    .price-includes li::before { content: '→'; color: var(--muted); flex-shrink: 0; }
+    .price-right { }
+    .roi-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .roi-table th {
+      text-align: left; font-size: .75rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--muted);
+      border-bottom: 1px solid var(--border); padding-bottom: 10px;
+      font-weight: 400;
+    }
+    .roi-table td { padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .roi-table td:last-child { color: var(--muted); }
+    .roi-context {
+      margin-top: 24px; padding: 20px;
+      background: var(--light); border-left: 3px solid var(--fg);
+      font-size: .88rem;
+    }
+    @media (max-width: 640px) { .price-block { grid-template-columns: 1fr; } }
+
+    /* ── CITÁTY / TESTIMONIALS ── */
+    .quotes-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px; margin-top: 8px;
+    }
+    .quote-card {
+      border: 1px solid var(--border); padding: 28px;
+    }
+    .quote-text {
+      font-family: var(--serif); font-style: italic;
+      font-size: 1.05rem; line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .quote-text::before { content: '„'; }
+    .quote-text::after { content: '"'; }
+    .quote-who { font-size: .8rem; color: var(--muted); }
+    .quote-who strong { display: block; color: var(--fg); margin-bottom: 2px; font-style: normal; }
+
+    /* ── FAQ ── */
+    details { border-bottom: 1px solid var(--border); }
+    details:first-of-type { border-top: 1px solid var(--border); }
+    summary {
+      cursor: pointer; font-weight: 600; font-size: .97rem;
+      padding: 20px 0; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.3rem; color: var(--muted); font-weight: 300; transition: transform .2s; }
+    details[open] summary::after { content: '−'; }
+    .detail-body { padding: 0 0 20px; font-size: .93rem; color: var(--muted); max-width: 680px; }
+
+    /* ── COMING SOON ── */
+    .coming-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); margin-top: 8px;
+    }
+    .coming-item {
+      background: var(--bg); padding: 24px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .coming-item img {
+      width: 64px; height: 64px;
+      object-fit: cover; filter: grayscale(100%); opacity: .5;
+    }
+    .coming-item strong { font-size: .95rem; }
+    .coming-item p { font-size: .8rem; color: var(--muted); }
+    .coming-item a { font-size: .78rem; color: var(--muted); text-decoration: underline; }
+
+    /* ── KONTAKT ── */
+    .contact-box {
+      background: var(--fg); color: var(--bg);
+      padding: 48px; margin-top: 8px;
+    }
+    .contact-box h3 {
+      font-family: var(--serif); font-size: 1.8rem;
+      font-weight: 400; margin-bottom: 12px;
+    }
+    .contact-box p { color: rgba(255,255,255,.7); margin-bottom: 28px; }
+    .contact-box .btn {
+      border-color: rgba(255,255,255,.5); color: var(--bg);
+    }
+    .contact-box .btn:hover { background: rgba(255,255,255,.15); }
+    .contact-box .btn-light {
+      background: var(--bg); color: var(--fg); border-color: var(--bg);
+    }
+    .contact-box .btn-light:hover { background: #eee; border-color: #eee; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0; background: var(--bg);
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-left p, .footer-right p { font-size: .82rem; color: var(--muted); margin-bottom: 4px; }
+    .footer-left strong { color: var(--fg); }
+    .footer-right { text-align: right; }
+
+    /* ── STORY BLOCK ── */
+    .story-block {
+      display: grid; grid-template-columns: 160px 1fr; gap: 48px; align-items: start;
+    }
+    .story-img { width: 160px; filter: grayscale(100%); display: block; }
+    .story-text blockquote {
+      border-left: 2px solid var(--fg); padding-left: 20px;
+      font-style: italic; font-size: 1.05rem; color: var(--muted); margin: 20px 0;
+    }
+    @media (max-width: 580px) { .story-block { grid-template-columns: 1fr; } .story-img { width: 100px; } }
+
+    /* ── GAPS LIST ── */
+    .gaps-list { list-style: none; border-top: 1px solid var(--border); }
+    .gaps-list li {
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: baseline; gap: 14px; font-size: .95rem;
+    }
+    .gaps-list li::before { content: '—'; color: var(--muted); flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="container">
+    <a class="nav-logo" href="#">Slovník mezer</a>
+    <ul class="nav-links">
+      <li><a href="#proc">Proč</a></li>
+      <li><a href="#scenare">Scénáře</a></li>
+      <li><a href="#karty">Karty</a></li>
+      <li><a href="#cena">Cena</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="nav-cta" href="doma/KOCOUR/data/landing_page_kocour.html">Vyzkoušet zdarma</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Pracovní karty pro týmové dysfunkce</p>
+    <h1>Vaše porady<br>se točí dokola.<br><em>Existuje na to nástroj.</em></h1>
+    <p class="hero-sub">
+      Slovník mezer jsou pracovní karty, které pomáhají týmům pojmenovat problémy,
+      které normálně nikdo neřekne nahlas — a pak je skutečně vyřešit.
+      90minutový workshop. Připravený. Stačí otevřít a vést.
+    </p>
+    <p class="hero-proof">
+      Průměrná délka porady klesá o 30–60 minut. Při 10 poradách měsíčně se investice vrátí do 2 měsíců.
+    </p>
+    <div class="hero-cta-group">
+      <a class="btn btn-fill" href="doma/KOCOUR/data/landing_page_kocour.html">Vyzkoušet zdarma — karta Kocour</a>
+      <a class="btn" href="#karty">Prohlédnout karty</a>
+    </div>
+    <p class="hero-free-note">Karta Kocour je celá zdarma. Bez registrace, bez karty.</p>
+  </div>
+</section>
+
+<!-- ═══ PROOF BAR ═══ -->
+<div class="proof-bar">
+  <div class="container">
+    <div class="proof-item"><strong>10+</strong>karet v systému</div>
+    <div class="proof-item"><strong>90 min</strong>připravený workshop</div>
+    <div class="proof-item"><strong>12 úhlů</strong>na jeden problém</div>
+    <div class="proof-item"><strong>Navždy</strong>platíš jednou, karta je tvoje</div>
+    <div class="proof-item"><strong>Offline</strong>žádné předplatné, žádný cloud</div>
+  </div>
+</div>
+
+<!-- ═══ PROBLÉM ═══ -->
+<section id="proc">
+  <div class="container">
+    <p class="section-label">Proč to existuje</p>
+    <h2>Problémy v týmech nevznikají<br>kvůli lidem. Vznikají kvůli mezerám.</h2>
+    <div class="problem-grid">
+      <div class="problem-col">
+        <h3>Bez nástroje</h3>
+        <ul>
+          <li class="bad">Víte, že něco nefunguje — ale nevíte jak to pojmenovat</li>
+          <li class="bad">Každá porada skončí stejně jako ta minulá</li>
+          <li class="bad">Obviňujete lidi, místo systému</li>
+          <li class="bad">Najímáte kouče na 2 dny — pak se vrátí staré vzorce</li>
+          <li class="bad">Tým slyšel „aktivní naslouchání" mockrát. Nic se nezměnilo.</li>
+        </ul>
+      </div>
+      <div class="problem-col">
+        <h3>Se Slovníkem mezer</h3>
+        <ul>
+          <li class="good">Tým má společný jazyk pro to, co se dříve neřeklo</li>
+          <li class="good">Workshop vede kdokoli — scénář je na minuty</li>
+          <li class="good">Příběh otevře téma bez obviňování</li>
+          <li class="good">Karta je vaše navždy — používáte ji opakovaně</li>
+          <li class="good">12 úhlů pohledu odhalí, kudy problém řešit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ JAK TO FUNGUJE ═══ -->
+<section id="system">
+  <div class="container">
+    <p class="section-label">Jak to funguje</p>
+    <h2>Jeden příběh. Dvanáct pravd.<br>Jeden workshop.</h2>
+
+    <div class="story-block" style="margin-bottom: 56px;">
+      <img class="story-img" src="doma/data/ilustrace/mys.jpg" alt="Myš" />
+      <div class="story-text">
+        <p>Každá karta stojí na jednoduchém principu: zvíře je metafora poruchy. Příběh otevře téma bez toho, aby někdo skočil do obrany. Tým si přečte pohádku za 5 minut — a najednou má jazyk pro věc, která se dosud neříkala nahlas.</p>
+        <blockquote>„Úhly nemusíš přiřadit přesně. Všechny míří na stejný problém. I nepřesná mapa odhalí něco užitečného."</blockquote>
+        <p>Po příběhu přijde diagnostika — 3 otázky, kognitivní mapa týmu. Pak 90minutový workshop s timerem, checklistem a konkrétními pravidly, která si tým napíše sám.</p>
+      </div>
+    </div>
+
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="num">01</span>
+        <strong>Přečtěte pohádku</strong>
+        <p>5 minut. Tým poslouchá. Příběh otevře téma bez obviňování — zvíře je porucha, ne člověk.</p>
+      </div>
+      <div class="how-step">
+        <span class="num">02</span>
+        <strong>Diagnostikujte tým</strong>
+        <p>3 otázky, kognitivní mapa. Vidíte, kudy tým myslí — přetížené i slepé úhly.</p>
+      </div>
+      <div class="how-step">
+        <span class="num">03</span>
+        <strong>Proveďte workshop</strong>
+        <p>90 minut. Konkrétní pravidla, závazky, Strážce. Za měsíc kontrola — co se změnilo?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MODELOVÉ SCÉNÁŘE ═══ -->
+<section id="scenare">
+  <div class="container">
+    <p class="section-label">Modelové scénáře</p>
+    <h2>Kdy a jak týmy karty používají.</h2>
+    <p style="color: var(--muted); margin-bottom: 40px; max-width: 600px;">Tři konkrétní situace z praxe — co tým řešil, kterou kartu použil a co se změnilo.</p>
+
+    <div class="scenarios">
+
+      <!-- Scénář 1 -->
+      <div class="scenario">
+        <div class="scenario-tag">
+          <span class="tag-icon">🐈‍⬛</span>
+          <span class="tag-label">Karta</span>
+          <strong>Kocour</strong>
+        </div>
+        <div class="scenario-body">
+          <p class="situation">Situace — porady</p>
+          <h3>„Každý ví, co chce říct. Nikdo to nedoposlouchá."</h3>
+          <p>Tým vývojářů, 8 lidí. Denní standupy trvají 45 minut místo 15. Každý skáče do řeči, dokončuje věty za druhého. Junior vývojáři přestali mluvit úplně.</p>
+          <p>HR manažerka použila kartu Kocour na páteční retro. Přečetla pohádku nahlas (5 minut), tým odpověděl na 3 otázky, pak proběhl 90minutový workshop s pravidlem: <em>žádné dokončování vět za druhého.</em></p>
+          <div class="scenario-result">
+            <strong>Výsledek po 30 dnech</strong>
+            Standup zkrátil na 18 minut. Junior vývojáři začali přinášet nápady. Tým si sám pojmenoval vzorec — a přestal ho opakovat.
+          </div>
+        </div>
+      </div>
+
+      <!-- Scénář 2 -->
+      <div class="scenario">
+        <div class="scenario-tag">
+          <span class="tag-icon">🦩</span>
+          <span class="tag-label">Karta</span>
+          <strong>Plameňák</strong>
+        </div>
+        <div class="scenario-body">
+          <p class="situation">Situace — plánování projektu</p>
+          <h3>„Máme nadšení. Nemáme plán. Spustili jsme se k datu, které nikdo nevysvětlil."</h3>
+          <p>Marketingový tým, 5 lidí. Každý kvartál začíná s euphorií a novými iniciativami. Polovina projektů skončí bez výsledku. Tým se ptá proč — ale nikdo nechce být ten, kdo brzdí.</p>
+          <p>Produktová manažerka použila kartu Plameňák na kickoff meetingu nového projektu. Pohádka o plameňákovi, co zpívá „Lalalá" při pádu, tým rozesmála — a pak se najednou uměl ptát: <em>„Jsme teď plameňák?"</em></p>
+          <div class="scenario-result">
+            <strong>Výsledek</strong>
+            Tým zavedl „myší protokol" — před každým projektem 20 minut kritické analýzy. Snížil počet iniciativ o 40 %, výsledky zůstaly stejné.
+          </div>
+        </div>
+      </div>
+
+      <!-- Scénář 3 -->
+      <div class="scenario">
+        <div class="scenario-tag">
+          <span class="tag-icon">🪰</span>
+          <span class="tag-label">Karta</span>
+          <strong>Moucha</strong>
+        </div>
+        <div class="scenario-body">
+          <p class="situation">Situace — firemní kultura</p>
+          <h3>„Chaos je normální. Zapomněli jsme, že to tak nemusí být."</h3>
+          <p>Startup, 12 lidí, 3 roky existence. Procesy jsou improvizované, dokumentace chybí, každý ví, že je to špatně — ale nikdo to neřekne, protože „tak to tady prostě je."</p>
+          <p>CEO použil kartu Moucha na všeruční poradě. Pohádka o dvorku, kde se bordel stal normou, spustila hodinovou diskusi, která nikdy předtím neproběhla. Tým sám vyjmenoval 7 „neviditelných dvorků".</p>
+          <div class="scenario-result">
+            <strong>Výsledek</strong>
+            Tým si vybral 2 prioritní problémy k řešení. Zavedl „minutu bzukotu" na začátek každé porady — krátká zpráva od pozorovatele, co si tentokrát všiml.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap;">
+      <a class="btn" href="doma/MYS/modelove_scenare.html">Více scénářů →</a>
+      <a class="btn" href="doma/MYS/kombinator.html">Kombinovat karty →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="zkusenosti">
+  <div class="container">
+    <p class="section-label">Zkušenosti</p>
+    <h2>Co říkají ti, kdo to zkusili.</h2>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <p class="quote-text">Poprvé jsme pojmenovali věc, o které všichni věděli a nikdo ji neřekl. A nestačilo se divit, co to udělalo s poradou.</p>
+        <p class="quote-who"><strong>Jana K.</strong>HR Business Partner, technologická firma</p>
+      </div>
+      <div class="quote-card">
+        <p class="quote-text">Myslel jsem, že to bude další teambuilding. Byl to workshop, po kterém jsme poprvé za rok změnili způsob, jak děláme standupy.</p>
+        <p class="quote-who"><strong>Martin V.</strong>Tech Lead, produktový tým</p>
+      </div>
+      <div class="quote-card">
+        <p class="quote-text">Ta pohádka — to byl klíč. Tým se mohl bavit o problému bez toho, aby někdo cítil, že ho obviňuji.</p>
+        <p class="quote-who"><strong>Petra S.</strong>Agile Coach, bankovní sektor</p>
+      </div>
+    </div>
+    <p style="font-size: .8rem; color: var(--muted); margin-top: 20px;">Chcete být další? Karta Kocour je zdarma — vyzkoušejte a dejte zpětnou vazbu.</p>
+  </div>
+</section>
+
+<!-- ═══ KATALOG KARET ═══ -->
+<section id="karty">
+  <div class="container">
+    <p class="section-label">Katalog karet</p>
+    <h2>Každá karta. Jeden problém. Jedno řešení.</h2>
+
+    <div class="cards-grid">
+
+      <!-- KOCOUR — ZDARMA -->
+      <a class="card-item is-free" href="doma/KOCOUR/data/landing_page_kocour.html">
+        <img src="doma/data/ilustrace/kocour.jpg" alt="Kocour" />
+        <div class="card-item-body">
+          <strong>Kocour</strong>
+          <p>Skáčeme si do řeči — myšlenky umírají dřív, než dostanou šanci.</p>
+          <span class="card-free">Zdarma →</span>
+        </div>
+      </a>
+
+      <!-- PLAMEŇÁK -->
+      <a class="card-item" href="doma/karty_ukazky/Plamenak/plamenak_ukazka.html">
+        <img src="doma/data/ilustrace/plamenak.jpg" alt="Plameňák" />
+        <div class="card-item-body">
+          <strong>Plameňák</strong>
+          <p>Nadšení bez plánu — energie, která nikam nevede.</p>
+          <span class="card-price">29 000 Kč · ukázka zdarma</span>
+        </div>
+      </a>
+
+      <!-- PÁV -->
+      <a class="card-item" href="doma/karty_ukazky/Pav/pav_ukazka.html">
+        <img src="doma/data/ilustrace/pav.jpg" alt="Páv" />
+        <div class="card-item-body">
+          <strong>Páv</strong>
+          <p>Vidíme projekt skrz sebe — a přestáváme vidět realitu.</p>
+          <span class="card-price">29 000 Kč · ukázka zdarma</span>
+        </div>
+      </a>
+
+      <!-- MOUCHA -->
+      <a class="card-item" href="doma/karty_ukazky/Moucha/moucha_ukazka.html">
+        <img src="doma/karty_ukazky/Moucha/moucha.jpg" alt="Moucha" />
+        <div class="card-item-body">
+          <strong>Moucha</strong>
+          <p>Chaos se stal normou — a nikdo si ho už nevšimne.</p>
+          <span class="card-price">29 000 Kč · ukázka zdarma</span>
+        </div>
+      </a>
+
+      <!-- RYBA -->
+      <a class="card-item" href="doma/RYBA/index.html">
+        <img src="doma/data/ilustrace/ryba.jpg" alt="Ryba" />
+        <div class="card-item-body">
+          <strong>Ryba</strong>
+          <p>Mluvíme hodně, ale nic se nemění.</p>
+          <span class="card-price">29 000 Kč · ukázka zdarma</span>
+        </div>
+      </a>
+
+      <!-- HUSY -->
+      <a class="card-item" href="doma/karty_ukazky/Husy/husy_ukazka.html">
+        <img src="doma/data/ilustrace/husy.jpg" alt="Husy" />
+        <div class="card-item-body">
+          <strong>Husy</strong>
+          <p>Každý křičí „my" — ale každý myslí jen na sebe.</p>
+          <span class="card-price">29 000 Kč · ukázka zdarma</span>
+        </div>
+      </a>
+
+      <!-- PAROHY -->
+      <a class="card-item" href="doma/karty_ukazky/Parohy/parohy_ukazka.html">
+        <img src="doma/data/ilustrace/parohy.jpg" alt="Parohy" />
+        <div class="card-item-body">
+          <strong>Parohy</strong>
+          <p>Definujeme se tím, co jsme dělali — ne tím, kdo jsme.</p>
+          <span class="card-price">29 000 Kč · ukázka zdarma</span>
+        </div>
+      </a>
+
+      <!-- BERAN -->
+      <a class="card-item" href="doma/karty_ukazky/Beran/README.md">
+        <img src="doma/data/ilustrace/beran.jpg" alt="Beran" />
+        <div class="card-item-body">
+          <strong>Beran</strong>
+          <p>Stádová setrvačnost a nemožnost změn.</p>
+          <span class="card-price">29 000 Kč · ukázka zdarma</span>
+        </div>
+      </a>
+
+      <!-- VRABEC -->
+      <a class="card-item" href="doma/karty_ukazky/Vrabec/vrabec_ukazka.html">
+        <img src="doma/karty_ukazky/Vrabec/vrabec.jpg" alt="Vrabec" />
+        <div class="card-item-body">
+          <strong>Vrabec</strong>
+          <p>Dočasné řešení, které tu bude navždy.</p>
+          <span class="card-price">29 000 Kč · ukázka zdarma</span>
+        </div>
+      </a>
+
+      <!-- OSEL -->
+      <a class="card-item" href="doma/karty_ukazky/Osel/osel_ukazka.html">
+        <img src="doma/data/ilustrace/osel.jpg" alt="Osel" />
+        <div class="card-item-body">
+          <strong>Osel</strong>
+          <p>Tolik možností — že nevybereme žádnou.</p>
+          <span class="card-price">29 000 Kč · ukázka zdarma</span>
+        </div>
+      </a>
+
+    </div>
+
+    <p style="font-size:.85rem; color:var(--muted); margin-top: 20px;">Nevíte, která karta je pro váš tým? <a href="mailto:chcesmys@gmail.com">Napište nám</a> — pomůžeme vybrat.</p>
+  </div>
+</section>
+
+<!-- ═══ CENA ═══ -->
+<section id="cena">
+  <div class="container">
+    <p class="section-label">Cena a návratnost</p>
+    <h2>Jednorázový náklad.<br>Celoživotní licence.</h2>
+
+    <div class="price-block">
+      <div class="price-left">
+        <p class="price-number">29 000 Kč</p>
+        <p class="price-note">Jedna karta. Firemní licence. Navždy.</p>
+        <ul class="price-includes">
+          <li>Workshop na 90 minut — připravený scénář, timery, checklisty</li>
+          <li>12 úhlů pohledu s konkrétními intervencemi</li>
+          <li>Křivá pohádka — příběh, který otevře téma</li>
+          <li>Diagnostický nástroj — kognitivní mapa týmu</li>
+          <li>Generativní mód — desítky variací z jedné karty</li>
+          <li>Šablony, flipcharty, pracovní listy</li>
+          <li>Offline — zip s celým repozitářem, žádný cloud</li>
+          <li>Žádné předplatné — platíte jednou</li>
+        </ul>
+        <a class="btn btn-fill" href="mailto:chcesmys@gmail.com?subject=Zájem o kartu">Chci kartu →</a>
+      </div>
+
+      <div class="price-right">
+        <p style="font-size:.85rem; color:var(--muted); margin-bottom: 16px; letter-spacing: .08em; text-transform: uppercase; font-size: .75rem;">Cena pro facilitátory</p>
+        <table class="roi-table">
+          <thead>
+            <tr>
+              <th>Počet použití</th>
+              <th>Cena za workshop</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1×</td><td>29 000 Kč</td></tr>
+            <tr><td>10×</td><td>2 900 Kč</td></tr>
+            <tr><td>20×</td><td>1 450 Kč</td></tr>
+            <tr><td>50×</td><td>580 Kč</td></tr>
+          </tbody>
+        </table>
+
+        <div class="roi-context">
+          <strong style="display:block; margin-bottom: 8px; font-size: .8rem; letter-spacing:.1em; text-transform:uppercase;">Srovnání</strong>
+          Koučink na 1 den: 15 000–25 000 Kč. Výsledek po 2 týdnech zbledne.
+          Workshop facilitátor: 20 000–40 000 Kč za jedno sezení.
+          Slovník mezer: 29 000 Kč jednou — a karta je vaše navždy.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CO DOSTANETE ═══ -->
+<section id="obsah">
+  <div class="container">
+    <p class="section-label">Obsah karty</p>
+    <h2>Jeden nástroj. Kompletní výbava.</h2>
+    <ul class="gaps-list">
+      <li><div><strong>Workshop na 90 minut</strong> — Samostatný, připravený scénář. Stačí otevřít a vést. Krok za krokem, s timery a checklisty.</div></li>
+      <li><div><strong>Křivá pohádka</strong> — Příběh, který otevře téma bez obviňování. Zvíře je porucha, ne člověk.</div></li>
+      <li><div><strong>12 úhlů pohledu</strong> — Diagnostický klíč. Stejný problém, 12 různých způsobů vstupu do řešení.</div></li>
+      <li><div><strong>12 protiopatření</strong> — Každý úhel má svůj konkrétní „protilék". Žádná vata.</div></li>
+      <li><div><strong>Diagnostický nástroj</strong> — 3 otázky, kognitivní mapa týmu. Vidíte přetížené i slepé úhly.</div></li>
+      <li><div><strong>Generativní mód</strong> — Z jedné karty desítky variací. Nikdy nedostanete stejný workshop dvakrát.</div></li>
+      <li><div><strong>Šablony a pracovní listy</strong> — Flipcharty, emaily, pracovní listy. K okamžitému použití.</div></li>
+      <li><div><strong>Repo dům</strong> — Váš systém, vaše data, váš klid. Offline, transparentní, upravitelný.</div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ COMING SOON ═══ -->
+<section id="pripravujeme">
+  <div class="container">
+    <p class="section-label">Připravujeme</p>
+    <h2>Další karty na cestě.</h2>
+    <div class="coming-grid">
+      <div class="coming-item">
+        <img src="doma/karty_ukazky/morska_hvezdice.jpg" alt="Mořská hvězdice" />
+        <strong>Mořská hvězdice</strong>
+        <p>Léčíme symptomy, ne příčinu.</p>
+        <a href="mailto:chcesmys@gmail.com?subject=Zájem o kartu: Mořská hvězdice">Mám zájem →</a>
+      </div>
+      <div class="coming-item">
+        <img src="doma/data/ilustrace/drak.jpg" alt="Drak" />
+        <strong>Drak</strong>
+        <p>Dodržujeme pravidlo, ale zapomněli jsme proč.</p>
+        <a href="mailto:chcesmys@gmail.com?subject=Zájem o kartu: Drak">Mám zájem →</a>
+      </div>
+      <div class="coming-item">
+        <img src="doma/karty_ukazky/gepard.jpg" alt="Gepard" />
+        <strong>Gepard</strong>
+        <p>Jedeme naplno — po cíli přijde prázdno, vyhoření.</p>
+        <a href="mailto:chcesmys@gmail.com?subject=Zájem o kartu: Gepard">Mám zájem →</a>
+      </div>
+      <div class="coming-item">
+        <img src="doma/data/ilustrace/motyl.jpg" alt="Motýl" />
+        <strong>Motýl</strong>
+        <p>Problém vypadá dobře — takže ho nikdo neřeší.</p>
+        <a href="mailto:chcesmys@gmail.com?subject=Zájem o kartu: Motýl">Mám zájem →</a>
+      </div>
+      <div class="coming-item">
+        <img src="doma/karty_ukazky/tygr.jpg" alt="Tygr" />
+        <strong>Tygr</strong>
+        <p>Systém chce jedno, člověk je jiný — nikdo to neřekne nahlas.</p>
+        <a href="mailto:chcesmys@gmail.com?subject=Zájem o kartu: Tygr">Mám zájem →</a>
+      </div>
+      <div class="coming-item">
+        <img src="doma/karty_ukazky/zelva.jpg" alt="Želva" />
+        <strong>Želva</strong>
+        <p>Dva přístupy si odporují, ale bez sebe nefungují.</p>
+        <a href="mailto:chcesmys@gmail.com?subject=Zájem o kartu: Želva">Mám zájem →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq">
+  <div class="container">
+    <p class="section-label">Nejčastější otázky</p>
+    <h2>FAQ</h2>
+
+    <details>
+      <summary>Musím být vyškolený facilitátor?</summary>
+      <div class="detail-body">Ne. Workshop je navržený tak, aby ho bez přípravy mohl vést kdokoli, kdo tým zná. Scénář je na minuty — kdo, kdy, co říká. Facilitátor nemusí nic vymýšlet.</div>
+    </details>
+    <details>
+      <summary>Jak rychle uvidím výsledky?</summary>
+      <div class="detail-body">Většina týmů zaznamená změnu hned po prvním workshopu — v tom, jak mluví o problémech. Konkrétní výsledky (kratší porady, méně konfliktů) se obvykle projeví do 30 dní.</div>
+    </details>
+    <details>
+      <summary>Musím přiřadit úhly správně?</summary>
+      <div class="detail-body">Ne. Přiřazení nemusí být přesné. Všechny intervence míří na stejný problém — úhly vám jen pomáhají vybrat, kudy do něj vstoupit. I „nepřesná" mapa odhalí něco užitečného.</div>
+    </details>
+    <details>
+      <summary>Co dostanu po zaplacení?</summary>
+      <div class="detail-body">Zip s celým repozitářem — HTML nástroje, texty, šablony, pracovní listy. Stáhnete si to k sobě, otevřete v prohlížeči, používáte offline. Bez předplatného, bez cloudu.</div>
+    </details>
+    <details>
+      <summary>Jak dlouho mi přístup trvá?</summary>
+      <div class="detail-body">Navždy. Platíte jednou, karta je vaše. Nikdo vám ji nemůže vypnout ani zdražit. Firemní licence — celá organizace, neomezeně použití.</div>
+    </details>
+    <details>
+      <summary>Musím umět GitHub?</summary>
+      <div class="detail-body">Ne. GitHub slouží jen ke stažení souboru — jako jakýkoli jiný zip. Co s ním dál dělat popisuje přiložený návod.</div>
+    </details>
+    <details>
+      <summary>Lze kartu použít víckrát?</summary>
+      <div class="detail-body">Ano — a je na to přímo navržená. Generativní mód z jedné karty vytvoří desítky různých workshopů kombinací úhlů. Nikdy nedostanete stejný workshop dvakrát.</div>
+    </details>
+    <details>
+      <summary>Lze karty kombinovat?</summary>
+      <div class="detail-body">Ano. Kombinační mód spojí úhly ze dvou různých karet do jednoho cvičení. Výsledek je vždy nový a specifický pro váš tým. <a href="doma/MYS/kombinator.html">Vyzkoušet kombinační mód →</a></div>
+    </details>
+    <details>
+      <summary>Nevím, která karta je pro nás správná. Jak vybrat?</summary>
+      <div class="detail-body">Začněte s Kocoura — je zdarma a hned ukáže, jak systém funguje. Pak napište na <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a> a popište situaci — pomůžeme vybrat kartu, která sedí na váš konkrétní problém.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ═══ ENGLISH ═══ -->
+<section id="english">
+  <div class="container">
+    <p class="section-label">English version</p>
+    <h2>First card available in English.</h2>
+    <p style="color:var(--muted); margin-bottom: 8px;"><strong>Cat</strong> — Communication Pathology</p>
+    <p style="font-family:var(--serif); font-size: 2.4rem; margin-bottom: 8px;">$ 1,600</p>
+    <p style="color:var(--muted); font-size:.9rem; margin-bottom: 28px;">Further cards available on request.</p>
+    <a href="mailto:chcesmys@gmail.com" class="btn">Contact us →</a>
+  </div>
+</section>
+
+<!-- ═══ O AUTORCE ═══ -->
+<section id="o-mne">
+  <div class="container">
+    <p class="section-label">O autorce</p>
+    <h2>Tvůrce, ne facilitátor.</h2>
+    <div class="story-block">
+      <img class="story-img" src="doma/data/ilustrace/mys.jpg" alt="Myš" />
+      <div class="story-text">
+        <p style="color:var(--muted);">„Chceš myš?" je můj pokus zachytit realitu do ticha — do mezer mezi obrazem a textem, kde vzniká interpretace.</p>
+        <p style="color:var(--muted);">Kreslím. Píšu. Tvořím metajazyk. <strong style="color:var(--fg)">Karty jsou poruchy.</strong> Dívka = řeč. Zvíře = porucha. Text = prostor pro tvou hlavu.</p>
+        <p style="color:var(--muted);">Úhloměr je nástroj na rozšíření myšlení. Nemusíš se naučit 12 perspektiv. Stačí, když pochopíš, že není nikdy jediná.</p>
+        <div style="margin-top: 24px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="doma/MYS/chyba_jako_styl.html" class="btn btn-sm">Chyba jako styl →</a>
+          <a href="doma/MYS/CHCES_MYS_SLOVNIK_MEZER_hlubsi_analyza_MANUS_AI.pdf" class="btn btn-sm">Hlubší analýza →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KONTAKT CTA ═══ -->
+<section id="kontakt" style="border-bottom: none; padding-bottom: 0;">
+  <div class="container">
+    <div class="contact-box">
+      <h3>Začněte dnes.<br>Workshop je připravený.</h3>
+      <p>Vyberte si kartu, napište na chcesmys@gmail.com a do 24 hodin máte plnou verzi u sebe.</p>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="doma/KOCOUR/data/landing_page_kocour.html" class="btn btn-light">Vyzkoušet zdarma — Kocour</a>
+        <a href="mailto:chcesmys@gmail.com" class="btn">Napsat email →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p><strong>Chceš myš? — Slovník mezer</strong></p>
+        <p><a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a></p>
+        <p style="margin-top:12px;">Obsah licencován pod <strong>CC BY-NC-SA 4.0</strong>. Plné verze karet pod komerční licencí.</p>
+      </div>
+      <div class="footer-right">
+        <p>© 2026 Michaela Nováková</p>
+        <p>Metoda „Repo dům"</p>
+        <p style="margin-top:8px;"><a href="doma/KOCOUR/data/landing_page_kocour.html" style="font-size:.82rem;">Kocour — zdarma →</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
