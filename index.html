@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chceš myš? — jádro systému</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0d0d; --paper: #f5f0e8; --ink: #1a1a1a;
+      --cream: #e8e0d0; --dim: rgba(232,224,208,.42);
+      --accent: #c8b89a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --mono: 'DM Mono', 'Courier New', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--cream);
+      font-family: var(--mono); font-size: 14px;
+      line-height: 1.8; -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; opacity: .35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+    }
+    .wrap { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 32px; }
+    a { color: inherit; }
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 18px 32px; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      border-bottom: 1px solid rgba(200,184,154,.1);
+      background: rgba(13,13,13,.88); backdrop-filter: blur(14px);
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 11px; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--accent); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .nav-links a {
+      font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+      text-decoration: none; color: var(--dim); transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--cream); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; padding: 120px 0 80px;
+      border-bottom: 1px solid rgba(200,184,154,.1);
+    }
+    .hero-label {
+      font-size: 10px; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 44px;
+      opacity: 0; animation: fadeUp .8s .2s forwards;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 8vw, 6.2rem);
+      font-weight: 300; line-height: 1.0;
+      color: var(--paper); margin-bottom: 10px;
+      opacity: 0; animation: fadeUp .9s .35s forwards;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub {
+      font-family: var(--serif); font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 300; font-style: italic; color: var(--dim);
+      margin-bottom: 52px;
+      opacity: 0; animation: fadeUp .9s .5s forwards;
+    }
+    .hero-perex {
+      max-width: 500px; font-size: .86rem; line-height: 2.1;
+      color: rgba(232,224,208,.6);
+      border-left: 1px solid var(--accent); padding-left: 22px;
+      opacity: 0; animation: fadeUp .9s .65s forwards;
+    }
+    .hero-scroll {
+      margin-top: 68px; font-size: 10px; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--dim);
+      display: flex; align-items: center; gap: 14px;
+      opacity: 0; animation: fadeUp .9s .9s forwards;
+    }
+    .hero-scroll::after {
+      content: ''; display: block; width: 44px; height: 1px;
+      background: var(--accent); opacity: .4;
+    }
+
+    /* SEKCE */
+    .sekce {
+      padding: 84px 0; border-bottom: 1px solid rgba(200,184,154,.08);
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .7s, transform .7s;
+    }
+    .sekce.vis { opacity: 1; transform: none; }
+    .sekce-meta {
+      font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 28px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .sekce-meta::after {
+      content: ''; flex: 0 0 48px; height: 1px;
+      background: var(--accent); opacity: .35;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 4vw, 2.7rem);
+      font-weight: 300; line-height: 1.2;
+      color: var(--paper); margin-bottom: 28px;
+    }
+    h2 em { font-style: italic; color: var(--accent); }
+    .prose { font-size: .87rem; line-height: 2.1; color: rgba(232,224,208,.65); max-width: 580px; }
+    .prose strong { color: var(--cream); font-weight: 400; }
+
+    /* KROKY */
+    .kroky { margin-top: 36px; }
+    .krok {
+      display: grid; grid-template-columns: 44px 1fr;
+      gap: 26px; padding: 26px 0;
+      border-bottom: 1px solid rgba(200,184,154,.08);
+    }
+    .krok:last-child { border-bottom: none; }
+    .krok-n {
+      font-family: var(--serif); font-size: 2.2rem; font-weight: 300;
+      color: rgba(200,184,154,.2); line-height: 1; padding-top: 4px;
+    }
+    .krok h3 {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
+      color: var(--paper); margin-bottom: 8px;
+    }
+    .krok p { font-size: .84rem; line-height: 1.9; color: rgba(232,224,208,.55); margin: 0; }
+
+    /* CITÁT */
+    .citat-wrap {
+      padding: 72px 0; border-bottom: 1px solid rgba(200,184,154,.08);
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .7s, transform .7s;
+    }
+    .citat-wrap.vis { opacity: 1; transform: none; }
+    blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 3.2vw, 2.1rem);
+      font-weight: 300; font-style: italic;
+      line-height: 1.55; color: var(--paper);
+      padding-left: 28px; border-left: 2px solid var(--accent);
+      max-width: 560px;
+    }
+    blockquote cite {
+      display: block; margin-top: 18px;
+      font-size: .74rem; font-style: normal;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--dim); font-family: var(--mono);
+    }
+
+    /* TABULKA */
+    .tbl-outer { margin-top: 36px; border: 1px solid rgba(200,184,154,.18); overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+    thead tr { border-bottom: 1px solid rgba(200,184,154,.18); }
+    thead th {
+      padding: 13px 18px; text-align: left;
+      font-family: var(--mono); font-size: .68rem;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--accent); font-weight: 400;
+    }
+    thead th:first-child { color: rgba(200,184,154,.3); }
+    tbody tr { border-bottom: 1px solid rgba(200,184,154,.07); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 13px 18px; vertical-align: top; color: rgba(232,224,208,.58); }
+    tbody td:first-child {
+      color: rgba(200,184,154,.45); font-size: .68rem;
+      letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
+    }
+
+    /* VSTUPY */
+    .vstupy {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: rgba(200,184,154,.1);
+      border: 1px solid rgba(200,184,154,.1); margin-top: 36px;
+    }
+    .vstup {
+      background: var(--bg); padding: 30px 26px;
+      text-decoration: none; transition: background .15s;
+      display: block;
+    }
+    .vstup:hover { background: rgba(200,184,154,.04); }
+    .vstup-tag {
+      font-size: .66rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px; display: block;
+    }
+    .vstup h3 {
+      font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
+      color: var(--paper); margin-bottom: 9px;
+    }
+    .vstup p { font-size: .8rem; color: rgba(232,224,208,.5); margin-bottom: 18px; line-height: 1.8; }
+    .vstup-odkaz {
+      font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent); text-decoration: underline; text-underline-offset: 3px;
+    }
+    @media (max-width: 520px) { .vstupy { grid-template-columns: 1fr; } }
+
+    /* ZÁVĚR */
+    .zaver {
+      padding: 110px 0 96px; text-align: center;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .9s, transform .9s;
+    }
+    .zaver.vis { opacity: 1; transform: none; }
+    .zaver-label {
+      font-size: 10px; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--dim); margin-bottom: 36px;
+    }
+    .velka {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 9vw, 6.8rem);
+      font-weight: 300; font-style: italic;
+      color: var(--paper); line-height: 1.05; margin-bottom: 36px;
+    }
+    .velka em { color: var(--accent); }
+    .zaver-note {
+      font-size: .85rem; color: var(--dim);
+      max-width: 340px; margin: 0 auto 44px; line-height: 2;
+    }
+    .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta {
+      display: inline-block; padding: 13px 32px;
+      font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+      border: 1px solid rgba(200,184,154,.35); color: var(--cream);
+      text-decoration: none; transition: border-color .2s, background .2s;
+    }
+    .cta:hover { border-color: var(--accent); background: rgba(200,184,154,.07); }
+    .cta.sec { border-color: rgba(200,184,154,.12); color: var(--dim); }
+    .cta.sec:hover { border-color: rgba(200,184,154,.28); color: var(--cream); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid rgba(200,184,154,.08); padding: 36px 0; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; align-items: center; }
+    footer p { font-size: .74rem; color: var(--dim); }
+    footer a { color: rgba(200,184,154,.45); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(200,184,154,.2); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Chceš myš?</a>
+  <ul class="nav-links">
+    <li><a href="#metoda">Metoda</a></li>
+    <li><a href="#nastroje">Nástroje</a></li>
+    <li><a href="#tabulka">Srovnání</a></li>
+    <li><a href="mailto:chcesmys@gmail.com">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+  <section class="hero">
+    <p class="hero-label">Jádro systému · metoda Repo dům</p>
+    <h1>Chceš<br><em>myš?</em></h1>
+    <p class="hero-sub">Metoda kognitivního mapování slepých míst.</p>
+    <p class="hero-perex">
+      Funguje v týmech. Funguje u případů.<br>
+      Funguje všude tam, kde člověk potřebuje vidět to, co přehlíží —<br>
+      ne proto, že je hloupý, ale proto, že je uvnitř.
+    </p>
+    <p class="hero-scroll">Číst dál</p>
+  </section>
+</div>
+
+<!-- SLEPÉ MÍSTO -->
+<div class="wrap">
+  <section class="sekce" id="metoda">
+    <p class="sekce-meta">01 · slepé místo</p>
+    <h2>Není to chyba.<br>Je to místo, kam se<br><em>pozornost nedostane.</em></h2>
+    <div class="prose">
+      <p>Příliš blízko. Příliš zvyklé. Nebo příliš bolestivé.</p>
+      <p>V týmu to může být vzorec, který se opakuje na každé poradě — a nikdo ho nevidí, protože všichni jsou jeho součástí.</p>
+      <p>V případu to může být výpověď, která se na jednom místě nepatrně liší od baseline — a nikdo si toho nevšiml, protože přečetl dvě stě stránek a mozek si začal doplňovat sám.</p>
+      <p><strong>Nástroj slepé místo neidentifikuje za vás. Ukáže vám mapu. Vy rozhodujete, co na ní vidíte.</strong></p>
+    </div>
+  </section>
+</div>
+
+<!-- JAK TO FUNGUJE -->
+<div class="wrap">
+  <section class="sekce">
+    <p class="sekce-meta">02 · princip</p>
+    <h2>Vždy stejně.<br><em>Ve dvou krocích.</em></h2>
+    <div class="kroky">
+      <div class="krok">
+        <span class="krok-n">I</span>
+        <div>
+          <h3>Základ — vytváří uživatel</h3>
+          <p>U týmu je to pohádka — příběh, do kterého se tým pozná bez toho, aby se musel bránit. U případu je to baseline — text, výpověď nebo popis výchozího stavu. Základ nevytváří nástroj. Mapa je tak dobrá jako data, která do ní vstoupí.</p>
+        </div>
+      </div>
+      <div class="krok">
+        <span class="krok-n">II</span>
+        <div>
+          <h3>Vrstvy — přidává uživatel</h3>
+          <p>U týmu jsou to odpovědi na tři otázky — z nich vznikne kognitivní profil: které úhly tým přetěžuje, která místa přeskakuje. U případu jsou to výpovědi, záznamy, poznámky — z nich vznikne kognitivní mapa odchylek od baseline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CITÁT 1 -->
+<div class="wrap">
+  <div class="citat-wrap">
+    <blockquote>
+      „Myš nepíše rozsudky.<br>Myš si zapisuje do ticha."
+      <cite>— metoda Chceš myš? · Michaela Nováková</cite>
+    </blockquote>
+  </div>
+</div>
+
+<!-- PROČ POHÁDKY -->
+<div class="wrap">
+  <section class="sekce">
+    <p class="sekce-meta">03 · pohádky</p>
+    <h2>Pohádka není dekorace.<br>Je to <em>nástroj vstupu.</em></h2>
+    <div class="prose">
+      <p>Přímá otázka vyvolá obranu. Příběh obranu obchází.</p>
+      <p>Když tým diskutuje o kocourovi, nemluví o Jirkovi z accountingu — ale mluví přesně o tom, o čem mluvit potřebuje.</p>
+      <p>Zvíře je porucha. Dívka je řeč. Text mezi nimi je prostor pro interpretaci — a v té interpretaci jsou diagnostická data.</p>
+      <p>U forenzního nástroje pohádky nejsou. Tam je realita dost tvrdá sama o sobě. Ale princip je stejný: příběh se čte více úhly najednou — a každý úhel odhalí něco jiného.</p>
+    </div>
+  </section>
+</div>
+
+<!-- META-JAZYK -->
+<div class="wrap">
+  <section class="sekce">
+    <p class="sekce-meta">04 · meta-jazyk</p>
+    <h2>Systém nepracuje<br>s obsahem.<br>Pracuje se <em>strukturou.</em></h2>
+    <div class="prose">
+      <p>Nezajímá ho, co tým řekl. Zajímá ho, <strong>jak to řekl, odkud to řekl, co vynechal.</strong></p>
+      <p>Stejně tak u výpovědi. Ne co se stalo. Ale kde se jazyk zadrhl. Kde se opakuje. Kde se liší od sebe sama.</p>
+      <p>Struktura mluví jinak než obsah.<br>A myš naslouchá oběma.</p>
+    </div>
+  </section>
+</div>
+
+<!-- TABULKA -->
+<div class="wrap">
+  <section class="sekce" id="tabulka">
+    <p class="sekce-meta">05 · dva vstupy</p>
+    <h2>Jedna metoda.<br><em>Dva nástroje.</em></h2>
+    <div class="tbl-outer">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Slovník mezer — týmy</th>
+            <th>Forenzní mapování — případy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Základ</td><td>Pohádka</td><td>Baseline (text, výpověď)</td></tr>
+          <tr><td>Data</td><td>Odpovědi týmu na 3 otázky</td><td>Výpovědi, záznamy, poznámky</td></tr>
+          <tr><td>Výstup</td><td>Kognitivní profil týmu</td><td>Kognitivní mapa případu</td></tr>
+          <tr><td>Práce s výsledkem</td><td>Workshop, intervence, pravidla</td><td>Identifikace odchylek, slepých míst</td></tr>
+          <tr><td>Kdo rozhoduje</td><td>Facilitátor a tým</td><td>Vyšetřovatel, právník, mediátor</td></tr>
+          <tr><td>Co nástroj dělá</td><td>Mapuje — nesoudí</td><td>Mapuje — nesoudí</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- VSTUPY -->
+<div class="wrap">
+  <section class="sekce" id="nastroje">
+    <p class="sekce-meta">06 · kde začít</p>
+    <h2>Vyberte vstup.</h2>
+    <div class="vstupy">
+      <a class="vstup" href="/">
+        <span class="vstup-tag">Týmová metoda</span>
+        <h3>Slovník mezer</h3>
+        <p>Karty, pohádky, workshopy. Kognitivní profil týmu. Pro facilitátory, HR a leadery.</p>
+        <span class="vstup-odkaz">Otevřít →</span>
+      </a>
+      <a class="vstup" href="/forezni">
+        <span class="vstup-tag">Forenzní mapování</span>
+        <h3>Jazykové mapování případů</h3>
+        <p>Baseline, výpovědi, kognitivní mapa odchylek. Pro mediátory, právníky, vyšetřovatele.</p>
+        <span class="vstup-odkaz">Otevřít →</span>
+      </a>
+      <a class="vstup" href="/kreativni">
+        <span class="vstup-tag">Kreativní miniatury</span>
+        <h3>20 minut. Jedno zvíře.</h3>
+        <p>Pohádka, tři otázky, protilehlý mini-projekt. Pro jednotlivce a tvůrce. Zdarma.</p>
+        <span class="vstup-odkaz">Otevřít →</span>
+      </a>
+      <a class="vstup" href="mailto:chcesmys@gmail.com">
+        <span class="vstup-tag">Nevím kde začít</span>
+        <h3>Napsat přímo</h3>
+        <p>Poradíme, který vstup je pro váš kontext nejvhodnější.</p>
+        <span class="vstup-odkaz">chcesmys@gmail.com →</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<!-- CITÁT 2 -->
+<div class="wrap">
+  <div class="citat-wrap">
+    <blockquote>
+      „Myš vidí to, co ostatní nevidí. Ne proto, že je chytřejší. Proto, že je malá, tichá a nestojí uprostřed."
+      <cite>— jádro systému</cite>
+    </blockquote>
+  </div>
+</div>
+
+<!-- ZÁVĚR -->
+<div class="wrap">
+  <div class="zaver">
+    <p class="zaver-label">Jedna otázka</p>
+    <p class="velka">„Chceš<br><em>myš?"</em></p>
+    <p class="zaver-note">Ne velká. Ne důležitá.<br>Jenom ta jedna.</p>
+    <div class="cta-group">
+      <a class="cta" href="/">Slovník mezer</a>
+      <a class="cta sec" href="mailto:chcesmys@gmail.com">Napsat</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Michaela Nováková — metoda Repo dům · <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a></p>
+    <p><a href="/">Hlavní stránka</a> · <a href="/forezni">Forenzní mapování</a> · <a href="/kreativni">Kreativní miniatury</a></p>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.sekce, .citat-wrap, .zaver').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
