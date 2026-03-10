@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Náhodný výrok – Motýl</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 700px;
+            margin: 3rem auto;
+            padding: 0 20px;
+            background: #fafaf8;
+            color: #1e1e1e;
+            text-align: center;
+        }
+        h1 {
+            font-weight: 400;
+            border-bottom: 2px dashed #aaa;
+            padding-bottom: 0.5rem;
+        }
+
+        .nav {
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .nav a {
+            color: #111;
+        }
+      
+        .statement-box {
+            background: white;
+            border-radius: 30px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            font-size: 1.3rem;
+            line-height: 1.6;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            background: #2c3e50;
+            border: none;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: 1px solid #1a2632;
+            transition: 0.1s;
+        }
+        button:hover {
+            background: #1f2d3a;
+        }
+        .footer {
+            margin-top: 2rem;
+            color: #6f6f6f;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <a href="../">← Zpět na Kocoura</a> &nbsp;|&nbsp;
+        <a href="#">Chceš housenku?</a> &nbsp;|&nbsp;
+        <a href="../../../README.md">Samička?</a>
+    </div>
+  
+    <h1 id="card-title">🦋 Motýl – úhel pohledu</h1>
+    <div class="statement-box" id="statement">
+        Načítám...
+    </div>
+    <button id="generate-btn">Další úhel</button>
+    <div class="footer">
+        Jeden z 36 úhlů. Estetizace hladu, nebo potrava pro mysl?
+    </div>
+
+    <script>
+        // █████████████████████████████████████████████████
+        // DATA PRO KARTU MOTÝL – odvozeno z 12 úhlů
+        // Každý úhel generuje 3 výroky (Q1, Q2, Q3)
+        // █████████████████████████████████████████████████
+        const cardData = {
+            "card": "Motýl",
+            "statements": [
+                // ÚHEL 1: Symbolické nasycení
+                "Nabízíme ‚motýly‘ – vize bez plánu, uznání bez zvýšení platu, ‚agilní transformaci‘ bez změny pravomocí.",
+                "Hlad po reálném dopadu, po viditelném výsledku, po tom, že naše práce něco váží a mění.",
+                "Kdykoli někdo předloží vizi (motýla), musí zároveň navrhnout první tři kroky ‚přílohy‘ – konkrétní akce do 14 dnů.",
+
+                // ÚHEL 2: Komunikační minimalismus
+                "Dialog mezi ‚To je umění‘ a ‚To je hlad‘ je základní rozkol. Management estetizuje, operativa volá po řešení.",
+                "Hlad po jasné, neestetizované komunikaci. Nazvat problém pravým jménem (‚nesmysl‘), nezakrýt metaforou (‚interpretace‘).",
+                "Zavést pravidlo: ‚A teď to řeknu bez metafory: Jde o to, že…‘",
+
+                // ÚHEL 3: Proměnlivá identita (Horac/Florián)
+                "Motýli mění jména (Horac/Florián) a snaží se být tím, co je potřeba (salát, knedlík, banán). PR a marketing jako náhražka řešení.",
+                "Hlad po autenticitě a stálosti. Aby věci byly tím, čím se tváří být. Aby ‚Florián‘ zůstal ‚Horacem‘.",
+                "Určit každému projektu jeho ‚křestní jméno‘ (podstatu) a hlídat, zda se nepřevléká za něco, čím není, jen aby se zavděčil.",
+
+                // ÚHEL 4: Nefunkční krása (motýl bez palců)
+                "Krásné nástroje, sofistikované systémy, elegantní procesy – ale bez ‚palců‘ k otevření ledničky v reálném světě.",
+                "Hlad po funkčnosti, ne po kráse. Po nástroji, který otevře ledničku, ne po tom graficky dokonalém.",
+                "Při hodnocení nápadu se ptát na ‚test palců‘: ‚Jaké tři nejjednodušší akce s tím udělá ten, kdo to bude používat?‘",
+
+                // ÚHEL 5: Lehkost jako prokletí
+                "Argument ‚Motýli jsou lehcí‘ je past. Nabízí se bezobsažnost jako výhoda. Lehkost reportů, meetingů, iniciativ, které po sobě nic nezanechají.",
+                "Hlad po substanci, po něčem, co zanechá stopu. Tým je unavený z ‚lehkosti bytí‘, touží po práci, která váží.",
+                "Zavést pravidlo ‚těžkého žaludku‘: Pokud rozhodnutí neobsahuje nepříjemný kompromis, obtížný úkol nebo riziko, je to motýl.",
+
+                // ÚHEL 6: Ztracené chuti (rohlík bez motýlů)
+                "Když odmítneme motýly a sáhneme po holém rohlíku (pouze utilitární řešení), ztrácíme chuť, radost, smysl.",
+                "Hlad po celistvosti. Po tom, aby řešení nasytilo žaludek (funkčnost) i duši (smysl, krásu). Aby žaludek zpíval a šeptal básničky.",
+                "Hledat vždy ‚chleba s motýlem‘ – základní řešení doplněné o jeden prvek smyslu/krásy/hry, který mu dává chuť.",
+
+                // ÚHEL 7: Self-estetizace problému
+                "Problémy se v týmu začnou ‚estetizovat‘. Prezentují se jako přijatelné, i když jimi nejsou. ‚Výzva jako příležitost‘ místo ‚propadli jsme na trhu‘.",
+                "Hlad po upřímné diagnóze. Aby se problém nazval ošklivým jménem, neoblékl do šatů metafor.",
+                "Pravidlo ‚ošklivého prvního slova‘: První věta při popisu problému musí obsahovat nejpřímější výraz (‚selhali jsme‘, ‚zlobíme se‘).",
+
+                // ÚHEL 8: Básničky v žaludku (touha po vnitřním zpěvu)
+                "‚Já chci, aby mi žaludek zpíval, ne aby si šeptal básničky.‘ Touha po autentickém prožitku, po nadšení, po vnitřní jistotě.",
+                "Hlad po vnitřní motivaci, po práci, která nás naplňuje tak, že to cítíme v žaludku jako nadšení, ne jako úzkostný šepot.",
+                "Místo hodnocení spokojenosti se ptát: ‚Na čem jsi pracoval, že jsi cítil, jak ti žaludek zpívá?‘",
+
+                // ÚHEL 9: Emocionálního chleba
+                "I utilitární věci (chleba) mají svou poezii, trauma a komplexitu. ‚Nudné‘ procesy, řezání rozpočtu jsou plné emocí a příběhů.",
+                "Hlad po uznání emocionální náročnosti rutiny. Aby se neříkalo ‚jen to udělej‘, ale aby se viděl příběh v ‚řezání chleba‘.",
+                "Když delegujeme úkol, ptát se: ‚Co na tom bude nejtěžší/nejnepříjemnější? Jak ti v tom můžeme podržet patky?‘",
+
+                // ÚHEL 10: Víry v myšlenkách (motýli kroužící)
+                "Motýli kroužící kolem hlavy – neustále přítomné, rušivé, krásné, ale neuchopitelné nápady a vize, které znemožňují soustředěnou práci.",
+                "Hlad po klidu, po soustředění, po možnosti nechat myšlenky sedět, ne poletovat. Po hluboké práci, ne po roji podnětů.",
+                "Vytvořit ‚motýlí rezervaci‘ – board, kam se ukládají všechny nápady, které nelze řešit. Jednou týdně se jeden vybere k proměně v housenku (projekt).",
+
+                // ÚHEL 11: Nedělní chuti
+                "‚Já bych stejně chutnal jako neděle.‘ Nabízená řešení jsou správná, sociálně přijatelná, ale bez jiskry, překvapení, života.",
+                "Hlad po překvapení, po nových chutích, po práci, která chutná jako dobrodružství, ne jako povinná neděle.",
+                "Pravidelně zařazovat prvek ‚pátku‘ – něco neočekávaného, experimentálního, mírně rizikového. Aby chuť práce nebyla jednotvárně nedělní.",
+
+                // ÚHEL 12: Konečného dotazu („A máš k tomu i přílohu?“)
+                "Poslední otázka je sebeobranný mechanismus proti motýlům: Když je nabízena ‚láska‘ (kultura, vize), tým se ptá na praktickou protiváhu.",
+                "Hlad po vyváženosti. Aby každá ‚láska‘ měla svůj ‚chléb‘, každá vize svůj plán, každé uznání svůj hmotný ekvivalent.",
+                "Institucionalizovat otázku ‚A máš k tomu i přílohu?‘ jako povinnou součást schvalování nových iniciativ a změn."
+            ]
+        };
+
+        // Zbytek skriptu – beze změny, jen pracuje s cardData
+        document.getElementById('card-title').innerHTML = `🦋 ${cardData.card} – úhel pohledu`;
+
+        const statements = cardData.statements;
+        const statementEl = document.getElementById('statement');
+        const btn = document.getElementById('generate-btn');
+
+        function generateRandom() {
+            if (statements.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * statements.length);
+            statementEl.innerText = statements[randomIndex];
+        }
+
+        // První výrok při načtení
+        generateRandom();
+
+        // Tlačítko
+        btn.addEventListener('click', generateRandom);
+    </script>
+</body>
+</html>
