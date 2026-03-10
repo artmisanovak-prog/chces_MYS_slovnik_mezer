@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🦋 Motýl – generativní mód</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, serif;
+    background: #fff;
+    color: #111;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+    line-height: 1.6;
+  }
+  h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+  h2 { font-size: 1.1rem; margin: 2rem 0 0.7rem; border-bottom: 1px solid #111; padding-bottom: 0.3rem; }
+  h3 { font-size: 1rem; margin: 0 0 0.3rem; }
+  .nav { font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .nav a { color: #111; }
+  .uvod {
+    border-left: 3px solid #111;
+    padding: 0.7rem 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  .kombinace {
+    border: 1px solid #111;
+    margin-bottom: 1.5rem;
+  }
+  .kombinace-hlavicka {
+    background: #111;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+  .kombinace-hlavicka span {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    display: block;
+    margin-top: 0.1rem;
+  }
+  .kombinace-telo { padding: 1rem; }
+  .kombinace-nazev { font-weight: bold; font-size: 1rem; margin-bottom: 0.3rem; }
+  .kombinace-cil { font-size: 0.85rem; color: #555; font-style: italic; margin-bottom: 0.8rem; }
+  .kombinace-cviceni { font-size: 0.88rem; }
+  .kombinace-cviceni p { margin-bottom: 0.4rem; }
+  .kombinace-cviceni ol { margin-left: 1.2rem; }
+  .kombinace-cviceni li { margin-bottom: 0.4rem; }
+  .vlastni-box {
+    border: 1px solid #111;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .vlastni-box p { font-size: 0.88rem; color: #444; margin-bottom: 1rem; }
+  .vybery { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .vyber-skupina { flex: 1; min-width: 200px; }
+  .vyber-skupina label { display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 0.3rem; }
+  .vyber-skupina select {
+    width: 100%;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid #111;
+    font-family: Georgia, serif;
+    font-size: 0.85rem;
+    background: #fff;
+  }
+  .btn {
+    padding: 0.5rem 1.2rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: Georgia, serif;
+  }
+  .btn:hover { background: #333; }
+  .vysledek-kombinace {
+    display: none;
+    margin-top: 1.2rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+  }
+  .vysledek-kombinace h3 { margin-bottom: 0.8rem; }
+  .uhel-panel {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .uhel-panel strong { display: block; margin-bottom: 0.3rem; }
+  .uhel-panel .meta { font-size: 0.8rem; color: #555; font-style: italic; margin-bottom: 0.5rem; }
+  .uhel-panel .q3-text { font-size: 0.88rem; border-left: 2px solid #111; padding-left: 0.7rem; }
+  .hint {
+    background: #f5f5f5;
+    padding: 0.7rem;
+    font-size: 0.82rem;
+    color: #444;
+    margin-top: 0.8rem;
+    font-style: italic;
+  }
+  @media print {
+    .nav, .btn, select { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="../">← Kocour</a> &nbsp;|&nbsp;
+  <a href="#">Chceš housenku?</a> &nbsp;|&nbsp;
+  <a href="../../../">Samička?</a>
+</div>
+
+<h1>🦋 Motýl – generativní mód</h1>
+<p style="font-size:0.85rem; color:#555; margin-bottom:1rem;">Estetizace hladu jako výchozí bod</p>
+
+<div class="uvod">
+  Tahle karta neukazuje jen motýly – učí vás je rozlišovat od skutečné potravy.<br>
+  Vyberte dva úhly a spojte jejich transformační úkoly (Q3) do jednoho cvičení.
+</div>
+
+<h2>🧩 Hotové kombinace</h2>
+
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 1 + 6
+    <span>Úhel 1 (Symbolické nasycení) × Úhel 6 (Ztracená chuť)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Chleba s motýlem</div>
+    <div class="kombinace-cil">Cíl: Naučit se přidávat ke každé vizi konkrétní první kroky.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Cvičení (30 minut):</strong></p>
+      <ol>
+        <li>Každý napíše na lísteček jednu „krásnou vizi“ – něco, co by chtěl v týmu dosáhnout (nový nástroj, změna kultury, projekt).</li>
+        <li>Lístky se zamíchají a každý si vylosuje cizí vizi.</li>
+        <li><strong>10 minut:</strong> K vizi dopište „tři přílohy“ – tři konkrétní, malé, hmatatelné akce, které je možné udělat do 14 dnů.</li>
+        <li><strong>10 minut:</strong> Sdílení. Autor vize dostává zpětnou vazbu: Jsou přílohy opravdu „k jídlu“, nebo jsou to další motýli?</li>
+        <li><strong>10 minut:</strong> Tým vybere jednu vizi, u které se zaváže, že její tři přílohy skutečně zrealizuje.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 2 + 9
+    <span>Úhel 2 (Komunikační minimalismus) × Úhel 9 (Emocionální chleba)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Bez metafory, prosím</div>
+    <div class="kombinace-cil">Cíl: Odhalit emoce skryté v „nudných“ úkolech.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Cvičení (25 minut):</strong></p>
+      <ol>
+        <li>Vezměte si aktuální „nudný“ úkol – report, rutinní meeting, účetnictví, úklid dat.</li>
+        <li>Každý člen týmu dostane 3 minuty na to, aby o tom úkolu mluvil. <strong>Pravidlo: nesmí použít žádnou metaforu, žádné „jako“.</strong> Jen holá fakta, pocity a potřeby.</li>
+        <li>Ostatní poslouchají a hledají odpověď na otázku: <em>„Jaký příběh se v tom úkolu skrývá? Kdo nebo co v něm trpí? Kde je jeho poezie a trauma?“</em></li>
+        <li>Sdílení postřehů. Cílem je najít v tom „nejnudnějším chlebu“ jeho emoční patky.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 4 + 10
+    <span>Úhel 4 (Nefunkční krása) × Úhel 10 (Víry v myšlenkách)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Motýlí rezervace</div>
+    <div class="kombinace-cil">Cíl: Zkrotit roj nápadů a najít ty, které mají „palce“.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Nový týmový rituál:</strong></p>
+      <p>Založte <strong>Motýlí rezervaci</strong> – fyzický board nebo Miro tabuli, kam může kdokoli kdykoli umístit „motýla“ (nápad, obavu, vizi), který ho právě teď rozptyluje a nejde realizovat.</p>
+      <p><strong>Jednou týdně (např. v pátek na 30 minut):</strong></p>
+      <ol>
+        <li>Otevřete rezervaci a prohlédněte si všechny motýly.</li>
+        <li>Každý člen má 3 hlasy pro motýly, u kterých cítí, že by mohli mít „palce“ – tedy že jsou zralí na proměnu v housenku (projekt).</li>
+        <li>Motýl s nejvíce hlasy se stává „housenkou“ – tým k němu dopíše tři konkrétní akce (test palců) a zařadí ho do běžného plánování.</li>
+        <li>Ostatní motýli zůstávají v rezervaci. Nikdo je nesmí mazat ani kritizovat.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="kombinace">
+  <div class="kombinace-hlavicka">
+    Kombinace 5 + 12
+    <span>Úhel 5 (Lehkost jako prokletí) × Úhel 12 (A máš k tomu i přílohu?)</span>
+  </div>
+  <div class="kombinace-telo">
+    <div class="kombinace-nazev">Těžký žaludek</div>
+    <div class="kombinace-cil">Cíl: Prověřit, zda nové iniciativy mají skutečnou váhu.</div>
+    <div class="kombinace-cviceni">
+      <p><strong>Pravidlo pro příští schůzi:</strong></p>
+      <p>Kdokoli představí nový nápad, projekt, změnu nebo benefit, musí na konci své prezentace odpovědět na otázku: <strong>„A máš k tomu i přílohu?“</strong></p>
+      <p><strong>„Příloha“ znamená:</strong></p>
+      <ul style="margin-left:1.2rem; margin-bottom:0.5rem;">
+        <li>alespoň jeden nepříjemný kompromis,</li>
+        <li>alespoň jeden obtížný úkol, který někoho bolí,</li>
+        <li>alespoň jedno riziko, které musíme podstoupit.</li>
+      </ul>
+      <p>Pokud návrh neobsahuje žádnou z těchto věcí, je to <strong>motýl</strong> – a tým ho může obdivovat, ale nesmí ho přijmout k realizaci, dokud nedostane pořádnou přílohu.</p>
+    </div>
+  </div>
+</div>
+
+<h2>🔭 Vlastní kombinace</h2>
+
+<div class="vlastni-box">
+  <p>Vyber dva různé úhly a spojí se jejich Q3 — úkoly, které z nich vyplývají. Zbytek je na tobě: jak cvičení pojmeneš, jak ho časově nastavíš, co z toho uděláš.</p>
+  <div class="vybery">
+    <div class="vyber-skupina">
+      <label>Úhel A (přetížený / dominantní):</label>
+      <select id="uhel-a"><option value="">— vyber úhel —</option></select>
+    </div>
+    <div class="vyber-skupina">
+      <label>Úhel B (deficitní / chybějící):</label>
+      <select id="uhel-b"><option value="">— vyber úhel —</option></select>
+    </div>
+  </div>
+  <button class="btn" onclick="generuj()">🦋 Spojit úhly</button>
+  <div class="vysledek-kombinace" id="vysledek">
+    <h3>Tvoje kombinace</h3>
+    <div id="panel-a" class="uhel-panel"></div>
+    <div id="panel-b" class="uhel-panel"></div>
+    <div class="hint">
+      Toto jsou dva úkoly (Q3) z vybraných úhlů. Spoj je do jednoho cvičení — pojmenuj ho, odhadni čas, popiš postup. Princip: lidé s úhlem A dostanou za úkol pracovat způsobem úhlu B.
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────
+// DATA PRO KARTU MOTÝL – 12 úhlů odvozených ze zadání
+// ─────────────────────────────────────────────────────────────
+const uhly = [
+  {
+    "id": 1,
+    "emoji": "🍽️",
+    "nazev": "Symbolické nasycení",
+    "metafora": "Nabízíme motýly – vize bez plánu, uznání bez zvýšení platu, agilní transformaci bez změny pravomocí.",
+    "q1": "Nabízíme ‚motýly‘ – vize bez plánu, uznání bez zvýšení platu, ‚agilní transformaci‘ bez změny pravomocí, brainstormy bez rozhodnutí.",
+    "q2": "Hlad po reálném dopadu, po viditelném výsledku, po tom, že naše práce něco váží a mění. Místo toho dostáváme prezentace, reporty a ‚strategická setkání‘.",
+    "q3": "Kdykoli někdo předloží vizi (motýla), musí zároveň navrhnout první tři kroky ‚přílohy‘ – konkrétní, malé, hmatatelné akce, které se stanou do 14 dnů."
+  },
+  {
+    "id": 2,
+    "emoji": "💬",
+    "nazev": "Komunikační minimalismus",
+    "metafora": "Dialog mezi ‚To je umění‘ a ‚To je hlad‘ – management estetizuje, operativa volá po řešení.",
+    "q1": "Dialog mezi ‚To je umění‘ a ‚To je hlad‘ je základní rozkol. Jedna strana estetizuje problém, druhá volá po utilitárním řešení.",
+    "q2": "Hlad po jasné, neestetizované komunikaci. Po tom, aby se problém nazval pravým jménem (‚nesmysl‘), nezakryl metaforou (‚interpretace‘).",
+    "q3": "Zavést komunikační pravidlo: Představení jakéhokoli nápadu musí obsahovat větu: ‚A teď to řeknu bez metafory: Jde o to, že…‘"
+  },
+  {
+    "id": 3,
+    "emoji": "🦋",
+    "nazev": "Proměnlivá identita",
+    "metafora": "Motýli mění jména (Horac/Florián) a snaží se být tím, co je potřeba (salát, knedlík, banán).",
+    "q1": "Motýli mění jména a snaží se přetvářet v to, co je potřeba. To je snaha PR, marketingu nebo středního managementu ‚vypadat‘ jako řešení.",
+    "q2": "Hlad po autenticitě a stálosti. Po tom, aby věci byly tím, čím se tváří být. Aby ‚Florián‘ zůstal ‚Horacem‘, pokud je to jeho podstata.",
+    "q3": "Pro každý klíčový projekt určit jeho ‚křestní jméno‘ (podstatu) a hlídat, zda se nepřevléká za něco, čím není, jen aby uspokojil momentální očekávání."
+  },
+  {
+    "id": 4,
+    "emoji": "✋",
+    "nazev": "Nefunkční krása",
+    "metafora": "Motýl bez palců u ledničky – krásný, ale neschopný otevřít realitu.",
+    "q1": "Třetí motýl se ‚snažil otevřít ledničku, ale neměl palce‘. Krásné nástroje, sofistikované systémy, které jsou nefunkční v reálném světě.",
+    "q2": "Hlad po funkčnosti, ne po kráse. Po nástroji, který otevře ledničku, ne po tom, který je graficky dokonalý, ale nemá ‚palce‘.",
+    "q3": "Při hodnocení jakéhokoli nástroje/nápadu se ptát na ‚test palců‘: ‚Jaké jsou tři nejjednodušší, nejpraktičtější akce, které s tím dokáže udělat ten, kdo to bude používat?‘"
+  },
+  {
+    "id": 5,
+    "emoji": "🪶",
+    "nazev": "Lehkost jako prokletí",
+    "metafora": "Argument ‚Motýli jsou lehcí‘ je past. Nabízí se bezobsažnost jako výhoda.",
+    "q1": "Argument ‚Motýli jsou lehcí‘ je past. Lehkost reportů, meetingů, iniciativ, které po sobě nezanechají nic – ani plný žaludek, ani zátěž odpovědnosti.",
+    "q2": "Hlad po substanci, po něčem, co zanechá stopu, co má váhu. Tým je unavený z ‚lehkosti bytí‘, touží po práci, která něco znamená.",
+    "q3": "Zavést pravidlo ‚těžkého žaludku‘: Pokud rozhodnutí/akce neobsahuje aspoň jeden nepříjemný kompromis, jeden obtížný úkol nebo jedno riziko, je to pravděpodobně motýl."
+  },
+  {
+    "id": 6,
+    "emoji": "🥖",
+    "nazev": "Ztracená chuť",
+    "metafora": "Rohlík bez motýlů je prázdný – čistý funkcionalismus bez radosti.",
+    "q1": "Když odmítneme motýly a sáhneme po holém rohlíku (pouze utilitární řešení), ztrácíme často i chuť, radost, smysl.",
+    "q2": "Hlad po celistvosti. Po tom, aby řešení nasytilo jak žaludek (funkčnost), tak duši (smysl, krásu). Aby žaludek zpíval a šeptal básničky.",
+    "q3": "Hledat vždy ‚chleba s motýlem‘ – tedy základní řešení doplněné o jeden prvek smyslu/krásy/hry, který mu dává chuť. Ne jeden, nebo druhý."
+  },
+  {
+    "id": 7,
+    "emoji": "🎭",
+    "nazev": "Self‑estetizace problému",
+    "metafora": "Problémy se samy oblékají do šatů metafor, aby byly přijatelnější.",
+    "q1": "Motýli se sami snaží vypadat jako jídlo (salát, knedlík). Stejně tak se problémy v týmu začnou ‚estetizovat‘ – prezentovat se jako něco přijatelného.",
+    "q2": "Hlad po upřímné diagnóze. Po tom, aby se problém nazval ošklivým jménem, ne oblékl do šatů metafor.",
+    "q3": "Pravidlo ‚ošklivého prvního slova‘: První věta při popisu problému musí obsahovat nejpřímější, nejošklivější výraz (‚selhali jsme‘, ‚zlobíme se‘). Teprve pak smíme hledat motýly."
+  },
+  {
+    "id": 8,
+    "emoji": "🎶",
+    "nazev": "Básničky v žaludku",
+    "metafora": "Motýli vytvářejí jen tichý šepot, ne plný zpěv.",
+    "q1": "‚Já chci, aby mi žaludek zpíval, ne aby si šeptal básničky.‘ Touha po autentickém prožitku, po nadšení, po vnitřní jistotě.",
+    "q2": "Hlad po vnitřní motivaci, po práci, která nás naplňuje tak, že to cítíme v ‚žaludku‘ jako nadšení, ne jako úzkostný šepot.",
+    "q3": "Místo hodnocení spokojenosti se ptát na ‚zpěv žaludku‘: ‚Na čem jsi pracoval/a, že jsi u toho cítil/a, jak ti žaludek zpívá?‘ Identifikovat ty činnosti a podporovat je."
+  },
+  {
+    "id": 9,
+    "emoji": "🍞",
+    "nazev": "Emocionální chleba",
+    "metafora": "Chleba se řeže a má dvě patky – i rutina má svou poezii a trauma.",
+    "q1": "Odbočka o chlebu („řeže se a má dvě patky“) ukazuje, že i utilitární věci (chleba) mají svou poezii, trauma a komplexitu.",
+    "q2": "Hlad po uznání emocionální náročnosti rutiny. Po tom, aby se neříkalo ‚jen to udělej‘, ale aby se viděl příběh a emoce v ‚řezení chleba‘.",
+    "q3": "Když delegujeme úkol („udělej ten chleba“), ptát se i na emocionální rovinu: ‚Co na tom bude nejtěžší/nejnepříjemnější? Jak ti v tom můžeme podržet patky?‘"
+  },
+  {
+    "id": 10,
+    "emoji": "🌀",
+    "nazev": "Víry v myšlenkách",
+    "metafora": "Motýli kroužící kolem hlavy znemožňují soustředěnou práci.",
+    "q1": "Motýli kroužící kolem hlavy a dělající ‚víry v myšlenkách‘ – neustále přítomné, rušivé, krásné, ale neuchopitelné nápady.",
+    "q2": "Hlad po klidu, po soustředění, po možnosti nechat myšlenky sedět, ne poletovat. Po hluboké práci, ne po roji povrchních podnětů.",
+    "q3": "Vytvořit ‚motýlí rezervaci‘ – společný board (Miro/Mural), kam se ukládají všechny ‚motýli‘ (nápady, obavy, vize), které momentálně nelze řešit. Jednou týdně se na 30 minut otevře a vybere se jeden k proměně v housenku (projekt)."
+  },
+  {
+    "id": 11,
+    "emoji": "😐",
+    "nazev": "Nedělní chuť",
+    "metafora": "Chutnal bych jako neděle – správně, ale bez jiskry a překvapení.",
+    "q1": "Florián říká: ‚Já bych stejně chutnal jako neděle.‘ Neděle má specifickou, trochu melancholickou, očekávanou, ale často prázdnou chuť.",
+    "q2": "Hlad po překvapení, po nových chutích, po práci, která chutná jako dobrodružství, ne jako povinná neděle.",
+    "q3": "Pravidelně zařazovat do práce prvek ‚pátku‘ nebo ‚středy‘ – něco neočekávaného, experimentálního, mírně rizikového. Aby chuť práce nebyla jednotvárně nedělní."
+  },
+  {
+    "id": 12,
+    "emoji": "🍽️❓",
+    "nazev": "Konečný dotaz",
+    "metafora": "A máš k tomu i přílohu? – zdravá skepse vůči motýlům.",
+    "q1": "Poslední otázka je sebeobranný mechanismus proti dalším motýlům. Je to zdravá skepse: když je nabízena ‚láska‘, tým se ptá na utilitární protiváhu.",
+    "q2": "Hlad po vyváženosti. Po tom, aby každá ‚láska‘ měla svůj ‚chléb‘, každá vize svůj plán, každé uznání svůj hmotný ekvivalent.",
+    "q3": "Institucionalizovat otázku ‚A máš k tomu i přílohu?‘ jako povinnou součást schvalování jakýchkoli nových iniciativ, změn kultury nebo benefitů. Bez přílohy je to motýl."
+  }
+];
+
+// Naplnění selectů po načtení stránky
+document.addEventListener('DOMContentLoaded', () => {
+  const options = uhly.map(u => `<option value="${u.id}">${u.id}. ${u.emoji} ${u.nazev}</option>`).join('');
+  document.getElementById('uhel-a').innerHTML = '<option value="">— vyber úhel —</option>' + options;
+  document.getElementById('uhel-b').innerHTML = '<option value="">— vyber úhel —</option>' + options;
+});
+
+function generuj() {
+  const idA = parseInt(document.getElementById('uhel-a').value);
+  const idB = parseInt(document.getElementById('uhel-b').value);
+  if (!idA || !idB) { alert('Vyber oba úhly.'); return; }
+  if (idA === idB) { alert('Vyber dva různé úhly.'); return; }
+  const a = uhly.find(u => u.id === idA);
+  const b = uhly.find(u => u.id === idB);
+  document.getElementById('panel-a').innerHTML = `
+    <strong>${a.id}. ${a.emoji} ${a.nazev}</strong>
+    <div class="meta">${a.metafora}</div>
+    <div class="q3-text">${a.q3}</div>
+  `;
+  document.getElementById('panel-b').innerHTML = `
+    <strong>${b.id}. ${b.emoji} ${b.nazev}</strong>
+    <div class="meta">${b.metafora}</div>
+    <div class="q3-text">${b.q3}</div>
+  `;
+  const el = document.getElementById('vysledek');
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
