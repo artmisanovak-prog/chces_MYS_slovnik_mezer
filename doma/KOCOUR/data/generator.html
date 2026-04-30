@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Náhodný výrok · Kocour</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET A GLOBÁLNÍ STYL ===== */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#fff;--s:#f5f2ed;--s2:#ede7dd;
+      --text:#1a1a1a;--dim:#666;--dim2:#999;
+      --a:#8b5a2b;--a2:#6b4226;--ab:rgba(139,90,43,.08);--ab2:rgba(139,90,43,.18);
+      --border:rgba(139,90,43,.2);--border-hi:rgba(139,90,43,.4);
+      --serif:'Cormorant Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+      --radius:4px;
+    }
+    html{scroll-behavior:smooth;height:100%}
+    body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem}
+    a{color:var(--a);text-decoration:none;transition:color .15s}
+    a:hover{color:var(--a2)}
+
+    /* ===== HLAVNÍ KONTEJNER ===== */
+    .card{max-width:650px;width:100%;text-align:center;background:var(--s);border:1px solid var(--border);padding:2.8rem 2.2rem;border-radius:var(--radius);box-shadow:0 8px 20px rgba(0,0,0,.02)}
+    
+    /* ===== NAVIGACE ===== */
+    .nav{display:flex;justify-content:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
+    .nav a{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:4px 8px;border:1px solid transparent;transition:all .15s}
+    .nav a:hover{color:var(--text);border-color:var(--border)}
+    
+    /* ===== NADPIS ===== */
+    h1{font-family:var(--serif);font-size:1.8rem;font-weight:300;margin-bottom:2rem;color:var(--text)}
+    h1 em{font-style:italic;color:var(--a)}
+    
+    /* ===== BOX S VÝROKEM ===== */
+    .statement-box{background:#fff;border:1px solid var(--border);padding:2.5rem 2rem;margin:2rem 0;min-height:160px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.3rem;line-height:1.7;color:var(--text);border-radius:var(--radius);transition:all .2s;box-shadow:0 4px 12px rgba(0,0,0,.02)}
+    .statement-box:hover{border-color:var(--border-hi)}
+    
+    /* ===== TLAČÍTKO ===== */
+    .btn{
+      padding:12px 28px;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+      background:var(--a);color:#fff;border:1px solid var(--a);
+      cursor:pointer;transition:all .15s;border-radius:var(--radius);
+      margin-top:.5rem;
+    }
+    .btn:hover{background:var(--a2);border-color:var(--a2)}
+    
+    /* ===== PATIČKA ===== */
+    .footer{margin-top:2rem;font-family:var(--serif);font-size:.9rem;color:var(--dim2);font-style:italic}
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <a href="../">← Zpět na Kocoura</a>
+    <a href="../../../">Chceš myš?</a>
+  </div>
+
+  <div class="card">
+    <h1>🐈‍⬛ <em>Kocour</em> – náhodný výrok</h1>
+    
+    <div class="statement-box" id="statement">
+      Načítám…
+    </div>
+    
+    <button class="btn" id="generate-btn">Další výrok</button>
+    
+    <div class="footer">
+      Jedna z 36 vět. Žádná teorie, jen inspirace.
+    </div>
+  </div>
+
+  <script>
+    // DATA PRO KARTU KOCOUR – vloženo přímo
+    const cardData = {
+      "card": "Kocour",
+      "statements": [
+        "Kocour se stal otrokem tečky. Věřil, že hodnota je v ukončení, ne v obsahu.",
+        "V našich meetinzích, když někdo řekne 'takže...' a hned je přerušen řešením.",
+        "Zavést pravidlo 'tří teček' (...). První, kdo řekne 'tečka', jen shrnuje.",
+        "Kocour si myslel, že urychluje práci. 'Půl hodiny a hotovo!' Ale ve skutečnosti jen nahradil společný proces monologem.",
+        "Když projektový manažer tlačí na rychlé 'odkliknutí' bodů z agendy, aniž by se dobral podstaty.",
+        "Měřit úspěch schůze nikoli délkou, ale počtem otevřených otázek na konci.",
+        "Berušky nesou 'nespolknuté konce vět'. To jsou nepříjemné, nezpracované aspekty problému.",
+        "Když potlačujeme 'elefanty v místnosti' – citlivá témata, emocionální frustrace.",
+        "Vytvořit 'nástěnku nespolknutého'. Anonymní místo pro věci, co se neřekly.",
+        "Myš je metaforou facilitátora nebo tichého člena. Vidí dysfunkci, ale nemá moc ji zastavit.",
+        "Když jsou v týmu introverti, kteří potřebují delší čas na formulaci, ale jsou přerušováni.",
+        "Jmenovat pro každou důležitou diskusi 'myš'. Jen pozoruje, na konci sdělí, co viděla.",
+        "I když kocour přestal, 'něco nebylo stejné'. Jednorázové narušení zanechává jizvu.",
+        "Po toxické schůzi tým zůstává pasivní, čeká na pokyny. Důvěra je pryč.",
+        "Leader musí vědomě vytvářet nedokončené věty a vyzývat ostatní k dokončení.",
+        "Příběh je posedlý přesnými čísly: 2 berušky, 14 teček, 30 minut. Parodie na manažerské reporty.",
+        "Když se na retrospektivě řeší jen 'splněno/nesplněno', ne 'jak se cítíme'.",
+        "Přidat ke každé metrice kvalitativní příběh: 'Jakých 14 teček jsme vykrkli?'.",
+        "Kocour svým dokončováním vět vynucoval souhlas. Lidé přestali mluvit.",
+        "Když šéf řekne 'Takže všichni souhlasíme?' a ticho je interpretováno jako souhlas.",
+        "Používat mechanismus 'souhlasu ticha' – ticho znamená NESOUHLAS.",
+        "Kocour soutěžil: 'kdo dokončí větu dřív'. Komunikace je závod, ne spolupráce.",
+        "V týmech, kde se odměňuje individuální výkon, přerušování je projev soutěže.",
+        "Zavést 'kolo mluvčího' – mluví jen ten, kdo drží předmět.",
+        "Nedokončené věty bývají všechny stejné. Jakmile je věta dokončena, je mrtvá.",
+        "Když tým hledá řešení hned, místo aby setrval v problému.",
+        "Cvičení: 'Náš problém je jako...' Zakázat dokončení, jen začátky metafor.",
+        "Kocour skákal lidem do řeči. Komunikace se stala traumatem, tým se 'slehl'.",
+        "Když jsou schůze zdrojem stresu, lidé se bojí promluvit.",
+        "Provést audit komunikační bezpečnosti: anonymní dotazník.",
+        "Tečka je někdy silnější než celá věta. Formální uzavření má větší váhu než diskuze.",
+        "Když se v diskuzi ztrácíme a pak někdo řekne 'Tak rozhodnuto!' z únavy.",
+        "Při uzavírání se ptát: 'Kdo cítí, že jeho hlas nebyl slyšen?'.",
+        "Příběh končí nadějí: štěstí berušek se vrátilo. Ale vyžaduje to mlčenlivé porozumění.",
+        "Když se tým po traumatu pomalu uzdravuje, důvěra je křehká.",
+        "Zavést beruščí rituál – tichý symbol pro zpomalení a vyslechnutí."
+      ]
+    };
+
+    // Script pro náhodný výrok
+    const statements = cardData.statements;
+    const statementEl = document.getElementById('statement');
+    const btn = document.getElementById('generate-btn');
+
+    function generateRandom() {
+      if (statements.length === 0) return;
+      const randomIndex = Math.floor(Math.random() * statements.length);
+      statementEl.innerText = statements[randomIndex];
+    }
+
+    // První výrok při načtení
+    generateRandom();
+
+    // Tlačítko
+    btn.addEventListener('click', generateRandom);
+  </script>
+</body>
+</html>
