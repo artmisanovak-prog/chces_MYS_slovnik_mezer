@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Náhodný výrok · Ryba</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET A GLOBÁLNÍ STYL ===== */
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{
+            --bg:#fff;--s:#f4f7fa;--s2:#e6eef4;
+            --text:#1a1a1a;--dim:#5a7a8a;--dim2:#8aa0b0;
+            --a:#6ab0e0;--a2:#1a4050;--ab:rgba(106,176,224,.08);--ab2:rgba(106,176,224,.18);
+            --border:rgba(106,176,224,.2);--border-hi:rgba(106,176,224,.45);
+            --serif:'Cormorant Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+            --radius:4px;
+        }
+        html{scroll-behavior:smooth;height:100%}
+        body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem}
+        a{color:var(--a);text-decoration:none;transition:color .15s}
+        a:hover{color:var(--a2)}
+
+        /* ===== HLAVNÍ KONTEJNER ===== */
+        .card{max-width:650px;width:100%;text-align:center;background:var(--s);border:1px solid var(--border);padding:2.8rem 2.2rem;border-radius:var(--radius);box-shadow:0 8px 20px rgba(0,0,0,.02)}
+        
+        /* ===== NAVIGACE ===== */
+        .nav{display:flex;justify-content:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
+        .nav a{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:4px 8px;border:1px solid transparent;transition:all .15s}
+        .nav a:hover{color:var(--text);border-color:var(--border)}
+        
+        /* ===== NADPIS ===== */
+        h1{font-family:var(--serif);font-size:1.8rem;font-weight:300;margin-bottom:2rem;color:var(--text)}
+        h1 em{font-style:italic;color:var(--a)}
+        
+        /* ===== BOX S VÝROKEM ===== */
+        .statement-box{background:#fff;border:1px solid var(--border);padding:2.5rem 2rem;margin:2rem 0;min-height:160px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.3rem;line-height:1.7;color:var(--text);border-radius:var(--radius);transition:all .2s;box-shadow:0 4px 12px rgba(0,0,0,.02)}
+        .statement-box:hover{border-color:var(--border-hi)}
+        
+        /* ===== TLAČÍTKO ===== */
+        .btn{
+            padding:12px 28px;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+            background:var(--a);color:#fff;border:1px solid var(--a);
+            cursor:pointer;transition:all .15s;border-radius:var(--radius);
+            margin-top:.5rem;
+        }
+        .btn:hover{background:#5aa0d0;border-color:#5aa0d0}
+        
+        /* ===== PATIČKA ===== */
+        .footer{margin-top:2rem;font-family:var(--serif);font-size:.9rem;color:var(--dim2);font-style:italic}
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <a href="../">← Zpět na Rybu</a>
+        <a href="../../../">Chceš myš?</a>
+    </div>
+
+    <div class="card">
+        <h1>🐟 <em>Ryba</em> – náhodný výrok</h1>
+        
+        <div class="statement-box" id="statement">
+            Načítám…
+        </div>
+        
+        <button class="btn" id="generate-btn">Další výrok</button>
+        
+        <div class="footer">
+            Jedna z 36 vět. Žádná teorie, jen inspirace.
+        </div>
+    </div>
+
+    <script>
+        // Data pro kartu RYBA – 36 výroků
+        const cardData = {
+            "card": "Ryba",
+            "statements": [
+                "Ryby neřvou. Ryby vibrujou. A mění tím celou vodu kolem.",
+                "Ptačí zpěv? Křikot je to. Řev, ryk, krákot, jekot.",
+                "Flow je king a king je ryba.",
+                "Rybí rap není pro slávu. Je pro přesnost.",
+                "Každý druh rybí má svůj styl – kosatky chansony, žraloci gospel.",
+                "Ptáci neumí dávat. Ptáci umí jen sprostě nadávat.",
+                "Píp rýmuje s píp, jinak bez ideje.",
+                "Ryba rapovala pro vodu. A voda odpověděla.",
+                "Rybí hudba byla slyšet – ne uchem, ale okem, tělem.",
+                "První místo v hitparádě vyhrály ryby – ne proto, že zpívaj, ale proto, že ví, kdy mlčet.",
+                "Možná je čas přestat poslouchat a začít vnímat.",
+                "Ticho potřebuje konečně dostat slovo nad hladinu.",
+                "Kvalitní meeting není o zápisu, ale o změně vlnění.",
+                "Kdo mluví nejvíc, není nejdůležitější. Důležitý je, kdo je nejpřesnější.",
+                "V naší firmě máme žraloky-gospelisty a medúzy-trianglistky. A oba jsou potřeba.",
+                "Třetina našich meetingů je jen 'proteplování vzduchu'. Ptačí křikot.",
+                "Zkusili jsme rybí pauzy – minutu ticha před rozhodnutím. Funguje to.",
+                "Nejlepší názor dnes přišel od kolegy, který celou dobu mlčel. Tichý rap.",
+                "Mluvíme pořád k šéfům a klientům. Kdy naposledy jsme mluvili k sobě navzájem, k naší vodě?",
+                "Máme svůj žargon. Je to náš ptačí křik?",
+                "Zavedli jsme 'váhu slova' – každý má jen pět zlatých vět na poradu. Rázem je víc času.",
+                "Když se řekne 'musíme to stihnout', je to ptačí křik. Když se řekne 'proč to děláme', je to rybí rap.",
+                "Po meetingu se neptáme 'co jste si odnesli', ale 'jak se změnila naše voda'.",
+                "Nejvíc se toho naučíš, když přestaneš poslouchat slova a začneš vnímat vibrace.",
+                "Každý má svůj žánr. Nenutíme všechny zpívat stejně?",
+                "Ten nejdůležitější úspěch zůstal neoslavenej – protože byl pod hladinou.",
+                "Máme hitparádu viditelných vítězství. Kde je hitparáda neviditelných?",
+                "Mlčení není absence. Mlčení je nositel obsahu.",
+                "Rybí rap není o tom být slyšet. Je o tom být přesný.",
+                "Co když naše největší překážka není konkurence, ale vlastní křik?",
+                "Zkusili jsme 'rybí den' – žádné meetingy, jen psaná komunikace. Bylo to nejproduktivnější pondělí za rok.",
+                "Náš tým má svou hudbu. Zní spíš jako gospel, nebo jako rap?",
+                "Voda se vždycky ptá: Měníš mě, nebo jen děláš kruhy na hladině?",
+                "Největší dar, který můžeš týmu dát, je tvoje ticho ve správnou chvíli.",
+                "Rybí rap není o tom, co říkáš. Je o tom, co tím děláš s prostředím.",
+                "Až příště někdo řekne 'potřebuju s tebou mluvit', zeptej se: 'Bude to rybí rap, nebo ptačí křik?'"
+            ]
+        };
+
+        // Načtení dat
+        document.getElementById('card-title').innerHTML = `🐟 ${cardData.card} – náhodný výrok`;
+        const statements = cardData.statements;
+        const statementEl = document.getElementById('statement');
+        const btn = document.getElementById('generate-btn');
+
+        function generateRandom() {
+            if (statements.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * statements.length);
+            statementEl.innerText = statements[randomIndex];
+        }
+
+        // První výrok při načtení
+        generateRandom();
+
+        // Tlačítko
+        btn.addEventListener('click', generateRandom);
+    </script>
+</body>
+</html>
