@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐈‍⬛ Kocour – diagnostický mód · Týmové dysfunkce</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  /* ===== RESET A GLOBÁLNÍ STYL ===== */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#fff;--s:#f5f2ed;--s2:#ede7dd;
+    --text:#1a1a1a;--dim:#666;--dim2:#999;
+    --a:#8b5a2b;--a2:#6b4226;--ab:rgba(139,90,43,.08);--ab2:rgba(139,90,43,.18);
+    --border:rgba(139,90,43,.2);--border-hi:rgba(139,90,43,.4);
+    --serif:'Cormorant Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+    --radius:4px;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--a);text-decoration:none;transition:color .15s}
+  a:hover{color:var(--a2)}
+
+  .wrap{max-width:780px;margin:0 auto;padding:0 24px}
+
+  /* ===== NAVIGACE ===== */
+  nav{position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);transition:color .2s}
+  .nav-back:hover{color:var(--text)}
+  .nav-links{display:flex;gap:4px;flex-wrap:wrap}
+  .nav-link{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:4px 9px;border:1px solid transparent;transition:all .12s}
+  .nav-link:hover{color:var(--text);border-color:var(--border)}
+  .nav-link.active{color:var(--a);border-color:var(--border-hi)}
+
+  /* ===== HERO ===== */
+  .hero{padding:0 0 44px;border-bottom:1px solid var(--border)}
+  .hero-img{width:100%;max-height:460px;overflow:hidden;margin-bottom:28px;position:relative}
+  .hero-img img{width:100%;height:460px;object-fit:cover;object-position:center 35%;filter:grayscale(100%) contrast(1.1);display:block}
+  .hero-img-cap{position:absolute;bottom:8px;right:12px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.3)}
+  .hero-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+  h1{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5rem);font-weight:300;line-height:1.0;margin-bottom:6px}
+  h1 em{font-style:italic;color:var(--a)}
+  .hero-veta{font-family:var(--serif);font-size:clamp(.88rem,2vw,1.1rem);font-style:italic;color:var(--dim);border-left:1px solid var(--a);padding-left:16px;max-width:460px;margin:14px 0 20px;line-height:1.9}
+  .fenomen-box{border:1px solid var(--a);padding:14px 18px;margin-bottom:12px;background:var(--ab)}
+  .fenomen-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--a);margin-bottom:6px}
+  .fenomen-text{font-size:14px;color:#444;line-height:1.85}
+
+  /* ===== TLAČÍTKA ===== */
+  .btn{
+    padding:10px 20px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+    background:var(--a);color:#fff;border:1px solid var(--a);
+    cursor:pointer;transition:all .15s;border-radius:var(--radius);
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .btn:hover{background:var(--a2);border-color:var(--a2)}
+  .btn-outline{background:transparent;color:var(--a);border:1px solid var(--a)}
+  .btn-outline:hover{background:var(--ab);color:var(--a2)}
+  .btn-danger{background:transparent;color:var(--dim2);border:1px solid var(--border);font-size:.65rem;padding:6px 12px}
+  .btn-danger:hover{border-color:var(--a);color:var(--a)}
+  .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+  /* ===== DETAILS / SHRNOVACÍ BLOKY ===== */
+  details{border:1px solid var(--border);margin-bottom:1.5rem;background:var(--s);border-radius:var(--radius)}
+  details summary{
+    cursor:pointer;padding:14px 18px;font-weight:400;font-size:1rem;
+    list-style:none;user-select:none;display:flex;align-items:center;gap:8px;
+    color:var(--a);transition:background .1s;
+  }
+  details summary::before{content:"▸";font-family:var(--mono);font-size:.7rem;color:var(--dim);transition:transform .2s}
+  details[open] summary::before{transform:rotate(90deg)}
+  details summary:hover{background:var(--ab)}
+  .pohadka-summary{background:var(--a);color:#fff;font-weight:500}
+  .pohadka-summary::before{color:#fff!important}
+  .obsah-details{padding:18px 22px;font-family:var(--serif);font-size:.95rem;line-height:1.9;color:#333;border-top:1px solid var(--border)}
+  .pohadka-img{width:100%;max-height:200px;object-fit:contain;display:block;margin:0 auto;filter:grayscale(100%);padding:1rem 0}
+
+  /* ===== OTÁZKY PRO TÝM ===== */
+  .otazky-box{background:var(--ab);border:1px solid var(--border);padding:18px 22px;margin:2rem 0 1.5rem;border-radius:var(--radius)}
+  .otazky-box h3{font-family:var(--serif);font-size:1.3rem;font-weight:300;margin-bottom:12px;color:var(--a)}
+  .otazka-item{margin-bottom:14px}
+  .otazka-item strong{display:block;font-size:.9rem;margin-bottom:4px;color:var(--text)}
+  .otazka-item p{font-size:.9rem;color:var(--dim);line-height:1.5}
+
+  /* ===== NASTAVENÍ / INPUTY ===== */
+  .setup{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap;background:var(--s);padding:16px 20px;border:1px solid var(--border);border-radius:var(--radius)}
+  .setup label{font-family:var(--mono);font-size:.8rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+  .setup input[type=number]{
+    width:70px;padding:8px 10px;border:1px solid var(--border);font-family:var(--mono);font-size:1rem;text-align:center;background:#fff;color:var(--text);border-radius:var(--radius)
+  }
+  .setup input:focus{outline:1px solid var(--a)}
+
+  /* ===== KARTY ČLENŮ ===== */
+  .clen-details{border:1px solid var(--border);background:#fff;margin-bottom:.8rem;border-radius:var(--radius)}
+  .clen-summary{cursor:pointer;padding:14px 18px;font-size:1rem;list-style:none;display:flex;align-items:center;gap:.8rem;user-select:none;transition:background .1s}
+  .clen-summary::before{content:"▸";font-family:var(--mono);font-size:.7rem;color:var(--dim);transition:transform .2s}
+  .clen-details[open] .clen-summary::before{transform:rotate(90deg)}
+  .clen-summary:hover{background:var(--ab)}
+  .clen-summary-jmeno{font-weight:500;flex:1;color:var(--text)}
+  .clen-summary-stav{font-family:var(--mono);font-size:.7rem;color:var(--dim2);text-transform:uppercase;letter-spacing:.1em}
+  .stav-hotovo{color:var(--a)!important;font-weight:700}
+  .clen-telo{padding:16px 22px;border-top:1px solid var(--border);background:var(--s)}
+  .clen-hlavicka{margin-bottom:14px}
+  .clen-jmeno{width:100%;padding:8px 12px;border:1px solid var(--border);font-family:var(--serif);font-size:1rem;background:#fff;color:var(--text);border-radius:var(--radius)}
+  .clen-jmeno:focus{outline:1px solid var(--a)}
+  .otazka-radek{margin-bottom:16px}
+  .otazka-radek label{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:6px}
+  .otazka-radek textarea{width:100%;padding:8px 12px;border:1px solid var(--border);font-family:var(--serif);font-size:.9rem;line-height:1.6;resize:vertical;min-height:60px;background:#fff;color:var(--text);border-radius:var(--radius)}
+  .otazka-radek textarea:focus{outline:1px solid var(--a)}
+  .otazka-radek select{width:100%;padding:8px 12px;border:1px solid var(--border);font-family:var(--mono);font-size:.8rem;color:var(--text);background:#fff;margin-top:4px;border-radius:var(--radius)}
+  .select-napoveda{display:block;font-family:var(--serif);font-size:.75rem;color:var(--dim2);font-style:italic;margin-top:4px}
+
+  /* ===== AUTOSAVE / MAZÁNÍ ===== */
+  .autosave-row{display:none;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem;padding:12px 18px;background:var(--ab);border:1px solid var(--border);border-radius:var(--radius)}
+  .autosave-info{font-family:var(--serif);font-size:.85rem;color:var(--dim);flex:1;font-style:italic}
+
+  /* ===== VÝSLEDKY ===== */
+  .vysledky{margin-top:3rem;border-top:2px solid var(--a);padding-top:2rem}
+  .mapa-tabulka{width:100%;border-collapse:collapse;font-size:.9rem;margin:1.5rem 0}
+  .mapa-tabulka th,.mapa-tabulka td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+  .mapa-tabulka th{background:var(--a);color:#fff;font-family:var(--mono);font-weight:400;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}
+  .mapa-tabulka td{background:#fff}
+  .pretizeny{background:var(--ab)!important;font-weight:700}
+  .deficitni{color:var(--dim2)}
+  .sekce-vysledku{margin-bottom:2.5rem}
+  .sekce-vysledku h3{font-family:var(--serif);font-size:1.3rem;font-weight:300;border-bottom:1px solid var(--border);padding-bottom:.5rem;margin-bottom:1rem;color:var(--a)}
+  .uhel-vysledek{margin-bottom:1.2rem}
+  .uhel-vysledek strong{display:block;font-size:1rem;margin-bottom:.3rem}
+  .uhel-doporuceni{border-left:2px solid var(--a);padding-left:14px;color:var(--dim);font-size:.9rem;margin-top:.3rem;line-height:1.6}
+  .generativni-odkaz{margin-top:2.5rem;font-size:.9rem;border-top:1px solid var(--border);padding-top:1.5rem;color:var(--dim)}
+  .generativni-odkaz a{color:var(--a);text-decoration:underline}
+
+  @media print{
+    .btn,.setup,.autosave-row,.nav,.select-napoveda{display:none!important}
+    details[open] summary{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-back" href="../">← Kocour</a>
+  <div class="nav-links">
+    <a class="nav-link active" href="#">Diagnostika</a>
+    <a class="nav-link" href="generativni.html">Generátor</a>
+    <a class="nav-link" href="workshop_90_min.html">Workshop</a>
+    <a class="nav-link" href="landing_page_kocour.html">Přehled</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO S ILUSTRACÍ -->
+  <section class="hero">
+    <div class="hero-img">
+      <img src="kocour.jpg" alt="Kocour" onerror="this.parentElement.style.display='none'">
+      <span class="hero-img-cap">ilustrace · kocour</span>
+    </div>
+    <p class="hero-label">Týmové dysfunkce · Karta Kocour</p>
+    <h1>Kocour</h1>
+    <p class="hero-veta">„kocour sežral dvě berušky a půl hodiny krkal tečky"</p>
+    <div class="fenomen-box">
+      <div class="fenomen-label">Fenomén Kocoura — tyranie předčasného uzavírání v komunikaci</div>
+      <p class="fenomen-text">Kocour skáče do řeči koncem věty — dokončuje za ostatní to, co nestačili říct. Tento fenomén odhaluje, jak tým zachází s nedokončenými myšlenkami, s tichem a s mocí ukončovat. Kdo má poslední slovo? A co se stane, když ho má někdo, kdo neposlouchal začátek?</p>
+    </div>
+  </section>
+
+  <!-- POHÁDKA -->
+  <details>
+    <summary class="pohadka-summary">📖 Pohádka o kocourovi</summary>
+    <div class="obsah-details" id="pohadka-text" style="white-space:pre-line"></div>
+  </details>
+
+  <!-- KLÍČ K ÚHLŮM -->
+  <details>
+    <summary>🔑 Klíč k úhlům (pro přiřazování)</summary>
+    <div class="obsah-details" id="klic-uhlu-text"></div>
+  </details>
+
+  <!-- OTÁZKY PRO TÝM -->
+  <div class="otazky-box">
+    <h3>🐭 Tři otázky pro tým (Kocour)</h3>
+    <div class="otazka-item">
+      <strong>Q1 – Smysl:</strong>
+      <p>Co je podle vás hlavní pointa nebo sdělení tohoto příběhu?</p>
+    </div>
+    <div class="otazka-item">
+      <strong>Q2 – Zaujetí:</strong>
+      <p>Která konkrétní věta, obraz nebo moment vás nejvíc zaujal/a a proč?</p>
+    </div>
+    <div class="otazka-item">
+      <strong>Q3 – Aplikace:</strong>
+      <p>Kdyby tento příběh byl návodem nebo radou, co by vám radil dělat (nebo nedělat) ve vašem pracovním životě?</p>
+    </div>
+  </div>
+
+  <!-- NASTAVENÍ -->
+  <div class="setup">
+    <label>Počet členů týmu:</label>
+    <input type="number" id="pocet-clenu" min="1" max="30" value="4">
+    <button class="btn" onclick="vytvorKarty()">Vytvořit zápisník</button>
+  </div>
+
+  <!-- AUTOSAVE -->
+  <div class="autosave-row" id="autosave-row">
+    <span class="autosave-info">💾 Zápisník se průběžně ukládá — přežije i zavření prohlížeče.</span>
+    <button class="btn-danger" onclick="smazatZapisnik()">🗑 Vymazat zápisník</button>
+  </div>
+
+  <div id="karty-clenu"></div>
+
+  <div id="tlacitko-vyhodnotit" style="display:none; margin:2rem 0;">
+    <button class="btn" onclick="vyhodnotit()">🐭 Vyhodnotit – ukázat kognitivní mapu týmu</button>
+  </div>
+
+  <div id="vysledky" class="vysledky" style="display:none;"></div>
+
+  <p class="generativni-odkaz">🔮 Chceš na základě kognitivní mapy vygenerovat nový workshop? Zkus <a href="generativni.html">generativní mód</a>.</p>
+
+</div>
+
+<!-- ========================================== -->
+<!-- PŮVODNÍ JAVASCRIPT – ZACHOVÁN BEZE ZMĚNY -->
+<!-- ========================================== -->
+<script>
+const POHADKA_TEXT = `O KOCOUROVI
+Jak kocour sežral dvě berušky a půl hodiny krkal tečky
+_________________
+
+Sležral dvě - ne tři, ne jednu - dvě - přesně - 14 teček a trvalo to půl hodiny - 30 minut - přesně.
+
+Jak to přišlo tak to přestalo.
+Ráz na ráz.
+
+Chňap a hlt a chlamst - nebo něco takového a nakonec - mlask, mlask - dvakrát - přesně.
+
+Žily byly dvě berušky, každá sedm teček měla, když uviděl je jeden kocour byla to mela.
+Aspoň pro ně.
+
+Po 14ti tečkách
+v jednom mžiku
+zem se slehla.
+
+Rozhodně aspoň kocour se svými útrobami.
+
+Ale ta myš, vždycky zvědavá byla.
+Odmalička chodívala
+a kde mohla se vyptávala,
+kde se tečky na beruškách vzaly?
+K čemu je mají?
+Proč si radši nevytvoří pravý maskování?
+
+A ta přesná matika..
+Kdo vlastně z těch, co s nimi přijdou do styku, takhle přesně počítá?
+
+No a toho dne - náhle - se to stalo
+a myš svou odpověď měla.
+
+Kocour mlaskl
+a pak znovu
+a hned na to
+začalo to.
+
+Půl hodiny a bylo to zaznamenáno - přesně.
+Kocour krkal tečky a dokončoval věty!
+Někdy celé souvětí!!
+
+Jenomže tím zároveň skákal lidem do řeči,
+tím že za ně dokončoval, co nedokončili.
+
+Skočil všem do řeči koncem věty
+
+ale vždycky o něco málo
+
+někdy i o docela dost
+
+dřív, než měla věta původně skončit
+
+nebo - než původně věta skončit měla.
+
+A celou půlhodinu nemohl tenkrát nikdo nic
+ne - dokončit.
+Nešlo to.
+
+Každému dřív,
+než se k tomu dostal,
+všem kocour větu ukončil.
+Hned.
+
+Kocour se tomu smál,
+ale krkal dál.
+A krkal, dokud neskončil.
+Představte si to:
+Skončil větu a pak skončil krkat.
+
+A lidé zase začali moct své věty ukončovat sami.
+Hned.
+
+Jenže, jak se to tak občas stává,
+přestože nikdo nevěděl co,
+každý věděl,
+že něco nebylo stejné.
+
+A to, co jednou není stejné dnes,
+to není jednou stejné nikdy.
+
+Jen nedokončené věty bývají všechny stejné. Jednou, dnes i zítra.
+
+Berušky mají na sobě nedokončené konce vět. Věci, které jsou nespolknuté.
+
+Kocour to nevěděl - a dvě spolknul.
+Spolknuté konce ale vykrkal zpátky
+a lidé se naučili,
+že všechno se spolknout nedá.
+A že tečka je někdy silnější, než celá věta.
+
+Kocour se nažral a myš i věty zůstaly celé.
+Díky bohu za to.
+Štěstí dvou berušek se vrátilo zpátky.
+
+Ale všimly si toho jen kocour a malá myš.
+A ani jeden neříkali nic.
+
+KONEC`;
+
+const KLIC_UHLY = [
+  { id:1,  nazev:"Absurdní",       popis:"Hledá rozpor a paradox. Svět přestal dávat smysl — a to mu vyhovuje." },
+  { id:2,  nazev:"Jazykový",       popis:"Slyší slova, rytmus, zvuk. Forma je pro něj obsah." },
+  { id:3,  nazev:"Ironický",       popis:"Vidí propast mezi záměrem a výsledkem. Lehký sarkasmus, hořký úsměv." },
+  { id:4,  nazev:"Filozofický",    popis:"Hledá smysl za smyslem. Odpovídá na otázku za otázkou." },
+  { id:5,  nazev:"Surrealistický", popis:"Spojuje nespojitelné. Myslí v obrazech, ne v argumentech." },
+  { id:6,  nazev:"Naivní",         popis:"Ptá se jednoduše, odpovídá přímo. Čistý dojem bez racionalizace." },
+  { id:7,  nazev:"Introspektivní", popis:"Příběh je mu záminkou k sebepoznání. Mluví o sobě skrze pohádku." },
+  { id:8,  nazev:"Konkrétní",      popis:"Drží se faktů. Děj je děj. Nepotřebuje skryté významy." },
+  { id:9,  nazev:"Analogický",     popis:"Hledá vzorce. Přirovnává k něčemu, co už zná." },
+  { id:10, nazev:"Asociační",      popis:"Myslí síťově. Jedno slovo spouští deset dalších." },
+  { id:11, nazev:"Metaforický",    popis:"Vše je symbolem něčeho většího. Dekóduje skryté významy." },
+  { id:12, nazev:"Groteskní",      popis:"Vidí přehnané a temně komické. Smích, který škrábe." }
+];
+
+const uhly = [
+  { id:1,  emoji:"🔚", nazev:"Fyzický konec věty",
+    q3:"Zavést pravidlo 'tří teček'. Když někdo něco naznačí, musí mít prostor to rozvést. První, kdo řekne 'tečka', jen shrne — NE dodá svůj závěr." },
+  { id:2,  emoji:"⏱️", nazev:"Kvaziefektivita",
+    q3:"Měřit úspěch schůze nikoli délkou, ale počtem otevřených otázek na konci. Pokud jsou všechny body 'uzavřeny', pravděpodobně jsme byli kocouři." },
+  { id:3,  emoji:"🐞", nazev:"Nespolyknutelný obsah",
+    q3:"Vytvořit 'nástěnku nespolknutého'. Anonymní místo pro věci, které se neřekly. Pravidelně je zařazovat do agendy." },
+  { id:4,  emoji:"🐀", nazev:"Pozorovatelská myš",
+    q3:"Jmenovat pro každou diskusi 'myš'. Jen pozoruje, kdo mluví, kdo je přerušován, a na konci sdělí pozorování bez hodnocení." },
+  { id:5,  emoji:"🕳️", nazev:"Trvalá změna",
+    q3:"Úmyslně vytvářet 'nedokončené věty'. Leader začne myšlenku a vyzve ostatní, aby ji dokončili." },
+  { id:6,  emoji:"🔢", nazev:"Tyranie metrik",
+    q3:"Ke každé metrice přidat kvalitativní příběh. Ne '14 úkolů hotovo', ale 'co pro nás těch 14 teček znamenalo?'." },
+  { id:7,  emoji:"🦾", nazev:"Násilný konsenzus",
+    q3:"Mechanismus 'souhlasu ticha': ticho po rozhodnutí automaticky znamená NESOUHLAS. Nutí lidi aktivně říkat 'souhlasím'." },
+  { id:8,  emoji:"🏁", nazev:"Konkurence místo kolaborace",
+    q3:"Zavést 'kolo mluvčího'. Fyzický předmět (talking stick) — mluví jen ten, kdo ho drží." },
+  { id:9,  emoji:"🎁", nazev:"Nedokončené jako dar",
+    q3:"Cvičení 'úmyslně nedokončovat': 'Náš problém je jako…' — zakázat dokončení. Jen generovat začátky." },
+  { id:10, emoji:"💔", nazev:"Komunikační trauma",
+    q3:"'Audit komunikační bezpečnosti': Cítím se bezpečně vyjádřit nesouhlas? Jsem přerušován? Výsledky → pravidla." },
+  { id:11, emoji:"⚫", nazev:"Silná tečka",
+    q3:"Při uzavírání rozhodnutí neptat se 'Je to jasné?', ale 'Kdo cítí, že jeho obavy nebyly vyslyšeny?'." },
+  { id:12, emoji:"🍀", nazev:"Navrácené štěstí",
+    q3:"'Beruščí rituál': kdykoli někdo cítí, že byl umlčen, položí berušku na stůl. Všichni zpomalí a nechají ho doříct." }
+];
+
+document.getElementById('pohadka-text').textContent = POHADKA_TEXT;
+document.getElementById('klic-uhlu-text').innerHTML = KLIC_UHLY.map(u => `
+  <div style="border-bottom:1px solid var(--border);padding:10px 0">
+    <strong style="color:var(--a);display:block">${u.id}. ${u.nazev}</strong>
+    <em style="color:var(--dim2);font-size:.85rem">${u.popis}</em>
+  </div>
+`).join('');
+
+const SAVE_KEY = 'kocour_diagnostika_v1';
+
+function ulozit() {
+  const pocet = parseInt(document.getElementById('pocet-clenu').value) || 0;
+  if (pocet < 1) return;
+  const data = { pocet, clenove: [] };
+  for (let i = 1; i <= pocet; i++) {
+    const jEl = document.getElementById(`jmeno-${i}`);
+    if (!jEl) continue;
+    data.clenove.push({
+      jmeno: jEl.value,
+      o1: document.getElementById(`odpoved-${i}-1`)?.value || '',
+      o2: document.getElementById(`odpoved-${i}-2`)?.value || '',
+      o3: document.getElementById(`odpoved-${i}-3`)?.value || '',
+      u1: document.getElementById(`uhel-${i}-1`)?.value || '',
+      u2: document.getElementById(`uhel-${i}-2`)?.value || '',
+      u3: document.getElementById(`uhel-${i}-3`)?.value || '',
+    });
+  }
+  try { localStorage.setItem(SAVE_KEY, JSON.stringify(data)); } catch(e) {}
+}
+
+function nacistUlozene() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (!data?.pocet) return;
+    document.getElementById('pocet-clenu').value = data.pocet;
+    vytvorKartyHTML(data.pocet);
+    data.clenove.forEach((c, idx) => {
+      const i = idx + 1;
+      const jEl = document.getElementById(`jmeno-${i}`);
+      if (!jEl) return;
+      jEl.value = c.jmeno || '';
+      document.getElementById(`odpoved-${i}-1`).value = c.o1 || '';
+      document.getElementById(`odpoved-${i}-2`).value = c.o2 || '';
+      document.getElementById(`odpoved-${i}-3`).value = c.o3 || '';
+      document.getElementById(`uhel-${i}-1`).value = c.u1 || '';
+      document.getElementById(`uhel-${i}-2`).value = c.u2 || '';
+      document.getElementById(`uhel-${i}-3`).value = c.u3 || '';
+      aktualizujStav(i);
+    });
+    document.getElementById('tlacitko-vyhodnotit').style.display = 'block';
+    document.getElementById('autosave-row').style.display = 'flex';
+  } catch(e) {}
+}
+
+function smazatZapisnik() {
+  if (!confirm('Opravdu vymazat celý zápisník? Tato akce nejde vrátit.')) return;
+  try { localStorage.removeItem(SAVE_KEY); } catch(e) {}
+  document.getElementById('karty-clenu').innerHTML = '';
+  document.getElementById('tlacitko-vyhodnotit').style.display = 'none';
+  document.getElementById('vysledky').style.display = 'none';
+  document.getElementById('autosave-row').style.display = 'none';
+}
+
+function aktualizujStav(i) {
+  const jmeno = document.getElementById(`jmeno-${i}`)?.value?.trim();
+  const u1 = document.getElementById(`uhel-${i}-1`)?.value;
+  const u2 = document.getElementById(`uhel-${i}-2`)?.value;
+  const u3 = document.getElementById(`uhel-${i}-3`)?.value;
+  const prirazeno = [u1, u2, u3].filter(Boolean).length;
+  const nadpisEl = document.getElementById(`nadpis-${i}`);
+  const stavEl = document.getElementById(`stav-${i}`);
+  if (nadpisEl) nadpisEl.textContent = jmeno || `Člen ${i}`;
+  if (stavEl) {
+    if (prirazeno === 3) {
+      stavEl.textContent = '✓ hotovo';
+      stavEl.className = 'clen-summary-stav stav-hotovo';
+    } else if (prirazeno > 0) {
+      stavEl.textContent = `${prirazeno}/3 přiřazeno`;
+      stavEl.className = 'clen-summary-stav';
+    } else {
+      stavEl.textContent = 'nevyplněno';
+      stavEl.className = 'clen-summary-stav';
+    }
+  }
+}
+
+const NAPOVEDA = '↑ Myš vybírá intuitivně podle jádra odpovědi — viz Klíč výše';
+
+function vytvorKartyHTML(pocet) {
+  const options = uhly.map(u =>
+    `<option value="${u.id}">${u.id}. ${u.emoji} ${u.nazev}</option>`
+  ).join('');
+  const sel = `<option value="">— nevybráno —</option>${options}`;
+  let html = '';
+  for (let i = 1; i <= pocet; i++) {
+    html += `
+    <details class="clen-details" id="karta-${i}" open>
+      <summary class="clen-summary">
+        <span class="clen-summary-jmeno" id="nadpis-${i}">Člen ${i}</span>
+        <span class="clen-summary-stav" id="stav-${i}">nevyplněno</span>
+      </summary>
+      <div class="clen-telo">
+        <div class="clen-hlavicka">
+          <input class="clen-jmeno" type="text" id="jmeno-${i}"
+            placeholder="jméno / iniciály (volitelné)"
+            oninput="aktualizujStav(${i}); ulozit();">
+        </div>
+        <div class="otazka-radek">
+          <label>Q1 – Smysl (co řekl/a):</label>
+          <textarea id="odpoved-${i}-1" placeholder="Zapiš odpověď…" oninput="ulozit();"></textarea>
+          <select id="uhel-${i}-1" onchange="aktualizujStav(${i}); ulozit();">${sel}</select>
+          <span class="select-napoveda">${NAPOVEDA}</span>
+        </div>
+        <div class="otazka-radek">
+          <label>Q2 – Zaujetí (co řekl/a):</label>
+          <textarea id="odpoved-${i}-2" placeholder="Zapiš odpověď…" oninput="ulozit();"></textarea>
+          <select id="uhel-${i}-2" onchange="aktualizujStav(${i}); ulozit();">${sel}</select>
+          <span class="select-napoveda">${NAPOVEDA}</span>
+        </div>
+        <div class="otazka-radek">
+          <label>Q3 – Aplikace (co řekl/a):</label>
+          <textarea id="odpoved-${i}-3" placeholder="Zapiš odpověď…" oninput="ulozit();"></textarea>
+          <select id="uhel-${i}-3" onchange="aktualizujStav(${i}); ulozit();">${sel}</select>
+          <span class="select-napoveda">${NAPOVEDA}</span>
+        </div>
+      </div>
+    </details>`;
+  }
+  document.getElementById('karty-clenu').innerHTML = html;
+}
+
+function vytvorKarty() {
+  const pocet = parseInt(document.getElementById('pocet-clenu').value);
+  if (!pocet || pocet < 1) return;
+  try { localStorage.removeItem(SAVE_KEY); } catch(e) {}
+  vytvorKartyHTML(pocet);
+  document.getElementById('tlacitko-vyhodnotit').style.display = 'block';
+  document.getElementById('vysledky').style.display = 'none';
+  document.getElementById('autosave-row').style.display = 'flex';
+}
+
+function vyhodnotit() {
+  const pocet = parseInt(document.getElementById('pocet-clenu').value);
+  const pocty = {};
+  uhly.forEach(u => pocty[u.id] = { count:0, nazev:u.nazev, emoji:u.emoji, q3:u.q3 });
+  let celkem = 0;
+  const detailClenu = [];
+  for (let i = 1; i <= pocet; i++) {
+    const jmeno = document.getElementById(`jmeno-${i}`)?.value?.trim() || `Člen ${i}`;
+    const uhlyClena = [];
+    for (let q = 1; q <= 3; q++) {
+      const val = document.getElementById(`uhel-${i}-${q}`)?.value;
+      if (val) { pocty[val].count++; celkem++; uhlyClena.push(parseInt(val)); }
+    }
+    detailClenu.push({ jmeno, uhly: uhlyClena });
+  }
+  if (celkem === 0) { alert('Přiřaď aspoň jeden úhel před vyhodnocením.'); return; }
+
+  const pretizene = [], deficitni = [], vyvazene = [], nepouzite = [];
+  uhly.forEach(u => {
+    const p = pocty[u.id];
+    p.procento = celkem > 0 ? p.count / celkem : 0;
+    if (p.count === 0)           nepouzite.push(p);
+    else if (p.procento >= 0.30) pretizene.push(p);
+    else if (p.procento <= 0.10) deficitni.push(p);
+    else                          vyvazene.push(p);
+  });
+
+  let html = `<h2>🧠 Kognitivní mapa týmu</h2>`;
+  html += `<p style="font-size:0.85rem;color:var(--dim);margin-bottom:1rem;">Celkem přiřazeno: <strong>${celkem}</strong> úhlů od <strong>${pocet}</strong> členů</p>`;
+  html += `<table class="mapa-tabulka"><tr><th>Úhel</th><th>Počet</th><th>%</th><th>Typ</th></tr>`;
+  uhly.map(u => pocty[u.id]).sort((a,b) => b.count - a.count).forEach(p => {
+    const proc = Math.round(p.procento * 100);
+    let typ = '◇ vyvážený', trida = '';
+    if (p.count === 0)           { typ = '—';           trida = 'deficitni'; }
+    else if (p.procento >= 0.30) { typ = '▲ přetížený'; trida = 'pretizeny'; }
+    else if (p.procento <= 0.10) { typ = '▽ deficitní'; trida = 'deficitni'; }
+    html += `<tr class="${trida}"><td>${p.emoji} ${p.nazev}</td><td>${p.count}×</td><td>${proc}%</td><td>${typ}</td></tr>`;
+  });
+  html += `</table>`;
+
+  if (pretizene.length > 0) {
+    html += `<div class="sekce-vysledku"><h3>▲ Přetížené úhly (nad 30 %)</h3>`;
+    html += `<p style="font-size:0.85rem;margin-bottom:0.7rem;">Tým se dívá pořád stejně. Co vidí, vidí dobře. Co nevidí, neexistuje.</p>`;
+    pretizene.forEach(p => {
+      const protivahy = deficitni.concat(nepouzite).slice(0, 2);
+      html += `<div class="uhel-vysledek"><strong>${p.emoji} ${p.nazev} – ${p.count}× (${Math.round(p.procento*100)}%)</strong>`;
+      if (protivahy.length > 0) {
+        html += `<div class="uhel-doporuceni">Trénink deficitu — úkol pro lidi s tímto úhlem:<br>`;
+        protivahy.forEach(def => { html += `→ <strong>${def.emoji} ${def.nazev}:</strong> ${def.q3}<br>`; });
+        html += `</div>`;
+      }
+      html += `</div>`;
+    });
+    html += `</div>`;
+  }
+
+  const vsechnyDeficitni = deficitni.concat(nepouzite);
+  if (vsechnyDeficitni.length > 0) {
+    html += `<div class="sekce-vysledku"><h3>▽ Deficitní úhly (pod 10 % nebo vůbec)</h3>`;
+    html += `<p style="font-size:0.85rem;margin-bottom:0.7rem;">Slepá místa. Perspektivy, které tým nepoužívá, i když by je potřeboval.</p>`;
+    vsechnyDeficitni.forEach(p => {
+      html += `<div class="uhel-vysledek"><strong>${p.emoji} ${p.nazev} – ${p.count}×</strong>`;
+      html += `<div class="uhel-doporuceni">Návrh úkolu: ${p.q3}</div></div>`;
+    });
+    html += `</div>`;
+  }
+
+  if (vyvazene.length > 0) {
+    html += `<div class="sekce-vysledku"><h3>◇ Vyvážené úhly – mosty</h3>`;
+    html += `<p style="font-size:0.85rem;margin-bottom:0.5rem;">Tito lidé mohou být tlumočníky mezi perspektivami.</p>`;
+    const idVyvazene = vyvazene.map(v => uhly.find(u => u.nazev === v.nazev)?.id);
+    detailClenu.forEach(clen => {
+      if (clen.uhly.some(uid => idVyvazene.includes(uid))) {
+        html += `<span style="font-size:0.85rem;">→ ${clen.jmeno} &nbsp;</span>`;
+      }
+    });
+    html += `</div>`;
+  }
+
+  html += `<button class="btn btn-outline" style="margin-top:1rem;" onclick="window.print()">🖨 Vytisknout výsledky</button>`;
+  const el = document.getElementById('vysledky');
+  el.innerHTML = html;
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth' });
+}
+
+window.addEventListener('DOMContentLoaded', nacistUlozene);
+</script>
+
+</body>
+</html>
