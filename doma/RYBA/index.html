@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🐟 Ryba · Týmové dysfunkce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{
+            --bg:#fff;--s:#f4f7fa;--s2:#e6eef4;
+            --text:#1a1a1a;--dim:#5a7a8a;--dim2:#8aa0b0;
+            --a:#6ab0e0;--a2:#1a4050;--ab:rgba(106,176,224,.08);--ab2:rgba(106,176,224,.18);
+            --border:rgba(106,176,224,.2);--border-hi:rgba(106,176,224,.45);
+            --serif:'Cormorant Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+            --radius:4px;
+        }
+        html{scroll-behavior:smooth}
+        body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+        a{color:var(--a);text-decoration:none;transition:color .15s}
+        a:hover{color:var(--a2)}
+        .wrap{max-width:780px;margin:0 auto;padding:0 24px}
+        nav{position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:12px 0;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+        .nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);transition:color .2s}
+        .nav-back:hover{color:var(--text)}
+        .nav-links{display:flex;gap:4px;flex-wrap:wrap}
+        .nav-link{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:4px 9px;border:1px solid transparent;transition:all .12s}
+        .nav-link:hover{color:var(--text);border-color:var(--border)}
+        .hero{padding:0 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+        .hero-img{width:100%;max-height:460px;overflow:hidden;margin-bottom:28px;position:relative}
+        .hero-img img{width:100%;height:460px;object-fit:cover;object-position:center 35%;filter:grayscale(100%) contrast(1.1);display:block}
+        .hero-img-cap{position:absolute;bottom:8px;right:12px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.3)}
+        .hero-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+        h1{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5rem);font-weight:300;line-height:1.0;margin-bottom:6px}
+        h1 em{font-style:italic;color:var(--a)}
+        .hero-veta{font-family:var(--serif);font-size:clamp(.88rem,2vw,1.1rem);font-style:italic;color:var(--dim);border-left:1px solid var(--a);padding-left:16px;max-width:460px;margin:14px 0 20px;line-height:1.9}
+        .fenomen-box{border:1px solid var(--a);padding:14px 18px;margin-bottom:12px;background:var(--ab)}
+        .fenomen-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--a);margin-bottom:6px}
+        .fenomen-text{font-size:14px;color:#3a5060;line-height:1.85}
+        details{border:1px solid var(--border);margin-bottom:1.5rem;background:var(--s);border-radius:var(--radius)}
+        details summary{cursor:pointer;padding:14px 18px;font-weight:400;font-size:1rem;list-style:none;display:flex;align-items:center;gap:8px;color:var(--a);transition:background .1s}
+        details summary::before{content:"▸";font-family:var(--mono);font-size:.7rem;color:var(--dim);transition:transform .2s}
+        details[open] summary::before{transform:rotate(90deg)}
+        details summary:hover{background:var(--ab)}
+        .pohadka-summary{background:var(--a);color:#fff;font-weight:500}
+        .pohadka-summary::before{color:#fff!important}
+        .obsah-details{padding:18px 22px;font-family:var(--serif);font-size:.95rem;line-height:1.9;color:#2a4050;border-top:1px solid var(--border);max-height:320px;overflow-y:auto;white-space:pre-line}
+        h2{font-family:var(--serif);font-size:1.8rem;font-weight:300;margin:2.5rem 0 1.2rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);color:var(--text)}
+        .nastroj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+        @media(max-width:500px){.nastroj-grid{grid-template-columns:1fr}}
+        .nastroj-karta{background:var(--s);border:1px solid var(--border);padding:1.2rem 1.5rem;border-radius:var(--radius);transition:all .15s;display:flex;flex-direction:column;gap:.5rem;text-decoration:none;color:var(--text)}
+        .nastroj-karta:hover{border-color:var(--a);background:var(--ab)}
+        .nastroj-ikona{font-size:1.5rem}
+        .nastroj-nazev{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--a)}
+        .nastroj-popis{font-size:.85rem;color:var(--dim);line-height:1.5}
+        .gen-veta{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--a2);background:var(--ab);padding:14px 20px;border-left:3px solid var(--a);border-radius:0 var(--radius) var(--radius) 0;margin:1.5rem 0}
+        .btn-outline{padding:8px 18px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--a);background:transparent;color:var(--a);cursor:pointer;transition:all .15s;border-radius:var(--radius);display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+        .btn-outline:hover{background:var(--ab);color:var(--a2)}
+        .footer{margin-top:4rem;padding:2rem 0;border-top:1px solid var(--border);font-family:var(--serif);font-size:.85rem;color:var(--dim2);text-align:center;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+        .footer a{color:var(--a)}
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+
+    <nav>
+        <a class="nav-back" href="../">← Zvířata</a>
+        <div class="nav-links">
+            <a class="nav-link" href="ryba_diagnostika.html">Diagnostika</a>
+            <a class="nav-link" href="ryba_generativni.html">Generátor</a>
+            <a class="nav-link" href="ryba_workshop.html">Workshop</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-img">
+            <img src="ryba.jpg" alt="Ryba" onerror="this.parentElement.style.display='none'">
+            <span class="hero-img-cap">ilustrace · ryba</span>
+        </div>
+        <p class="hero-label">Týmové dysfunkce · Karta Ryba</p>
+        <h1>Ryba</h1>
+        <p class="hero-veta">„rybí rap"</p>
+        <div class="fenomen-box">
+            <div class="fenomen-label">Fenomén Ryby — rybí rap vs. ptačí křikot</div>
+            <p class="fenomen-text">Ryba nerapuje pro slávu, ale pro přesnost. Její komunikace je vibrační – mění prostředí, ne jen předává informace. Pohádka staví do kontrastu „rybí rap" (tichý, přesný, transformativní) a „ptačí křikot" (hlasitý, prázdný, repetitivní). Kde ve vašem týmu probíhá tichá práce, která skutečně hýbe věcmi – a kde jen hlasitý křikot?</p>
+        </div>
+    </section>
+
+    <!-- POHÁDKA -->
+    <details>
+        <summary class="pohadka-summary">📖 Pohádka o rybě</summary>
+        <div class="obsah-details" id="pohadka-text"></div>
+    </details>
+
+    <!-- GENERÁTOROVÁ VĚTA -->
+    <div class="gen-veta">
+        „Ryby neřvou. Ryby vibrujou. A mění tím celou vodu kolem."
+    </div>
+
+    <!-- 12 ÚHLŮ -->
+    <div style="margin:1.5rem 0;">
+        <a class="btn-outline" href="https://artmisanovak-prog.github.io/chces-mys/doma/data/uhly/ryba_uhly.html" target="_blank">🔍 12 úhlů pohledu →</a>
+    </div>
+
+    <!-- NÁSTROJE -->
+    <h2>🧰 Nástroje pro tuto kartu</h2>
+    <div class="nastroj-grid">
+        <a href="ryba_diagnostika.html" class="nastroj-karta">
+            <span class="nastroj-ikona">🐭</span>
+            <span class="nastroj-nazev">Diagnostický mód</span>
+            <span class="nastroj-popis">Facilitátor zadává odpovědi týmu a přiřazuje úhly. Výstupem je kognitivní mapa.</span>
+        </a>
+        <a href="ryba_generativni.html" class="nastroj-karta">
+            <span class="nastroj-ikona">🔮</span>
+            <span class="nastroj-nazev">Generativní mód</span>
+            <span class="nastroj-popis">Hotové i vlastní kombinace dvou úhlů. Vytváří nová cvičení na míru.</span>
+        </a>
+        <a href="ryba_workshop.html" class="nastroj-karta">
+            <span class="nastroj-ikona">⏱️</span>
+            <span class="nastroj-nazev">Workshop (90 minut)</span>
+            <span class="nastroj-popis">Kompletní facilitátorský průvodce s časovači a kroky.</span>
+        </a>
+        <a href="ryba_vyrok.html" class="nastroj-karta">
+            <span class="nastroj-ikona">🎲</span>
+            <span class="nastroj-nazev">Náhodný výrok</span>
+            <span class="nastroj-popis">36 inspirativních vět ke kartě. Pro zahájení schůze nebo zamyšlení.</span>
+        </a>
+        <a href="../kombinacni_mod.html" class="nastroj-karta">
+            <span class="nastroj-ikona">🧩</span>
+            <span class="nastroj-nazev">Kombinační mód</span>
+            <span class="nastroj-popis">Spojte dvě různé karty a vytvořte mezikartovní workshop.</span>
+        </a>
+    </div>
+
+    <div class="footer">
+        <span>Karta Ryba · Týmové dysfunkce · Chceš myš? · © 2026 Michaela Nováková</span>
+        <a href="mailto:chcesmys@gmail.com">chcesmys@gmail.com</a>
+    </div>
+
+</div>
+
+<script>
+document.getElementById('pohadka-text').textContent = `O RYBĚ která rapovala
+
+—
+
+Říká se, že ryby mlčí.
+
+Že nemají hlas.
+
+Že jen plavou, koukají, a občas se nechají chytit.
+
+Ale to je omyl. Kec.
+
+Suchozemská lež.
+
+—
+
+Ryby totiž nemlčí.
+
+Ryby rapujou.
+
+—
+
+Ne tak, jak si to představuješ – žádné mikrofony, žádné beaty z repro beden.
+
+Rybí rap je jinej.
+
+Je to rytmus proudů.
+
+Je to nížka, výška vln a vlnek.
+
+Je to tempo vodních kruhů.
+
+Je to mezera mezi bublinama.
+
+—
+
+Pod vodou se zvuk jinak šíří.
+
+Hlubší. Širší. Pomalejší.
+
+A tak ryby neřvou.
+
+Ryby vibrujou.
+
+—
+
+Každej druh rybí má svůj styl hudební.
+
+Kosatky zpívají chansony – dlouhé, nostalgické, ovlivňují směry proudů.
+
+Žraloci zpívaj gospel – hluboký a s ozvěnou. Míchají barevné odstíny hladin s tóny hlubin.
+
+Velryba si troufne na operu
+
+a medúzy jí dělaj vokály nebo se daj na triangly, rolničky, zvonce.
+
+Delfin je folklor.
+
+Chobotnice strihne jazzový improvizace.
+
+Ryba co se nafukuje zvládá dechovky, ale nemá je ráda.
+
+Piraňi balady.
+
+A kapr zkouší hrdelní zpěvy.
+
+Mušle a lastury pějí lovestory.
+
+Ska umí létací ryby.
+
+Tučňák se vidí v klasice.
+
+Na pop je odbornice bělice.
+
+A úhoř nemá hudební ambice.
+
+—
+
+Je toho více.
+
+Ale tohle všechno není hudba pro uši,
+
+Tohle ovlivňuje různé vodní vlastnosti.
+
+—
+
+A ryba?
+
+Ryba má rap.
+
+Ne kvůli slávě.
+
+Kvůli přesnosti.
+
+—
+
+Flow je king a king je ryba.
+
+Beat jí dělá sea i jezera.
+
+Riff kape, flow teče.
+
+Přesná slova proudí jak voda.
+
+Její punchline je fontána.
+
+—
+
+Každý verš má váhu.
+
+A tohle ryby umí.
+
+Líp než ptáci.
+
+—
+
+Ptačí zpěv?
+
+Křikot je to.
+
+Řev, ryk, krákot, jekot.
+
+Tempo? Melodie? Text?
+
+Ptáci neumí dávat.
+
+Ptáci umí jen sprostě nadávat.
+
+Píp rýmuje s píp, jinak bez ideje.
+
+Cokoli řeknou hned se cenzuruje.
+
+—
+
+Zato ryby fakt dávaj.
+
+Dávaj rytmus vodě.
+
+Dávaj smysl tichu.
+
+Dávají beaty proudům.
+
+—
+
+A stalo se jednoho dne, že ryba začala rapovat i na hladině.
+
+Ne pro ostatní.
+
+Pro vodu.
+
+—
+
+A voda odpověděla.
+
+Jinak se zavlnila.
+
+Do rytmu se natřásala.
+
+Tvořila verše jako vodní kruhy, v kterých byly další kruhy.
+
+Mlha, spadlá do polí, opsala jejich flow.
+
+A vytvořila kruhy v obilí.
+
+Rybí hudba byla slyšet – ne uchem, ale okem, tělem.
+
+—
+
+A tak se po kapkách roznáší všude kolem,
+
+že první místo v hitparádě,
+
+vyhrály ryby - nepochybně.
+
+—
+
+Ne proto, že zpívaj.
+
+Ale proto, že ví..
+
+—
+
+..kdy mlčet.
+
+—
+
+Možná je čas,
+
+aby se svět dozvěděl o rybím rapu.
+
+—
+
+Možná je čas,
+
+aby se
+
+přestalo poslouchat a začalo se vnímat.
+
+—
+
+Možná je čas,
+
+aby se ticho konečně dostalo nad hladinu.
+
+KONEC`;
+</script>
+</body>
+</html>
