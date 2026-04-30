@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🧩 Kombinační mód · Karty poruch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET A GLOBÁLNÍ STYL ===== */
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{
+            --bg:#fff;--s:#f5f2ed;--s2:#ede7dd;
+            --text:#1a1a1a;--dim:#666;--dim2:#999;
+            --a:#8b5a2b;--a2:#6b4226;--ab:rgba(139,90,43,.08);--ab2:rgba(139,90,43,.18);
+            --border:rgba(139,90,43,.2);--border-hi:rgba(139,90,43,.4);
+            --serif:'Cormorant Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+            --radius:4px;
+        }
+        html{scroll-behavior:smooth}
+        body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;padding:0}
+        a{color:var(--a);text-decoration:none;transition:color .15s}
+        a:hover{color:var(--a2)}
+
+        .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+
+        /* ===== NAVIGACE ===== */
+        nav{position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:12px 0;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+        .nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);transition:color .2s}
+        .nav-back:hover{color:var(--text)}
+        .nav-links{display:flex;gap:4px;flex-wrap:wrap}
+        .nav-link{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:4px 9px;border:1px solid transparent;transition:all .12s}
+        .nav-link:hover{color:var(--text);border-color:var(--border)}
+        .nav-link.active{color:var(--a);border-color:var(--border-hi)}
+
+        /* ===== HLAVIČKA ===== */
+        .hero{padding:0 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+        .hero-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+        h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);font-weight:300;line-height:1.1;margin-bottom:6px}
+        h1 em{font-style:italic;color:var(--a)}
+        .hero-desc{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--dim);margin-top:8px}
+        .info-box{border-left:3px solid var(--a);padding:14px 18px;margin-top:1.5rem;font-size:.95rem;color:var(--dim);background:var(--ab);border-radius:0 var(--radius) var(--radius) 0;line-height:1.7}
+
+        /* ===== VÝBĚR KARET ===== */
+        .selector-grid{display:flex;flex-wrap:wrap;gap:1.5rem;margin:2rem 0}
+        .card-selector{flex:1 1 340px;background:var(--s);border:1px solid var(--border);padding:1.5rem;border-radius:var(--radius)}
+        .card-selector label{display:block;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:.8rem}
+        select{width:100%;padding:10px 14px;border:1px solid var(--border);font-family:var(--serif);font-size:.95rem;color:var(--text);background:#fff;border-radius:var(--radius);appearance:none;cursor:pointer;margin-bottom:1rem}
+        select:focus{outline:1px solid var(--a)}
+        .card-preview{display:flex;gap:1rem;align-items:center;margin-top:1rem;padding:1rem;background:#fff;border:1px solid var(--border);border-radius:var(--radius)}
+        .card-preview img{width:70px;height:70px;object-fit:contain;filter:grayscale(100%);border:1px solid var(--border);border-radius:2px}
+        .card-title{font-size:1.1rem;font-weight:400;color:var(--text);margin-bottom:.3rem}
+        .card-desc{font-size:.85rem;color:var(--dim);line-height:1.5}
+        .angle-selector{margin-top:1rem}
+        .angle-selector label{font-family:var(--serif);font-size:.9rem;color:var(--text);text-transform:none;letter-spacing:0;margin-bottom:.4rem;font-weight:500}
+
+        /* ===== TLAČÍTKA ===== */
+        .btn{padding:12px 24px;font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;background:var(--a);color:#fff;border:1px solid var(--a);cursor:pointer;transition:all .15s;border-radius:var(--radius);display:inline-flex;align-items:center;gap:8px;margin:2rem 0}
+        .btn:hover{background:var(--a2);border-color:var(--a2)}
+        .btn-outline{background:transparent;color:var(--a);border:1px solid var(--a)}
+        .btn-outline:hover{background:var(--ab);color:var(--a2)}
+
+        /* ===== VÝSLEDEK ===== */
+        .combo-result{display:none;background:var(--s);border:2px solid var(--a);padding:2rem;margin:2rem 0;border-radius:var(--radius)}
+        .combo-title{font-family:var(--serif);font-size:2rem;font-weight:300;margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:.8rem;color:var(--a)}
+        .combo-section{margin:1.5rem 0}
+        .combo-section h4{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.5rem;color:var(--a)}
+        .combo-section p{font-size:.95rem;color:var(--text);line-height:1.7}
+        .combo-section ol,.combo-section ul{margin-left:1.5rem;font-size:.95rem;color:var(--text);line-height:1.7}
+        .combo-section li{margin-bottom:.4rem}
+        .combo-section em{color:var(--a);font-style:italic}
+        .exercise{background:#fff;border-left:3px solid var(--a);padding:1.2rem 1.5rem;margin:1rem 0;border-radius:0 var(--radius) var(--radius) 0}
+        .relationship-badge{display:inline-block;background:var(--a);color:#fff;padding:.2rem .8rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-right:.5rem;border-radius:2px}
+
+        .footer{margin-top:4rem;border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-family:var(--serif);font-size:.85rem;color:var(--dim2)}
+
+        @media print{.btn,.selector-grid,select,.nav-links{display:none}}
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+
+    <!-- Navigace -->
+    <nav>
+        <a class="nav-back" href="./">← Domů</a>
+        <div class="nav-links">
+            <a class="nav-link" href="kocour_diagnostika.html">Kocour</a>
+            <a class="nav-link" href="ryba_diagnostika.html">Ryba</a>
+            <a class="nav-link" href="motyl_diagnostika.html">Motýl</a>
+            <a class="nav-link active" href="#">Kombinační mód</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <p class="hero-label">Týmové dysfunkce · Nadstavbový nástroj</p>
+        <h1>Kombinační <em>mód</em></h1>
+        <p class="hero-desc">Spojte dvě karty — vytvořte nový workshop</p>
+        <div class="info-box">
+            <strong>Jak to funguje:</strong> Vyber dvě karty (podle názvu a popisu poruchy), u každé vyber jeden úhel pohledu. Nástroj spojí jejich Q3 (konkrétní cvičení) do jednoho kombinačního cvičení. Výsledek respektuje logiku: <em>„Lidé s úhlem A dostanou úkol pracovat způsobem úhlu B.“</em>
+        </div>
+    </section>
+
+    <!-- Výběr dvou karet -->
+    <div class="selector-grid">
+        <div class="card-selector">
+            <label>⬅️ První karta (A)</label>
+            <select id="cardA"></select>
+            <div id="previewA" class="card-preview"></div>
+            <div class="angle-selector" id="angleSelectorA"></div>
+        </div>
+        <div class="card-selector">
+            <label>➡️ Druhá karta (B)</label>
+            <select id="cardB"></select>
+            <div id="previewB" class="card-preview"></div>
+            <div class="angle-selector" id="angleSelectorB"></div>
+        </div>
+    </div>
+
+    <!-- Tlačítko -->
+    <div style="text-align:center">
+        <button class="btn" id="generateBtn">🔮 Vygenerovat kombinaci</button>
+    </div>
+
+    <!-- Výsledek -->
+    <div class="combo-result" id="resultArea">
+        <div class="combo-title" id="comboTitle"></div>
+
+        <div class="combo-section">
+            <h4>🔍 Kombinovaný problém</h4>
+            <p id="comboProblem"></p>
+        </div>
+
+        <div class="combo-section">
+            <h4>🎯 Cíl cvičení</h4>
+            <p id="comboGoal"></p>
+        </div>
+
+        <div class="combo-section">
+            <h4>🧘 Cvičení / intervence</h4>
+            <div class="exercise" id="comboExercise"></div>
+        </div>
+
+        <div class="combo-section">
+            <h4>📐 Použité úhly</h4>
+            <p id="angleInfo"></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 · Kombinační mód · založeno na systému „Chceš myš?“
+    </div>
+
+</div>
+
+<!-- ========================================== -->
+<!-- PŮVODNÍ JAVASCRIPT – ZACHOVÁN BEZE ZMĚNY -->
+<!-- ========================================== -->
+<script>
+const cardsDB = [
+    {
+        id: "ryba",
+        name: "🐟 Ryba",
+        title: "Ryba – tichá komunikace",
+        desc: "Povrchní křik nahrazuje autentickou komunikaci. Tým mluví hodně, ale nic se nemění.",
+        image: "dona/karty_ukazky/Ryba/ryba.jpg",
+        angles: [
+            { id: 1, name: "Vibrační komunikace", q3: "Zavést 'čtení vibrací': Před zahájením řešení agendy věnovat 2 minuty popisu 'jak se tu dnes cítí vzduch/voda'. Co je nevyřčené, ale přítomné? Trénovat vnímavost k prostředí." },
+            { id: 2, name: "Systemický dopad", q3: "Měřit úspěch komunikace ne podle délky nebo počtu bodů, ale podle odpovědi na otázku: 'Jak se změnilo naše společné 'prostředí' (důvěra, jasnost, energie) po této výměně?'" },
+            { id: 3, name: "Přesnost před hlasitostí", q3: "Zavést pravidlo 'váhy slova': Každý má na meetingu limitovaný počet 'zlatých slov'. Když je použije, musí mlčet. Nutí to k úspornosti a přesnosti." },
+            { id: 4, name: "Různorodé žánry", q3: "Mapovat 'hudební mapu týmu': Kdo je žralok-gospelista (hluboký vizionář)? Kdo medúza-trianglistka (dodává jemné detaily)? Oceňovat tyto rozdíly." },
+            { id: 5, name: "Ptačí křikot", q3: "Provést 'audit ptačího křiku': Identifikovat 3 nejčastější, nejprázdnější fráze nebo rituály v naší komunikaci. Domluvit se na jejich eliminaci." },
+            { id: 6, name: "Mlčení jako dovednost", q3: "Zavést 'rybí pauzy': Po klíčových otázkách nebo před rozhodnutím povinná 1-2 minuty naprostého ticha na reflexi." },
+            { id: 7, name: "Komunikace s prostředím", q3: "Před každou významnější komunikací se zeptat: 'Mluvím teď ke týmu, nebo pro náš společný systém?' A upravit jazyk." },
+            { id: 8, name: "Ticho, které nese obsah", q3: "Vytvořit mechanismy pro 'zviditelnění ticha': Pravidelné psané reflexe místo ústních reportů, brainwriting." },
+            { id: 9, name: "Beaty prostředí", q3: "Integrovat komunikaci do 'proudů práce': Místo formálních meetingů častěji komunikovat v kontextu práce." },
+            { id: 10, name: "Vnímání místo poslouchání", q3: "Po důležitých setkáních se ptát: 'Co jsi pocítil? Co jsi zaznamenal v místnosti, co nebylo řečeno?'" },
+            { id: 11, name: "Autentické vyjádření", q3: "Pomoci každému členovi týmu identifikovat jeho 'komunikační žánr'. Respektovat tyto žánry a hledat, jak je integrovat do společného orchestru." },
+            { id: 12, name: "Neviditelné vítězství", q3: "Zavést 'hitparádu pod hladinou': Pravidelně oceňovat a reflektovat neviditelné úspěchy." }
+        ]
+    },
+    {
+        id: "motyl",
+        name: "🦋 Motýl",
+        title: "Motýl – problém jako past",
+        desc: "Problém vypadá dobře, krásně, ale nikdo ho neřeší. Estetizace místo akce.",
+        image: "dona/karty_ukazky/Motyl/motyl.jpg",
+        angles: [
+            { id: 1, name: "Symbolické nasycení", q3: "Kdykoli někdo předloží vizi (motýl), musí zároveň navrhnout první tři kroky – konkrétní, malé, hmatatelné akce do 14 dnů." },
+            { id: 2, name: "Komunikační minimalismus", q3: "Zavést komunikační pravidlo: Představení jakéhokoli nápadu musí obsahovat větu: 'A teď to řeknu bez metafory: Jde o to, že…'" },
+            { id: 3, name: "Proměnlivá identita", q3: "Pro každý klíčový projekt/proces určit jeho 'křestní jméno' (podstatu) a hlídat, zda se nepřevléká za něco, čím není." },
+            { id: 4, name: "Nefunkční krása", q3: "Při hodnocení nástroje/nápadu se ptát na 'test palců': Jaké jsou tři nejjednodušší, nejpraktičtější akce, které s tím dokáže udělat ten, kdo to bude používat?" },
+            { id: 5, name: "Lehkost jako prokletí", q3: "Zavést pravidlo 'těžkého žaludku': Pokud rozhodnutí/akce neobsahuje aspoň jeden nepříjemný kompromis, jeden obtížný úkol nebo jedno riziko, je to motýl." },
+            { id: 6, name: "Ztracená chuť", q3: "Hledat vždy 'chleba s motýlem' – tedy základní řešení doplněné o jeden prvek smyslu/krásy/hry, který mu dává chuť." },
+            { id: 7, name: "Self-estetizace", q3: "Pravidlo 'ošklivého prvního slova': První věta při popisu problému musí obsahovat nejpřímější, nejošklivější výraz." },
+            { id: 8, name: "Básničky v žaludku", q3: "Místo hodnocení spokojenosti se ptát na 'zpěv žaludku': Na čem jsi pracoval/a, že jsi u toho cítil/a, jak ti žaludek zpívá?" },
+            { id: 9, name: "Emocionální chleba", q3: "Když delegujeme úkol, ptát se i na emocionální rovinu: 'Co na tom bude nejtěžší/nejnepříjemnější? Jak ti v tom můžeme pomoci?'" },
+            { id: 10, name: "Víry v myšlenkách", q3: "Vytvořit 'motýlí rezervaci' – board na odkládání nápadů/obav. Jednou týdně se otevře a vybere se jeden k proměně v projekt." },
+            { id: 11, name: "Nedělní chuť", q3: "Pravidelně zařazovat do práce prvek 'pátku' – něco neočekávaného, experimentálního, mírně rizikového." },
+            { id: 12, name: "Konečný dotaz", q3: "Institucionalizovat otázku 'A máš k tomu i přílohu?' jako povinnou součást schvalování nových iniciativ." }
+        ]
+    },
+    {
+        id: "plamenak",
+        name: "🦩 Plameňák",
+        title: "Plameňák – nadšení bez směru",
+        desc: "Energie, která nikam nevede. Tým je nadšený, ale chybí mu plán a realita.",
+        image: "dona/karty_ukazky/Plamenak/plamenak.jpg",
+        angles: [
+            { id: 1, name: "Toxický optimismus", q3: "Vytvořit bezpečný prostor pro 'neprůstřelnou realitu'. Zavést rituál, kde první slovo v brainstormingu je kritické/realistické." },
+            { id: 2, name: "Performativní energie", q3: "Přehodnotit metriky: Oslavovat jen výsledky s dopadem, ne aktivitu samotnou. Ptát se: 'Kdybychom tento pohyb zrušili, ztratili bychom něco?'" },
+            { id: 3, name: "Neexistující dno", q3: "Definovat společně 'dna' předem: Jaké metriky znamenají, že musíme projekt zastavit? Kdo má mandát říci dost?" },
+            { id: 4, name: "Ilogická vytrvalost", q3: "Zavést pravidlo inteligentní vytrvalosti: Po neúspěchu povinná analýza před pokračováním." },
+            { id: 5, name: "Estetizace selhání", q3: "Oddělit oslavu od analýzy: Dva meetinky – díky za energii, pak chladná pitva bez estetizace." },
+            { id: 6, name: "Infekční nadšení", q3: "Vyvážit týmy: Ke každému plameňákovi přiřadit myš (realistu). Myš má právo veta na aktivaci." },
+            { id: 7, name: "Ztráta orientace", q3: "Pravidelný kalibrační bod: Zastavit a zkontrolovat orientaci podle vnějších měřítek." },
+            { id: 8, name: "Solistický přístup", q3: "Propojit odměňování s dopadem na celek, ne na individuální výkon." },
+            { id: 9, name: "Popírání reality", q3: "Zavést test axiomů: Před projektem zapsat klíčové předpoklady a testovat je." },
+            { id: 10, name: "Obsesivní směřování dolů", q3: "Vynutit období nudné stability – čas na konsolidaci, ocenit prevenci." },
+            { id: 11, name: "Zapomnění spolucestujících", q3: "Pravidelná mapa ekosystému: Kdo je náš komár? Kdo naše prádelní šňůra?" },
+            { id: 12, name: "Permanentní znovuzrození", q3: "Z každé retrospektivy vynést jeden konkrétní, měřitelný závazek změny a kontrolovat ho." }
+        ]
+    },
+    {
+        id: "husy",
+        name: "🦆 Husy",
+        title: "Husy – kolektivní singulár",
+        desc: "Každý křičí 'já', ale nikdo netvoří 'my'. Tým je soubor izolovaných eg.",
+        image: "dona/karty_ukazky/Husy/husy.jpg",
+        angles: [
+            { id: 1, name: "Kolektivní singulár", q3: "Zavést rituál 'my-check': Každý musí začít větu 'My jsme…' a popsat společný cíl." },
+            { id: 2, name: "Nosiči slov", q3: "Ke každému důležitému slovu přiřadit jednoho nositele odpovědnosti za konkrétní akci." },
+            { id: 3, name: "Gramatická krize", q3: "Provést jazykovou hygienu – vyčistit slovník od buzzwordů, nahradit je konkrétními popisy." },
+            { id: 4, name: "Nejisté já", q3: "Zavést anonymní hlasování před diskusí, aby názory nebyly ovlivněny ozvěnou." },
+            { id: 5, name: "Kruhový let", q3: "Na konci schůze 3 výstupy: rozhodnutí, vlastník, termín." },
+            { id: 6, name: "Hlasitý sebeklam", q3: "Nahradit hlasitá prohlášení tichým dotazováním: 'Co by nám pomohlo být lepšími?'" },
+            { id: 7, name: "Houser se zájmem", q3: "Pravidelně zvát externího pozorovatele k nepohodlným otázkám." },
+            { id: 8, name: "Manifest v rozkladu", q3: "Budovat tichou ústavu – pár žitých, jednoduchých pravidel místo hlasitých manifestů." },
+            { id: 9, name: "Potřeba být slyšen", q3: "Zavést kruh slyšení – mluví jen ten, kdo drží předmět, a musí shrnout předchozího." },
+            { id: 10, name: "Ztráta společného cíle", q3: "Před každým úkolem se ptát: Jak to přispívá k letu v klínu?" },
+            { id: 11, name: "Vnímání okolí", q3: "Pravidelně žádat zpětnou vazbu zvenčí: 'Co to vypadá, že děláme?'" },
+            { id: 12, name: "Hledání bílých hus", q3: "Vytvářet prostor pro tiché husy – hluboké rozhovory 1:1, skutečné naslouchání." }
+        ]
+    }
+];
+
+function renderCardSelectors() {
+    const selA = document.getElementById('cardA');
+    const selB = document.getElementById('cardB');
+    selA.innerHTML = ''; selB.innerHTML = '';
+    cardsDB.forEach(card => {
+        const optA = document.createElement('option'); optA.value = card.id; optA.textContent = `${card.name} – ${card.title}`; selA.appendChild(optA);
+        const optB = document.createElement('option'); optB.value = card.id; optB.textContent = `${card.name} – ${card.title}`; selB.appendChild(optB);
+    });
+    selA.value = cardsDB[0].id; selB.value = cardsDB[1]?.id || cardsDB[0].id; updatePreviews();
+}
+
+function getCardById(id) { return cardsDB.find(c => c.id === id); }
+
+function updatePreviews() {
+    const cardA = getCardById(document.getElementById('cardA').value);
+    const cardB = getCardById(document.getElementById('cardB').value);
+    renderCardPreview('previewA', cardA); renderAngleSelector('angleSelectorA', cardA, 'A');
+    renderCardPreview('previewB', cardB); renderAngleSelector('angleSelectorB', cardB, 'B');
+}
+
+function renderCardPreview(containerId, card) {
+    const container = document.getElementById(containerId);
+    if (!card) { container.innerHTML = ''; return; }
+    container.innerHTML = `<img src="${card.image}" alt="${card.name}" onerror="this.style.display='none'"><div><div class="card-title">${card.title}</div><div class="card-desc">${card.desc}</div></div>`;
+}
+
+function renderAngleSelector(containerId, card, letter) {
+    const container = document.getElementById(containerId);
+    if (!card) { container.innerHTML = ''; return; }
+    let options = ''; card.angles.forEach(angle => { options += `<option value="${angle.id}">${angle.id}. ${angle.name}</option>`; });
+    container.innerHTML = `<label for="angle-${letter}">Vyber úhel pohledu</label><select id="angle-${letter}" class="angle-select">${options}</select>`;
+}
+
+function getSelectedAngle(cardId, selectorId) {
+    const card = getCardById(cardId); if (!card) return null;
+    const select = document.getElementById(selectorId); if (!select) return null;
+    const angleId = parseInt(select.value); return card.angles.find(a => a.id === angleId);
+}
+
+function generateCombo() {
+    const cardAId = document.getElementById('cardA').value;
+    const cardBId = document.getElementById('cardB').value;
+    const angleA = getSelectedAngle(cardAId, 'angle-A');
+    const angleB = getSelectedAngle(cardBId, 'angle-B');
+    if (!angleA || !angleB) { alert('Vyber úhly pro obě karty.'); return; }
+    const cardA = getCardById(cardAId); const cardB = getCardById(cardBId);
+    document.getElementById('comboTitle').textContent = `${cardA.name} × ${cardB.name} – kombinace úhlů`;
+    document.getElementById('comboProblem').textContent = `Spojení pohledu „${angleA.name}“ (${cardA.title}) a „${angleB.name}“ (${cardB.title}) vytváří nový typ napětí.`;
+    document.getElementById('comboGoal').textContent = `Propojit tyto dva přístupy tak, aby vzniklo cvičení, kde lidé s prvním úhlem pracují způsobem druhého úhlu.`;
+    document.getElementById('comboExercise').innerHTML = `
+        <p><strong>⏱️ Délka:</strong> 30–40 minut</p><p><strong>👥 Počet:</strong> 3–6 lidí</p><p><strong>Postup:</strong></p>
+        <ol>
+            <li><strong>Část 1 – mapování (10 min):</strong> Každý účastník popíše jeden problém z týmu z pohledu „${angleA.name}“ a „${angleB.name}“.</li>
+            <li><strong>Část 2 – kombinace (15 min):</strong> Skupina navrhne intervenci kombinující oba přístupy: ${angleA.q3} a ${angleB.q3}.</li>
+            <li><strong>Část 3 – akce (10 min):</strong> Navrhněte jedno konkrétní opatření pro váš tým.</li>
+        </ol>`;
+    document.getElementById('angleInfo').textContent = `Úhel A: ${cardA.name} – ${angleA.name}\nÚhel B: ${cardB.name} – ${angleB.name}`;
+    document.getElementById('resultArea').style.display = 'block'; document.getElementById('resultArea').scrollIntoView({behavior:'smooth'});
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    renderCardSelectors();
+    document.getElementById('cardA').addEventListener('change', updatePreviews);
+    document.getElementById('cardB').addEventListener('change', updatePreviews);
+    document.getElementById('generateBtn').addEventListener('click', generateCombo);
+    updatePreviews();
+});
+</script>
+
+</body>
+</html>
