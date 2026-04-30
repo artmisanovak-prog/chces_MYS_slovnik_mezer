@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🔮 Kocour – generativní mód</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET A GLOBÁLNÍ STYL ===== */
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{
+            --bg:#fff;--s:#f5f2ed;--s2:#ede7dd;
+            --text:#1a1a1a;--dim:#666;--dim2:#999;
+            --a:#8b5a2b;--a2:#6b4226;--ab:rgba(139,90,43,.08);--ab2:rgba(139,90,43,.18);
+            --border:rgba(139,90,43,.2);--border-hi:rgba(139,90,43,.4);
+            --serif:'Cormorant Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+            --radius:4px;
+        }
+        html{scroll-behavior:smooth}
+        body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+        a{color:var(--a);text-decoration:none;transition:color .15s}
+        a:hover{color:var(--a2)}
+
+        .wrap{max-width:780px;margin:0 auto;padding:0 24px}
+
+        /* ===== NAVIGACE ===== */
+        nav{position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:12px 0;margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+        .nav-back{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);transition:color .2s}
+        .nav-back:hover{color:var(--text)}
+        .nav-links{display:flex;gap:4px;flex-wrap:wrap}
+        .nav-link{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:4px 9px;border:1px solid transparent;transition:all .12s}
+        .nav-link:hover{color:var(--text);border-color:var(--border)}
+        .nav-link.active{color:var(--a);border-color:var(--border-hi)}
+
+        /* ===== HLAVIČKA ===== */
+        .hero{padding:0 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+        .hero-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+        h1{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:300;line-height:1.0;margin-bottom:6px}
+        h1 em{font-style:italic;color:var(--a)}
+        .hero-desc{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--dim);margin-top:8px}
+        .uvod-text{border-left:2px solid var(--a);padding:12px 18px;margin-top:1.5rem;font-size:.95rem;color:var(--dim);background:var(--ab);border-radius:var(--radius);line-height:1.7}
+
+        /* ===== NADPISY ===== */
+        h2{font-family:var(--serif);font-size:1.8rem;font-weight:300;margin:2.5rem 0 1.2rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);color:var(--text)}
+        h3{font-family:var(--serif);font-size:1.3rem;font-weight:300;margin:0 0 .8rem;color:var(--a)}
+
+        /* ===== KARTY KOMBINACÍ ===== */
+        .kombinace{border:1px solid var(--border);background:var(--s);margin-bottom:1.5rem;border-radius:var(--radius);overflow:hidden}
+        .kombinace-hlavicka{background:var(--a);color:#fff;padding:14px 20px;font-family:var(--mono);font-size:.8rem;letter-spacing:.04em}
+        .kombinace-hlavicka span{display:block;font-size:.7rem;opacity:.8;margin-top:4px;font-family:var(--serif);letter-spacing:0;text-transform:none}
+        .kombinace-telo{padding:20px 22px}
+        .kombinace-nazev{font-family:var(--serif);font-size:1.2rem;font-weight:400;margin-bottom:6px;color:var(--text)}
+        .kombinace-cil{font-size:.9rem;color:var(--dim);font-style:italic;margin-bottom:14px;border-left:2px solid var(--a);padding-left:12px}
+        .kombinace-cviceni{font-size:.9rem;line-height:1.7;color:#333}
+        .kombinace-cviceni p{margin-bottom:.6rem}
+        .kombinace-cviceni ol{margin-left:1.2rem}
+        .kombinace-cviceni li{margin-bottom:.5rem}
+
+        /* ===== VLASTNÍ KOMBINACE ===== */
+        .vlastni-box{background:var(--s);border:1px solid var(--border);padding:24px;margin:2rem 0;border-radius:var(--radius)}
+        .vlastni-box p{font-size:.95rem;color:var(--dim);margin-bottom:1.5rem}
+        .vybery{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+        .vyber-skupina{flex:1;min-width:220px}
+        .vyber-skupina label{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:6px}
+        .vyber-skupina select{width:100%;padding:10px 14px;border:1px solid var(--border);font-family:var(--serif);font-size:.9rem;color:var(--text);background:#fff;border-radius:var(--radius);appearance:none;cursor:pointer}
+        .vyber-skupina select:focus{outline:1px solid var(--a)}
+
+        /* ===== TLAČÍTKA ===== */
+        .btn{
+            padding:10px 22px;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+            background:var(--a);color:#fff;border:1px solid var(--a);
+            cursor:pointer;transition:all .15s;border-radius:var(--radius);
+            display:inline-flex;align-items:center;gap:6px;
+        }
+        .btn:hover{background:var(--a2);border-color:var(--a2)}
+        .btn-outline{background:transparent;color:var(--a);border:1px solid var(--a)}
+        .btn-outline:hover{background:var(--ab);color:var(--a2)}
+
+        /* ===== VÝSLEDEK GENEROVÁNÍ ===== */
+        .vysledek-kombinace{display:none;margin-top:1.8rem;padding-top:1.8rem;border-top:1px solid var(--border)}
+        .vysledek-kombinace h3{font-family:var(--serif);font-size:1.4rem;font-weight:300;margin-bottom:1rem}
+        .uhel-panel{background:#fff;border:1px solid var(--border);padding:18px 20px;margin-bottom:12px;border-radius:var(--radius);transition:border-color .15s}
+        .uhel-panel:hover{border-color:var(--border-hi)}
+        .uhel-panel strong{display:block;font-size:1rem;margin-bottom:6px;color:var(--a)}
+        .uhel-panel .meta{font-size:.85rem;color:var(--dim2);font-style:italic;margin-bottom:10px}
+        .uhel-panel .q3-text{font-size:.9rem;border-left:2px solid var(--a);padding-left:14px;color:#333;line-height:1.7}
+        .hint{background:var(--ab);padding:14px 18px;margin-top:16px;font-size:.85rem;color:var(--dim);font-style:italic;border-radius:var(--radius);border:1px solid var(--border);line-height:1.7}
+
+        @media print{.btn,.vybery,select,.nav-links{display:none}}
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+
+    <!-- Navigace -->
+    <nav>
+        <a class="nav-back" href="../">← Kocour</a>
+        <div class="nav-links">
+            <a class="nav-link" href="diagnostika.html">Diagnostika</a>
+            <a class="nav-link active" href="#">Generátor</a>
+            <a class="nav-link" href="workshop_90_min.html">Workshop</a>
+            <a class="nav-link" href="landing_page_kocour.html">Přehled</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <p class="hero-label">Týmové dysfunkce · Karta Kocour</p>
+        <h1>Generativní <em>mód</em></h1>
+        <p class="hero-desc">Kocour sám se sebou</p>
+        <div class="uvod-text">
+            Věděli jste, že tahle karta umí generovat nové workshopy, aniž byste potřebovali jinou kartu?<br>
+            Stačí spojit dva různé úhly. Tady máte 4 hotové kombinace — rovnou k použití.
+        </div>
+    </section>
+
+    <h2>🧩 Hotové kombinace</h2>
+
+    <!-- Kombinace 1 -->
+    <div class="kombinace">
+        <div class="kombinace-hlavicka">
+            Kombinace 1 + 9
+            <span>Úhel 1 (Fyzický konec věty) × Úhel 9 (Nedokončené jako dar)</span>
+        </div>
+        <div class="kombinace-telo">
+            <div class="kombinace-nazev">Tečka, nebo tři tečky?</div>
+            <div class="kombinace-cil">Cíl: Procvičit přechod od uzavírání k otevírání.</div>
+            <div class="kombinace-cviceni">
+                <p><strong>Cvičení (20 minut):</strong></p>
+                <ol>
+                    <li>Vezměte si aktuální problém, který „už měl být dávno rozhodnutý".</li>
+                    <li><strong>5 minut:</strong> Každý návrh musí skončit tečkou. Žádná „možná", žádné „co kdyby". Jen tvrdá, hotová rozhodnutí.</li>
+                    <li><strong>5 minut:</strong> Každý návrh musí skončit třemi tečkami. Žádné uzavření, jen otevření, otázky, možnosti.</li>
+                    <li><strong>10 minut:</strong> Reflexe – <em>Kdy nám pomáhá tečka? Kdy nám pomáhají tři tečky? Kde v naší práci potřebujeme víc jedněch nebo druhých?</em></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kombinace 2 -->
+    <div class="kombinace">
+        <div class="kombinace-hlavicka">
+            Kombinace 2 + 6
+            <span>Úhel 2 (Kvaziefektivita) × Úhel 6 (Tyranie metrik)</span>
+        </div>
+        <div class="kombinace-telo">
+            <div class="kombinace-nazev">14 teček, které nevidíme</div>
+            <div class="kombinace-cil">Cíl: Odhalit, co čísla nedokážou zachytit.</div>
+            <div class="kombinace-cviceni">
+                <p><strong>Cvičení (25 minut):</strong></p>
+                <ol>
+                    <li>Každý člen týmu napíše na lísteček <strong>jednu metriku</strong>, kterou tým pravidelně sleduje.</li>
+                    <li>Lístky se zamíchají a každý si vylosuje jednu cizí.</li>
+                    <li>Úkol: <em>„Vymysli příběh, který tahle metrika NEříká. Co se děje v zákulisí? Kdo nebo co trpí? Jaké úspěchy zůstávají neviditelné?"</em></li>
+                    <li>Sdílení. Výstup: seznam <strong>„14 teček"</strong> – věcí, které bychom měli začít sledovat, ale dosud jsme je neměřili.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kombinace 3 -->
+    <div class="kombinace">
+        <div class="kombinace-hlavicka">
+            Kombinace 4 + 10
+            <span>Úhel 4 (Pozorovatelská myš) × Úhel 10 (Komunikační trauma)</span>
+        </div>
+        <div class="kombinace-telo">
+            <div class="kombinace-nazev">Ticho, které křičí</div>
+            <div class="kombinace-cil">Cíl: Zviditelnit hlasy, které byly umlčeny.</div>
+            <div class="kombinace-cviceni">
+                <p><strong>Cvičení (30 minut):</strong></p>
+                <ol>
+                    <li>Jmenujte na dnešních 30 minut <strong>„Myš"</strong>. Její jediná role: pozorovat, kdo mluví, kdo je přerušován, kdo se nedostane ke slovu.</li>
+                    <li>Tým diskutuje na téma: <em>„Co bychom měli přestat dělat?"</em></li>
+                    <li>Myš nemluví, jen zapisuje. Na konci přečte: kolikrát kdo promluvil, kdo byl přerušen, kdo neřekl ani slovo.</li>
+                    <li><strong>Nikdo nesmí hodnotit, vysvětlovat, obhajovat.</strong> Jen ticho a vstřebávání.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kombinace 4 -->
+    <div class="kombinace">
+        <div class="kombinace-hlavicka">
+            Kombinace 5 + 12
+            <span>Úhel 5 (Trvalá změna) × Úhel 12 (Navrácené štěstí)</span>
+        </div>
+        <div class="kombinace-telo">
+            <div class="kombinace-nazev">Beruška na stole</div>
+            <div class="kombinace-cil">Cíl: Vytvořit jemný signál pro zpomalení.</div>
+            <div class="kombinace-cviceni">
+                <p><strong>Nové pravidlo pro tým:</strong></p>
+                <p>Zavedeme <strong>Beruščí rituál</strong>. Každý člen týmu má na stole malou berušku (nebo jiný drobný předmět). Kdykoli se během diskuze cítím přerušen, umlčen, nebo prostě potřebuji víc času na dořečení…</p>
+                <p><strong>Položím berušku doprostřed stolu.</strong></p>
+                <p>Nikdo to nesmí komentovat, hodnotit ani se ptát. Všichni zpomalí, ztiší se, nechají mluvčího doříct. Žádná omluva. Žádné vysvětlování. Jen beruška.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vlastní kombinace -->
+    <h2>🔭 Vlastní kombinace</h2>
+    <div class="vlastni-box">
+        <p>Vyber dva různé úhly a spojí se jejich Q3 — úkoly, které z nich vyplývají. Zbytek je na tobě: jak cvičení pojmeneš, jak ho časově nastavíš, co z toho uděláš.</p>
+        <div class="vybery">
+            <div class="vyber-skupina">
+                <label>Úhel A (přetížený / dominantní):</label>
+                <select id="uhel-a"><option value="">— vyber úhel —</option></select>
+            </div>
+            <div class="vyber-skupina">
+                <label>Úhel B (deficitní / chybějící):</label>
+                <select id="uhel-b"><option value="">— vyber úhel —</option></select>
+            </div>
+        </div>
+        <button class="btn" onclick="generuj()">🔮 Spojit úhly</button>
+        <div class="vysledek-kombinace" id="vysledek">
+            <h3>Tvoje kombinace</h3>
+            <div id="panel-a" class="uhel-panel"></div>
+            <div id="panel-b" class="uhel-panel"></div>
+            <div class="hint">
+                Toto jsou dva úkoly (Q3) z vybraných úhlů. Spoj je do jednoho cvičení — pojmenuj ho, odhadni čas, popiš postup. Princip: lidé s úhlem A dostanou za úkol pracovat způsobem úhlu B.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ========================================== -->
+<!-- PŮVODNÍ JAVASCRIPT – ZACHOVÁN BEZE ZMĚNY -->
+<!-- ========================================== -->
+<script>
+// DATA VLOŽENA PŘÍMO – žádný fetch, funguje offline i na GitHubu
+const uhly = [
+  {
+    "id": 1,
+    "emoji": "🔚",
+    "nazev": "Fyzický konec věty",
+    "metafora": "Čím rychleji se snažíme větu uzavřít, tím víc jejích významů zůstává nedořečených.",
+    "q1": "Kocour se stal otrokem tečky. Věřil, že hodnota je v ukončení, ne v obsahu.",
+    "q2": "V našich meetinzích, když někdo řekne 'takže…' nebo 'možná bychom…' a hned je přerušen řešením. Nebo když management tlačí na rychlý 'action point', než byl problém řádně prozkoumán.",
+    "q3": "Zavést pravidlo 'tří teček' (…). Když někdo něco naznačí, musí mít prostor to rozvést. První, kdo řekne 'tečka', má za úkol pouze shrnout, co slyšel, NE dodat svůj závěr."
+  },
+  {
+    "id": 2,
+    "emoji": "⏱️",
+    "nazev": "Kvaziefektivita",
+    "metafora": "Rychlé odškrtnutí bodů z agendy je jako uklízení nepořádku do skříně – naoko hotovo, ale problém se vrátí.",
+    "q1": "Kocour si myslel, že urychluje práci. 'Půl hodiny a hotovo!' Ale ve skutečnosti jen nahradil společný proces monologem.",
+    "q2": "Když projektový manažer nebo dominantní osoba v týmu tlačí na rychlé 'odkliknutí' bodů z agendy, aniž by se dobrali podstaty. Schůze jsou krátké, ale problémy se vracejí jako nevykrknuté tečky.",
+    "q3": "Měřit úspěch schůze nikoli délkou, ale počtem otevřených otázek na konci. Pokud jsou všechny body 'uzavřeny', pravděpodobně jsme byli kocouři."
+  },
+  {
+    "id": 3,
+    "emoji": "🐞",
+    "nazev": "Nespolyknutelný obsah",
+    "metafora": "Těžká témata, která se snažíme spolknout, nám nakonec vyjdou ven v té nejnevhodnější chvíli.",
+    "q1": "Berušky nesou 'nespolknuté konce vět'. To jsou nepříjemné, nezpracované, složité aspekty problému. Kocour je spolkl, ale jeho tělo (tým) je odmítlo – vykrkl je zpět.",
+    "q2": "Když potlačujeme 'elefanty v místnosti', citlivá témata, emocionální frustrace nebo fundamentální nesouhlas s přístupem. Řekneme 'OK, pojďme dál', ale to téma pak otráví atmosféru.",
+    "q3": "Vytvořit 'nástěnku nespolknutého'. Fyzické/virtuální místo, kde lze anonymně psát 'nespolknuté konce' z diskusí. Pravidelně je revidovat a zařazovat do agendy."
+  },
+  {
+    "id": 4,
+    "emoji": "🐀",
+    "nazev": "Pozorovatelská myš",
+    "metafora": "Tiché hlasy v místnosti jsou jako myš, která si zapisuje – slyší víc, než kdo mluví, ale nikdo neslyší ji.",
+    "q1": "Myš je metaforou facilitátora nebo tichého člena. Nedokáže zabránit kocourovi, ale pozoruje a ukládá si odpověď. Vidí dysfunkci jasně, ale nemá moc ji zastavit.",
+    "q2": "Když v týmu jsou introverti nebo lidé, kteří potřebují delší čas na formulaci myšlenky. Jejich hlasy jsou umlčeny 'kocouřím' stylem komunikace. Nakonec mlčí a frustrace roste.",
+    "q3": "Jmenovat pro každou důležitou diskusi 'myš'. Její jedinou rolí je pozorovat, kdo mluví, kdo je přerušován, a na konci sdělit pozorování bez hodnocení."
+  },
+  {
+    "id": 5,
+    "emoji": "🕳️",
+    "nazev": "Trvalá změna",
+    "metafora": "Důvěra je jako pavučina – jakmile se přetrhne, zůstane díra, i když se snažíme ji spravit.",
+    "q1": "I když kocour přestal, 'něco nebylo stejné'. Jednorázové narušení komunikační kultury zanechává trvalou jizvu. Lidé se podvědomě bojí znovu otevřít ústa.",
+    "q2": "Když po 'toxické' schůzi nebo období s dominantním šéfem tým i po změně chování zůstává pasivní, neiniciuje, čeká na pokyny. Důvěra v bezpečný prostor je pryč.",
+    "q3": "Úmyslně vytvářet 'nedokončené věty'. Leader musí začít myšlenku a vyzvat ostatní, aby ji dokončili. Obnovovat důvěru tím, že se vzdá kontroly nad tečkou."
+  },
+  {
+    "id": 6,
+    "emoji": "🔢",
+    "nazev": "Tyranie metrik",
+    "metafora": "Počítáme tečky, ale nevidíme berušky – čísla bez příběhu jsou jako mapa bez krajiny.",
+    "q1": "Příběh je posedlý přesnými čísly: 2 berušky, 14 teček, 30 minut. To je parodie na manažerské reportování, kde jde o čísla, ne o příběh za nimi ('proč berušky mají tečky?').",
+    "q2": "Když se na retrospektivě nebo review řeší pouze 'splněno/nesplněno', 'počet úkolů', ale ne 'jak se cítíme', 'co jsme se naučili', 'jaké příběhy za čísly jsou'.",
+    "q3": "Přidat ke každé kvantitativní metrice kvalitativní příběh. Ne 'dokončili jsme 14 úkolů', ale 'jakých 14 teček jsme vykrkli a co to pro nás znamenalo?'."
+  },
+  {
+    "id": 7,
+    "emoji": "🦾",
+    "nazev": "Násilný konsenzus",
+    "metafora": "Ticho v diskuzi není souhlas, ale jen únava z boje o slovo.",
+    "q1": "Kocour svým dokončováním vět vynucoval souhlas. Lidé přestali mluvit, protože jejich dokončení by bylo stejné jako jeho. Vytvořil iluzi konsensu.",
+    "q2": "Když šéf v brainstormu řekne 'Takže všichni souhlasíme s X, že?' a pohledem obejde místnost. Ticho je interpretováno jako souhlas, ale ve skutečnosti je to rezignace.",
+    "q3": "Používat mechanismus 'souhlasu ticha'. Pokud po představení rozhodnutí je ticho, automaticky to znamená NESOUHLAS. Nutí to lidi aktivně říkat 'souhlasím'."
+  },
+  {
+    "id": 8,
+    "emoji": "🏁",
+    "nazev": "Konkurence místo kolaborace",
+    "metafora": "Kdo dřív dokončí větu, ten vyhrává – ale prohrává celý tým.",
+    "q1": "Kocour soutěžil: 'kdo dokončí větu dřív'. Komunikace se stala závodem o dominanci, ne spolupráce o nalezení nejlepší myšlenky.",
+    "q2": "V týmech, kde jsou lidé odměňováni za individuální výkon, se objevuje tento vzorec. Přerušování je projevem soutěže: 'Já vím lépe, poslouchej mě'.",
+    "q3": "Zavést 'kolo mluvčího' pro klíčové diskuse. Používat fyzický předmět (talking stick). Mluví pouze ten, kdo ho drží. Ostatní jen aktivně naslouchají."
+  },
+  {
+    "id": 9,
+    "emoji": "🎁",
+    "nazev": "Nedokončené jako dar",
+    "metafora": "Nedokončená věta je jako otevřené okno – může dovnitř vletět cokoliv nového.",
+    "q1": "Příběh říká: 'Nedokončené věty bývají všechny stejné.' To je klíč! Jakmile je věta dokončena, je fixována, mrtvá. Nedokončená je živá, plná potenciálu.",
+    "q2": "Když tým okamžitě hledá řešení ('udělejme A') místo toho, aby déle setrval v definici problému ('co když je to vlastně B?'). Fixujeme se na první 'dokončenou' myšlenku.",
+    "q3": "Cvičení 'úmyslně nedokončovat'. V brainstorming zadat: 'Náš problém je jako…' a zakázat dokončení přirovnání. Jen generovat začátky. Prozkoumat, která nedokončená metafora je nejsilnější."
+  },
+  {
+    "id": 10,
+    "emoji": "💔",
+    "nazev": "Komunikační trauma",
+    "metafora": "Spálená půda neroste – po toxické schůzi se lidé bojí promluvit i o počasí.",
+    "q1": "Kocour 'skákal lidem do řeči' a 'sežral berušky' – to jsou slova násilí. Komunikace se stala traumatizujícím zážitkem. Tým se psychicky 'slehl'.",
+    "q2": "Když jsou schůze zdrojem stresu, kde se lidé bojí promluvit, protože budou přerušeni, ztrapněni nebo jejich nápad bude 'sežrán' bez úcty.",
+    "q3": "Provést 'audit komunikační bezpečnosti'. Anonymní dotazník: Cítím se bezpečně vyjádřit nesouhlas? Jsem často přerušován? Berou moje nápady vážně? Podle výsledků nastavit pravidla."
+  },
+  {
+    "id": 11,
+    "emoji": "⚫",
+    "nazev": "Silná tečka",
+    "metafora": "Tečka na konci diskuze je někdy rána, která utne všechny další myšlenky.",
+    "q1": "Tečka je někdy silnější než celá věta. Formální uzavření (tečka, rozhodnutí, schválení) má větší moc než celá dlouhá diskuse. Může být použita jako zbraň.",
+    "q2": "Když se v dlouhých diskusích ztrácíme a pak někdo autoritativně řekne 'Tak rozhodnuto!' a udělá tečku. Tým přijme tečku z únavy, ne z přesvědčení.",
+    "q3": "Při uzavírání rozhodnutí neptat se 'Je to jasné?', ale 'Kdo cítí, že jeho hlasy nebo obavy nebyly dostatečně vyslyšeny před touto tečkou?'."
+  },
+  {
+    "id": 12,
+    "emoji": "🍀",
+    "nazev": "Navrácené štěstí",
+    "metafora": "Uzdravená důvěra je jako beruška, která se vrátí na místo, kde ji málem sežrali – křehká, ale o to cennější.",
+    "q1": "Příběh končí nadějí: 'Štěstí dvou berušek se vrátilo zpátky.' I po traumatu může dojít k nápravě. Ale vyžaduje to mlčenlivé porozumění – tedy ne grandiózní omluvy, ale změnu chování.",
+    "q2": "Když tým zažije dysfunkční období, ale pak se bez velkých slov změní dynamika. Lidé opatrně znovu nabývají důvěru. To je křehký proces.",
+    "q3": "Nastavit 'beruščí rituál'. Kdykoli někdo pocítí, že byl 'sežrán' (přerušován, umlčován), může tichým symbolem (např. položit berušku na stůl) signalizovat potřebu zpomalit a vyslechnout."
+  }
+];
+
+// Naplnění selectů po načtení stránky
+document.addEventListener('DOMContentLoaded', () => {
+  const options = uhly.map(u => `<option value="${u.id}">${u.id}. ${u.emoji} ${u.nazev}</option>`).join('');
+  document.getElementById('uhel-a').innerHTML = '<option value="">— vyber úhel —</option>' + options;
+  document.getElementById('uhel-b').innerHTML = '<option value="">— vyber úhel —</option>' + options;
+});
+
+function generuj() {
+  const idA = parseInt(document.getElementById('uhel-a').value);
+  const idB = parseInt(document.getElementById('uhel-b').value);
+  if (!idA || !idB) { alert('Vyber oba úhly.'); return; }
+  if (idA === idB) { alert('Vyber dva různé úhly.'); return; }
+  const a = uhly.find(u => u.id === idA);
+  const b = uhly.find(u => u.id === idB);
+  document.getElementById('panel-a').innerHTML = `
+    <strong>${a.id}. ${a.emoji} ${a.nazev}</strong>
+    <div class="meta">${a.metafora}</div>
+    <div class="q3-text">${a.q3}</div>
+  `;
+  document.getElementById('panel-b').innerHTML = `
+    <strong>${b.id}. ${b.emoji} ${b.nazev}</strong>
+    <div class="meta">${b.metafora}</div>
+    <div class="q3-text">${b.q3}</div>
+  `;
+  const el = document.getElementById('vysledek');
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
